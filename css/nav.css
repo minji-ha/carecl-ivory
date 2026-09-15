@@ -1,0 +1,187 @@
+/* =========================================================
+   careCL — GNB 드롭다운 / 전체메뉴 / AI 플로팅 배지
+   ========================================================= */
+
+/* ---------- 드롭다운 ---------- */
+.header__nav{display:flex;gap:0;height:100%;align-items:stretch;}
+.navitem{position:relative;display:flex;align-items:center;padding:0 19px;}
+.navitem > a{
+  position:relative;z-index:4;
+  font-family:var(--en);font-size:14px;font-weight:500;letter-spacing:.08em;
+  color:rgba(255,255,255,.9);transition:color .25s ease,opacity .25s ease;white-space:nowrap;
+}
+.navitem > a.is-active{color:var(--sky-500);}
+.navitem:hover > a{color:var(--sky-400);}
+
+.dropdown{
+  position:absolute;left:50%;top:calc(50% + 12px);transform:translateX(-50%) translateY(8px);
+  min-width:168px;padding-top:10px;
+  opacity:0;visibility:hidden;
+  /* 마우스가 잠깐 벗어나도 바로 닫히지 않도록 0.25s 여유 */
+  transition:opacity .28s ease .18s, transform .32s cubic-bezier(.2,.7,.2,1) .18s, visibility 0s linear .46s;
+}
+/* 메뉴 → 드롭다운 사이 대각선 이동도 끊기지 않도록 연결 영역 */
+.dropdown::before{content:'';position:absolute;left:-24px;right:-24px;top:-14px;height:24px;}
+.dropdown__inner{
+  background:rgba(255,255,255,.97);backdrop-filter:blur(16px);
+  border:1px solid var(--n-200);border-radius:12px;
+  box-shadow:0 16px 36px rgba(9,24,38,.14);
+  padding:10px 0;overflow:hidden;
+}
+.dropdown a{
+  display:block;padding:10px 20px;font-size:14px;letter-spacing:-.02em;text-align:center;
+  color:var(--n-600);white-space:nowrap;transition:color .2s ease,background .2s ease,padding .25s ease;
+}
+.dropdown a:hover{color:var(--sky-700);background:var(--sky-50);}
+.navitem:hover .dropdown,.navitem:focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition:opacity .28s ease, transform .32s cubic-bezier(.2,.7,.2,1), visibility 0s;}
+
+/* ---------- AI 플로팅 배지 (Aging Map 22) ---------- */
+.aibadge{
+  position:absolute;left:50%;bottom:calc(50% + 14px);transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px 3px 3px;border-radius:100px;white-space:nowrap;
+  background:#fff;border:1px solid rgba(91,191,236,.5);
+  color:var(--sky-700);
+  font-size:11px;font-weight:600;letter-spacing:-.02em;line-height:1;
+  animation:aiFloat 3.4s ease-in-out infinite, aiGlow 3.4s ease-in-out infinite;
+  pointer-events:none;z-index:3;
+}
+.aibadge__circle{
+  width:18px;height:18px;flex:none;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--sky-500),var(--sky-700));
+  color:#fff;box-shadow:0 1px 5px rgba(26,115,166,.35);
+}
+.aibadge__circle svg{width:11px;height:11px;animation:aiSpin 6s linear infinite;}
+@keyframes aiFloat{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(3px);}
+}
+@keyframes aiGlow{
+  0%,100%{box-shadow:0 2px 10px rgba(26,115,166,.12);}
+  50%{box-shadow:0 4px 20px rgba(91,191,236,.45);}
+}
+@keyframes aiSpin{to{transform:rotate(360deg);}}
+.navitem:hover .aibadge{opacity:0;transition:opacity .2s ease;}
+
+/* 라이트 헤더에서의 색 */
+.header.is-light .navitem > a,
+body.sub .navitem > a,
+body.survey .navitem > a{color:rgba(13,15,18,.82);}
+.header.is-light .navitem > a.is-active,
+body.sub .navitem > a.is-active,
+body.survey .navitem > a.is-active{color:var(--sky-600);}
+.header.is-light .navitem:hover > a,
+body.sub .navitem:hover > a,
+body.survey .navitem:hover > a{color:var(--sky-600);}
+
+
+/* ---------- 전체메뉴 버튼 (점 9개) ---------- */
+.allmenu{
+  display:grid;grid-template-columns:repeat(3,4px);gap:4px;
+  padding:9px;border-radius:10px;
+  transition:background .25s ease;
+}
+.allmenu span{
+  width:4px;height:4px;border-radius:50%;background:#fff;
+  transition:background .25s ease, transform .35s cubic-bezier(.2,1.4,.4,1);
+}
+.allmenu:hover{background:rgba(255,255,255,.12);}
+.allmenu:hover span:nth-child(odd){transform:scale(1.35);}
+.allmenu:hover span:nth-child(5){background:var(--sky-400);transform:scale(1.6);}
+.header.is-light .allmenu span,
+body.sub .allmenu span,
+body.survey .allmenu span{background:var(--n-900);}
+.header.is-light .allmenu:hover,
+body.sub .allmenu:hover,
+body.survey .allmenu:hover{background:var(--n-100);}
+.header.is-light .allmenu:hover span:nth-child(5),
+body.sub .allmenu:hover span:nth-child(5),
+body.survey .allmenu:hover span:nth-child(5){background:var(--sky-500);}
+
+/* ---------- 전체메뉴 오버레이 ---------- */
+.mega{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(8,14,19,.97);backdrop-filter:blur(10px);
+  opacity:0;visibility:hidden;transition:opacity .4s ease, visibility .4s;
+  overflow-y:auto;
+}
+body.mega-open .mega{opacity:1;visibility:visible;}
+body.mega-open{overflow:hidden;}
+body.mega-open .header,
+body.mega-open .announce{z-index:1;}
+.mega__inner{max-width:1680px;margin:0 auto;padding:150px var(--pad) 90px;color:#fff;}
+.mega__head{margin-bottom:64px;}
+.mega__head span{display:block;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.24em;color:var(--sky-400);}
+.mega__head b{display:block;margin-top:16px;font-family:var(--en);font-weight:200;font-size:56px;letter-spacing:-.03em;}
+.mega__cols{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;align-items:start;}
+.mega__col h3{margin:0 0 24px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.16);}
+.mega__col h3 a{font-family:var(--en);font-size:19px;font-weight:500;letter-spacing:.02em;color:#fff;}
+.mega__col h3 a:hover{color:var(--sky-400);}
+.mega__col > a{
+  display:block;padding:9px 0;font-size:15px;letter-spacing:-.02em;color:rgba(255,255,255,.6);
+  transition:color .2s ease,padding-left .25s ease;
+}
+.mega__col > a:hover{color:#fff;padding-left:6px;}
+.mega__foot{
+  margin-top:80px;padding-top:36px;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;
+}
+.mega__cta{
+  display:inline-flex;align-items:center;gap:12px;padding:19px 36px;border-radius:100px;
+  background:var(--sky-500);color:#fff;font-size:17px;font-weight:500;letter-spacing:-.02em;
+  box-shadow:0 12px 30px rgba(91,191,236,.3);transition:transform .25s ease;
+}
+.mega__cta:hover{transform:translateY(-2px);}
+.mega__cta span{font-family:var(--en);}
+.mega__foot p{font-size:14px;color:rgba(255,255,255,.45);}
+.mega__close{
+  position:fixed;top:38px;right:var(--pad);width:48px;height:48px;z-index:210;cursor:pointer;
+}
+.mega__close::before,.mega__close::after{
+  content:'';position:absolute;left:11px;top:23px;width:26px;height:1.5px;background:#fff;pointer-events:none;
+}
+.mega__close::before{transform:rotate(45deg);}
+.mega__close::after{transform:rotate(-45deg);}
+
+/* 스태거 등장 */
+.mega__col{opacity:0;transform:translateY(20px);transition:opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1);}
+body.mega-open .mega__col{opacity:1;transform:none;}
+body.mega-open .mega__col:nth-child(1){transition-delay:.08s}
+body.mega-open .mega__col:nth-child(2){transition-delay:.14s}
+body.mega-open .mega__col:nth-child(3){transition-delay:.20s}
+body.mega-open .mega__col:nth-child(4){transition-delay:.26s}
+body.mega-open .mega__col:nth-child(5){transition-delay:.32s}
+
+/* ---------- 반응형 ---------- */
+/* 1360 이하: 로고 중앙 배치 시 메뉴와 겹치므로 좌측 로고 + 메뉴 흐름으로 전환 */
+@media (max-width:1360px){
+  .header{justify-content:flex-start;}
+  .header__logo{position:static;transform:none;order:0;margin-right:40px;}
+  .header__nav{order:1;}
+  .header__util{order:2;margin-left:auto;}
+}
+@media (max-width:1280px){
+  .navitem{padding:0 13px;}
+  .navitem > a{font-size:13px;}
+  .aibadge{font-size:10px;}
+  .mega__cols{grid-template-columns:repeat(3,1fr);gap:36px 30px;}
+  .mega__head b{font-size:42px;}
+}
+@media (max-width:1024px){
+  .header__nav{display:none;}
+  .mega__inner{padding:120px var(--pad) 70px;}
+  .mega__cols{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .mega__inner{padding:100px 20px 60px;}
+  .mega__head{margin-bottom:38px;}
+  .mega__head b{font-size:30px;}
+  .mega__cols{grid-template-columns:1fr;gap:26px;}
+  .mega__col h3{margin-bottom:14px;padding-bottom:12px;}
+  .mega__col h3 a{font-size:16px;}
+  .mega__col > a{padding:7px 0;font-size:14px;}
+  .mega__foot{margin-top:44px;}
+  .mega__cta{padding:16px 28px;font-size:15px;}
+  .mega__close{top:22px;right:16px;}
+}

@@ -1,0 +1,276 @@
+/* =========================================================
+   careCL — Concept B · Porcelain Ivory
+   무드보드 3색 1차 / MOOD 01 Porcelain Clinic
+   · 기조 : Porcelain #FDFCFA · Warm Stone #ECE7E0 · Silver Sage #9C948B · Ink #2B2724
+   · 스카이블루는 Aging Map 22 영역에만 사용
+   (기존 스타일 위에 덮어쓰는 테마 레이어 — 모든 css 뒤에 로드)
+   ========================================================= */
+
+:root{
+  /* 전역 포인트 : 스카이 → 잉크 · 샴페인 계열 */
+  --sky-700:#6E6660;
+  --sky-600:#8A7F74;
+  --sky-500:#2B2724;
+  --sky-400:#D9CBB6;
+  --sky-200:#E5DFD8;
+  --sky-100:#ECE7E0;
+  --sky-50 :#F7F4F0;
+
+  /* 무채색 → 웜 뉴트럴 */
+  --n-950:#1C1916;
+  --n-900:#2B2724;
+  --n-800:#3A3531;
+  --n-700:#4E4843;
+  --n-600:#5F5852;
+  --n-500:#7D746B;
+  --n-400:#A79E96;
+  --n-300:#CFC7BE;
+  --n-200:#E5DFD8;
+  --n-100:#EDE8E2;
+  --n-50 :#F7F4F0;
+
+  --porcelain:#FDFCFA;
+  --stone:#ECE7E0;
+  --sage:#9C948B;
+  --ink:#2B2724;
+  --champagne:#C8B79E;
+
+  --foot-bg:#ECE7E0;
+  --foot-line:#DCD4CA;
+
+  --serif:'Noto Serif KR', 'Cormorant Garamond', serif;
+  --display:'Cormorant Garamond', 'Noto Serif KR', serif;
+}
+
+/* ---------- Aging Map 22 영역 : 스카이블루 복원 ---------- */
+.agent,
+body.survey .sv,
+.aibadge,
+.navitem.has-badge,
+.mega__cta{
+  --sky-700:#198BC4;
+  --sky-600:#2E9FD6;
+  --sky-500:#5BBFEC;
+  --sky-400:#87D3F2;
+  --sky-200:#CDEAF9;
+  --sky-100:#ECF7FD;
+  --sky-50 :#F7FCFE;
+}
+.navitem.has-badge:hover > a{color:#2E9FD6 !important;}
+body.survey .navitem.has-badge > a.is-active{color:#2E9FD6;}
+
+/* ---------- 기본 ---------- */
+body{background:var(--porcelain);color:var(--ink);font-weight:300;}
+::selection{background:#E3D8C8;color:var(--ink);}
+
+/* 타이포 : 헤드라인은 세리프 라이트 */
+.hero__title,
+.agent__head h2,
+.products h2,
+.brand h2,
+.sec h2,
+.history__title,
+.ceo blockquote,
+.sv__q,
+.pillar h4{
+  font-family:var(--serif);font-weight:300;letter-spacing:-.02em;
+}
+.hero__title{letter-spacing:-.03em;line-height:1.28;}
+.ceo blockquote{font-size:40px;line-height:1.6;}
+
+/* 영문 디스플레이 */
+.header__logo,
+.footer__brand .logo{font-family:var(--display);font-weight:500;letter-spacing:.3em;}
+.header__logo{font-size:28px;}
+.marquee__group span,
+.subvisual__inner h1,
+.mega__head b,
+.mv__en,
+.brand__stats b,
+.science__stats b,
+.hero__meta b,
+.tl-year{font-family:var(--display);font-weight:300;letter-spacing:0;}
+.marquee__group span{font-size:84px;font-style:italic;}
+.subvisual__inner h1{font-size:68px;}
+.tl-year{font-weight:400;font-size:46px;}
+.science__stats b{font-size:50px;}
+.brand__stats b{font-size:70px;}
+
+/* ---------- 안내 바 / 헤더 ---------- */
+.announce,
+body.sub .announce,
+body.survey .announce{background:var(--ink);color:#E9E1D5;}
+.announce__dot{background:#5BBFEC;}
+.header.is-light,
+body.sub .header,
+body.survey .header{background:rgba(253,252,250,.94);backdrop-filter:blur(14px);}
+.header.is-light::after,
+body.sub .header::after,
+body.survey .header::after{background:var(--n-200);}
+.header.is-light .navitem > a,
+body.sub .navitem > a,
+body.survey .navitem > a,
+body.sub .header__nav a,
+body.survey .header__nav a{color:rgba(43,39,36,.82);}
+.dropdown__inner{background:rgba(253,252,250,.98);border-color:var(--n-200);border-radius:4px;box-shadow:0 18px 40px rgba(70,58,48,.14);}
+.dropdown a:hover{background:var(--stone);color:var(--ink);}
+
+/* 전체메뉴 */
+.mega{background:rgba(28,25,22,.97);}
+.mega__head span{color:var(--champagne);}
+.mega__col h3 a:hover{color:var(--champagne);}
+.mega__cta{box-shadow:0 12px 30px rgba(91,191,236,.28);}
+
+/* ---------- 버튼 ---------- */
+.btn{border-radius:2px;}
+.btn--primary{background:var(--ink);box-shadow:0 18px 40px -18px rgba(43,39,36,.55);}
+.btn--primary:hover{box-shadow:0 24px 48px -18px rgba(43,39,36,.6);}
+.agent .btn--primary,body.survey .sv .btn--primary{background:var(--sky-500);box-shadow:0 14px 34px rgba(91,191,236,.35);border-radius:100px;}
+.btn--ghost{background:transparent;border-color:var(--ink);box-shadow:none;color:var(--ink);}
+.btn--ghost span{color:var(--ink);}
+.btn--ghost:hover{background:var(--ink);color:var(--porcelain);}
+.btn--ghost:hover span{color:var(--porcelain);}
+
+/* ---------- 01 HERO ---------- */
+.hero{background:#1C1916;}
+.hero__media::before{background:linear-gradient(120deg,#2B2724 0%,#4A423B 50%,#1C1916 100%);}
+.hero__scrim{
+  background:
+    linear-gradient(90deg,rgba(28,25,22,.72) 0%,rgba(28,25,22,.25) 60%,rgba(28,25,22,.35) 100%),
+    linear-gradient(180deg,rgba(28,25,22,.35) 0%,rgba(28,25,22,.05) 50%,rgba(28,25,22,.6) 100%);
+}
+.hero__eyebrow{color:var(--champagne);letter-spacing:.3em;}
+.hero__meta li.sep{background:var(--champagne);}
+.hero__sub{color:rgba(245,239,230,.72);}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--porcelain);border-color:var(--n-200);}
+.marquee::before{background:linear-gradient(90deg,var(--porcelain),rgba(253,252,250,0));}
+.marquee::after{background:linear-gradient(270deg,var(--porcelain),rgba(253,252,250,0));}
+.marquee__group span{color:var(--ink);}
+.marquee__group span.dim{color:#D6CDC2;}
+.marquee__group i{width:8px;height:8px;background:var(--champagne);}
+
+/* ---------- 02 AGENT (Aging Map 22 : 스카이 유지, 바탕만 아이보리) ---------- */
+.agent{background:var(--porcelain);}
+.agent__fade{background:linear-gradient(180deg,rgba(253,252,250,0),rgba(253,252,250,.6));}
+.agent .callouts .card{background:#fff;}
+
+/* ---------- 03 SCIENCE ---------- */
+.science{background:var(--stone);}
+.science .label{color:var(--sage);}
+.science__stats li+li::before{background:#D6CDC2;}
+.science__stats b{color:var(--ink);}
+
+/* ---------- 04 PRODUCTS ---------- */
+.products{background:linear-gradient(165deg,#FDFCFA 0%,#F4F1EC 60%,#ECE7E0 100%);}
+.products__grid{
+  background-image:linear-gradient(rgba(201,192,182,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(201,192,182,.22) 1px,transparent 1px);
+}
+.badge{background:#fff;border:1px solid var(--n-200);color:var(--sky-700);border-radius:2px;}
+.badge i{background:var(--champagne);}
+.products .label{color:var(--sage);}
+.products__progress b{color:var(--ink);}
+.products__progress .track{background:#DCD4CA;height:1px;}
+.products__progress .fill{background:var(--ink);}
+.pcard{border-radius:4px;box-shadow:0 32px 60px -30px rgba(70,58,48,.45);}
+.pcard::after{background:linear-gradient(180deg,rgba(28,25,22,0) 0%,rgba(28,25,22,.3) 45%,rgba(28,25,22,.78) 100%);}
+.pcard__cap b{font-family:var(--serif);font-weight:400;}
+
+/* ---------- 05 BRAND ---------- */
+.brand{background:var(--porcelain);}
+.brand__glow{background:radial-gradient(ellipse at center,rgba(236,231,224,.9) 0%,rgba(244,241,236,.5) 50%,rgba(253,252,250,0) 100%);}
+.brand__eyebrow{color:var(--sage);}
+.sparkle{fill:var(--champagne);}
+.brand__visual{border-radius:4px;box-shadow:0 40px 80px -40px rgba(70,58,48,.45);}
+.brand__chip{border-radius:2px;}
+.brand__chip i{background:var(--champagne);}
+.brand__stats{border-color:var(--n-200);}
+.brand__stats em{color:var(--sage);}
+
+/* ---------- FOOTER ---------- */
+.footer__cols h4{color:var(--sage);}
+.footer__cols a{color:var(--n-700);}
+.footer__cols a:hover{color:var(--ink);}
+.footer__sns a{background:var(--porcelain);}
+.footer__sns a:hover{color:var(--ink);border-color:var(--sage);}
+
+/* =========================================================
+   SUB PAGES
+   ========================================================= */
+.subvisual{background:linear-gradient(90deg,#1C1916 0%,#3A332D 100%);}
+.subvisual__fade{background:linear-gradient(90deg,#1C1916 0%,rgba(28,25,22,0) 100%);}
+.subvisual__glow{background:radial-gradient(ellipse 55% 70% at 28% 55%,rgba(200,183,158,.2),rgba(200,183,158,0) 70%);}
+.subvisual__inner .kr{color:var(--champagne);}
+.submenu{background:var(--porcelain);}
+.submenu a.is-active::after{height:1px;background:var(--ink);}
+.sec--grey{background:var(--stone);}
+.seclabel i{background:var(--champagne);}
+.seclabel span{color:var(--sage);}
+.facts dt,.locinfo dt,.pillar h3{color:var(--sage);}
+.about__visual,.pillar__img,.history__img,.map{border-radius:4px;}
+
+/* greeting — careCL 파티클 패널 */
+.ceo__visual{
+  border-radius:4px;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 46%,rgba(200,183,158,.2),rgba(200,183,158,0) 70%),
+    linear-gradient(180deg,#1C1916 0%,#2F2924 100%);
+  box-shadow:0 40px 80px -36px rgba(40,32,26,.55);
+}
+.ceo__visual-grid{
+  background-image:linear-gradient(rgba(217,203,182,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(217,203,182,.07) 1px,transparent 1px);
+}
+.ceo__visual-top{color:rgba(217,203,182,.7);}
+.ceo__sign b{font-family:var(--serif);font-weight:400;}
+
+/* history */
+.tl-dot i{background:var(--ink);box-shadow:0 0 0 6px rgba(200,183,158,.28);}
+.history__img{background:linear-gradient(135deg,#F4F1EC,#ECE7E0);}
+
+/* certification */
+.cert__img{background:var(--stone);border-radius:2px;}
+.cert__paper{background:var(--porcelain);border-color:#EDE8E2;box-shadow:0 12px 28px -12px rgba(70,58,48,.25);}
+.cert__paper .seal{background:rgba(200,183,158,.14);border-color:rgba(200,183,158,.6);}
+
+/* mission */
+.pillar__img{background:linear-gradient(160deg,#FDFCFA,#ECE7E0);}
+
+/* location */
+.map{background:linear-gradient(135deg,#F4F1EC,#E9E3DB);}
+.map__pin{background:var(--ink);box-shadow:0 0 0 18px rgba(200,183,158,.3);}
+
+/* =========================================================
+   SURVEY (Aging Map 22) — 스카이 유지, 바탕 아이보리
+   ========================================================= */
+body.survey{background:var(--porcelain);}
+
+@media (max-width:1280px){
+  .marquee__group span{font-size:64px;}
+  .header__logo{font-size:24px;}
+  .subvisual__inner h1{font-size:56px;}
+  .ceo blockquote{font-size:36px;}
+  .tl-year{font-size:40px;}
+}
+@media (max-width:640px){
+  .header__logo{font-size:20px;letter-spacing:.24em;}
+  .marquee__group span{font-size:38px;}
+  .subvisual__inner h1{font-size:44px;}
+  .ceo blockquote{font-size:28px;}
+  .tl-year{font-size:30px;}
+  .science__stats b{font-size:34px;}
+  .brand__stats b{font-size:48px;}
+}
+
+/* 메인 히어로(다크) 위 헤더 */
+body:not(.sub):not(.survey) .header:not(.is-light) .navitem > a.is-active{color:var(--champagne);}
+body:not(.sub):not(.survey) .header:not(.is-light) .navitem:hover > a{color:var(--champagne);}
+
+/* Cormorant 숫자는 라이닝 숫자로 */
+.brand__stats b,.science__stats b,.hero__meta b,.tl-year,.marquee__group span{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;}
+
+/* 한글 단어 단위 줄바꿈 */
+h1,h2,h3,h4,p,blockquote,.hero__sub{word-break:keep-all;}
+@media (max-width:640px){
+  .agent__head h2{font-size:22px;line-height:1.55;}
+}
