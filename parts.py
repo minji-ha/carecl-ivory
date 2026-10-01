@@ -3,37 +3,40 @@
 
 # (라벨, 링크, [(하위라벨, 하위링크), ...])
 MENU = [
-    ("careCL", "about.html", [
-        ("회사소개", "about.html"),
-        ("인사말", "greeting.html"),
-        ("연혁", "history.html"),
-        ("인증", "certification.html"),
-        ("미션과 비전", "mission-vision.html"),
+    ("COMPANY", "about.html", [
+        ("About careCL", "about.html"),
+        ("Our Story", "greeting.html"),
+        ("History", "history.html"),
+        ("R&D / Patent", "rnd.html"),
+        ("Awards & Certification", "certification.html"),
+        ("Mission & Vision", "mission-vision.html"),
+    ]),
+    ("AGING LAB", "aging-types.html", [
+        ("Why We Age Differently", "aging-types.html#why"),
+        ("6 Aging Types", "aging-types.html#types"),
+        ("나의 Aging Type 알아보기", "survey.html"),
+    ]),
+    ("AGING MAP 22", "aging-map.html", [
+        ("Why Aging Map 22", "aging-map.html#why"),
+        ("6 Types × 22 Areas", "aging-map.html#matrix"),
+        ("Face / Neck & Body", "aging-map.html#areas"),
+        ("Personalized Care", "aging-map.html#care"),
+    ]),
+    ("TECHNOLOGY", "technology.html", [
+        ("Beauty Device Technology", "technology.html#basic"),
+        ("5 SEC. STAMPING", "technology.html#stamping"),
+        ("TECHFIT 적용 기술", "technology.html#techfit"),
+    ]),
+    ("PRODUCTS", "products.html", [
+        ("Beauty Device", "products.html#device"),
+        ("Cosmetics", "products.html#cosmetics"),
+    ]),
+    ("CONTACT", "contact.html", [
+        ("Global Business", "contact.html#global"),
+        ("Distributor / Partnership", "contact.html#partner"),
+        ("Media / PR", "contact.html#pr"),
+        ("General Inquiry", "contact.html#inquiry"),
         ("오시는 길", "location.html"),
-    ]),
-    ("Aging Map 22", "survey.html", [
-        ("진단 설문 시작", "survey.html"),
-        ("6가지 노화 타입", "#"),
-        ("리포트 예시", "#"),
-        ("Aging Map 22란?", "#"),
-    ]),
-    ("Technology", "#", [
-        ("TECH FIT 스탬핑", "#"),
-        ("고주파 원리", "#"),
-        ("임상 데이터", "#"),
-        ("특허 · 인증", "certification.html"),
-    ]),
-    ("Product", "index.html#products", [
-        ("Device", "#"),
-        ("Cosmetic", "#"),
-        ("Accessory", "#"),
-        ("전체 제품 보기", "#"),
-    ]),
-    ("Contact", "location.html", [
-        ("오시는 길", "location.html"),
-        ("1:1 문의", "#"),
-        ("자주 묻는 질문", "#"),
-        ("이용안내", "#"),
     ]),
 ]
 
@@ -51,43 +54,47 @@ AI_BADGE = (
 )
 
 
-DROPDOWN_ONLY = ["careCL"]   # 드롭다운을 노출할 메뉴
+DROPDOWN_ONLY = [m[0] for m in MENU]   # 전 메뉴 드롭다운 노출
 
 
 def header(active=None, logo_href="index.html", start_href="survey.html"):
-    items = []
-    for label, href, subs in MENU:
+    def item(label, href, subs):
         if label not in DROPDOWN_ONLY:
             subs = []
         cls = ' class="is-active"' if active == label else ''
-        badge = AI_BADGE if label == "Aging Map 22" else ""
+        badge = AI_BADGE if label == "AGING MAP 22" else ""
+        drop = ''
         if subs:
             sub = "".join('<a href="%s">%s</a>' % (h, t) for t, h in subs)
             drop = '<div class="dropdown"><div class="dropdown__inner">%s</div></div>' % sub
-        else:
-            drop = ''
-        items.append(
-            '<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
-            % (' has-badge' if badge else '', href, cls, label, badge, drop)
-        )
-    nav = "".join(items)
-    return (
-        '<div class="announce">\n'
-        '  <span class="announce__dot"></span>\n'
-        '  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>\n'
-        '</div>\n\n'
-        '<header class="header" id="header">\n'
-        '  <nav class="header__nav">' + nav + '</nav>\n'
-        '  <a href="' + logo_href + '" class="header__logo">CARECL</a>\n'
-        '  <div class="header__util">\n'
-        '    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>\n'
-        '    <a href="#" class="login">로그인</a>\n'
+        return ('<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
+                % (' has-badge' if badge else '', href, cls, label, badge, drop))
+
+    half = (len(MENU) + 1) // 2
+    left = "".join(item(*m) for m in MENU[:half])
+    right = "".join(item(*m) for m in MENU[half:])
+    rows = [
+        '<div class="announce">',
+        '  <span class="announce__dot"></span>',
+        '  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>',
+        '</div>',
+        '',
+        '<header class="header" id="header">',
+        '  <nav class="header__nav header__nav--left">' + left + '</nav>',
+        '  <a href="' + logo_href + '" class="header__logo">CARECL</a>',
+        '  <nav class="header__nav header__nav--right">' + right + '</nav>',
+        '  <div class="header__util">',
+        '    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>',
+        '    <a href="#" class="shop">SHOP</a>',
+        '    <a href="#" class="login">로그인</a>',
         '    <button type="button" class="allmenu" id="allMenuBtn" aria-label="전체 메뉴">'
         '<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>'
-        '</button>\n'
-        '  </div>\n'
-        '</header>\n\n' + mega()
-    )
+        '</button>',
+        '  </div>',
+        '</header>',
+        '',
+    ]
+    return "\n".join(rows) + mega()
 
 
 def mega():
@@ -119,11 +126,12 @@ FOOTER = """<footer class="footer">
       <p class="tag">얼굴을 22개 좌표로 읽는<br>정밀 안티에이징 스킨케어</p>
     </div>
     <div class="footer__cols">
-      <div><h4>careCL</h4><a href="about.html">회사소개</a><a href="greeting.html">인사말</a><a href="history.html">연혁</a><a href="certification.html">인증</a><a href="mission-vision.html">미션과 비전</a><a href="location.html">오시는 길</a></div>
-      <div><h4>AGING MAP 22</h4><a href="survey.html">진단 설문 시작</a></div>
-      <div><h4>TECHNOLOGY</h4><a href="#">기술 소개</a></div>
-      <div><h4>PRODUCT</h4><a href="index.html#products">제품 보기</a></div>
-      <div><h4>CONTACT</h4><a href="location.html">오시는 길</a></div>
+      <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a><a href="mission-vision.html">Mission &amp; Vision</a></div>
+      <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="survey.html">나의 타입 알아보기</a></div>
+      <div><h4>AGING MAP 22</h4><a href="aging-map.html">Why Aging Map 22</a><a href="aging-map.html#areas">22개 관리 부위</a></div>
+      <div><h4>TECHNOLOGY</h4><a href="technology.html">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
+      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
+      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="location.html">오시는 길</a></div>
     </div>
   </div>
   <div class="footer__legal">

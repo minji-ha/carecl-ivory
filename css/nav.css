@@ -4,6 +4,9 @@
 
 /* ---------- 드롭다운 ---------- */
 .header__nav{display:flex;gap:0;height:100%;align-items:stretch;}
+.header__nav--left{margin-right:auto;}
+.header__nav--right{margin-left:auto;padding-left:40px;}
+.header__nav--right + .header__util{margin-left:40px;}
 .navitem{position:relative;display:flex;align-items:center;padding:0 19px;}
 .navitem > a{
   position:relative;z-index:4;
@@ -155,11 +158,12 @@ body.mega-open .mega__col:nth-child(5){transition-delay:.32s}
 
 /* ---------- 반응형 ---------- */
 /* 1360 이하: 로고 중앙 배치 시 메뉴와 겹치므로 좌측 로고 + 메뉴 흐름으로 전환 */
-@media (max-width:1360px){
+@media (max-width:1560px){
   .header{justify-content:flex-start;}
-  .header__logo{position:static;transform:none;order:0;margin-right:40px;}
-  .header__nav{order:1;}
-  .header__util{order:2;margin-left:auto;}
+  .header__logo{position:static;transform:none;order:0;margin-right:30px;}
+  .header__nav--left{order:1;margin-right:0;}
+  .header__nav--right{order:2;margin-left:0;}
+  .header__util{order:3;margin-left:auto;}
 }
 @media (max-width:1280px){
   .navitem{padding:0 13px;}
@@ -184,4 +188,12 @@ body.mega-open .mega__col:nth-child(5){transition-delay:.32s}
   .mega__foot{margin-top:44px;}
   .mega__cta{padding:16px 28px;font-size:15px;}
   .mega__close{top:22px;right:16px;}
+}
+
+/* 상단 유틸 SHOP */
+.shop{font-family:var(--en);font-size:13px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.75);}
+.header.is-light .shop,body.sub .shop,body.survey .shop{color:var(--n-500);}
+@media (max-width:1024px){
+  .header__nav--left,.header__nav--right{display:none;}
+  .shop{display:none;}
 }

@@ -4,7 +4,7 @@ import io
 import re
 import parts
 
-TARGETS = [("index.html", "careCL"), ("survey.html", "Aging Map 22")]
+TARGETS = [("index.html", None), ("survey.html", "AGING MAP 22")]
 
 for path, active in TARGETS:
     html = io.open(path, encoding="utf-8").read()
