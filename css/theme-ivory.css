@@ -34,6 +34,10 @@
   --sage:#9C948B;
   --ink:#2B2724;
   --champagne:#C8B79E;
+  /* 포인트 컬러 : 제품(가죽 케이스) 오렌지 — 최소한으로 사용 */
+  --orange:#C46A3A;
+  --orange-600:#A8521F;
+  --orange-100:#F3E4D8;
 
   --foot-bg:#ECE7E0;
   --foot-line:#DCD4CA;
@@ -139,7 +143,7 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
     linear-gradient(90deg,rgba(28,25,22,.72) 0%,rgba(28,25,22,.25) 60%,rgba(28,25,22,.35) 100%),
     linear-gradient(180deg,rgba(28,25,22,.35) 0%,rgba(28,25,22,.05) 50%,rgba(28,25,22,.6) 100%);
 }
-.hero__eyebrow{color:var(--champagne);letter-spacing:.3em;}
+.hero__eyebrow{color:var(--orange);letter-spacing:.3em;}
 .hero__meta li.sep{background:var(--champagne);}
 .hero__sub{color:rgba(245,239,230,.72);}
 
@@ -149,7 +153,7 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
 .marquee::after{background:linear-gradient(270deg,var(--porcelain),rgba(253,252,250,0));}
 .marquee__group span{color:var(--ink);}
 .marquee__group span.dim{color:#D6CDC2;}
-.marquee__group i{width:8px;height:8px;background:var(--champagne);}
+.marquee__group i{width:8px;height:8px;background:var(--orange);}
 
 /* ---------- 02 AGENT (Aging Map 22 : 스카이 유지, 바탕만 아이보리) ---------- */
 .agent{background:var(--porcelain);}
@@ -168,7 +172,7 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
   background-image:linear-gradient(rgba(201,192,182,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(201,192,182,.22) 1px,transparent 1px);
 }
 .badge{background:#fff;border:1px solid var(--n-200);color:var(--sky-700);border-radius:2px;}
-.badge i{background:var(--champagne);}
+.badge i{background:var(--orange);}
 .products .label{color:var(--sage);}
 .products__progress b{color:var(--ink);}
 .products__progress .track{background:#DCD4CA;height:1px;}
@@ -181,10 +185,10 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
 .brand{background:var(--porcelain);}
 .brand__glow{background:radial-gradient(ellipse at center,rgba(236,231,224,.9) 0%,rgba(244,241,236,.5) 50%,rgba(253,252,250,0) 100%);}
 .brand__eyebrow{color:var(--sage);}
-.sparkle{fill:var(--champagne);}
+.sparkle{fill:var(--orange);}
 .brand__visual{border-radius:4px;box-shadow:0 40px 80px -40px rgba(70,58,48,.45);}
 .brand__chip{border-radius:2px;}
-.brand__chip i{background:var(--champagne);}
+.brand__chip i{background:var(--orange);}
 .brand__stats{border-color:var(--n-200);}
 .brand__stats em{color:var(--sage);}
 
@@ -205,7 +209,7 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
 .submenu{background:var(--porcelain);}
 .submenu a.is-active::after{height:1px;background:var(--ink);}
 .sec--grey{background:var(--stone);}
-.seclabel i{background:var(--champagne);}
+.seclabel i{background:var(--orange);}
 .seclabel span{color:var(--sage);}
 .facts dt,.locinfo dt,.pillar h3{color:var(--sage);}
 .about__visual,.pillar__img,.history__img,.map{border-radius:4px;}
@@ -274,3 +278,17 @@ h1,h2,h3,h4,p,blockquote,.hero__sub{word-break:keep-all;}
 @media (max-width:640px){
   .agent__head h2{font-size:22px;line-height:1.55;}
 }
+
+/* ---------- 포인트 컬러 (오렌지) : 최소 사용 지점만 ---------- */
+.submenu a.is-active::after{background:var(--orange);}
+.submenu a.is-active{color:var(--orange-600);}
+.tl-dot i{background:var(--orange);box-shadow:0 0 0 6px rgba(196,106,58,.16);}
+.map__pin{background:var(--orange);box-shadow:0 0 0 18px rgba(196,106,58,.14);}
+.cert__paper .seal{background:rgba(196,106,58,.1);border-color:rgba(196,106,58,.45);}
+.hero__meta li.sep{background:var(--orange);}
+.btn--primary{background:var(--ink);}
+.btn--ghost:hover{background:var(--orange-600);border-color:var(--orange-600);color:#fff;}
+.btn--ghost:hover span{color:#fff;}
+.textlink:hover{color:var(--orange-600);}
+.footer__sns a:hover{color:var(--orange-600);border-color:var(--orange);}
+.dropdown a:hover{color:var(--orange-600);}

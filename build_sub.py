@@ -310,8 +310,8 @@ BODY["products"] = """<section class="sec" id="device">
     """ + label("BEAUTY DEVICE", "뷰티 디바이스") + """
     <h2>진단 결과에 맞춰<br>조합하는 제품</h2>
     <div class="pillars" style="margin-top:50px">
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-01.jpg" alt="TECHFIT"></div><h3>DEVICE</h3><h4>TECHFIT</h4><p>5초 스탬핑 고주파 디바이스. 상세 페이지 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-02.jpg" alt="CLB"></div><h3>DEVICE</h3><h4>CLB</h4><p>고주파 마사지기. 상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><h3>DEVICE</h3><h4>TECHFIT</h4><p>5초 스탬핑 고주파 디바이스. 상세 페이지 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-clb.png" alt="CLB"></div><h3>DEVICE</h3><h4>CLB</h4><p>고주파 마사지기. 상세 정보 준비 중입니다.</p></div>
       <div class="pillar"><div class="pillar__img"><em>COMING</em><span>향후 Device</span></div><h3>DEVICE</h3><h4>향후 라인업</h4><p>추가 디바이스가 이어집니다.</p></div>
     </div>
   </div>
@@ -321,9 +321,9 @@ BODY["products"] = """<section class="sec" id="device">
     """ + label("COSMETICS", "코스메틱") + """
     <h2>디바이스와 함께 쓰는<br>코스메틱</h2>
     <div class="pillars" style="margin-top:50px">
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-05.jpg" alt="Collagen Booster Gel"></div><h3>COSMETIC</h3><h4>Collagen Booster Gel</h4><p>상세 정보 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-03.jpg" alt="Grid Mask"></div><h3>COSMETIC</h3><h4>Grid Mask</h4><p>상세 정보 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-04.jpg" alt="Toning Serum"></div><h3>COSMETIC</h3><h4>Toning Serum</h4><p>상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><h3>COSMETIC</h3><h4>Collagen Booster Gel</h4><p>상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><h3>COSMETIC</h3><h4>Grid Mask</h4><p>상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><h3>COSMETIC</h3><h4>Toning Serum</h4><p>상세 정보 준비 중입니다.</p></div>
     </div>
     <p class="note" style="margin-top:40px">* 제품명 · 용량 · 사용법 등 표기 항목은 케어클 확정 자료 기준으로 교체 예정입니다.</p>
   </div>
