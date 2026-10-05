@@ -46,22 +46,22 @@
   --display:'Cormorant Garamond', 'Noto Serif KR', serif;
 }
 
-/* ---------- Aging Map 22 영역 : 스카이블루 복원 ---------- */
+/* ---------- Aging Map 22 영역도 오렌지 포인트로 통일 (2026-10 결정) ---------- */
 .agent,
 body.survey .sv,
 .aibadge,
 .navitem.has-badge,
 .mega__cta{
-  --sky-700:#198BC4;
-  --sky-600:#2E9FD6;
-  --sky-500:#5BBFEC;
-  --sky-400:#87D3F2;
-  --sky-200:#CDEAF9;
-  --sky-100:#ECF7FD;
-  --sky-50 :#F7FCFE;
+  --sky-700:#A8521F;
+  --sky-600:#C46A3A;
+  --sky-500:#C46A3A;
+  --sky-400:#E0A77F;
+  --sky-200:#EFD8C6;
+  --sky-100:#F6EBE1;
+  --sky-50 :#FBF5F0;
 }
-.navitem.has-badge:hover > a{color:#2E9FD6 !important;}
-body.survey .navitem.has-badge > a.is-active{color:#2E9FD6;}
+.navitem.has-badge:hover > a{color:#A8521F !important;}
+body.survey .navitem.has-badge > a.is-active{color:#A8521F;}
 
 /* ---------- 기본 ---------- */
 body{background:var(--porcelain);color:var(--ink);font-weight:300;}
@@ -104,7 +104,7 @@ body{background:var(--porcelain);color:var(--ink);font-weight:300;}
 .announce,
 body.sub .announce,
 body.survey .announce{background:var(--ink);color:#E9E1D5;}
-.announce__dot{background:#5BBFEC;}
+.announce__dot{background:var(--orange,#C46A3A);}
 .header.is-light,
 body.sub .header,
 body.survey .header{background:rgba(253,252,250,.94);backdrop-filter:blur(14px);}
@@ -123,13 +123,13 @@ body.survey .header__nav a{color:rgba(43,39,36,.82);}
 .mega{background:rgba(28,25,22,.97);}
 .mega__head span{color:var(--champagne);}
 .mega__col h3 a:hover{color:var(--champagne);}
-.mega__cta{box-shadow:0 12px 30px rgba(91,191,236,.28);}
+.mega__cta{box-shadow:0 14px 30px -12px rgba(196,106,58,.5);}
 
 /* ---------- 버튼 ---------- */
 .btn{border-radius:2px;}
 .btn--primary{background:var(--ink);box-shadow:0 18px 40px -18px rgba(43,39,36,.55);}
 .btn--primary:hover{box-shadow:0 24px 48px -18px rgba(43,39,36,.6);}
-.agent .btn--primary,body.survey .sv .btn--primary{background:var(--sky-500);box-shadow:0 14px 34px rgba(91,191,236,.35);border-radius:100px;}
+.agent .btn--primary,body.survey .sv .btn--primary{background:var(--orange,#C46A3A);box-shadow:0 16px 34px -14px rgba(196,106,58,.6);border-radius:2px;}
 .btn--ghost{background:transparent;border-color:var(--ink);box-shadow:none;color:var(--ink);}
 .btn--ghost span{color:var(--ink);}
 .btn--ghost:hover{background:var(--ink);color:var(--porcelain);}
@@ -292,3 +292,31 @@ h1,h2,h3,h4,p,blockquote,.hero__sub{word-break:keep-all;}
 .textlink:hover{color:var(--orange-600);}
 .footer__sns a:hover{color:var(--orange-600);border-color:var(--orange);}
 .dropdown a:hover{color:var(--orange-600);}
+
+/* ---------- Aging Map 22 : 스카이 → 오렌지 전환 보정 ---------- */
+.agent__glow{background:radial-gradient(ellipse 58% 52% at 50% 54%,rgba(243,228,216,.8) 0%,rgba(250,244,240,.5) 46%,rgba(253,252,250,0) 76%);}
+.colines line{stroke:var(--orange,#C46A3A);opacity:.4;}
+.callouts .pt{background:rgba(196,106,58,.14);border-color:rgba(196,106,58,.5);}
+.callouts .pt::after{background:var(--orange,#C46A3A);}
+.callouts .card em{color:var(--orange-600,#A8521F);}
+.chip{background:var(--orange-100,#F3E4D8);color:var(--orange-600,#A8521F);}
+.chip i{background:var(--orange,#C46A3A);}
+.sv__panel{background:linear-gradient(180deg,#1C1916 0%,#33291F 100%);}
+.sv__panel::after{background:linear-gradient(180deg,rgba(28,25,22,0),rgba(28,25,22,.8));}
+.sv__lock em{color:var(--orange,#C46A3A);}
+.sv__progress .fill{background:var(--orange,#C46A3A);}
+.sv__progress .cnt b{color:var(--orange-600,#A8521F);}
+.sv__qlabel,.sv__count{color:var(--orange-600,#A8521F);}
+.sv__nav .next{background:var(--orange,#C46A3A);box-shadow:0 14px 28px -12px rgba(196,106,58,.6);}
+.sv__intro .label i{background:var(--orange,#C46A3A);}
+.scanhud{--hud:196,106,58;--ink:168,82,31;}
+.scanhud--dark{--hud:224,167,127;--ink:224,167,127;}
+.subvisual__inner .kr{color:var(--orange,#C46A3A);}
+
+/* AI 배지 : 오렌지 */
+.aibadge{border-color:rgba(196,106,58,.5);animation:aiFloat 3.4s ease-in-out infinite;box-shadow:0 2px 12px rgba(196,106,58,.18);}
+.aibadge__circle{background:linear-gradient(135deg,#C46A3A,#A8521F);box-shadow:0 1px 5px rgba(168,82,31,.35);}
+.allmenu:hover span:nth-child(5),
+.header.is-light .allmenu:hover span:nth-child(5),
+body.sub .allmenu:hover span:nth-child(5),
+body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}

@@ -358,6 +358,7 @@ TPL = """<!DOCTYPE html>
 <link rel="stylesheet" href="css/sub.css?v=2609130353">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/theme-ivory.css">
+<link rel="stylesheet" href="css/subv2.css">
 </head>
 <body class="sub">
 

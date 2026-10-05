@@ -101,7 +101,7 @@
 .mcore__item b{display:block;margin-top:9px;font-size:clamp(15px,1.3vw,19px);font-weight:500;letter-spacing:-.02em;word-break:keep-all;}
 .mcore__item p{margin-top:8px;font-size:13px;line-height:1.75;color:var(--n-500,#7D746B);word-break:keep-all;}
 .mcore__item a{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--orange-600,#A8521F);border-bottom:1px solid currentColor;padding-bottom:2px;}
-.mcore__item--sky a{color:#198BC4;}
+.mcore__item--sky a{color:var(--orange-600,#A8521F);}
 .mcore__cta{text-align:center;margin-top:clamp(36px,5vw,64px);}
 .mcore__cta .mbtn--ink{background:var(--ink,#2B2724);color:#fff;}
 .mcore__cta .mbtn--ink:hover{background:#1C1916;}
@@ -186,3 +186,10 @@ body.main2 .header.is-light .login,
 body.main2 .header.is-light .shop{color:rgba(43,39,36,.82);}
 body.main2 .header.is-light .header__logo{color:var(--ink,#2B2724);}
 body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
+
+/* ---------- 03 콜렉션 미리보기 ---------- */
+.mpick{background:var(--porcelain,#FDFCFA);padding:clamp(60px,7vw,110px) 0 clamp(70px,9vw,130px);}
+.mpick__head{text-align:center;}
+.mpick__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,30px);margin-top:clamp(32px,4vw,56px);}
+.mpick .mcard{flex:none;}
+@media (max-width:860px){.mpick__grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}}

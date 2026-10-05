@@ -1,0 +1,86 @@
+/* =========================================================
+   careCL — 서브 페이지 v2 : 메인(v2)과 같은 구조·톤으로 정리
+   (css/sub.css 뒤에 로드되어 간격 · 라벨 · 카드 스타일을 덮어씀)
+   ========================================================= */
+
+body.sub{--gut:clamp(20px,5vw,120px);}
+
+/* ---------- 상단 비주얼 ---------- */
+body.sub .subvisual{height:clamp(300px,34vw,440px);background:linear-gradient(100deg,#1C1916 0%,#3A332D 100%);}
+body.sub .subvisual__inner{padding:0 var(--gut);max-width:1680px;}
+body.sub .subvisual__img{width:46%;}
+body.sub .crumb{font-family:var(--display,serif);font-size:12px;letter-spacing:.24em;color:rgba(245,239,230,.5);margin-bottom:20px;}
+body.sub .subvisual__inner h1{font-family:var(--display,serif);font-weight:300;font-size:clamp(34px,5vw,68px);letter-spacing:0;line-height:1.1;}
+body.sub .subvisual__inner .kr{margin-top:14px;font-size:clamp(13px,1.1vw,17px);letter-spacing:-.01em;color:var(--orange,#C46A3A);}
+
+/* ---------- 탭 메뉴 ---------- */
+body.sub .submenu{background:var(--porcelain,#FDFCFA);border-bottom:1px solid var(--n-200,#E5DFD8);}
+body.sub .submenu ul{max-width:1680px;margin:0 auto;padding:0 var(--gut);}
+body.sub .submenu a{height:64px;font-size:15px;color:var(--n-500,#7D746B);}
+body.sub .submenu a.is-active{color:var(--ink,#2B2724);font-weight:500;}
+body.sub .submenu a.is-active::after{height:1px;background:var(--orange,#C46A3A);}
+body.sub .submenu li+li::before{height:18px;background:var(--n-200,#E5DFD8);}
+
+/* ---------- 섹션 공통 ---------- */
+body.sub .sec{padding:clamp(60px,8vw,130px) 0 clamp(70px,9vw,150px);}
+body.sub .wrap{max-width:1680px;padding:0 var(--gut);}
+body.sub .seclabel{gap:14px;margin-bottom:0;}
+body.sub .seclabel i{width:34px;height:1px;background:var(--orange,#C46A3A);}
+body.sub .seclabel span{font-family:var(--display,serif);font-size:13px;letter-spacing:.3em;color:var(--sage,#9C948B);text-transform:uppercase;}
+body.sub .sec h2,
+body.sub .history__title{
+  font-family:var(--serif,serif);font-weight:300;
+  font-size:clamp(26px,3.2vw,44px);line-height:1.5;letter-spacing:-.02em;
+  margin-top:22px;word-break:keep-all;
+}
+body.sub .mv__sub,
+body.sub .about__copy p,
+body.sub .ceo__body{font-size:clamp(14px,1.1vw,17px);line-height:2;color:var(--n-500,#7D746B);word-break:keep-all;}
+body.sub .mv__en{font-family:var(--display,serif);font-style:italic;font-size:clamp(16px,1.5vw,24px);color:var(--sage,#9C948B);letter-spacing:0;}
+body.sub .note{font-size:13px;color:var(--n-400,#A79E96);}
+
+/* ---------- 카드(기둥) ---------- */
+body.sub .pillars{gap:clamp(16px,1.8vw,30px);margin-top:clamp(34px,4vw,60px);}
+body.sub .pillar{background:var(--porcelain,#FDFCFA);border:1px solid var(--n-200,#E5DFD8);border-radius:3px;padding:clamp(20px,2vw,30px);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease;}
+body.sub .sec--grey .pillar{background:#fff;}
+body.sub .pillar:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(70,58,48,.4);}
+body.sub .pillar__img{border-radius:2px;margin-bottom:4px;}
+body.sub .pillar h3{margin-top:22px;font-family:var(--display,serif);font-size:12px;letter-spacing:.24em;color:var(--sage,#9C948B);}
+body.sub .pillar h4{margin-top:12px;font-family:var(--serif,serif);font-weight:400;font-size:clamp(16px,1.3vw,21px);letter-spacing:-.02em;}
+body.sub .pillar p{margin-top:12px;font-size:14px;line-height:1.85;color:var(--n-500,#7D746B);}
+
+/* ---------- 회사소개 / 인사말 ---------- */
+body.sub .about__grid{gap:clamp(30px,4vw,80px);}
+body.sub .about__visual img{height:clamp(320px,40vw,660px);}
+body.sub .facts{margin-top:clamp(36px,4vw,60px);padding-top:clamp(30px,3vw,56px);}
+body.sub .facts dt,
+body.sub .locinfo dt{font-family:var(--display,serif);font-size:12px;letter-spacing:.22em;color:var(--sage,#9C948B);}
+body.sub .ceo{gap:clamp(30px,4vw,70px);}
+body.sub .ceo__visual{height:clamp(360px,46vw,740px);}
+body.sub .ceo blockquote{font-family:var(--serif,serif);font-size:clamp(24px,3vw,40px);line-height:1.6;}
+
+/* ---------- 연혁 ---------- */
+body.sub .timeline{margin-top:clamp(40px,5vw,90px);}
+body.sub .tl-year{font-family:var(--display,serif);font-weight:400;font-variant-numeric:lining-nums;}
+body.sub .tl-item p{font-size:clamp(15px,1.2vw,19px);}
+
+/* ---------- 인증 ---------- */
+body.sub .certs{gap:clamp(26px,3vw,56px) clamp(16px,1.8vw,32px);}
+body.sub .cert h3{font-family:var(--serif,serif);font-weight:400;}
+
+/* ---------- 버튼 ---------- */
+body.sub .btn{border-radius:2px;padding:17px 34px;font-size:15px;}
+body.sub .btn--primary{background:var(--ink,#2B2724);color:#fff;box-shadow:none;}
+body.sub .btn--primary:hover{background:#1C1916;transform:translateY(-2px);}
+body.sub .btn--ghost{border-color:var(--ink,#2B2724);}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:1024px){
+  body.sub .submenu ul{overflow-x:auto;}
+  body.sub .submenu a{height:56px;font-size:14px;white-space:nowrap;padding:0 14px;}
+}
+@media (max-width:640px){
+  body.sub .subvisual{height:clamp(240px,52vw,320px);}
+  body.sub .subvisual__img{width:100%;opacity:.5;}
+  body.sub .pillar{padding:20px;}
+}

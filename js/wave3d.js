@@ -7,9 +7,9 @@ import * as THREE from '../libs/three/three.module.min.js';
 
 const THEMES = {
   /* 흰 배경 섹션 (메인 AI Agent) */
-  light: { fog: 0xffffff, grid: 0x5bbfec, gridOpacity: 0.22, dot: [91, 191, 236], dotOpacity: 0.42, camY: 3.2, camZ: 30 },
+  light: { fog: 0xffffff, grid: 0xc46a3a, gridOpacity: 0.22, dot: [91, 191, 236], dotOpacity: 0.42, camY: 3.2, camZ: 30 },
   /* 어두운 패널 (설문 좌측) */
-  dark:  { fog: 0x0e1820, grid: 0x87d3f2, gridOpacity: 0.16, dot: [135, 211, 242], dotOpacity: 0.55, camY: 4.2, camZ: 26 }
+  dark:  { fog: 0x0e1820, grid: 0xe0a77f, gridOpacity: 0.16, dot: [135, 211, 242], dotOpacity: 0.55, camY: 4.2, camZ: 26 }
 };
 
 document.querySelectorAll('[data-wave]').forEach(host => init(host, THEMES[host.dataset.wave] || THEMES.light));

@@ -83,7 +83,22 @@ BODY = """
     </div>
   </section>
 
-  <!-- 03 철학 -->
+  <!-- 03 콜렉션 (제품 라인업 미리보기) -->
+  <section class="mpick">
+    <div class="inner">
+      <div class="mpick__head" data-reveal>
+        <span class="label">Collection</span>
+        <h2>지금 가장 많이 찾는 구성</h2>
+      </div>
+      <div class="mpick__grid">
+        <a class="mcard" href="products.html#device"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
+        <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>디바이스 전용 콜라겐 젤</span></a>
+        <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>부위별 그리드 마스크</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 철학 -->
   <section class="mphil">
     <div class="inner" data-reveal>
       <span class="label">Our Philosophy</span>
@@ -94,7 +109,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 04 핵심 3가지 (오브젝트 + 주변 항목) -->
+  <!-- 05 핵심 3가지 (오브젝트 + 주변 항목) -->
   <section class="mcore">
     <div class="inner">
       <div class="mcore__head" data-reveal>
@@ -139,13 +154,13 @@ BODY = """
     </div>
   </section>
 
-  <!-- 05 환기용 이미지 -->
+  <!-- 06 환기용 이미지 -->
   <section class="mbreak">
     <img src="assets/img/mission.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
-  <!-- 06 콜렉션 -->
+  <!-- 07 콜렉션 파트 -->
   <section class="mcoll" data-coll>
     <div class="inner">
       <div class="mcoll__head" data-reveal>
@@ -172,7 +187,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 07 5 STEP -->
+  <!-- 08 5 STEP -->
   <section class="mstep">
     <div class="inner">
       <div data-reveal>
@@ -190,7 +205,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 08 샵 링크 -->
+  <!-- 09 샵 링크 -->
   <section class="mshop">
     <div class="mshop__bg"><img src="assets/img/value.jpg" alt=""></div>
     <div class="inner mshop__inner">
@@ -202,7 +217,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 09 컨택트 -->
+  <!-- 10 컨택트 -->
   <section class="mcontact">
     <div class="inner">
       <div data-reveal>
