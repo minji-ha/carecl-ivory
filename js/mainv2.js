@@ -1,0 +1,131 @@
+/* careCL — 메인페이지 v2 : 롤링 배너 / 콜렉션 캐러셀 / 등장 효과 */
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 02 롤링 배너 ---------- */
+  var roll = document.querySelector('[data-roll]');
+  if (roll) {
+    var track = roll.querySelector('.mroll__track');
+    var slides = [].slice.call(roll.querySelectorAll('.mroll__slide'));
+    var dots = [].slice.call(roll.querySelectorAll('.mroll__dots button'));
+    var idx = 0, timer = null;
+
+    function go(n) {
+      idx = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
+    }
+    function play() { if (reduce) return; stop(); timer = setInterval(function () { go(idx + 1); }, 6000); }
+    function stop() { if (timer) clearInterval(timer); }
+
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); play(); }); });
+    var prev = roll.querySelector('[data-roll-prev]');
+    var next = roll.querySelector('[data-roll-next]');
+    if (prev) prev.addEventListener('click', function () { go(idx - 1); play(); });
+    if (next) next.addEventListener('click', function () { go(idx + 1); play(); });
+    roll.addEventListener('mouseenter', stop);
+    roll.addEventListener('mouseleave', play);
+
+    /* 터치 스와이프 */
+    var sx = 0;
+    roll.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; stop(); }, { passive: true });
+    roll.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      play();
+    });
+
+    go(0); play();
+  }
+
+  /* ---------- 06 콜렉션 캐러셀 ---------- */
+  var coll = document.querySelector('[data-coll]');
+  if (coll) {
+    var ctrack = coll.querySelector('.mcoll__track');
+    var cards = [].slice.call(coll.querySelectorAll('.mcard'));
+    var pos = 0;
+
+    function step() {
+      if (cards.length < 2) return 0;
+      return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+    }
+    function maxPos() {
+      var vw = coll.querySelector('.mcoll__viewport').clientWidth;
+      return Math.max(0, ctrack.scrollWidth - vw);
+    }
+    function move(dir) {
+      pos = Math.min(maxPos(), Math.max(0, pos + dir * step()));
+      ctrack.style.transform = 'translateX(' + (-pos) + 'px)';
+    }
+    var cp = coll.querySelector('[data-coll-prev]');
+    var cn = coll.querySelector('[data-coll-next]');
+    if (cp) cp.addEventListener('click', function () { move(-1); });
+    if (cn) cn.addEventListener('click', function () { move(1); });
+    window.addEventListener('resize', function () { pos = Math.min(pos, maxPos()); ctrack.style.transform = 'translateX(' + (-pos) + 'px)'; });
+
+    var tx = 0, tp = 0;
+    coll.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; tp = pos; }, { passive: true });
+    coll.addEventListener('touchmove', function (e) {
+      pos = Math.min(maxPos(), Math.max(0, tp - (e.touches[0].clientX - tx)));
+      ctrack.style.transition = 'none';
+      ctrack.style.transform = 'translateX(' + (-pos) + 'px)';
+    }, { passive: true });
+    coll.addEventListener('touchend', function () { ctrack.style.transition = ''; });
+  }
+
+  /* ---------- 04 핵심 항목 원형 배치 ---------- */
+  function placeCore() {
+    var stage = document.querySelector('[data-core]');
+    if (!stage) return;
+    var items = [].slice.call(stage.querySelectorAll('.mcore__item'));
+    if (window.innerWidth <= 860) {
+      items.forEach(function (el) { el.style.left = ''; el.style.top = ''; });
+      return;
+    }
+    var n = items.length;
+    items.forEach(function (el, i) {
+      var a = (-90 + (360 / n) * i) * Math.PI / 180;   /* 12시 방향부터 시계 방향 */
+      var rx = 42, ry = 44;                            /* 무대 대비 % 반지름 */
+      el.style.left = (50 + Math.cos(a) * rx) + '%';
+      el.style.top = (50 + Math.sin(a) * ry) + '%';
+    });
+  }
+  placeCore();
+  window.addEventListener('resize', placeCore);
+
+  /* ---------- 헤더 : 히어로 구간만 투명, 이후 라이트 ---------- */
+  (function headerLight() {
+    var header = document.getElementById('header');
+    var hero = document.querySelector('.mhero');
+    if (!header || !hero) return;
+    function sync() {
+      var y = window.scrollY || 0;
+      var limit = hero.offsetHeight - header.offsetHeight - 30;
+      header.classList.toggle('is-light', y > limit);
+      document.body.classList.toggle('is-scrolled', y > 60);
+    }
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+  })();
+
+  /* ---------- 스크롤 등장 ---------- */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    [].forEach.call(document.querySelectorAll('[data-reveal]'), function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity .9s ease, transform 1s cubic-bezier(.2,.7,.2,1)';
+      io.observe(el);
+    });
+    document.addEventListener('transitionend', function () {});
+    var style = document.createElement('style');
+    style.textContent = '[data-reveal].is-in{opacity:1 !important;transform:none !important;}';
+    document.head.appendChild(style);
+  }
+})();

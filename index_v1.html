@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>careCL 케어클 — 정밀하게 읽고, 부위별로 되돌리다</title>
+<meta name="description" content="유전, 뼈의 구조, 얼굴 근육, 피하 지방 — 노화가 시작되는 부위는 저마다 다릅니다. 케어클은 얼굴을 22개 좌표로 나누어 당신만의 노화를 읽어냅니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=261001230431">
+<link rel="stylesheet" href="css/nav.css?v=261001230431">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme-ivory.css?v=261001230431">
+</head>
+<body>
+
+<!-- ===== Announcement ===== -->
+<div class="announce">
+  <span class="announce__dot"></span>
+  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>
+</div>
+
+<header class="header" id="header">
+  <nav class="header__nav header__nav--left"><div class="navitem"><a href="about.html">COMPANY</a><div class="dropdown"><div class="dropdown__inner"><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&D / Patent</a><a href="certification.html">Awards & Certification</a><a href="mission-vision.html">Mission & Vision</a></div></div></div><div class="navitem"><a href="aging-types.html">AGING LAB</a><div class="dropdown"><div class="dropdown__inner"><a href="aging-types.html#why">Why We Age Differently</a><a href="aging-types.html#types">6 Aging Types</a><a href="survey.html">나의 Aging Type 알아보기</a></div></div></div><div class="navitem has-badge"><a href="aging-map.html">AGING MAP 22</a><span class="aibadge" aria-hidden="true"><span class="aibadge__circle"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aibadge__txt">AI 피부 진단</span></span><div class="dropdown"><div class="dropdown__inner"><a href="aging-map.html#why">Why Aging Map 22</a><a href="aging-map.html#matrix">6 Types × 22 Areas</a><a href="aging-map.html#areas">Face / Neck & Body</a><a href="aging-map.html#care">Personalized Care</a></div></div></div></nav>
+  <a href="index.html" class="header__logo">CARECL</a>
+  <nav class="header__nav header__nav--right"><div class="navitem"><a href="technology.html">TECHNOLOGY</a><div class="dropdown"><div class="dropdown__inner"><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a><a href="technology.html#techfit">TECHFIT 적용 기술</a></div></div></div><div class="navitem"><a href="products.html">PRODUCTS</a><div class="dropdown"><div class="dropdown__inner"><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div></div></div><div class="navitem"><a href="contact.html">CONTACT</a><div class="dropdown"><div class="dropdown__inner"><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a><a href="location.html">오시는 길</a></div></div></div></nav>
+  <div class="header__util">
+    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>
+    <a href="#" class="shop">SHOP</a>
+    <a href="#" class="login">로그인</a>
+    <button type="button" class="allmenu" id="allMenuBtn" aria-label="전체 메뉴"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mega" id="megaMenu" aria-hidden="true">
+  <button type="button" class="mega__close" id="megaClose" aria-label="닫기"></button>
+  <div class="mega__inner">
+    <div class="mega__head"><span>ALL MENU</span><b>careCL</b></div>
+    <div class="mega__cols"><div class="mega__col"><h3><a href="about.html">COMPANY</a></h3><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&D / Patent</a><a href="certification.html">Awards & Certification</a><a href="mission-vision.html">Mission & Vision</a></div><div class="mega__col"><h3><a href="aging-types.html">AGING LAB</a></h3><a href="aging-types.html#why">Why We Age Differently</a><a href="aging-types.html#types">6 Aging Types</a><a href="survey.html">나의 Aging Type 알아보기</a></div><div class="mega__col"><h3><a href="aging-map.html">AGING MAP 22</a></h3><a href="aging-map.html#why">Why Aging Map 22</a><a href="aging-map.html#matrix">6 Types × 22 Areas</a><a href="aging-map.html#areas">Face / Neck & Body</a><a href="aging-map.html#care">Personalized Care</a></div><div class="mega__col"><h3><a href="technology.html">TECHNOLOGY</a></h3><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a><a href="technology.html#techfit">TECHFIT 적용 기술</a></div><div class="mega__col"><h3><a href="products.html">PRODUCTS</a></h3><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div><div class="mega__col"><h3><a href="contact.html">CONTACT</a></h3><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a><a href="location.html">오시는 길</a></div></div>
+    <div class="mega__foot">
+      <a href="survey.html" class="mega__cta">AI 피부 진단 시작하기 <span>→</span></a>
+      <p>TEL +82 31-943-1028 &nbsp;·&nbsp; support@carecl.co.kr</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<main>
+
+  <!-- ===== 01 Hero ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <video class="hero__video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+        <source src="assets/video/brand-film.mp4" type="video/mp4">
+      </video>
+      <div class="hero__scrim"></div>
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal">ANTI-AGING SKINCARE &nbsp;·&nbsp; AGING MAP 22</p>
+      <h1 class="hero__title">
+        <span class="line"><span>정밀하게 읽고,</span></span>
+        <span class="line"><span>부위별로 되돌리다</span></span>
+      </h1>
+      <p class="hero__sub reveal">유전, 뼈의 구조, 얼굴 근육, 피하 지방 — 노화가 시작되는 부위는 저마다 다릅니다.<br>케어클은 얼굴을 22개 좌표로 나누어, 당신만의 노화를 읽어냅니다.</p>
+      <a href="about.html" class="hero__link reveal">careCL <span>→</span></a>
+    </div>
+
+    <ul class="hero__meta">
+      <li><b data-count="6">0</b><span>AGING TYPES</span></li>
+      <li class="sep"></li>
+      <li><b data-count="22">0</b><span>FACE COORDINATES</span></li>
+      <li class="sep"></li>
+      <li><b data-count="2">0</b><span>MIN TEST</span></li>
+    </ul>
+
+    <div class="hero__scroll">
+      <span>SCROLL TO EXPLORE</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- ===== 01b Marquee ===== -->
+  <section class="marquee">
+    <div class="marquee__track" id="marqueeTrack">
+      <div class="marquee__group">
+        <span>AGING MAP 22</span><i></i>
+        <span class="dim">22 COORDINATES</span><i></i>
+        <span>6 AGING TYPES</span><i></i>
+        <span class="dim">PRECISION ANTI-AGING</span><i></i>
+      </div>
+      <div class="marquee__group" aria-hidden="true">
+        <span>AGING MAP 22</span><i></i>
+        <span class="dim">22 COORDINATES</span><i></i>
+        <span>6 AGING TYPES</span><i></i>
+        <span class="dim">PRECISION ANTI-AGING</span><i></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 AI Agent ===== -->
+  <section class="agent" id="agent">
+    <div class="agent__bg" aria-hidden="true">
+      <div class="agent__glow"></div>
+      <div class="agent__wave" id="agentWave" data-wave="light"></div>
+    </div>
+
+    <div class="agent__head">
+      <span class="chip"><i></i>AI SKIN AGENT &nbsp;·&nbsp; AGING MAP 22</span>
+      <h2>눈가, 볼, 턱 부위별로 다른 노화 특성<br>당신의 노화는 어떻게 진행되고 있을까요?</h2>
+      <p>유전, 뼈의 구조, 얼굴 근육의 발달, 그리고 피하 지방의 양에 따라<br>노화가 시작되는 부위와 그 형태가 완전히 다르게 나타납니다.<br>나에게 맞는 노화 타입(Aging Morphotypes)을 알면 더 확실한 동안 케어가 가능해집니다.</p>
+    </div>
+
+    <div class="agent__stage">
+      <div class="agent__face">
+        <div class="agent__faceclip">
+          <img src="assets/img/face.png" alt="Aging Map 22 얼굴 좌표">
+          <div class="agent__fade"></div>
+        </div>
+        <div class="callouts">
+          <svg class="colines" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="-1" y1="20" x2="42.0" y2="34.0" vector-effect="non-scaling-stroke"/><line x1="-1" y1="38" x2="35.0" y2="46.8" vector-effect="non-scaling-stroke"/><line x1="-1" y1="56" x2="34.2" y2="56.0" vector-effect="non-scaling-stroke"/><line x1="-1" y1="74" x2="41.5" y2="62.0" vector-effect="non-scaling-stroke"/><line x1="101" y1="24" x2="68.0" y2="38.5" vector-effect="non-scaling-stroke"/><line x1="101" y1="44" x2="59.5" y2="52.3" vector-effect="non-scaling-stroke"/><line x1="101" y1="64" x2="64.5" y2="71.0" vector-effect="non-scaling-stroke"/><line x1="101" y1="84" x2="53.5" y2="81.0" vector-effect="non-scaling-stroke"/></svg>
+          <span class="pt" style="--x:42.0%; --y:34.0%;"></span><span class="pt" style="--x:35.0%; --y:46.8%;"></span><span class="pt" style="--x:34.2%; --y:56.0%;"></span><span class="pt" style="--x:41.5%; --y:62.0%;"></span><span class="pt" style="--x:68.0%; --y:38.5%;"></span><span class="pt" style="--x:59.5%; --y:52.3%;"></span><span class="pt" style="--x:64.5%; --y:71.0%;"></span><span class="pt" style="--x:53.5%; --y:81.0%;"></span>
+          <span class="card is-left" style="--cy:20%;"><em>이마</em><b>탄력 저하 · 가로 주름</b></span><span class="card is-left" style="--cy:38%;"><em>눈가</em><b>잔주름 깊이 · 처짐</b></span><span class="card is-left" style="--cy:56%;"><em>볼</em><b>볼륨 소실 · 모공</b></span><span class="card is-left" style="--cy:74%;"><em>팔자</em><b>주름 각도 · 깊이</b></span><span class="card is-right" style="--cy:24%;"><em>관자</em><b>꺼짐 · 윤곽 변화</b></span><span class="card is-right" style="--cy:44%;"><em>눈밑</em><b>다크서클 · 지방 이동</b></span><span class="card is-right" style="--cy:64%;"><em>턱선</em><b>처짐 진행도</b></span><span class="card is-right" style="--cy:84%;"><em>목</em><b>재생 속도 · 가로선</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="agent__cta">
+      <a href="survey.html" class="btn btn--primary">노화 타입 진단 설문 시작하기 <span>→</span></a>
+      <p>최대 2분 정도 소요 &nbsp;·&nbsp; 비회원 간단 리포트 / 로그인 시 구매 이력 기반 상세 리포트</p>
+    </div>
+  </section>
+
+  <!-- ===== 03 Science band ===== -->
+  <section class="science">
+    <div class="science__inner">
+      <div class="science__def">
+        <span class="label">WHAT IS AGING MAP 22</span>
+        <p>눈가, 볼, 턱 등 노화가 드러나는 부위를 특징별로 세분화해<br>총 22개 좌표로 정밀하게 지도화한 그리드 체계입니다.</p>
+      </div>
+      <ul class="science__stats">
+        <li><b data-count="6">0</b><em>AGING TYPES</em><span>노화 타입 분류</span></li>
+        <li><b data-count="22">0</b><em>FACE POINTS</em><span>정밀 좌표</span></li>
+        <li><b data-count="2">0</b><em>MINUTES</em><span>설문 소요 시간</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 04 Products (sticky left / scroll right) ===== -->
+  <section class="products" id="products">
+    <div class="products__grid" aria-hidden="true"></div>
+    <div class="products__inner">
+      <div class="products__sticky">
+        <span class="label">PRODUCTS</span>
+        <h2>노화 타입에 맞춰<br>설계된 제품</h2>
+        <p>디바이스부터 코스메틱까지,<br>진단 결과에 맞춰 조합하는 6가지 라인업</p>
+        <a href="#" class="textlink">전체 제품 보기 <span>→</span></a>
+        <div class="products__progress">
+          <div class="num"><b id="prodIndex">01</b><em>/ 06</em></div>
+          <div class="track"><div class="fill" id="prodFill"></div></div>
+        </div>
+      </div>
+
+      <div class="products__viewport">
+        <div class="products__list">
+        <a class="pcard" href="#"><img src="assets/img/product-techfit.jpg" alt="테크핏 스탬핑 고주파 디바이스"><div class="pcard__cap"><em>01 — DEVICE</em><b>테크핏 스탬핑 고주파 디바이스</b></div></a>
+        <a class="pcard" href="#"><img src="assets/img/product-clb.png" alt="careCL CLB 고주파 마사지기"><div class="pcard__cap"><em>02 — DEVICE</em><b>careCL CLB 고주파 마사지기</b></div></a>
+        <a class="pcard" href="#"><img src="assets/img/product-mask.jpg" alt="그리드마스크 테크핏 콜라겐 마스크팩"><div class="pcard__cap"><em>03 — COSMETIC</em><b>그리드마스크 테크핏 콜라겐 마스크팩</b></div></a>
+        <a class="pcard" href="#"><img src="assets/img/product-serum.jpg" alt="케어클 라이트 토닝 세럼"><div class="pcard__cap"><em>04 — COSMETIC</em><b>케어클 라이트 토닝 세럼</b></div></a>
+        <a class="pcard" href="#"><img src="assets/img/product-gel.png" alt="케어클 콜라겐 젤"><div class="pcard__cap"><em>05 — COSMETIC</em><b>케어클 콜라겐 젤</b></div></a>
+        <a class="pcard" href="#"><img src="assets/img/product-bag.jpg" alt="케어클 피렌체백"><div class="pcard__cap"><em>06 — ACCESSORY</em><b>케어클 피렌체백</b></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 Brand story ===== -->
+  <section class="brand">
+    <div class="brand__glow" aria-hidden="true"></div>
+    <div class="brand__inner">
+      <div class="brand__copy">
+        <span class="brand__eyebrow"><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5 13.9 8.6 21 10.5 13.9 12.4 12 19.5 10.1 12.4 3 10.5 10.1 8.6Z"/><path class="s2" d="M19.2 15.2 20 18.1 22.9 18.9 20 19.7 19.2 22.6 18.4 19.7 15.5 18.9 18.4 18.1Z"/><path class="s3" d="M4.8 2.2 5.3 4.1 7.2 4.6 5.3 5.1 4.8 7 4.3 5.1 2.4 4.6 4.3 4.1Z"/></svg>OUR TECHNOLOGY &nbsp;·&nbsp; AGELESS BEAUTY</span>
+        <h2>클리닉의 기술을,<br>집 안의 루틴으로</h2>
+        <p>보톡스 · 써마지 등 미용 시술 17년 경력의 전문가가 설계한<br>고주파 스탬핑 디바이스. 문지르거나 굴리는 대신 열에너지를<br>수직으로 깊게 전달해, 진피층까지 정확하게 도달합니다.</p>
+        <a href="about.html" class="btn btn--ghost">회사소개 보기 <span>→</span></a>
+      </div>
+      <div class="brand__visual">
+        <img src="assets/img/product-techfit.jpg" alt="TECH FIT 디바이스">
+        <span class="brand__chip"><i></i>TECH FIT &nbsp;·&nbsp; 콜라겐 생성 2.23배 임상 완료</span>
+      </div>
+    </div>
+    <ul class="brand__stats">
+      <li><b data-count="17">0</b><em>YEARS</em><span>보톡스 · 써마지 시술 경력의 전문가 설계</span></li>
+      <li><b data-count="2.23" data-dec="2">0</b><em>TIMES</em><span>콜라겐 생성 증가 임상 완료</span></li>
+      <li><b data-count="2">0</b><em>WEEKS</em><span>탄력 · 피부결 변화 체감까지</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <p class="logo">CARECL</p>
+      <p class="tag">얼굴을 22개 좌표로 읽는<br>정밀 안티에이징 스킨케어</p>
+    </div>
+    <div class="footer__cols">
+      <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a><a href="mission-vision.html">Mission &amp; Vision</a></div>
+      <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="survey.html">나의 타입 알아보기</a></div>
+      <div><h4>AGING MAP 22</h4><a href="aging-map.html">Why Aging Map 22</a><a href="aging-map.html#areas">22개 관리 부위</a></div>
+      <div><h4>TECHNOLOGY</h4><a href="technology.html">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
+      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
+      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="location.html">오시는 길</a></div>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <p>CARECL CO.,Ltd. &nbsp;·&nbsp; CEO Hyungkyu Choi &nbsp;·&nbsp; 사업자등록번호 591-88-03097 &nbsp;·&nbsp; 통신판매업 제2025-고양일산동-0585호<br>
+    Rm 234, 2F, Sanhak Cooperation Hall, 32 Dongguk-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do, Republic of Korea<br>
+    TEL +82 31-943-1028 (Mon–Fri 10:00–18:00 / Lunch 12:00–13:00) &nbsp;·&nbsp; support@carecl.co.kr &nbsp;·&nbsp; © 2026 CARECL. All rights reserved.</p>
+    <div class="footer__sns"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
+  </div>
+</footer>
+
+<script src="libs/lenis.min.js"></script>
+<script src="libs/gsap.min.js"></script>
+<script src="libs/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=261001230431"></script>
+<script type="module" src="js/wave3d.js?v=261001230431"></script>
+<script src="js/nav.js?v=261001230431"></script>
+</body>
+</html>

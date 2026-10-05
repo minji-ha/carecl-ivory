@@ -1,50 +1,12 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>careCL 케어클 — 정밀하게 읽고, 부위별로 되돌리다</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=261006050212">
-<link rel="stylesheet" href="css/nav.css?v=261006050212">
-<link rel="stylesheet" href="css/theme-ivory.css?v=261006050212">
-<link rel="stylesheet" href="css/mainv2.css?v=261006050212">
-</head>
-<body class="main2">
+# -*- coding: utf-8 -*-
+"""메인페이지 v2 생성 — 케어클 노션 '메인페이지 뼈대' 구성. python build_main.py"""
+import io
+import time
+import parts
 
-<div class="announce">
-  <span class="announce__dot"></span>
-  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>
-</div>
+V = time.strftime('%y%m%d%H%M%S')
 
-<header class="header" id="header">
-  <nav class="header__nav header__nav--left"><div class="navitem"><a href="about.html">COMPANY</a><div class="dropdown"><div class="dropdown__inner"><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&D / Patent</a><a href="certification.html">Awards & Certification</a><a href="mission-vision.html">Mission & Vision</a></div></div></div><div class="navitem"><a href="aging-types.html">AGING LAB</a><div class="dropdown"><div class="dropdown__inner"><a href="aging-types.html#why">Why We Age Differently</a><a href="aging-types.html#types">6 Aging Types</a><a href="survey.html">나의 Aging Type 알아보기</a></div></div></div><div class="navitem has-badge"><a href="aging-map.html">AGING MAP 22</a><span class="aibadge" aria-hidden="true"><span class="aibadge__circle"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aibadge__txt">AI 피부 진단</span></span><div class="dropdown"><div class="dropdown__inner"><a href="aging-map.html#why">Why Aging Map 22</a><a href="aging-map.html#matrix">6 Types × 22 Areas</a><a href="aging-map.html#areas">Face / Neck & Body</a><a href="aging-map.html#care">Personalized Care</a></div></div></div></nav>
-  <a href="index.html" class="header__logo">CARECL</a>
-  <nav class="header__nav header__nav--right"><div class="navitem"><a href="technology.html">TECHNOLOGY</a><div class="dropdown"><div class="dropdown__inner"><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a><a href="technology.html#techfit">TECHFIT 적용 기술</a></div></div></div><div class="navitem"><a href="products.html">PRODUCTS</a><div class="dropdown"><div class="dropdown__inner"><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div></div></div><div class="navitem"><a href="contact.html">CONTACT</a><div class="dropdown"><div class="dropdown__inner"><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a><a href="location.html">오시는 길</a></div></div></div></nav>
-  <div class="header__util">
-    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>
-    <a href="#" class="shop">SHOP</a>
-    <a href="#" class="login">로그인</a>
-    <button type="button" class="allmenu" id="allMenuBtn" aria-label="전체 메뉴"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></button>
-  </div>
-</header>
-<div class="mega" id="megaMenu" aria-hidden="true">
-  <button type="button" class="mega__close" id="megaClose" aria-label="닫기"></button>
-  <div class="mega__inner">
-    <div class="mega__head"><span>ALL MENU</span><b>careCL</b></div>
-    <div class="mega__cols"><div class="mega__col"><h3><a href="about.html">COMPANY</a></h3><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&D / Patent</a><a href="certification.html">Awards & Certification</a><a href="mission-vision.html">Mission & Vision</a></div><div class="mega__col"><h3><a href="aging-types.html">AGING LAB</a></h3><a href="aging-types.html#why">Why We Age Differently</a><a href="aging-types.html#types">6 Aging Types</a><a href="survey.html">나의 Aging Type 알아보기</a></div><div class="mega__col"><h3><a href="aging-map.html">AGING MAP 22</a></h3><a href="aging-map.html#why">Why Aging Map 22</a><a href="aging-map.html#matrix">6 Types × 22 Areas</a><a href="aging-map.html#areas">Face / Neck & Body</a><a href="aging-map.html#care">Personalized Care</a></div><div class="mega__col"><h3><a href="technology.html">TECHNOLOGY</a></h3><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a><a href="technology.html#techfit">TECHFIT 적용 기술</a></div><div class="mega__col"><h3><a href="products.html">PRODUCTS</a></h3><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div><div class="mega__col"><h3><a href="contact.html">CONTACT</a></h3><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a><a href="location.html">오시는 길</a></div></div>
-    <div class="mega__foot">
-      <a href="survey.html" class="mega__cta">AI 피부 진단 시작하기 <span>→</span></a>
-      <p>TEL +82 31-943-1028 &nbsp;·&nbsp; support@carecl.co.kr</p>
-    </div>
-  </div>
-</div>
-
-
+BODY = """
 <main class="m2">
 
   <!-- 01 상단 배너 -->
@@ -257,32 +219,38 @@
   </section>
 
 </main>
+"""
 
+TPL = """<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>careCL 케어클 — 정밀하게 읽고, 부위별로 되돌리다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=%(v)s">
+<link rel="stylesheet" href="css/nav.css?v=%(v)s">
+<link rel="stylesheet" href="css/theme-ivory.css?v=%(v)s">
+<link rel="stylesheet" href="css/mainv2.css?v=%(v)s">
+</head>
+<body class="main2">
 
-<footer class="footer">
-  <div class="footer__top">
-    <div class="footer__brand">
-      <p class="logo">CARECL</p>
-      <p class="tag">얼굴을 22개 좌표로 읽는<br>정밀 안티에이징 스킨케어</p>
-    </div>
-    <div class="footer__cols">
-      <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a><a href="mission-vision.html">Mission &amp; Vision</a></div>
-      <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="survey.html">나의 타입 알아보기</a></div>
-      <div><h4>AGING MAP 22</h4><a href="aging-map.html">Why Aging Map 22</a><a href="aging-map.html#areas">22개 관리 부위</a></div>
-      <div><h4>TECHNOLOGY</h4><a href="technology.html">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
-      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
-      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="location.html">오시는 길</a></div>
-    </div>
-  </div>
-  <div class="footer__legal">
-    <p>CARECL CO.,Ltd. &nbsp;·&nbsp; CEO Hyungkyu Choi &nbsp;·&nbsp; 사업자등록번호 591-88-03097 &nbsp;·&nbsp; 통신판매업 제2025-고양일산동-0585호<br>
-    Rm 234, 2F, Sanhak Cooperation Hall, 32 Dongguk-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do, Republic of Korea<br>
-    TEL +82 31-943-1028 (Mon–Fri 10:00–18:00 / Lunch 12:00–13:00) &nbsp;·&nbsp; support@carecl.co.kr &nbsp;·&nbsp; © 2026 CARECL. All rights reserved.</p>
-    <div class="footer__sns"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
-  </div>
-</footer>
+%(header)s
 
-<script src="js/mainv2.js?v=261006050212"></script>
-<script src="js/nav.js?v=261006050212"></script>
+%(body)s
+
+%(footer)s
+
+<script src="js/mainv2.js?v=%(v)s"></script>
+<script src="js/nav.js?v=%(v)s"></script>
 </body>
 </html>
+"""
+
+html = TPL % {"v": V, "header": parts.header(active=None), "body": BODY, "footer": parts.FOOTER}
+io.open("index.html", "w", encoding="utf-8").write(html)
+print("built index.html", V)
