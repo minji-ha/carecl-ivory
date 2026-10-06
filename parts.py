@@ -70,9 +70,7 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         return ('<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
                 % (' has-badge' if badge else '', href, cls, label, badge, drop))
 
-    half = (len(MENU) + 1) // 2
-    left = "".join(item(*m) for m in MENU[:half])
-    right = "".join(item(*m) for m in MENU[half:])
+    nav = "".join(item(*m) for m in MENU)
     rows = [
         '<div class="announce">',
         '  <span class="announce__dot"></span>',
@@ -80,9 +78,8 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         '</div>',
         '',
         '<header class="header" id="header">',
-        '  <nav class="header__nav header__nav--left">' + left + '</nav>',
         '  <a href="' + logo_href + '" class="header__logo">CARECL</a>',
-        '  <nav class="header__nav header__nav--right">' + right + '</nav>',
+        '  <nav class="header__nav">' + nav + '</nav>',
         '  <div class="header__util">',
         '    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>',
         '    <a href="#" class="shop">SHOP</a>',

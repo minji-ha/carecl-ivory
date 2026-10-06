@@ -321,14 +321,23 @@ h1,h2,h3,h4,p,blockquote,.hero__sub{word-break:keep-all;}
 body.sub .allmenu:hover span:nth-child(5),
 body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}
 
-/* ---------- 헤더 : 로고 좌측 + 메뉴 가로 정렬 (전 해상도 공통) ---------- */
+/* ---------- 헤더 : 로고 좌측 · 메뉴 가운데 · 유틸 우측 ---------- */
 .header{justify-content:flex-start;}
-.header__logo{position:static;transform:none;order:0;margin-right:clamp(24px,3vw,56px);}
-.header__nav--left{order:1;}
-.header__nav--right{order:2;}
-.header__util{order:3;margin-left:auto;}
-.header__nav--right + .header__util{margin-left:auto;}
+.header__logo{position:static;transform:none;order:0;margin-right:auto;}
+.header__nav{position:absolute;left:50%;transform:translateX(-50%);height:100%;}
+.header__util{order:2;margin-left:auto;}
+@media (max-width:1460px){
+  .navitem{padding:0 14px;}
+  .header__util{gap:18px;}
+}
+@media (max-width:1300px){
+  /* 좁아지면 가운데 정렬을 풀고 로고 옆으로 */
+  .header__nav{position:static;transform:none;margin-left:clamp(20px,3vw,48px);}
+  .header__logo{margin-right:0;}
+  .navitem{padding:0 12px;}
+}
 @media (max-width:1280px){
-  .navitem{padding:0 11px;}
-  .header__logo{margin-right:20px;font-size:22px;}
+  .header__logo{font-size:22px;}
+  .navitem{padding:0 10px;}
+  .navitem > a{font-size:12.5px;}
 }
