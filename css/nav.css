@@ -4,8 +4,8 @@
 
 /* ---------- 드롭다운 ---------- */
 .header__nav{display:flex;gap:0;height:100%;align-items:stretch;}
-.header__nav--left{margin-right:auto;}
-.header__nav--right{margin-left:auto;padding-left:40px;}
+.header__nav--left{margin-right:0;}
+.header__nav--right{margin-left:0;padding-left:0;}
 .header__nav--right + .header__util{margin-left:40px;}
 .navitem{position:relative;display:flex;align-items:center;padding:0 19px;}
 .navitem > a{
@@ -157,14 +157,6 @@ body.mega-open .mega__col:nth-child(4){transition-delay:.26s}
 body.mega-open .mega__col:nth-child(5){transition-delay:.32s}
 
 /* ---------- 반응형 ---------- */
-/* 1360 이하: 로고 중앙 배치 시 메뉴와 겹치므로 좌측 로고 + 메뉴 흐름으로 전환 */
-@media (max-width:1560px){
-  .header{justify-content:flex-start;}
-  .header__logo{position:static;transform:none;order:0;margin-right:30px;}
-  .header__nav--left{order:1;margin-right:0;}
-  .header__nav--right{order:2;margin-left:0;}
-  .header__util{order:3;margin-left:auto;}
-}
 @media (max-width:1280px){
   .navitem{padding:0 13px;}
   .navitem > a{font-size:13px;}

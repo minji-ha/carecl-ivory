@@ -320,3 +320,15 @@ h1,h2,h3,h4,p,blockquote,.hero__sub{word-break:keep-all;}
 .header.is-light .allmenu:hover span:nth-child(5),
 body.sub .allmenu:hover span:nth-child(5),
 body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}
+
+/* ---------- 헤더 : 로고 좌측 + 메뉴 가로 정렬 (전 해상도 공통) ---------- */
+.header{justify-content:flex-start;}
+.header__logo{position:static;transform:none;order:0;margin-right:clamp(24px,3vw,56px);}
+.header__nav--left{order:1;}
+.header__nav--right{order:2;}
+.header__util{order:3;margin-left:auto;}
+.header__nav--right + .header__util{margin-left:auto;}
+@media (max-width:1280px){
+  .navitem{padding:0 11px;}
+  .header__logo{margin-right:20px;font-size:22px;}
+}
