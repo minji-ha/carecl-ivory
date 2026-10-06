@@ -62,7 +62,7 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         if label not in DROPDOWN_ONLY:
             subs = []
         cls = ' class="is-active"' if active == label else ''
-        badge = AI_BADGE if label == "AGING MAP 22" else ""
+        badge = AI_BADGE if label == "AGING LAB" else ""
         drop = ''
         if subs:
             sub = "".join('<a href="%s">%s</a>' % (h, t) for t, h in subs)
