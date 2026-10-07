@@ -481,3 +481,9 @@ body.sub .submenu a.is-active::after{content:'';}
 /* 헤더 하단 1px 선이 드롭다운 위로 올라오던 문제 — 드롭다운을 위로 */
 .dropdown{z-index:6;}
 .navitem{z-index:5;}
+
+/* 헤더(와 그 안의 드롭다운)를 본문보다 확실히 위로 */
+.header{z-index:90;}
+.announce{z-index:91;}
+.dropdown{z-index:8;}
+body.sub main, body.survey main{position:relative;z-index:0;}
