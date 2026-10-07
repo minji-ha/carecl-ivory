@@ -307,7 +307,7 @@ carecl_tech = """<section class="sec" id="stamping">
 <section class="sec" id="shot">
   <div class="wrap">
     <div class="splitfig splitfig--rev">
-      <div class="splitfig__img"><img src="assets/img/p-mask-close.jpg" alt=""></div>
+      <div class="splitfig__img"><img src="assets/img/cc-stamping-c.jpg" alt=""></div>
       <div class="splitfig__copy">
         <h3>%s</h3>
         <div class="story__body">%s</div>
@@ -332,7 +332,7 @@ carecl_tech = """<section class="sec" id="stamping">
     %s
     <h2>지도에서 스탬핑으로</h2>
     <div class="splitfig">
-      <div class="splitfig__img"><img src="assets/img/p-mask-device.jpg" alt=""></div>
+      <div class="splitfig__img"><img src="assets/img/p-mask-close.jpg" alt=""></div>
       <div class="splitfig__copy">
         <div class="story__body">%s%s</div>
       </div>

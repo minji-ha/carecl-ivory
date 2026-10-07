@@ -147,7 +147,7 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
 <section class="sec" id="shot">
   <div class="wrap">
     <div class="splitfig splitfig--rev">
-      <div class="splitfig__img"><img src="assets/img/p-mask-close.jpg" alt=""></div>
+      <div class="splitfig__img"><img src="assets/img/cc-stamping-c.jpg" alt=""></div>
       <div class="splitfig__copy">
         <h3>TECH FIT의 SHOT 모드</h3>
         <div class="story__body"><p>TECH FIT의 SHOT 모드는 관리하고 싶은 부위에 헤드를 밀착한 뒤 약 5초 동안 한 위치에 머무르고, 한 번의 SHOT이 끝나면 다음 위치로 이동하는 스탬핑 방식으로 설계되었습니다.</p></div>
@@ -172,7 +172,7 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
     <div class="seclabel"><i></i><span>FROM MAP TO STAMP</span></div>
     <h2>지도에서 스탬핑으로</h2>
     <div class="splitfig">
-      <div class="splitfig__img"><img src="assets/img/p-mask-device.jpg" alt=""></div>
+      <div class="splitfig__img"><img src="assets/img/p-mask-close.jpg" alt=""></div>
       <div class="splitfig__copy">
         <div class="story__body"><p><strong>AGING MAP 22가 관리할 위치를 찾는 지도라면,</strong><br><strong>5 SEC. STAMPING은 그 위치를 관리하는 방법입니다.</strong></p><p>careCL은 얼굴과 목, 바디를 관리 포인트로 세분화하고, 그 위치를 하나씩 관리할 수 있도록 스탬핑 방식을 연결했습니다.</p><p>여기에 GRID MASK TECH FIT을 함께 사용하면 격자를 따라 한 칸씩 이동하며 관리 위치를 보다 쉽게 확인할 수 있습니다.</p></div>
       </div>

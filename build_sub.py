@@ -281,7 +281,6 @@ BODY["aging-map"] = """<section class="sec" id="why">
     """ + label("FACE / NECK & BODY", "22개 관리 부위") + """
     <h2>얼굴 22개 좌표</h2>
     <p class="mv__sub">부위 목록과 부위별 노화 특징은 케어클 정의서 수급 후 반영합니다.</p>
-    <div class="history__img"><em>AGING MAP 22</em><span>부위 지도 이미지 준비 중</span></div>
   </div>
 </section>
 <section class="sec sec--grey" id="care">

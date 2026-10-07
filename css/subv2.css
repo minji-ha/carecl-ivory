@@ -425,3 +425,12 @@ body.sub .proof .note{margin-top:18px;}
 body.sub .proof__org{
   margin-top:10px;font-size:12.5px;letter-spacing:.02em;color:var(--sage,#9C948B);
 }
+
+/* 기술 페이지 본문 이미지 : 비율을 통일해 좌우 균형 맞춤 */
+body.sub #shot .splitfig__img,
+body.sub #maptostamp .splitfig__img{aspect-ratio:4/5;}
+body.sub #shot .splitfig__img img,
+body.sub #maptostamp .splitfig__img img{height:100%;object-fit:cover;object-position:center;}
+body.sub #shot .splitfig,
+body.sub #maptostamp .splitfig{grid-template-columns:minmax(0,.9fr) 1fr;align-items:center;}
+body.sub #maptostamp .splitfig{grid-template-columns:1fr minmax(0,.9fr);}
