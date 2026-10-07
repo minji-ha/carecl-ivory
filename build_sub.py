@@ -343,6 +343,12 @@ BODY["contact"] = """<section class="sec">
   </div>
 </section>"""
 
+try:
+    import content_bodies
+    BODY.update(content_bodies.BODY)
+except ImportError:
+    pass
+
 TPL = """<!DOCTYPE html>
 <html lang="ko">
 <head>
