@@ -53,6 +53,22 @@ def split(img, h3, body, rev=False):
             '</div></div></section>') % (" splitfig--rev" if rev else "", img, h3, body)
 
 
+
+def points(*idx):
+    """번호가 붙은 핵심 포인트 블록"""
+    return "".join(
+        '<div class="point"><span class="point__no">%02d</span><p>%s</p></div>' % (n, t(i).rstrip(','))
+        for n, i in enumerate(idx, start=1))
+
+
+def flow():
+    """UNDERSTAND → LOCATE → STAMP 3단계"""
+    steps = [("UNDERSTAND", t(192)), ("LOCATE", t(193)), ("STAMP", t(194))]
+    return "".join(
+        '<div class="flow__step"><em>%s</em><b>%s</b><p>%s</p></div>' % (("0%d" % n), en, kr.rstrip(','))
+        for n, (en, kr) in enumerate(steps, start=1))
+
+
 def label(en, kr):
     if not en and not kr:
         return ""
@@ -277,36 +293,34 @@ technology = """<section class="sec" id="basic">
     <h2>%s</h2>
     <div class="story__body">
       %s
-      %s
+    </div>
+    <blockquote class="bigquote"><span>%s</span></blockquote>
+    <div class="story__body">
       %s
     </div>
   </div>
 </section>
 
-<section class="sec sec--grey" id="why5">
+<section class="sec" id="why5">
   <div class="wrap">
     %s
     <h2>왜 5초인가</h2>
-    <div class="story__body">
-      %s
-      %s
-      %s
-      %s
-    </div>
+    <div class="story__body">%s</div>
+    <div class="points">%s</div>
+    <div class="story__body">%s</div>
   </div>
 </section>
 
-<section class="sec" id="maptostamp">
+<section class="sec sec--grey" id="maptostamp">
   <div class="wrap">
     %s
     <h2>지도에서 스탬핑으로</h2>
     <div class="story__body">
       %s
       %s
-      %s
-      %s
-      %s
     </div>
+    <div class="flow">%s</div>
+    <div class="story__body">%s</div>
   </div>
 </section>
 
@@ -338,15 +352,20 @@ technology = """<section class="sec" id="basic">
     "".join(blocks),
     label("RF vs ULTRASOUND", ""), t(144), thead, tbody,
     label("5 SEC. STAMPING", ""), t(170),
-    p(169), ps(171, 172, 173, 174), plines(175, 176) + p(177),
+    ps(171, 172, 173, 174),
+    t(175) + "<br>" + t(176),
+    p(177),
     label("WHY 5 SECONDS?", ""),
-    p(179), ul(180, 181, 182), p(183), ps(184, 185),
+    p(179),
+    points(180, 181, 182),
+    ps(184, 185),
     label("FROM MAP TO STAMP", ""),
     plines(187, 188), ps(189, 190),
-    p(191), plines(192, 193, 194), p(195),
+    flow(),
+    p(195),
     label("PATENTED TECHNOLOGY", ""), "특허 기술",
-    p(198), t(200), t(201),
-    label("EVIDENCE", ""), t(205), t(206),
+    p(198), t(200), t(201).replace(" …….", "").replace("…….", ""),
+    label("EVIDENCE", ""), t(205), t(206).strip(),
 )
 
 
@@ -426,7 +445,7 @@ story = story.replace('<section class="sec sec--grey" id="understand">',
 # TECHNOLOGY는 2뎁스 2개 → 페이지 2개로 나눈다
 _i = technology.index('<section class="sec" id="stamping">')
 tech_basic = technology[:_i].rstrip() + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
-_j = technology.index('<section class="sec sec--grey" id="why5">')
+_j = technology.index(chr(60) + "section class=\"sec\" id=\"why5\">")
 tech_carecl = technology[_i:_j].rstrip() + chr(10) + FIG_STAMPING + chr(10) + technology[_j:]
 aging_types_full = aging_why + chr(10) + aging_types
 
