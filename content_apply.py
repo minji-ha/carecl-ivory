@@ -366,14 +366,11 @@ certification = """<section class="sec">
     <h2>국제 인증과 품질 경영 체계</h2>
     <p class="mv__sub">특허청 · 인증기관에서 발급한 인증서 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
     <div class="docgrid">%s</div>
-    %s
-    <p class="note" style="margin-top:28px">* 인증서 원본(병합본)은 PDF로도 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
+    <p class="note" style="margin-top:28px">* 개별 인증서 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>""" % (
     label("AWARDS & CERTIFICATION", ""),
     CERT_CARDS,
-    doclist([("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본",
-              "assets/docs/carecl-certifications.pdf", "1.1MB")]),
 )
 
 
@@ -383,7 +380,6 @@ rnd = """<section class="sec">
     <h2>등록 특허</h2>
     <div class="story__body">%s</div>
     <div class="docgrid">%s</div>
-    %s
     <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>
@@ -398,8 +394,6 @@ rnd = """<section class="sec">
 </section>""" % (
     label("PATENT", ""), p(198),
     PATENT_CARDS,
-    doclist([("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호 외 3건",
-              "assets/docs/carecl-patents.pdf", "974KB")]),
     label("TEST REPORT", ""),
 )
 
