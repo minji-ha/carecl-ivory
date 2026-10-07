@@ -277,12 +277,8 @@ body.sub .doc__meta{flex:none;font-family:var(--display,serif);font-size:12.5px;
   display:block;margin-top:8px;font-size:13.5px;line-height:1.65;
   color:var(--n-600,#6B635B);word-break:keep-all;
 }
-.docrow__txt em{
-  display:block;margin-top:10px;font-style:normal;font-family:var(--en,'Inter',sans-serif);
-  font-size:11px;font-weight:500;letter-spacing:.14em;color:var(--sage,#9C948B);
-}
 .docrow__more{
-  display:inline-block;margin-top:14px;font-style:normal;
+  display:inline-block;margin-top:12px;font-style:normal;
   font-size:12px;letter-spacing:-.01em;color:var(--orange,#C46A3A);
 }
 .docrow__more span{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1);}
