@@ -355,46 +355,40 @@ def doclist(items):
     return '<div class="docs">%s</div>' % "".join(rows)
 
 
-PATENT_CARDS = """<figure class="cert"><a href="assets/img/patent/patent-1.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-1.jpg" alt="제 10-2799588 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799588 호</b><span>고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-3.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-3.jpg" alt="제 10-2799593 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799593 호</b><span>고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-4.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-4.jpg" alt="제 10-2938674 호 특허증" loading="lazy"></a><figcaption><b>제 10-2938674 호</b><span>피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법, 시스템, 피부 마사지기 및 비일시성의 컴퓨터 판독 가능 기록 매체</span><em>2026.03.09 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-2.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-2.jpg" alt="제 10-1647183 호 특허증" loading="lazy"></a><figcaption><b>제 10-1647183 호</b><span>치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span><em>2016.08.03 등록</em></figcaption></figure>"""
+CERT_CARDS = """<figure class="doccard"><a href="assets/img/doc/cert-ce.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-ce.jpg" alt="CE" loading="lazy"></a><figcaption><b>CE</b><span>Declaration of Conformity</span><em>EMC 2014/30/EU</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/cert-fcc.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-fcc.jpg" alt="FCC" loading="lazy"></a><figcaption><b>FCC</b><span>Supplier's Declaration of Conformity</span><em>CFR47 Part 15 Subpart B</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/cert-iso9001-en.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-iso9001-en.jpg" alt="ISO 9001:2015" loading="lazy"></a><figcaption><b>ISO 9001:2015</b><span>Quality Management System</span><em>TQCSI · 2025.10.22</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/cert-iso9001-kr.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-iso9001-kr.jpg" alt="ISO 9001:2015" loading="lazy"></a><figcaption><b>ISO 9001:2015</b><span>품질경영시스템 인증서</span><em>TQCSI · 2025.10.22</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/cert-iso14001-en.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-iso14001-en.jpg" alt="ISO 14001:2015" loading="lazy"></a><figcaption><b>ISO 14001:2015</b><span>Environmental Management System</span><em>TQCSI · 2025.10.22</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/cert-iso14001-kr.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/cert-iso14001-kr.jpg" alt="ISO 14001:2015" loading="lazy"></a><figcaption><b>ISO 14001:2015</b><span>환경경영시스템 인증서</span><em>TQCSI · 2025.10.22</em></figcaption></figure>"""
+
+PATENT_CARDS = """<figure class="doccard"><a href="assets/img/doc/patent-2938674.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/patent-2938674.jpg" alt="제 10-2938674 호" loading="lazy"></a><figcaption><b>제 10-2938674 호</b><span>피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법</span><em>2026.03.09 등록</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/patent-2799588.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/patent-2799588.jpg" alt="제 10-2799588 호" loading="lazy"></a><figcaption><b>제 10-2799588 호</b><span>고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/patent-2799593.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/patent-2799593.jpg" alt="제 10-2799593 호" loading="lazy"></a><figcaption><b>제 10-2799593 호</b><span>고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="doccard"><a href="assets/img/doc/patent-1647183.jpg" target="_blank" rel="noopener"><img src="assets/img/doc/patent-1647183.jpg" alt="제 10-1647183 호" loading="lazy"></a><figcaption><b>제 10-1647183 호</b><span>치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span><em>2016.08.03 등록</em></figcaption></figure>"""
 
 
 certification = """<section class="sec">
   <div class="wrap">
     %s
     <h2>국제 인증과 품질 경영 체계</h2>
-    <p class="mv__sub">케어클이 보유한 인증서를 원문 그대로 확인하실 수 있습니다.</p>
+    <p class="mv__sub">특허청 · 인증기관에서 발급한 인증서 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+    <div class="docgrid">%s</div>
     %s
-    <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    %s
-    <h2>등록 특허</h2>
-    <p class="mv__sub">특허청에 등록된 특허증 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
-    <div class="certs">%s</div>
-    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
+    <p class="note" style="margin-top:28px">* 인증서 원본(병합본)은 PDF로도 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
   </div>
 </section>""" % (
     label("AWARDS & CERTIFICATION", ""),
+    CERT_CARDS,
     doclist([("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본",
               "assets/docs/carecl-certifications.pdf", "1.1MB")]),
-    label("PATENT", ""),
-    PATENT_CARDS,
 )
 
 
 rnd = """<section class="sec">
   <div class="wrap">
     %s
-    <h2>특허 기술</h2>
+    <h2>등록 특허</h2>
     <div class="story__body">%s</div>
+    <div class="docgrid">%s</div>
     %s
+    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>
 
-<section class="sec sec--grey">
+<section class="sec">
   <div class="wrap">
     %s
     <h2>시험 성적서</h2>
@@ -402,10 +396,11 @@ rnd = """<section class="sec">
     <p class="note" style="margin-top:24px">* 시험 성적서 원문은 비공개 자료입니다. 필요하신 경우 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>""" % (
-    label("PATENT", "특허"), p(198),
-    doclist([("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호",
+    label("PATENT", ""), p(198),
+    PATENT_CARDS,
+    doclist([("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호 외 3건",
               "assets/docs/carecl-patents.pdf", "974KB")]),
-    label("TEST REPORT", "시험 성적서"),
+    label("TEST REPORT", ""),
 )
 
 
