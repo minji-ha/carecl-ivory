@@ -273,14 +273,14 @@ BODY["aging-map"] = """<section class="sec" id="why">
   <div class="wrap">
     """ + label("6 TYPES × 22 AREAS", "유형과 부위의 조합") + """
     <h2>같은 부위라도<br>타입에 따라 관리가 달라집니다</h2>
-    <p class="mv__sub">6가지 유형과 22개 부위를 교차해 개인별 관리 순서를 도출합니다. 조합 기준표는 판정 기준 확정 후 공개합니다.</p>
+    <p class="mv__sub">6가지 유형과 22개 부위를 교차해 개인별 관리 순서를 도출합니다.</p>
   </div>
 </section>
 <section class="sec" id="areas">
   <div class="wrap">
     """ + label("FACE / NECK & BODY", "22개 관리 부위") + """
     <h2>얼굴 22개 좌표</h2>
-    <p class="mv__sub">부위 목록과 부위별 노화 특징은 케어클 정의서 수급 후 반영합니다.</p>
+    <p class="mv__sub">얼굴과 목 · 바디를 22개 좌표로 나누어 관리 부위를 정의합니다.</p>
   </div>
 </section>
 <section class="sec sec--grey" id="care">
@@ -328,8 +328,8 @@ BODY["products"] = """<section class="sec" id="device">
     """ + label("BEAUTY DEVICE", "뷰티 디바이스") + """
     <h2>진단 결과에 맞춰<br>조합하는 디바이스</h2>
     <div class="pillars" style="margin-top:50px">
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><h3>DEVICE</h3><h4>TECHFIT</h4><p>5초 스탬핑 고주파 디바이스. 상세 페이지 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-clb.png" alt="CLB"></div><h3>DEVICE</h3><h4>CLB</h4><p>고주파 마사지기. 상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><h3>DEVICE</h3><h4>TECHFIT</h4><p>5초 스탬핑 고주파 디바이스</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-clb.png" alt="CLB"></div><h3>DEVICE</h3><h4>CLB</h4><p>고주파 마사지기</p></div>
       <div class="pillar"><div class="pillar__img"><em>COMING</em><span>향후 Device</span></div><h3>DEVICE</h3><h4>향후 라인업</h4><p>추가 디바이스가 이어집니다.</p></div>
     </div>
   </div>
@@ -352,12 +352,11 @@ BODY["cosmetics"] = """<section class="sec" id="cosmetics">
     """ + label("COSMETICS", "코스메틱") + """
     <h2>디바이스와 함께 쓰는<br>전용 코스메틱</h2>
     <div class="pillars" style="margin-top:50px">
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><h3>COSMETIC</h3><h4>Collagen Booster Gel</h4><p>상세 정보 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><h3>COSMETIC</h3><h4>Grid Mask</h4><p>상세 정보 준비 중입니다.</p></div>
-      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><h3>COSMETIC</h3><h4>Toning Serum</h4><p>상세 정보 준비 중입니다.</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><h3>COSMETIC</h3><h4>Collagen Booster Gel</h4><p>디바이스와 함께 쓰는 콜라겐 부스터 젤</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><h3>COSMETIC</h3><h4>Grid Mask</h4><p>관리 부위를 안내하는 그리드 마스크</p></div>
+      <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><h3>COSMETIC</h3><h4>Toning Serum</h4><p>디바이스 사용 전후에 쓰는 토닝 세럼</p></div>
     </div>
-    <p class="note" style="margin-top:40px">* 제품명 · 용량 · 사용법 등 표기 항목은 케어클 확정 자료 기준으로 교체 예정입니다.</p>
-  </div>
+      </div>
 </section>
 """ + figbreak("p-mask-face.jpg", "GRID MASK TECH FIT", "그리드 위에 정확히, 부위별로", width=760) + """
 <section class="sec">

@@ -561,7 +561,6 @@ body.sub .submenu a{letter-spacing:-.01em;}
   .aifab__ico{width:30px;height:30px;}
   .aifab__txt{font-size:14px;}
 }
-body.survey .aifab{display:none;}
 
 /* 커서를 따라다니는 careCL */
 .cursorword{position:fixed;inset:0;pointer-events:none;z-index:96;opacity:0;transition:opacity .4s ease;}

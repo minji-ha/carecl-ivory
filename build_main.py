@@ -79,7 +79,6 @@ BODY = """
           <button type="button" data-roll-next aria-label="다음 배너"><i class="fa-solid fa-angle-right"></i></button>
         </div>
       </div>
-      <p class="mroll__note">* 배너는 신제품 · 진단 · 코스메틱 순으로 순환합니다. 장수와 문구는 케어클 확정본으로 교체 예정입니다.</p>
     </div>
   </section>
 
@@ -201,7 +200,6 @@ BODY = """
         <div class="mstep__card"><span class="mstep__no">04</span><em>RECOVERY</em><b>채웁니다</b><p>전용 코스메틱으로 전달 직후의 피부를 안정시킵니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">05</span><em>MAINTAIN</em><b>이어갑니다</b><p>주 2~3회 같은 자리를 반복해 변화를 기록합니다.</p></div>
       </div>
-      <p class="mroll__note">* 단계별 문구와 사용 주기는 케어클 확정 원고 기준으로 교체 예정입니다.</p>
     </div>
   </section>
 
