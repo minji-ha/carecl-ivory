@@ -394,8 +394,6 @@ body.sub .sec h2{letter-spacing:-.04em;line-height:1.42;}
 /* 서브 탭 — 글자 간격을 넓혀 정돈된 인상 */
 body.sub .submenu a{letter-spacing:.01em;}
 
-/* 푸터 윗여백 */
-.footer__top{padding-top:clamp(60px,6vw,96px);}
 
 /* 비주얼 폭 제한 — 원본 해상도를 넘겨 늘어나지 않게 */
 .figbreak[style*="--fw"] .figbreak__img{max-width:var(--fw);margin:0 auto;height:auto;}
