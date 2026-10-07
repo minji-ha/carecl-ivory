@@ -459,3 +459,16 @@ body.survey .header,
 .header.is-light{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;}
 body.sub .submenu,
 body.survey .submenu{background:#fff;}
+
+/* 드롭다운 항목 : 마우스 올렸을 때 선·띠 없이 글자 색만 바뀌도록 */
+.dropdown a,
+.dropdown a:hover,
+.dropdown a:focus,
+.dropdown a.dropdown__d2,
+.dropdown a.dropdown__d2:hover{
+  background:transparent !important;
+  text-decoration:none;border:0;box-shadow:none;
+}
+.dropdown a:hover,
+.dropdown a.dropdown__d2:hover{color:var(--orange);}
+.dropdown a::after,.dropdown a::before{display:none !important;}
