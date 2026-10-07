@@ -42,9 +42,12 @@
   --foot-bg:#ECE7E0;
   --foot-line:#DCD4CA;
 
-  /* 2026-10 : 전체 고딕체로 통일 */
-  --serif:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
-  --display:'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* 2026-10 : Pretendard 로 통일 */
+  --pre:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --kr:var(--pre);
+  --en:var(--pre);
+  --serif:var(--pre);
+  --display:var(--pre);
 }
 
 /* ---------- Aging Map 22 영역도 오렌지 포인트로 통일 (2026-10 결정) ---------- */
@@ -493,3 +496,13 @@ body.sub main, body.survey main{position:relative;z-index:0;}
 body.sub .header,
 body.survey .header,
 .header.is-light{box-shadow:0 1px 0 var(--n-200,#E5DFD8);}
+
+
+/* Pretendard 적용 — style.css 의 기본 폰트 변수까지 덮어쓴다 */
+:root,body{
+  --kr:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --en:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif:var(--kr);
+  --display:var(--en);
+}
+body{font-family:var(--kr);}

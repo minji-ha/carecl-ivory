@@ -264,14 +264,14 @@ body.sub .doc__meta{flex:none;font-family:var(--display,serif);font-size:12.5px;
 .doccard__img img{
   width:100%;height:100%;object-fit:contain;object-position:center top;display:block;
 }
-.doccard__txt{display:block;margin-top:18px;}
+.doccard__txt{display:block;margin-top:16px;}
 .doccard__txt b{
-  display:block;font-family:var(--en,'Inter',sans-serif);font-size:15.5px;font-weight:600;
-  letter-spacing:.01em;color:var(--ink,#2B2724);line-height:1.45;
+  display:block;font-size:15px;font-weight:600;
+  letter-spacing:-.01em;color:var(--ink,#2B2724);line-height:1.5;
 }
 .doccard__desc{
-  display:block;margin-top:9px;font-size:13.5px;line-height:1.7;
-  color:var(--n-600,#6B635B);word-break:keep-all;
+  display:block;margin-top:7px;font-size:13.5px;line-height:1.6;
+  letter-spacing:-.015em;color:var(--n-600,#6B635B);word-break:keep-all;
 }
 
 @media (max-width:1100px){
