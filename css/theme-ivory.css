@@ -506,3 +506,32 @@ body.survey .header,
   --display:var(--en);
 }
 body{font-family:var(--kr);}
+
+/* =========================================================
+   Pretendard 기준 자간 정리 (2026-10)
+   — 한글은 살짝 좁게, 영문 라벨은 과하게 벌어지지 않게
+   ========================================================= */
+body,p,li,dd,dt,td,th,span,a,figcaption{letter-spacing:-.01em;}
+h1,h2,h3,h4{letter-spacing:-.025em;}
+.mhero h1{letter-spacing:-.03em;}
+
+/* 영문 아이브로우 · 라벨 : 0.3em → 0.14em */
+.seclabel span,
+body.sub .seclabel span,
+.mpick__head .label,
+.mhero__eyebrow,
+.figbreak__cap em,
+.intro__tag{letter-spacing:.14em;}
+
+/* 로고·버튼 등 넓은 자간이 필요한 곳만 유지 */
+.header__logo,.footer__brand .logo,.intro__logo{letter-spacing:.2em;}
+.mhero__scroll span,.hero__scroll span{letter-spacing:.16em;}
+
+/* 문서 카드 */
+.doccard__txt b{letter-spacing:-.01em;}
+.doccard__desc{letter-spacing:-.012em;}
+
+/* 메뉴 */
+.navitem > a{letter-spacing:.04em;}
+.dropdown a{letter-spacing:-.01em;}
+body.sub .submenu a{letter-spacing:-.01em;}

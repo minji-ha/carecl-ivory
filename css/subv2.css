@@ -288,3 +288,7 @@ body.sub .doc__meta{flex:none;font-family:var(--display,serif);font-size:12.5px;
 
 
 
+
+/* Pretendard 기준 : 영문 라벨 자간 축소 (subv2 가 마지막에 로드되므로 여기서 덮어쓴다) */
+body.sub .seclabel span{letter-spacing:.14em;font-size:12.5px;}
+body.sub .figbreak__cap em{letter-spacing:.14em;}

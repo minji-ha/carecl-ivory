@@ -57,7 +57,7 @@ def label(en, kr):
     if not en and not kr:
         return ""
     txt = '%s &nbsp;·&nbsp; %s' % (en, kr) if kr else en
-    return '<div class="seclabel"><i></i><span>%s</figcaption></figure>' % txt
+    return '<div class="seclabel"><i></i><span>%s</span></div>' % txt
 
 
 # ───────────────────────────────── About careCL
@@ -364,7 +364,7 @@ certification = """<section class="sec">
   <div class="wrap">
     %s
     <h2>국제 인증과 품질 경영 체계</h2>
-    <p class="mv__sub">특허청 · 인증기관에서 발급한 인증서 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+    <p class="mv__sub">특허청 · 인증기관에서 발급한 인증서 원본입니다.</p>
     <div class="docgrid docgrid--3">%s</div>
   </div>
 </section>""" % (
