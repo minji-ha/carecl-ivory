@@ -11,9 +11,14 @@ PAGE_TITLE = {
     "certification": ("Awards & Certification", "수상 · 인증"),
     "aging-types":   ("6 Aging Types", "6가지 노화 타입"),
     "aging-map":     ("Aging Map 22", "22개 관리 부위"),
-    "technology":    ("Technology", "기술 소개"),
-    "products":      ("Products", "제품"),
-    "contact":       ("Contact", "문의"),
+    "technology":    ("Beauty Device Technology", "홈뷰티 디바이스 기술"),
+    "carecl-technology": ("careCL Technology", "케어클 기술"),
+    "products":      ("Beauty Device", "뷰티 디바이스"),
+    "cosmetics":     ("Cosmetics", "코스메틱"),
+    "contact":       ("Global Business", "해외 사업 문의"),
+    "partnership":   ("Distributor / Partnership", "유통 · 제휴 문의"),
+    "press":         ("Media / PR", "미디어 문의"),
+    "inquiry":       ("General Inquiry", "일반 문의"),
 }
 
 
@@ -64,6 +69,14 @@ def subvisual(slug, en, kr, menu):
 
 
 FOOTER = parts.FOOTER
+
+
+def figbreak(img, cap_en, cap_kr, tone="", width=0):
+    st = ' style="--fw:%dpx"' % width if width else ''
+    return ('<section class="figbreak%s"%s>'
+            '<div class="figbreak__img"><img src="assets/img/%s" alt=""></div>'
+            '<div class="figbreak__cap"><em>%s</em><span>%s</span></div>'
+            '</section>') % (tone, st, img, cap_en, cap_kr)
 
 
 def label(en, kr):
@@ -314,7 +327,7 @@ BODY["technology"] = """<section class="sec" id="basic">
 BODY["products"] = """<section class="sec" id="device">
   <div class="wrap">
     """ + label("BEAUTY DEVICE", "뷰티 디바이스") + """
-    <h2>진단 결과에 맞춰<br>조합하는 제품</h2>
+    <h2>진단 결과에 맞춰<br>조합하는 디바이스</h2>
     <div class="pillars" style="margin-top:50px">
       <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><h3>DEVICE</h3><h4>TECHFIT</h4><p>5초 스탬핑 고주파 디바이스. 상세 페이지 준비 중입니다.</p></div>
       <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-clb.png" alt="CLB"></div><h3>DEVICE</h3><h4>CLB</h4><p>고주파 마사지기. 상세 정보 준비 중입니다.</p></div>
@@ -322,10 +335,23 @@ BODY["products"] = """<section class="sec" id="device">
     </div>
   </div>
 </section>
-<section class="sec sec--grey" id="cosmetics">
+""" + figbreak("p-devices.jpg", "CARECL DEVICE", "매일의 루틴에 들어오는 클리닉의 방식", width=980) + """
+<section class="sec sec--grey">
+  <div class="wrap">
+    <div class="splitfig">
+      <div class="splitfig__img"><img src="assets/img/p-cheek.jpg" alt=""></div>
+      <div class="splitfig__copy">
+        <h3>정해진 자리에 5초</h3>
+        <p>문지르거나 굴리지 않습니다. 관리 부위에 정확히 올려두고 정해진 시간 동안 에너지를 전달합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>"""
+
+BODY["cosmetics"] = """<section class="sec" id="cosmetics">
   <div class="wrap">
     """ + label("COSMETICS", "코스메틱") + """
-    <h2>디바이스와 함께 쓰는<br>코스메틱</h2>
+    <h2>디바이스와 함께 쓰는<br>전용 코스메틱</h2>
     <div class="pillars" style="margin-top:50px">
       <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><h3>COSMETIC</h3><h4>Collagen Booster Gel</h4><p>상세 정보 준비 중입니다.</p></div>
       <div class="pillar"><div class="pillar__img has-img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><h3>COSMETIC</h3><h4>Grid Mask</h4><p>상세 정보 준비 중입니다.</p></div>
@@ -333,23 +359,57 @@ BODY["products"] = """<section class="sec" id="device">
     </div>
     <p class="note" style="margin-top:40px">* 제품명 · 용량 · 사용법 등 표기 항목은 케어클 확정 자료 기준으로 교체 예정입니다.</p>
   </div>
+</section>
+""" + figbreak("p-mask-face.jpg", "GRID MASK TECH FIT", "그리드 위에 정확히, 부위별로", width=760) + """
+<section class="sec">
+  <div class="wrap">
+    <div class="trio">
+      <figure><img src="assets/img/p-mask-box.jpg" alt=""><figcaption>Grid Mask Tech Fit</figcaption></figure>
+      <figure><img src="assets/img/p-mask-hands.jpg" alt=""><figcaption>부위별 그리드 가이드</figcaption></figure>
+      <figure><img src="assets/img/p-packs.jpg" alt=""><figcaption>낱장 포장</figcaption></figure>
+    </div>
+  </div>
 </section>"""
 
 BODY["contact"] = """<section class="sec">
   <div class="wrap">
-    """ + label("CONTACT", "문의") + """
-    <h2>케어클과<br>함께하실 분들께</h2>
-    <div class="pillars" style="margin-top:50px">
-      <div class="pillar" id="global"><h3>GLOBAL BUSINESS</h3><h4>해외 사업 문의</h4><p>해외 유통과 수출 관련 문의를 받습니다.<br>support@carecl.co.kr</p></div>
-      <div class="pillar" id="partner"><h3>DISTRIBUTOR / PARTNERSHIP</h3><h4>유통 · 제휴 문의</h4><p>국내외 총판 및 제휴 제안을 받습니다.<br>support@carecl.co.kr</p></div>
-      <div class="pillar" id="pr"><h3>MEDIA / PR</h3><h4>미디어 문의</h4><p>취재 · 광고 · 협찬 문의를 받습니다.<br>support@carecl.co.kr</p></div>
-      <div class="pillar" id="inquiry"><h3>GENERAL INQUIRY</h3><h4>일반 문의</h4><p>제품 사용과 A/S 문의를 받습니다.<br>TEL +82 31-943-1028</p></div>
-    </div>
-    <p class="note" style="margin-top:40px">* 문의 접수 방식(이메일 / 문의 폼 / 카카오)이 정해지면 폼으로 교체합니다.</p>
+    """ + label("GLOBAL BUSINESS", "해외 사업 문의") + """
+    <h2>해외 유통과 수출,<br>함께 논의하겠습니다</h2>
+    <div class="story__body"><p>국가별 유통 구조와 인허가 요건에 맞춰 공급 조건을 협의합니다. 관심 품목과 희망 지역을 함께 보내주시면 담당자가 회신드립니다.</p></div>
+    <dl class="facts" style="margin-top:46px"><div><dt>EMAIL</dt><dd>support@carecl.co.kr</dd></div><div><dt>TEL</dt><dd>+82 31-943-1028</dd></div><div><dt>HOURS</dt><dd>Mon – Fri 10:00 – 18:00 (Lunch 12:00 – 13:00)</dd></div></dl>
+    
   </div>
 </section>"""
 
-BODY["products"] = BODY["products"] + chr(10) + """<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-lineup-c.jpg" alt=""></div><div class="figbreak__cap"><em>CARECL LINE-UP</em><span>디바이스 · 코스메틱 전체 라인업</span></div></section>"""
+BODY["partnership"] = """<section class="sec">
+  <div class="wrap">
+    """ + label("DISTRIBUTOR / PARTNERSHIP", "유통 · 제휴 문의") + """
+    <h2>총판 · 제휴 제안을<br>기다립니다</h2>
+    <div class="story__body"><p>국내외 총판, 리테일 입점, 브랜드 협업 등 제휴 제안을 받습니다. 회사 소개와 제안 개요를 함께 보내주세요.</p></div>
+    <dl class="facts" style="margin-top:46px"><div><dt>EMAIL</dt><dd>support@carecl.co.kr</dd></div><div><dt>HOURS</dt><dd>Mon – Fri 10:00 – 18:00 (Lunch 12:00 – 13:00)</dd></div></dl>
+    
+  </div>
+</section>"""
+
+BODY["press"] = """<section class="sec">
+  <div class="wrap">
+    """ + label("MEDIA / PR", "미디어 문의") + """
+    <h2>취재 · 광고 · 협찬<br>문의를 받습니다</h2>
+    <div class="story__body"><p>브랜드 자료와 제품 이미지, 인터뷰 일정은 미디어 담당자가 안내드립니다.</p></div>
+    <dl class="facts" style="margin-top:46px"><div><dt>EMAIL</dt><dd>support@carecl.co.kr</dd></div><div><dt>TEL</dt><dd>+82 31-943-1028</dd></div></dl>
+    
+  </div>
+</section>"""
+
+BODY["inquiry"] = """<section class="sec">
+  <div class="wrap">
+    """ + label("GENERAL INQUIRY", "일반 문의") + """
+    <h2>제품 사용과 A/S<br>무엇이든 물어보세요</h2>
+    <div class="story__body"><p>사용 방법, 교환 · 반품, A/S 접수는 고객센터로 문의해 주세요.</p></div>
+    <dl class="facts" style="margin-top:46px"><div><dt>TEL</dt><dd>+82 31-943-1028</dd></div><div><dt>EMAIL</dt><dd>support@carecl.co.kr</dd></div><div><dt>HOURS</dt><dd>Mon – Fri 10:00 – 18:00 (Lunch 12:00 – 13:00)</dd></div></dl>
+    <p class="note" style="margin-top:34px">* 문의 접수 방식(이메일 / 문의 폼 / 카카오)이 정해지면 폼으로 교체합니다.</p>
+  </div>
+</section>"""
 
 BODY["contact"] = BODY["contact"] + chr(10) + BODY["location"].replace('<section class="sec">', '<section class="sec sec--grey" id="location">', 1)
 

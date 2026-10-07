@@ -15,8 +15,7 @@ BODY["about"] = """<section class="sec">
       </div>
       <div class="about__visual"><img src="assets/img/about-visual.jpg" alt="careCL"></div>
     </div>
-    
-<dl class="facts">
+    <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
       <div><dt>HEADQUARTERS</dt><dd>경기도 고양시 일산동구 동국로 32</dd></div>
       <div><dt>BUSINESS</dt><dd>뷰티 디바이스 · 코스메틱</dd></div>
@@ -24,7 +23,7 @@ BODY["about"] = """<section class="sec">
     </dl>
   </div>
 </section>
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-model-c.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>"""
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="splitfig__copy"><h3>매일의 루틴이 만드는 차이</h3><p>하루 몇 분, 정해진 자리에 반복되는 관리가 피부의 기준을 바꿉니다.</p></div></div></div></section>"""
 
 BODY["greeting"] = """<section class="sec" id="born">
   <div class="wrap">
@@ -45,7 +44,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-model-c.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-leaning.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
 <section class="sec sec--grey" id="understand">
   <div class="wrap">
     <div class="seclabel"><i></i><span>UNDERSTAND FIRST &nbsp;·&nbsp; 사람을 먼저 이해합니다</span></div>
@@ -58,6 +57,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-model.jpg" alt=""></div><div class="splitfig__copy"><h3>집에서, 매일, 같은 방식으로</h3><p>클리닉에서 쌓인 기준을 매일의 루틴으로 옮겼습니다. 같은 자리에 같은 시간, 반복할 수 있는 관리가 변화를 만듭니다.</p></div></div></div></section>
 <section class="sec" id="home">
   <div class="wrap">
     <div class="story__body">
@@ -100,6 +100,7 @@ BODY["aging-types"] = """<section class="sec" id="why">
   </div>
 </section>
 
+<section class="sec"><div class="wrap"><div class="splitfig"><div class="splitfig__img"><img src="assets/img/p-skin.jpg" alt=""></div><div class="splitfig__copy"><h3>노화는 한 가지 모양이 아닙니다</h3><p>피부결, 탄력, 톤, 윤곽 — 먼저 나타나는 변화가 사람마다 다릅니다. 그래서 관리의 출발점도 달라야 합니다.</p></div></div></div></section>
 <section class="sec" id="next">
   <div class="wrap">
     <h2><strong>같은 유형이라도, 먼저 관리해야 할 곳은 다릅니다.</strong></h2>
@@ -131,8 +132,9 @@ BODY["technology"] = """<section class="sec" id="basic">
     <div class="ctable"><table><tr><th></th><th>고주파</th><th>초음파</th></tr><tr><th>사용하는 에너지</th><td>고주파 전기 에너지</td><td>고주파 음파 에너지</td></tr><tr><th>기본 원리</th><td>조직의 저항을 이용해 열에너지 형성</td><td>음파의 기계적 진동을 전달</td></tr><tr><th>주요 설계 요소</th><td>주파수, 전극 구조, 출력, 접촉 시간</td><td>주파수, 출력, 초점 및 전달 방식</td></tr><tr><th>홈뷰티 활용</th><td>주로 피부 탄력·피부결 관리</td><td>목적에 따라 피부 관리부터 집속 에너지 관리까지 다양</td></tr><tr><th>핵심</th><td>어디에 얼마나 일정하게 전달하는가</td><td>어디에 어떤 방식으로 음파를 전달하는가</td></tr></table></div>
   </div>
 </section>
+<section class="sec"><div class="wrap"><div class="splitfig"><div class="splitfig__img"><img src="assets/img/p-eye.jpg" alt=""></div><div class="splitfig__copy"><h3>에너지를 어디에, 얼마나 일정하게</h3><p>같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.</p></div></div></div></section>"""
 
-<section class="figbreak figbreak--dark"><div class="figbreak__img"><img src="assets/img/cc-stamping-c.jpg" alt=""></div><div class="figbreak__cap"><em>STAMPING, INSPIRED BY REAL PROCEDURES</em><span>정해진 자리에 5초, 눌러서 전달합니다</span></div></section>
+BODY["carecl-technology"] = """<section class="figbreak" style="--fw:760px"><div class="figbreak__img"><img src="assets/img/p-mask-close.jpg" alt=""></div><div class="figbreak__cap"><em>STAMPING, INSPIRED BY REAL PROCEDURES</em><span>정해진 자리에 5초, 눌러서 전달합니다</span></div></section>
 <section class="sec" id="stamping">
   <div class="wrap">
     <div class="seclabel"><i></i><span>5 SEC. STAMPING &nbsp;·&nbsp; 정해진 위치에, 정해진 시간</span></div>
@@ -193,7 +195,8 @@ BODY["technology"] = """<section class="sec" id="basic">
     </div>
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>
-</section>"""
+</section>
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-mask-device.jpg" alt=""></div><div class="splitfig__copy"><h3>그리드 위에, 정확한 위치로</h3><p>그리드 마스크가 관리 부위를 안내하고, 디바이스는 그 자리에 5초 동안 에너지를 전달합니다.</p></div></div></div></section>"""
 
 BODY["certification"] = """<section class="sec">
   <div class="wrap">
@@ -204,7 +207,7 @@ BODY["certification"] = """<section class="sec">
     <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
   </div>
 </section>
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-lineup-c.jpg" alt=""></div><div class="figbreak__cap"><em>CLINIC-LEVEL EXPERTISE</em><span>디바이스와 전용 코스메틱의 한 세트</span></div></section>"""
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-devices.jpg" alt=""></div><div class="splitfig__copy"><h3>클리닉의 기준을 그대로</h3><p>수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.</p></div></div></div></section>"""
 
 BODY["rnd"] = """<section class="sec">
   <div class="wrap">

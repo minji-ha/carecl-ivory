@@ -36,17 +36,17 @@ BODY = """
         <div class="mroll__track">
 
           <div class="mroll__slide">
-            <img src="assets/img/cc-model-c.jpg" alt="careCL TECHFIT">
+            <img src="assets/img/p-leaning.jpg" alt="careCL TECHFIT">
             <div class="mroll__cap">
               <em>NEW DEVICE</em>
               <b>문지르지 않습니다<br>정해진 자리에 5초, 눌러서 전달합니다</b>
               <p>TECHFIT 스탬핑 고주파 디바이스</p>
-              <a href="products.html#device">제품 보기 →</a>
+              <a href="products.html">제품 보기 →</a>
             </div>
           </div>
 
           <div class="mroll__slide">
-            <img src="assets/img/about-visual.jpg" alt="Aging Map 22">
+            <img src="assets/img/p-eye.jpg" alt="Aging Map 22">
             <div class="mroll__cap">
               <em>AGING MAP 22</em>
               <b>어디를 먼저 관리해야 할까요</b>
@@ -56,12 +56,12 @@ BODY = """
           </div>
 
           <div class="mroll__slide">
-            <img src="assets/img/cc-lineup-c.jpg" alt="careCL 제품 라인업">
+            <img src="assets/img/p-devices.jpg" alt="careCL 제품 라인업">
             <div class="mroll__cap">
               <em>COSMETICS</em>
               <b>디바이스와 함께 쓰는<br>전용 코스메틱</b>
               <p>콜라겐 부스터 젤 · 그리드 마스크 · 토닝 세럼</p>
-              <a href="products.html#cosmetics">코스메틱 보기 →</a>
+              <a href="cosmetics.html">코스메틱 보기 →</a>
             </div>
           </div>
 
@@ -91,9 +91,9 @@ BODY = """
         <h2>지금 가장 많이 찾는 구성</h2>
       </div>
       <div class="mpick__grid">
-        <a class="mcard" href="products.html#device"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
-        <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>디바이스 전용 콜라겐 젤</span></a>
-        <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>부위별 그리드 마스크</span></a>
+        <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
+        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>디바이스 전용 콜라겐 젤</span></a>
+        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>부위별 그리드 마스크</span></a>
       </div>
     </div>
   </section>
@@ -134,7 +134,7 @@ BODY = """
         <div class="mcore__item">
           <em>03 TECH</em><b>5초 스탬핑</b>
           <p>어떻게 전달할 것인가</p>
-          <a href="technology.html#stamping">기술 보기</a>
+          <a href="carecl-technology.html">기술 보기</a>
         </div>
         <div class="mcore__item">
           <em>04 PRODUCT</em><b>디바이스 · 코스메틱</b>
@@ -156,7 +156,7 @@ BODY = """
 
   <!-- 06 환기용 이미지 -->
   <section class="mbreak">
-    <img src="assets/img/cc-stamping-c.jpg" alt="">
+    <img src="assets/img/p-mask-face.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
@@ -176,11 +176,11 @@ BODY = """
 
       <div class="mcoll__viewport">
         <div class="mcoll__track">
-          <a class="mcard" href="products.html#device"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
-          <a class="mcard" href="products.html#device"><div class="mcard__img"><img src="assets/img/product-clb.png" alt="CLB"></div><em>DEVICE</em><b>CLB</b><span>고주파 마사지기</span></a>
-          <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>콜라겐 부스터 젤</span></a>
-          <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>그리드 마스크</span></a>
-          <a class="mcard" href="products.html#cosmetics"><div class="mcard__img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><em>COSMETIC</em><b>Toning Serum</b><span>라이트 토닝 세럼</span></a>
+          <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
+          <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-clb.png" alt="CLB"></div><em>DEVICE</em><b>CLB</b><span>고주파 마사지기</span></a>
+          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>콜라겐 부스터 젤</span></a>
+          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>그리드 마스크</span></a>
+          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><em>COSMETIC</em><b>Toning Serum</b><span>라이트 토닝 세럼</span></a>
           <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-bag.jpg" alt="Case"></div><em>ACCESSORY</em><b>전용 케이스</b><span>디바이스 보관 가죽 케이스</span></a>
         </div>
       </div>
@@ -207,7 +207,7 @@ BODY = """
 
   <!-- 09 샵 링크 -->
   <section class="mshop">
-    <div class="mshop__bg"><img src="assets/img/cc-lineup-c.jpg" alt=""></div>
+    <div class="mshop__bg"><img src="assets/img/p-devices.jpg" alt=""></div>
     <div class="inner mshop__inner">
       <div>
         <h2>제품 구매는 공식몰에서</h2>

@@ -34,8 +34,8 @@
   window.addEventListener('resize', resize);
 
   /* ── 물결치는 그리드 ── */
-  var COLS = 26;          // 가로 선 개수
-  var ROWS = 16;          // 세로 선 개수
+  var COLS = 13;          // 가로 선 개수 — 넓은 그리드
+  var ROWS = 8;           // 세로 선 개수 — 넓은 그리드
   var t = 0;
   var progress = 0;       // 0 → 1 (카운트와 연동)
 

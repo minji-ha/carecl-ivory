@@ -16,18 +16,18 @@ MENU = [
         ("Aging Map 22", "aging-map.html", "22개 관리 부위"),
     ]),
     ("TECHNOLOGY", "technology.html", [
-        ("Beauty Device Technology", "technology.html#basic", "홈뷰티 디바이스 기술"),
-        ("careCL Technology", "technology.html#stamping", "케어클 기술"),
+        ("Beauty Device Technology", "technology.html", "홈뷰티 디바이스 기술"),
+        ("careCL Technology", "carecl-technology.html", "케어클 기술"),
     ]),
     ("PRODUCTS", "products.html", [
-        ("Beauty Device", "products.html#device", "뷰티 디바이스"),
-        ("Cosmetics", "products.html#cosmetics", "코스메틱"),
+        ("Beauty Device", "products.html", "뷰티 디바이스"),
+        ("Cosmetics", "cosmetics.html", "코스메틱"),
     ]),
     ("CONTACT", "contact.html", [
-        ("Global Business", "contact.html#global", "해외 사업 문의"),
-        ("Distributor / Partnership", "contact.html#partner", "유통 · 제휴"),
-        ("Media / PR", "contact.html#pr", "미디어"),
-        ("General Inquiry", "contact.html#inquiry", "일반 문의"),
+        ("Global Business", "contact.html", "해외 사업 문의"),
+        ("Distributor / Partnership", "partnership.html", "유통 · 제휴 문의"),
+        ("Media / PR", "press.html", "미디어 문의"),
+        ("General Inquiry", "inquiry.html", "일반 문의"),
     ]),
 ]
 
@@ -115,9 +115,9 @@ FOOTER = """<footer class="footer">
     <div class="footer__cols">
       <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a></div>
       <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="aging-map.html">Aging Map 22</a><a href="survey.html">나의 타입 알아보기</a></div>
-      <div><h4>TECHNOLOGY</h4><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">careCL Technology</a></div>
-      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
-      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="contact.html#location">오시는 길</a></div>
+      <div><h4>TECHNOLOGY</h4><a href="technology.html">Beauty Device Technology</a><a href="carecl-technology.html">careCL Technology</a></div>
+      <div><h4>PRODUCTS</h4><a href="products.html">Beauty Device</a><a href="cosmetics.html">Cosmetics</a></div>
+      <div><h4>CONTACT</h4><a href="contact.html">Global Business</a><a href="partnership.html">Distributor / Partnership</a><a href="inquiry.html">General Inquiry</a></div>
     </div>
   </div>
   <div class="footer__legal">

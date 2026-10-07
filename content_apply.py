@@ -36,12 +36,21 @@ def ul(*idx):
     return '<ul class="ulist">%s</ul>' % "".join("<li>%s</li>" % t(i) for i in idx)
 
 
-def figure(img, cap_en, cap_kr, tone=""):
-    """본문 중간에 들어가는 풀블리드 이미지 — stembeauty 식 여백 큰 비주얼 브레이크"""
-    return ('<section class="figbreak%s">'
+def figure(img, cap_en, cap_kr, tone="", width=0):
+    """본문 중간 비주얼 — width를 주면 원본 해상도를 넘기지 않도록 폭을 제한한다"""
+    st = ' style="--fw:%dpx"' % width if width else ''
+    return ('<section class="figbreak%s"%s>'
             '<div class="figbreak__img"><img src="assets/img/%s" alt=""></div>'
             '<div class="figbreak__cap"><em>%s</em><span>%s</span></div>'
-            '</section>') % (tone, img, cap_en, cap_kr)
+            '</section>') % (tone, st, img, cap_en, cap_kr)
+
+
+def split(img, h3, body, rev=False):
+    """이미지 + 카피 2단 블록"""
+    return ('<section class="sec"><div class="wrap"><div class="splitfig%s">'
+            '<div class="splitfig__img"><img src="assets/img/%s" alt=""></div>'
+            '<div class="splitfig__copy"><h3>%s</h3><p>%s</p></div>'
+            '</div></div></section>') % (" splitfig--rev" if rev else "", img, h3, body)
 
 
 def label(en, kr):
@@ -387,9 +396,9 @@ out = ["# -*- coding: utf-8 -*-",
        '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""',
        "BODY = {}", ""]
 # 본문 사이사이에 기존 carecl.com 비주얼을 넣는다
-FIG_MODEL = figure("cc-model-c.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
-FIG_LINEUP = figure("cc-lineup-c.jpg", "CLINIC-LEVEL EXPERTISE", "디바이스와 전용 코스메틱의 한 세트")
-FIG_STAMPING = figure("cc-stamping-c.jpg", "STAMPING, INSPIRED BY REAL PROCEDURES", "정해진 자리에 5초, 눌러서 전달합니다", " figbreak--dark")
+FIG_MODEL = figure("p-leaning.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
+FIG_LINEUP = split("p-devices.jpg", "클리닉의 기준을 그대로", "수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.", rev=True)
+FIG_STAMPING = figure("p-mask-close.jpg", "STAMPING, INSPIRED BY REAL PROCEDURES", "정해진 자리에 5초, 눌러서 전달합니다", width=760)
 
 
 def insert_before(html, marker, block):
@@ -397,15 +406,35 @@ def insert_before(html, marker, block):
     return html if i < 0 else html[:i] + block + chr(10) + html[i:]
 
 
-about = insert_before(about, '<dl class="facts">', "")
+
 story = story.replace('<section class="sec sec--grey" id="understand">',
                       FIG_MODEL + chr(10) + '<section class="sec sec--grey" id="understand">')
-technology = insert_before(technology, '<section class="sec" id="stamping">', FIG_STAMPING)
+# TECHNOLOGY는 2뎁스 2개 → 페이지 2개로 나눈다
+_i = technology.index('<section class="sec" id="stamping">')
+tech_basic = technology[:_i].rstrip() + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
+tech_carecl = FIG_STAMPING + chr(10) + technology[_i:]
 aging_types_full = aging_why + chr(10) + aging_types
 certification = certification + chr(10) + FIG_LINEUP
 
-for key, html in [("about", about + chr(10) + FIG_MODEL), ("greeting", story),
-                  ("aging-types", aging_types_full), ("technology", technology),
+story = story.replace('<section class="sec" id="home">',
+    split("p-model.jpg",
+          "집에서, 매일, 같은 방식으로",
+          "클리닉에서 쌓인 기준을 매일의 루틴으로 옮겼습니다. 같은 자리에 같은 시간, 반복할 수 있는 관리가 변화를 만듭니다.",
+          rev=True) + chr(10) + '<section class="sec" id="home">')
+
+aging_types_full = aging_types_full.replace('<section class="sec" id="next">',
+    split("p-skin.jpg",
+          "노화는 한 가지 모양이 아닙니다",
+          "피부결, 탄력, 톤, 윤곽 — 먼저 나타나는 변화가 사람마다 다릅니다. 그래서 관리의 출발점도 달라야 합니다.")
+    + chr(10) + '<section class="sec" id="next">')
+
+tech_carecl = tech_carecl + chr(10) + split("p-mask-device.jpg",
+    "그리드 위에, 정확한 위치로",
+    "그리드 마스크가 관리 부위를 안내하고, 디바이스는 그 자리에 5초 동안 에너지를 전달합니다.", rev=True)
+
+for key, html in [("about", about + chr(10) + split("p-touch.jpg", "매일의 루틴이 만드는 차이", "하루 몇 분, 정해진 자리에 반복되는 관리가 피부의 기준을 바꿉니다.", rev=True)), ("greeting", story),
+                  ("aging-types", aging_types_full), ("technology", tech_basic),
+                  ("carecl-technology", tech_carecl),
                   ("certification", certification), ("rnd", rnd)]:
     out.append('BODY["%s"] = """%s"""' % (key, html))
     out.append("")
