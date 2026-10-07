@@ -1,0 +1,61 @@
+/* =========================================================
+   careCL — 메인 인트로 (카운트 + 물결 그리드)
+   ========================================================= */
+body.is-intro{overflow:hidden;}
+
+.intro{
+  position:fixed;inset:0;z-index:999;
+  background:var(--porcelain,#FDFCFA);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .9s ease, visibility 0s linear .9s;
+}
+.intro__grid{position:absolute;inset:0;width:100%;height:100%;}
+
+.intro__center{position:relative;text-align:center;}
+.intro__logo{
+  display:block;font-family:var(--en,'Inter',sans-serif);
+  font-size:26px;font-weight:500;letter-spacing:.34em;
+  color:var(--ink,#2B2724);margin-bottom:26px;
+  opacity:0;animation:introIn .9s .15s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.intro__num{
+  display:block;font-family:var(--en,'Inter',sans-serif);
+  font-size:84px;font-weight:400;letter-spacing:-.03em;line-height:1;
+  color:var(--ink,#2B2724);font-variant-numeric:lining-nums tabular-nums;
+  opacity:0;animation:introIn .9s .25s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.intro__num::after{
+  content:'%';font-size:20px;font-weight:400;letter-spacing:0;
+  color:var(--orange,#C46A3A);margin-left:8px;vertical-align:14px;
+}
+.intro__bar{
+  position:relative;width:220px;height:1px;margin:30px auto 0;
+  background:var(--stone,#ECE7E0);overflow:hidden;
+  opacity:0;animation:introIn .9s .35s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.intro__bar i{
+  position:absolute;inset:0;background:var(--orange,#C46A3A);
+  transform:scaleX(0);transform-origin:left center;
+}
+.intro__tag{
+  display:block;margin-top:20px;
+  font-family:var(--en,'Inter',sans-serif);font-size:11px;font-weight:500;
+  letter-spacing:.24em;color:var(--sage,#9C948B);
+  opacity:0;animation:introIn .9s .45s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+@keyframes introIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+/* 끝나면 위로 걷히며 사라진다 */
+.intro.is-out{opacity:0;visibility:hidden;pointer-events:none;}
+.intro.is-out .intro__center{transform:translateY(-18px);transition:transform .9s cubic-bezier(.2,.7,.2,1);}
+
+@media (max-width:760px){
+  .intro__num{font-size:56px;}
+  .intro__logo{font-size:20px;letter-spacing:.3em;margin-bottom:20px;}
+  .intro__bar{width:160px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .intro{display:none;}
+}

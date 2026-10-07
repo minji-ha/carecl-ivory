@@ -15,14 +15,16 @@ BODY["about"] = """<section class="sec">
       </div>
       <div class="about__visual"><img src="assets/img/about-visual.jpg" alt="careCL"></div>
     </div>
-    <dl class="facts">
+    
+<dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
       <div><dt>HEADQUARTERS</dt><dd>경기도 고양시 일산동구 동국로 32</dd></div>
       <div><dt>BUSINESS</dt><dd>뷰티 디바이스 · 코스메틱</dd></div>
       <div><dt>TECHNOLOGY</dt><dd>5 SEC. STAMPING RF</dd></div>
     </dl>
   </div>
-</section>"""
+</section>
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-model-c.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>"""
 
 BODY["greeting"] = """<section class="sec" id="born">
   <div class="wrap">
@@ -43,6 +45,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-model-c.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
 <section class="sec sec--grey" id="understand">
   <div class="wrap">
     <div class="seclabel"><i></i><span>UNDERSTAND FIRST &nbsp;·&nbsp; 사람을 먼저 이해합니다</span></div>
@@ -67,7 +70,7 @@ BODY["greeting"] = """<section class="sec" id="born">
 
 BODY["aging-types"] = """<section class="sec" id="why">
   <div class="wrap">
-    <div class="seclabel"><i></i><span>WHY WE AGE DIFFERENTLY &nbsp;·&nbsp; 왜 다르게 나이 드는가</span></div>
+    <div class="seclabel"><i></i><span>6 AGING TYPES &nbsp;·&nbsp; 6가지 노화 타입</span></div>
     <h2><strong>왜 같은 나이인데도 노화는 다르게 나타날까요?</strong></h2>
     <div class="story__body">
       <p>얼굴의 노화는 단순히 시간이 지나면서 주름이 늘어나는 과정이 아닙니다.</p><p>피부의 특성, 피하지방의 양과 분포, 얼굴 근육의 발달과 움직임, 골격 구조, 자외선과 생활 습관 등 다양한 요인이 서로 다르게 작용하면서 <strong>사람마다 다른 노화의 모습</strong>을 만들어냅니다.</p><p>그래서 같은 나이의 두 사람도 전혀 다른 변화를 경험할 수 있습니다.</p><p>한 사람은 눈밑이 먼저 꺼지고 피곤한 인상이 나타나는 반면, 다른 사람은 눈가에 잔주름이 늘어날 수 있습니다. 또 다른 사람은 얼굴의 주름보다 볼과 턱선의 변화가 먼저 눈에 띌 수 있습니다.</p><p>careCL은 여기서 한 단계 더 주목했습니다.</p><p>한국인과 동아시아인의 경우 깊은 주름이나 뚜렷한 처짐에 앞서 <strong>피부톤 저하, 색소 변화, 광채 감소와 같은 피부 컨디션의 변화</strong>를 노화의 시작으로 느끼는 경우도 많습니다.</p><p>그래서 기존의 Aging Morphotypes를 그대로 적용하는 것이 아니라, 이러한 초기 변화를 별도의 패턴으로 포함해 <strong>6가지 노화 유형</strong>으로 확장했습니다.</p>
@@ -76,7 +79,7 @@ BODY["aging-types"] = """<section class="sec" id="why">
 </section>
 <section class="sec" id="types">
   <div class="wrap">
-    <div class="seclabel"><i></i><span>AGING LAB &nbsp;·&nbsp; 6가지 노화 타입</span></div>
+    
     <h2><strong>6 AGING TYPES</strong></h2>
     <div class="story__body">
       <p><strong>사람마다 나이 드는 방식은 다릅니다.</strong></p><p>같은 나이라고 해서 같은 모습으로 나이 들지는 않습니다.</p>
@@ -129,6 +132,7 @@ BODY["technology"] = """<section class="sec" id="basic">
   </div>
 </section>
 
+<section class="figbreak figbreak--dark"><div class="figbreak__img"><img src="assets/img/cc-stamping-c.jpg" alt=""></div><div class="figbreak__cap"><em>STAMPING, INSPIRED BY REAL PROCEDURES</em><span>정해진 자리에 5초, 눌러서 전달합니다</span></div></section>
 <section class="sec" id="stamping">
   <div class="wrap">
     <div class="seclabel"><i></i><span>5 SEC. STAMPING &nbsp;·&nbsp; 정해진 위치에, 정해진 시간</span></div>
@@ -199,7 +203,8 @@ BODY["certification"] = """<section class="sec">
     <div class="docs"><a class="doc" href="assets/docs/carecl-certifications.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>CE · FCC · ISO 9001 · ISO 14001 인증서</b><em>주식회사 케어클 인증 병합본</em></span><span class="doc__meta">PDF · 1.1MB</span></a></div>
     <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
   </div>
-</section>"""
+</section>
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-lineup-c.jpg" alt=""></div><div class="figbreak__cap"><em>CLINIC-LEVEL EXPERTISE</em><span>디바이스와 전용 코스메틱의 한 세트</span></div></section>"""
 
 BODY["rnd"] = """<section class="sec">
   <div class="wrap">

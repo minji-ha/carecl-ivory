@@ -36,7 +36,7 @@ BODY = """
         <div class="mroll__track">
 
           <div class="mroll__slide">
-            <img src="assets/img/product-techfit.jpg" alt="TECHFIT">
+            <img src="assets/img/cc-model-c.jpg" alt="careCL TECHFIT">
             <div class="mroll__cap">
               <em>NEW DEVICE</em>
               <b>문지르지 않습니다<br>정해진 자리에 5초, 눌러서 전달합니다</b>
@@ -56,7 +56,7 @@ BODY = """
           </div>
 
           <div class="mroll__slide">
-            <img src="assets/img/product-gel.png" alt="Collagen Booster Gel">
+            <img src="assets/img/cc-lineup-c.jpg" alt="careCL 제품 라인업">
             <div class="mroll__cap">
               <em>COSMETICS</em>
               <b>디바이스와 함께 쓰는<br>전용 코스메틱</b>
@@ -156,7 +156,7 @@ BODY = """
 
   <!-- 06 환기용 이미지 -->
   <section class="mbreak">
-    <img src="assets/img/mission.jpg" alt="">
+    <img src="assets/img/cc-stamping-c.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
@@ -207,7 +207,7 @@ BODY = """
 
   <!-- 09 샵 링크 -->
   <section class="mshop">
-    <div class="mshop__bg"><img src="assets/img/value.jpg" alt=""></div>
+    <div class="mshop__bg"><img src="assets/img/cc-lineup-c.jpg" alt=""></div>
     <div class="inner mshop__inner">
       <div>
         <h2>제품 구매는 공식몰에서</h2>
@@ -250,8 +250,19 @@ TPL = """<!DOCTYPE html>
 <link rel="stylesheet" href="css/nav.css?v=%(v)s">
 <link rel="stylesheet" href="css/theme-ivory.css?v=%(v)s">
 <link rel="stylesheet" href="css/mainv2.css?v=%(v)s">
+<link rel="stylesheet" href="css/intro.css?v=%(v)s">
 </head>
-<body class="main2">
+<body class="main2 is-intro">
+
+<div class="intro" id="intro">
+  <canvas class="intro__grid"></canvas>
+  <div class="intro__center">
+    <span class="intro__logo">CARECL</span>
+    <span class="intro__num">000</span>
+    <span class="intro__bar"><i></i></span>
+    <span class="intro__tag">AGING MAP 22</span>
+  </div>
+</div>
 
 %(header)s
 
@@ -259,6 +270,7 @@ TPL = """<!DOCTYPE html>
 
 %(footer)s
 
+<script src="js/intro.js?v=%(v)s"></script>
 <script src="js/mainv2.js?v=%(v)s"></script>
 <script src="js/nav.js?v=%(v)s"></script>
 </body>

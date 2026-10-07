@@ -349,6 +349,8 @@ BODY["contact"] = """<section class="sec">
   </div>
 </section>"""
 
+BODY["products"] = BODY["products"] + chr(10) + """<section class="figbreak"><div class="figbreak__img"><img src="assets/img/cc-lineup-c.jpg" alt=""></div><div class="figbreak__cap"><em>CARECL LINE-UP</em><span>디바이스 · 코스메틱 전체 라인업</span></div></section>"""
+
 BODY["contact"] = BODY["contact"] + chr(10) + BODY["location"].replace('<section class="sec">', '<section class="sec sec--grey" id="location">', 1)
 
 try:

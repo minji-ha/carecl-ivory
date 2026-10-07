@@ -36,7 +36,17 @@ def ul(*idx):
     return '<ul class="ulist">%s</ul>' % "".join("<li>%s</li>" % t(i) for i in idx)
 
 
+def figure(img, cap_en, cap_kr, tone=""):
+    """본문 중간에 들어가는 풀블리드 이미지 — stembeauty 식 여백 큰 비주얼 브레이크"""
+    return ('<section class="figbreak%s">'
+            '<div class="figbreak__img"><img src="assets/img/%s" alt=""></div>'
+            '<div class="figbreak__cap"><em>%s</em><span>%s</span></div>'
+            '</section>') % (tone, img, cap_en, cap_kr)
+
+
 def label(en, kr):
+    if not en and not kr:
+        return ""
     return '<div class="seclabel"><i></i><span>%s &nbsp;·&nbsp; %s</span></div>' % (en, kr)
 
 
@@ -171,7 +181,7 @@ aging_types = """<section class="sec" id="types">
     </div>
   </div>
 </section>""" % (
-    label("AGING LAB", "6가지 노화 타입"), t(46),
+    label("", ""), t(46),
     ps(47, 48), plines(49, 50, 51, 52), p(53), p(54), ps(55, 56, 57), plines(58, 59),
     label("6 AGING TYPES", "유형별 특징"), t(70),
     "".join(cards),
@@ -189,7 +199,7 @@ aging_why = """<section class="sec" id="why">
     </div>
   </div>
 </section>""" % (
-    label("WHY WE AGE DIFFERENTLY", "왜 다르게 나이 드는가"), t(62),
+    label("6 AGING TYPES", "6가지 노화 타입"), t(62),
     ps(63, 64, 65, 66, 67, 68, 69),
 )
 
@@ -376,8 +386,26 @@ rnd = """<section class="sec">
 out = ["# -*- coding: utf-8 -*-",
        '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""',
        "BODY = {}", ""]
-for key, html in [("about", about), ("greeting", story),
-                  ("aging-types", aging_why + chr(10) + aging_types), ("technology", technology),
+# 본문 사이사이에 기존 carecl.com 비주얼을 넣는다
+FIG_MODEL = figure("cc-model-c.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
+FIG_LINEUP = figure("cc-lineup-c.jpg", "CLINIC-LEVEL EXPERTISE", "디바이스와 전용 코스메틱의 한 세트")
+FIG_STAMPING = figure("cc-stamping-c.jpg", "STAMPING, INSPIRED BY REAL PROCEDURES", "정해진 자리에 5초, 눌러서 전달합니다", " figbreak--dark")
+
+
+def insert_before(html, marker, block):
+    i = html.find(marker)
+    return html if i < 0 else html[:i] + block + chr(10) + html[i:]
+
+
+about = insert_before(about, '<dl class="facts">', "")
+story = story.replace('<section class="sec sec--grey" id="understand">',
+                      FIG_MODEL + chr(10) + '<section class="sec sec--grey" id="understand">')
+technology = insert_before(technology, '<section class="sec" id="stamping">', FIG_STAMPING)
+aging_types_full = aging_why + chr(10) + aging_types
+certification = certification + chr(10) + FIG_LINEUP
+
+for key, html in [("about", about + chr(10) + FIG_MODEL), ("greeting", story),
+                  ("aging-types", aging_types_full), ("technology", technology),
                   ("certification", certification), ("rnd", rnd)]:
     out.append('BODY["%s"] = """%s"""' % (key, html))
     out.append("")
