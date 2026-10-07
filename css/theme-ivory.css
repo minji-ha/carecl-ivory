@@ -487,3 +487,9 @@ body.sub .submenu a.is-active::after{content:'';}
 .announce{z-index:91;}
 .dropdown{z-index:8;}
 body.sub main, body.survey main{position:relative;z-index:0;}
+
+/* 헤더 하단 선을 가상요소 대신 그림자로 — 드롭다운 위로 절대 올라오지 않게 */
+.header::after{display:none !important;}
+body.sub .header,
+body.survey .header,
+.header.is-light{box-shadow:0 1px 0 var(--n-200,#E5DFD8);}
