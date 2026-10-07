@@ -13,6 +13,7 @@ GROUPS = [
         ("mission-vision", "Mission & Vision",       "미션과 비전"),
     ]),
     ("AGING LAB", "AGING LAB", [
+        ("aging-why",      "Why We Age Differently", "왜 다르게 나이 드는가"),
         ("aging-types",    "6 Aging Types",          "6가지 노화 타입"),
     ]),
     ("AGING MAP 22", "AGING MAP 22", [

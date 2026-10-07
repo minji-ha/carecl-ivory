@@ -140,23 +140,7 @@ aging_types = """<section class="sec" id="types">
   </div>
 </section>
 
-<section class="sec sec--grey" id="why">
-  <div class="wrap">
-    %s
-    <h2>%s</h2>
-    <div class="story__body">
-      %s
-      %s
-      %s
-      %s
-      %s
-      %s
-      %s
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="list">
+<section class="sec sec--grey" id="list">
   <div class="wrap">
     %s
     <h2>%s</h2>
@@ -164,7 +148,7 @@ aging_types = """<section class="sec" id="types">
   </div>
 </section>
 
-<section class="sec sec--grey" id="next">
+<section class="sec" id="next">
   <div class="wrap">
     <h2>%s</h2>
     <div class="story__body">
@@ -185,12 +169,33 @@ aging_types = """<section class="sec" id="types">
     p(47), p(48),
     t(49), t(50), t(51), t(52),
     p(53), t(54), p(55), p(56), p(57), t(58), t(59),
-    label("WHY WE AGE DIFFERENTLY", "왜 노화는 다르게 나타날까"), t(62),
-    p(63), p(64), p(65), p(66), p(67), p(68), p(69),
     label("6 AGING TYPES", "유형별 특징"), t(70),
     "".join(cards),
     t(107),
     p(108), p(109), p(110), t(111), p(112), t(113), t(114),
+)
+
+
+aging_why = """<section class="sec" id="why">
+  <div class="wrap">
+    %s
+    <h2>%s</h2>
+    <div class="story__body">
+      %s
+      %s
+      %s
+      %s
+      %s
+      %s
+      %s
+    </div>
+    <div class="story__cta">
+      <a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a>
+    </div>
+  </div>
+</section>""" % (
+    label("WHY WE AGE DIFFERENTLY", "왜 다르게 나이 드는가"), t(62),
+    p(63), p(64), p(65), p(66), p(67), p(68), p(69),
 )
 
 
@@ -327,9 +332,71 @@ technology = """<section class="sec" id="basic">
 )
 
 
+
+
+# ───────────────────────────────── 인증 · 특허 · 시험성적서 (PDF 목록)
+def doclist(items):
+    rows = []
+    for title, desc, href, size in items:
+        rows.append(
+            '<a class="doc" href="%s" target="_blank" rel="noopener">'
+            '<span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span>'
+            '<span class="doc__txt"><b>%s</b><em>%s</em></span>'
+            '<span class="doc__meta">PDF · %s</span></a>' % (href, title, desc, size)
+        )
+    return '<div class="docs">%s</div>' % "".join(rows)
+
+
+certification = """<section class="sec">
+  <div class="wrap">
+    %s
+    <h2>국제 인증과 품질 경영 체계</h2>
+    <p class="mv__sub">케어클이 보유한 인증서를 원문 그대로 확인하실 수 있습니다.</p>
+    %s
+    <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
+  </div>
+</section>""" % (
+    label("AWARDS & CERTIFICATION", "수상 · 인증"),
+    doclist([
+        ("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본", "assets/docs/carecl-certifications.pdf", "1.1MB"),
+    ]),
+)
+
+
+rnd = """<section class="sec">
+  <div class="wrap">
+    %s
+    <h2>특허 기술</h2>
+    <p class="mv__sub">5 SEC. STAMPING은 careCL의 고주파 스탬핑 관련 특허 기술을 기반으로 합니다.</p>
+    %s
+  </div>
+</section>
+
+<section class="sec sec--grey">
+  <div class="wrap">
+    %s
+    <h2>시험 성적서</h2>
+    <p class="mv__sub">외부 시험기관에서 확인한 TECH FIT · GRID MASK TECH FIT의 시험 결과입니다.</p>
+    %s
+    <p class="note" style="margin-top:28px">* 시험 조건과 대상 제품은 각 성적서 원문에 기재되어 있습니다.</p>
+  </div>
+</section>""" % (
+    label("PATENT", "특허"),
+    doclist([
+        ("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호 외", "assets/docs/carecl-patents.pdf", "974KB"),
+    ]),
+    label("TEST REPORT", "시험 성적서"),
+    doclist([
+        ("콜라겐 발현 시험성적서", "케어클 그리드마스크 테크핏 + 케어클 테크핏 외 1종 · 2025.09.11", "assets/docs/carecl-test-collagen-250911.pdf", "1.2MB"),
+        ("효능 평가 시험성적서", "BEG107-CRK · 케어클 테크핏 외 1종 · 2025.09.11", "assets/docs/carecl-test-efficacy-250911.pdf", "11MB"),
+        ("피부층 밀도 시험성적서", "케어클 그리드마스크 테크핏 + 케어클 테크핏 · 2025.10.17", "assets/docs/carecl-test-skin-density-251017.pdf", "1.2MB"),
+    ]),
+)
+
+
 # ───────────────────────────────── content_bodies.py 로 저장 (build_sub.py가 불러씀)
 out = ['# -*- coding: utf-8 -*-', '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""', 'BODY = {}', '']
-for key, html in [("about", about), ("greeting", story), ("aging-types", aging_types), ("technology", technology)]:
+for key, html in [("about", about), ("greeting", story), ("aging-why", aging_why), ("aging-types", aging_types), ("technology", technology), ("certification", certification), ("rnd", rnd)]:
     out.append('BODY["%s"] = """%s"""' % (key, html))
     out.append('')
 io.open("content_bodies.py", "w", encoding="utf-8").write(chr(10).join(out))

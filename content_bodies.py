@@ -66,6 +66,25 @@ BODY["greeting"] = """<section class="sec">
   </div>
 </section>"""
 
+BODY["aging-why"] = """<section class="sec" id="why">
+  <div class="wrap">
+    <div class="seclabel"><i></i><span>WHY WE AGE DIFFERENTLY &nbsp;·&nbsp; 왜 다르게 나이 드는가</span></div>
+    <h2>왜 같은 나이인데도 노화는 다르게 나타날까요?</h2>
+    <div class="story__body">
+      <p>얼굴의 노화는 단순히 시간이 지나면서 주름이 늘어나는 과정이 아닙니다.</p>
+      <p>피부의 특성, 피하지방의 양과 분포, 얼굴 근육의 발달과 움직임, 골격 구조, 자외선과 생활 습관 등 다양한 요인이 서로 다르게 작용하면서 사람마다 다른 노화의 모습을 만들어냅니다.</p>
+      <p>그래서 같은 나이의 두 사람도 전혀 다른 변화를 경험할 수 있습니다.</p>
+      <p>한 사람은 눈밑이 먼저 꺼지고 피곤한 인상이 나타나는 반면, 다른 사람은 눈가에 잔주름이 늘어날 수 있습니다. 또 다른 사람은 얼굴의 주름보다 볼과 턱선의 변화가 먼저 눈에 띌 수 있습니다.</p>
+      <p>careCL은 여기서 한 단계 더 주목했습니다.</p>
+      <p>한국인과 동아시아인의 경우 깊은 주름이나 뚜렷한 처짐에 앞서 피부톤 저하, 색소 변화, 광채 감소와 같은 피부 컨디션의 변화를 노화의 시작으로 느끼는 경우도 많습니다.</p>
+      <p>그래서 기존의 Aging Morphotypes를 그대로 적용하는 것이 아니라, 이러한 초기 변화를 별도의 패턴으로 포함해 6가지 노화 유형으로 확장했습니다.</p>
+    </div>
+    <div class="story__cta">
+      <a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a>
+    </div>
+  </div>
+</section>"""
+
 BODY["aging-types"] = """<section class="sec" id="types">
   <div class="wrap">
     <div class="seclabel"><i></i><span>AGING LAB &nbsp;·&nbsp; 6가지 노화 타입</span></div>
@@ -84,23 +103,7 @@ BODY["aging-types"] = """<section class="sec" id="types">
   </div>
 </section>
 
-<section class="sec sec--grey" id="why">
-  <div class="wrap">
-    <div class="seclabel"><i></i><span>WHY WE AGE DIFFERENTLY &nbsp;·&nbsp; 왜 노화는 다르게 나타날까</span></div>
-    <h2>왜 같은 나이인데도 노화는 다르게 나타날까요?</h2>
-    <div class="story__body">
-      <p>얼굴의 노화는 단순히 시간이 지나면서 주름이 늘어나는 과정이 아닙니다.</p>
-      <p>피부의 특성, 피하지방의 양과 분포, 얼굴 근육의 발달과 움직임, 골격 구조, 자외선과 생활 습관 등 다양한 요인이 서로 다르게 작용하면서 사람마다 다른 노화의 모습을 만들어냅니다.</p>
-      <p>그래서 같은 나이의 두 사람도 전혀 다른 변화를 경험할 수 있습니다.</p>
-      <p>한 사람은 눈밑이 먼저 꺼지고 피곤한 인상이 나타나는 반면, 다른 사람은 눈가에 잔주름이 늘어날 수 있습니다. 또 다른 사람은 얼굴의 주름보다 볼과 턱선의 변화가 먼저 눈에 띌 수 있습니다.</p>
-      <p>careCL은 여기서 한 단계 더 주목했습니다.</p>
-      <p>한국인과 동아시아인의 경우 깊은 주름이나 뚜렷한 처짐에 앞서 피부톤 저하, 색소 변화, 광채 감소와 같은 피부 컨디션의 변화를 노화의 시작으로 느끼는 경우도 많습니다.</p>
-      <p>그래서 기존의 Aging Morphotypes를 그대로 적용하는 것이 아니라, 이러한 초기 변화를 별도의 패턴으로 포함해 6가지 노화 유형으로 확장했습니다.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="list">
+<section class="sec sec--grey" id="list">
   <div class="wrap">
     <div class="seclabel"><i></i><span>6 AGING TYPES &nbsp;·&nbsp; 유형별 특징</span></div>
     <h2>careCL 6 Aging Types</h2>
@@ -108,7 +111,7 @@ BODY["aging-types"] = """<section class="sec" id="types">
   </div>
 </section>
 
-<section class="sec sec--grey" id="next">
+<section class="sec" id="next">
   <div class="wrap">
     <h2>같은 유형이라도, 먼저 관리해야 할 곳은 다릅니다.</h2>
     <div class="story__body">
@@ -205,5 +208,34 @@ BODY["technology"] = """<section class="sec" id="basic">
       <div class="evid__item"><b>—</b><span>효능 평가</span></div>
     </div>
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
+  </div>
+</section>"""
+
+BODY["certification"] = """<section class="sec">
+  <div class="wrap">
+    <div class="seclabel"><i></i><span>AWARDS & CERTIFICATION &nbsp;·&nbsp; 수상 · 인증</span></div>
+    <h2>국제 인증과 품질 경영 체계</h2>
+    <p class="mv__sub">케어클이 보유한 인증서를 원문 그대로 확인하실 수 있습니다.</p>
+    <div class="docs"><a class="doc" href="assets/docs/carecl-certifications.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>CE · FCC · ISO 9001 · ISO 14001 인증서</b><em>주식회사 케어클 인증 병합본</em></span><span class="doc__meta">PDF · 1.1MB</span></a></div>
+    <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
+  </div>
+</section>"""
+
+BODY["rnd"] = """<section class="sec">
+  <div class="wrap">
+    <div class="seclabel"><i></i><span>PATENT &nbsp;·&nbsp; 특허</span></div>
+    <h2>특허 기술</h2>
+    <p class="mv__sub">5 SEC. STAMPING은 careCL의 고주파 스탬핑 관련 특허 기술을 기반으로 합니다.</p>
+    <div class="docs"><a class="doc" href="assets/docs/carecl-patents.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>주식회사 케어클 특허 병합본</b><em>대한민국 등록특허 제10-2938674호 외</em></span><span class="doc__meta">PDF · 974KB</span></a></div>
+  </div>
+</section>
+
+<section class="sec sec--grey">
+  <div class="wrap">
+    <div class="seclabel"><i></i><span>TEST REPORT &nbsp;·&nbsp; 시험 성적서</span></div>
+    <h2>시험 성적서</h2>
+    <p class="mv__sub">외부 시험기관에서 확인한 TECH FIT · GRID MASK TECH FIT의 시험 결과입니다.</p>
+    <div class="docs"><a class="doc" href="assets/docs/carecl-test-collagen-250911.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>콜라겐 발현 시험성적서</b><em>케어클 그리드마스크 테크핏 + 케어클 테크핏 외 1종 · 2025.09.11</em></span><span class="doc__meta">PDF · 1.2MB</span></a><a class="doc" href="assets/docs/carecl-test-efficacy-250911.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>효능 평가 시험성적서</b><em>BEG107-CRK · 케어클 테크핏 외 1종 · 2025.09.11</em></span><span class="doc__meta">PDF · 11MB</span></a><a class="doc" href="assets/docs/carecl-test-skin-density-251017.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>피부층 밀도 시험성적서</b><em>케어클 그리드마스크 테크핏 + 케어클 테크핏 · 2025.10.17</em></span><span class="doc__meta">PDF · 1.2MB</span></a></div>
+    <p class="note" style="margin-top:28px">* 시험 조건과 대상 제품은 각 성적서 원문에 기재되어 있습니다.</p>
   </div>
 </section>"""

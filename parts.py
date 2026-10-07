@@ -12,8 +12,8 @@ MENU = [
         ("Mission & Vision", "mission-vision.html"),
     ]),
     ("AGING LAB", "aging-types.html", [
-        ("Why We Age Differently", "aging-types.html#why"),
-        ("6 Aging Types", "aging-types.html#types"),
+        ("Why We Age Differently", "aging-why.html"),
+        ("6 Aging Types", "aging-types.html"),
         ("나의 Aging Type 알아보기", "survey.html"),
     ]),
     ("AGING MAP 22", "aging-map.html", [
