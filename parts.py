@@ -74,7 +74,6 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         '  <nav class="header__nav">' + nav + '</nav>',
         '  <div class="header__util">',
         '    <div class="lang"><span class="is-active">KR</span><i>·</i><span>EN</span></div>',
-        '    <a href="#" class="shop">SHOP</a>',
         '    <button type="button" class="allmenu" id="allMenuBtn" aria-label="전체 메뉴">'
         '<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>'
         '</button>',

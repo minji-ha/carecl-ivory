@@ -401,3 +401,51 @@ body.sub .submenu a{letter-spacing:.01em;}
 .figbreak[style*="--fw"] .figbreak__img{max-width:var(--fw);margin:0 auto;height:auto;}
 .figbreak[style*="--fw"] .figbreak__img img{height:auto;}
 .figbreak[style*="--fw"] .figbreak__cap{max-width:var(--fw);padding-left:0;padding-right:0;}
+
+/* =========================================================
+   배경색 최소화 · 콘텐츠 간격 (2026-10)
+   ========================================================= */
+/* 1) 섹션 배경은 쓰지 않고 얇은 구분선만 둔다 */
+body.sub .sec--grey{background:transparent;}
+body.sub .sec + .sec,
+body.sub .sec + .figbreak,
+body.sub .figbreak + .sec{border-top:1px solid var(--stone);}
+
+/* 2) 카드류도 면이 아니라 선으로 구분 */
+body.sub .pillar,
+body.sub .sec--grey .pillar,
+body.sub .typecard,
+body.sub .techblock,
+body.sub .evid__item,
+body.sub .doc,
+body.sub .sec--grey .doc,
+body.sub .ctable table{background:transparent;}
+body.sub .ctable tbody th,
+body.sub .ctable tr th:first-child{background:transparent;border-right:1px solid var(--stone);}
+body.sub .ctable tr:first-child th{background:transparent;color:var(--ink);border-bottom:1px solid var(--ink);}
+body.sub .doc__ico{background:transparent;border:1px solid var(--orange-100);color:var(--orange-600);}
+.figbreak{background:transparent;}
+
+/* 3) 이미지와 글 사이 간격 */
+.figbreak{padding-top:clamp(20px,2.4vw,40px);padding-bottom:clamp(44px,5vw,80px);}
+.figbreak + .sec,
+.figbreak + .figbreak{padding-top:clamp(70px,8vw,120px);}
+.figbreak__cap{padding-top:20px;}
+.splitfig__img{margin-bottom:0;}
+body.sub .about__visual{margin-top:8px;}
+body.sub .about__grid{gap:clamp(34px,4.5vw,80px);}
+body.sub .pillar__img{margin-bottom:22px;}
+body.sub .typecards,body.sub .techblocks,body.sub .pillars,body.sub .docs{margin-top:clamp(34px,3.4vw,54px);}
+body.sub .story__cta{margin-top:clamp(36px,4vw,60px);}
+body.sub h2 + .story__body,body.sub h2 + .ctable,body.sub h2 + .typecards{margin-top:clamp(24px,2.6vw,38px);}
+.trio figcaption{margin-top:16px;}
+.splitfig__copy p{margin-top:0;}
+
+/* 이미지와 글자 사이를 조금 더 */
+.trio figcaption{margin-top:20px;}
+body.sub .pillar__img{margin-bottom:28px;}
+body.sub .pillar__img.has-img{margin-bottom:26px;}
+.figbreak__cap{padding-top:24px;}
+.splitfig__copy h3::before{margin-bottom:24px;}
+body.sub .mv__sub{margin-top:20px;}
+body.sub .note{margin-top:28px;}
