@@ -52,7 +52,7 @@
         vx: 0, vy: 0,
         r: rand(0.9, 1.6),
         seed: Math.random() * Math.PI * 2,
-        glow: 0
+        glow: 0, hot: 0
       };
     });
     dust = [];
@@ -104,6 +104,16 @@
     ctx.fillStyle = sg;
     ctx.fillRect(scanX - 90, 0, 180, H);
 
+    /* 커서 빛무리 */
+    if (mouse.on) {
+      var hg = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 120);
+      hg.addColorStop(0, 'rgba(214,138,86,.16)');
+      hg.addColorStop(0.55, 'rgba(214,138,86,.05)');
+      hg.addColorStop(1, 'rgba(214,138,86,0)');
+      ctx.fillStyle = hg;
+      ctx.fillRect(mouse.x - 120, mouse.y - 120, 240, 240);
+    }
+
     /* 글자 입자 */
     var R = 90, R2 = R * R;
     for (var i = 0; i < parts.length; i++) {
@@ -112,14 +122,19 @@
       var ax = (p.tx + wob - p.x) * 0.055;
       var ay = (p.ty + Math.cos(t * 0.025 + p.seed) * 0.6 - p.y) * 0.055;
 
+      /* 마우스 : 흩어지는 대신 커서 둘레를 천천히 도는 소용돌이 */
+      var hot = 0;
       if (mouse.on) {
         var dx = p.x - mouse.x, dy = p.y - mouse.y, dd = dx * dx + dy * dy;
         if (dd < R2) {
-          var f = (1 - dd / R2) * 5.5;
           var len = Math.sqrt(dd) || 1;
-          ax += dx / len * f; ay += dy / len * f;
+          hot = 1 - len / R;
+          var f = hot * hot;
+          ax += (-dy / len) * f * 2.6 + (dx / len) * f * 0.9;   // 접선 회전 + 아주 약한 밀어내기
+          ay += (dx / len) * f * 2.6 + (dy / len) * f * 0.9;
         }
       }
+      p.hot += (hot - p.hot) * 0.12;
       p.vx = (p.vx + ax) * 0.84;
       p.vy = (p.vy + ay) * 0.84;
       p.x += p.vx; p.y += p.vy;
@@ -130,12 +145,13 @@
 
       /* 좌→우 스카이 그라데이션 */
       var k = p.tx / W;
-      var cr = Math.round(236 - 36 * k + 19 * p.glow);
-      var cg = Math.round(226 - 42 * k + 29 * p.glow);
-      var cb = Math.round(210 - 56 * k + 45 * p.glow);
+      var h = p.hot || 0;
+      var cr = Math.round((236 - 36 * k + 19 * p.glow) * (1 - h) + 214 * h);
+      var cg = Math.round((226 - 42 * k + 29 * p.glow) * (1 - h) + 138 * h);
+      var cb = Math.round((210 - 56 * k + 45 * p.glow) * (1 - h) + 86 * h);
       ctx.fillStyle = 'rgba(' + Math.min(255, cr) + ',' + Math.min(255, cg) + ',' + Math.min(255, cb) + ',' + (0.86 + p.glow * 0.14) + ')';
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r + p.glow * 1.1 + speed * 0.8, 0, 6.283);
+      ctx.arc(p.x, p.y, p.r + p.glow * 1.1 + speed * 0.8 + (p.hot || 0) * 1.3, 0, 6.283);
       ctx.fill();
     }
   }

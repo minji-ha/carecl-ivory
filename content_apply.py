@@ -72,7 +72,7 @@ about = """<section class="sec">
           %s
         </div>
       </div>
-      <div class="about__visual"><img src="assets/img/p-touch.jpg" alt="careCL"></div>
+      <div class="about__visual"><img src="assets/img/cc-model-c.jpg" alt="careCL"></div>
     </div>
     <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
@@ -402,7 +402,7 @@ out = ["# -*- coding: utf-8 -*-",
        '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""',
        "BODY = {}", ""]
 # 본문 사이사이에 기존 carecl.com 비주얼을 넣는다
-FIG_MODEL = figure("p-leaning.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
+FIG_MODEL = figure("p-touch.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
 FIG_LINEUP = ""
 FIG_STAMPING = figure("p-mask-close.jpg", "STAMPING, INSPIRED BY REAL PROCEDURES", "정해진 자리에 5초, 눌러서 전달합니다", width=760)
 
@@ -423,7 +423,7 @@ tech_carecl = technology[_i:_j].rstrip() + chr(10) + FIG_STAMPING + chr(10) + te
 aging_types_full = aging_why + chr(10) + aging_types
 
 story = story.replace('<section class="sec" id="home">',
-    split("p-model.jpg",
+    split("p-leaning.jpg",
           "집에서, 매일, 같은 방식으로",
           "클리닉에서 쌓인 기준을 매일의 루틴으로 옮겼습니다. 같은 자리에 같은 시간, 반복할 수 있는 관리가 변화를 만듭니다.",
           rev=True) + chr(10) + '<section class="sec" id="home">')

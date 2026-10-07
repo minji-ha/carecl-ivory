@@ -13,7 +13,7 @@ BODY["about"] = """<section class="sec">
           <p>전문적인 관리 경험을 집에서도 이어갈 수 있도록.<br>그것이 <strong>care Clinical Level</strong>이 지향하는 기준입니다.</p>
         </div>
       </div>
-      <div class="about__visual"><img src="assets/img/p-touch.jpg" alt="careCL"></div>
+      <div class="about__visual"><img src="assets/img/cc-model-c.jpg" alt="careCL"></div>
     </div>
     <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
@@ -43,7 +43,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-leaning.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
 <section class="sec sec--grey" id="understand">
   <div class="wrap">
     <div class="seclabel"><i></i><span>UNDERSTAND FIRST</span></div>
@@ -56,7 +56,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-model.jpg" alt=""></div><div class="splitfig__copy"><h3>집에서, 매일, 같은 방식으로</h3><p>클리닉에서 쌓인 기준을 매일의 루틴으로 옮겼습니다. 같은 자리에 같은 시간, 반복할 수 있는 관리가 변화를 만듭니다.</p></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-leaning.jpg" alt=""></div><div class="splitfig__copy"><h3>집에서, 매일, 같은 방식으로</h3><p>클리닉에서 쌓인 기준을 매일의 루틴으로 옮겼습니다. 같은 자리에 같은 시간, 반복할 수 있는 관리가 변화를 만듭니다.</p></div></div></div></section>
 <section class="sec" id="home">
   <div class="wrap">
     <div class="story__body">
