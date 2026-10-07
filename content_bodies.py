@@ -224,7 +224,6 @@ BODY["rnd"] = """<section class="sec">
     <h2>등록 특허</h2>
     <div class="story__body"><p><strong>5 SEC. STAMPING은 careCL의 고주파 스탬핑 관련 특허 기술을 기반으로 합니다.</strong></p></div>
     <div class="docgrid docgrid--4"><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2938674.jpg" alt="제 10-2938674 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2938674 호</b><span class="doccard__desc">피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2799588.jpg" alt="제 10-2799588 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2799588 호</b><span class="doccard__desc">고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2799593.jpg" alt="제 10-2799593 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2799593 호</b><span class="doccard__desc">고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-1647183.jpg" alt="제 10-1647183 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-1647183 호</b><span class="doccard__desc">치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span></figcaption></figure></div>
-    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>
 

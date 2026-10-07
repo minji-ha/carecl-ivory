@@ -421,7 +421,6 @@ rnd = """<section class="sec">
     <h2>등록 특허</h2>
     <div class="story__body">%s</div>
     <div class="docgrid docgrid--4">%s</div>
-    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>
 
