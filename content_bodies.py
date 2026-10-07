@@ -234,8 +234,7 @@ BODY["rnd"] = """<section class="sec">
   <div class="wrap">
     <div class="seclabel"><i></i><span>TEST REPORT &nbsp;·&nbsp; 시험 성적서</span></div>
     <h2>시험 성적서</h2>
-    <p class="mv__sub">외부 시험기관에서 확인한 TECH FIT · GRID MASK TECH FIT의 시험 결과입니다.</p>
-    <div class="docs"><a class="doc" href="assets/docs/carecl-test-collagen-250911.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>콜라겐 발현 시험성적서</b><em>케어클 그리드마스크 테크핏 + 케어클 테크핏 외 1종 · 2025.09.11</em></span><span class="doc__meta">PDF · 1.2MB</span></a><a class="doc" href="assets/docs/carecl-test-efficacy-250911.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>효능 평가 시험성적서</b><em>BEG107-CRK · 케어클 테크핏 외 1종 · 2025.09.11</em></span><span class="doc__meta">PDF · 11MB</span></a><a class="doc" href="assets/docs/carecl-test-skin-density-251017.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>피부층 밀도 시험성적서</b><em>케어클 그리드마스크 테크핏 + 케어클 테크핏 · 2025.10.17</em></span><span class="doc__meta">PDF · 1.2MB</span></a></div>
-    <p class="note" style="margin-top:28px">* 시험 조건과 대상 제품은 각 성적서 원문에 기재되어 있습니다.</p>
+    <p class="mv__sub">TECH FIT · GRID MASK TECH FIT은 외부 시험기관에서 콜라겐 발현, 효능 평가, 피부층 밀도 시험을 진행했습니다.</p>
+    <p class="note" style="margin-top:24px">* 시험 성적서 원문은 비공개 자료입니다. 필요하신 경우 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>"""

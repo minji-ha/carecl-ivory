@@ -376,9 +376,8 @@ rnd = """<section class="sec">
   <div class="wrap">
     %s
     <h2>시험 성적서</h2>
-    <p class="mv__sub">외부 시험기관에서 확인한 TECH FIT · GRID MASK TECH FIT의 시험 결과입니다.</p>
-    %s
-    <p class="note" style="margin-top:28px">* 시험 조건과 대상 제품은 각 성적서 원문에 기재되어 있습니다.</p>
+    <p class="mv__sub">TECH FIT · GRID MASK TECH FIT은 외부 시험기관에서 콜라겐 발현, 효능 평가, 피부층 밀도 시험을 진행했습니다.</p>
+    <p class="note" style="margin-top:24px">* 시험 성적서 원문은 비공개 자료입니다. 필요하신 경우 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>""" % (
     label("PATENT", "특허"),
@@ -386,11 +385,6 @@ rnd = """<section class="sec">
         ("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호 외", "assets/docs/carecl-patents.pdf", "974KB"),
     ]),
     label("TEST REPORT", "시험 성적서"),
-    doclist([
-        ("콜라겐 발현 시험성적서", "케어클 그리드마스크 테크핏 + 케어클 테크핏 외 1종 · 2025.09.11", "assets/docs/carecl-test-collagen-250911.pdf", "1.2MB"),
-        ("효능 평가 시험성적서", "BEG107-CRK · 케어클 테크핏 외 1종 · 2025.09.11", "assets/docs/carecl-test-efficacy-250911.pdf", "11MB"),
-        ("피부층 밀도 시험성적서", "케어클 그리드마스크 테크핏 + 케어클 테크핏 · 2025.10.17", "assets/docs/carecl-test-skin-density-251017.pdf", "1.2MB"),
-    ]),
 )
 
 
