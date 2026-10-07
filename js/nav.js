@@ -26,35 +26,32 @@
   });
 })();
 
-/* ── 페이지 상단 3뎁스 앵커 바 : 현재 섹션 표시 ── */
+/* ── 서브 2뎁스 탭 : 같은 페이지 앵커일 때 현재 섹션 표시 ── */
 (function () {
-  var bar = document.getElementById('anchorNav');
+  var bar = document.getElementById('subMenu');
   if (!bar) return;
   var links = [].slice.call(bar.querySelectorAll('a'));
+  var page = location.pathname.split('/').pop() || 'index.html';
   var map = [];
   links.forEach(function (a) {
     var href = a.getAttribute('href') || '';
     var i = href.indexOf('#');
     if (i < 0) return;
     var base = href.slice(0, i);
-    if (base && base !== location.pathname.split('/').pop()) return;
+    if (base && base !== page) return;
     var el = document.getElementById(href.slice(i + 1));
     if (el) map.push({ a: a, el: el });
   });
-  if (!map.length) return;
+  if (map.length < 2) return;
 
   function sync() {
-    var line = window.scrollY + bar.getBoundingClientRect().bottom + 80;
-    var cur = null;
+    var line = window.scrollY + 220;
+    var cur = map[0];
     map.forEach(function (m) {
       if (m.el.getBoundingClientRect().top + window.scrollY <= line) cur = m;
     });
     links.forEach(function (a) { a.classList.remove('is-active'); });
-    if (cur) {
-      // 같은 앵커를 가리키는 링크가 여러 개면 첫 번째만 표시
-      var first = map.filter(function (m) { return m.el === cur.el; })[0];
-      first.a.classList.add('is-active');
-    }
+    cur.a.classList.add('is-active');
   }
   var tick = false;
   window.addEventListener('scroll', function () {

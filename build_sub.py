@@ -3,55 +3,64 @@
 import io
 import parts
 
-GROUPS = [
-    ("COMPANY", "COMPANY", [
-        ("about",          "About careCL",           "회사소개"),
-        ("greeting",       "Our Story",              "브랜드 스토리"),
-        ("rnd",            "R&D / Patent",           "연구개발 · 특허"),
-        ("certification",  "Awards & Certification", "수상 · 인증"),
-    ]),
-    ("AGING LAB", "AGING LAB", [
-        ("aging-why",      "Why We Age Differently", "왜 다르게 나이 드는가"),
-        ("aging-types",    "6 Aging Types",          "6가지 노화 타입"),
-        ("aging-map",      "Aging Map 22",           "22개 관리 부위"),
-    ]),
-    ("TECHNOLOGY", "TECHNOLOGY", [
-        ("technology",     "Technology",             "기술 소개"),
-    ]),
-    ("PRODUCTS", "PRODUCTS", [
-        ("products",       "Products",               "제품"),
-    ]),
-    ("CONTACT", "CONTACT", [
-        ("contact",        "Contact",                "문의"),
-        ("location",       "Location",               "오시는 길"),
-    ]),
-]
+# 페이지 정보는 parts.MENU(2뎁스)에서 그대로 끌어온다 — 메뉴와 페이지를 1:1로 맞추기 위함
+PAGE_TITLE = {
+    "about":         ("About careCL", "회사 소개"),
+    "greeting":      ("Our Story", "브랜드 스토리"),
+    "rnd":           ("R&D / Patent", "연구개발 · 특허"),
+    "certification": ("Awards & Certification", "수상 · 인증"),
+    "aging-types":   ("6 Aging Types", "6가지 노화 타입"),
+    "aging-map":     ("Aging Map 22", "22개 관리 부위"),
+    "technology":    ("Technology", "기술 소개"),
+    "products":      ("Products", "제품"),
+    "contact":       ("Contact", "문의"),
+}
 
-PAGES = [(slug, en, kr, menu, crumb) for menu, crumb, items in GROUPS for slug, en, kr in items]
-GROUP_OF = {slug: (menu, crumb, items) for menu, crumb, items in GROUPS for slug, en, kr in items}
+
+def _slug(href):
+    return href.split("#")[0].replace(".html", "")
+
+
+PAGES = []        # (slug, en, kr, 1뎁스명)
+SUBMENU = {}      # slug -> [(2뎁스명, 링크), ...]
+for d1, _h1, subs in parts.MENU:
+    items = [(t, h) for t, h, _kr in subs]
+    for t, h, _kr in subs:
+        sl = _slug(h)
+        if sl in SUBMENU:
+            continue
+        SUBMENU[sl] = items
+        en, kr = PAGE_TITLE[sl]
+        PAGES.append((sl, en, kr, d1))
 
 
 def header(menu):
     return parts.header(active=menu)
 
 
-
-def subvisual(slug, en, kr):
-    menu, crumb, items = GROUP_OF[slug]
-    tabs = "".join('<li><a href="%s.html"%s>%s</a></li>'
-                   % (sl, ' class="is-active"' if sl == slug else "", k)
-                   for sl, e, k in items)
+def subvisual(slug, en, kr, menu):
+    items = SUBMENU[slug]
+    tabs = ""
+    anchor_first = True
+    for t, h in items:
+        if "#" in h and _slug(h) == slug:
+            act = ' class="is-active"' if anchor_first else ''
+            anchor_first = False
+        else:
+            act = ' class="is-active"' if _slug(h) == slug else ''
+        tabs += '<li><a href="%s"%s>%s</a></li>' % (h, act, t)
     cols = len(items)
-    submenu = ('<nav class="submenu"><ul style="grid-template-columns:repeat(%d,1fr)">%s</ul></nav>' % (cols, tabs)) if cols > 1 else ''
+    submenu = ('<nav class="submenu" id="subMenu"><ul style="grid-template-columns:repeat(%d,1fr)">%s</ul></nav>'
+               % (cols, tabs)) if cols > 1 else ''
     return ('<section class="subvisual">'
             '<img class="subvisual__img" src="assets/img/sub-visual.jpg" alt="">'
             '<div class="subvisual__fade"></div>'
             '<div class="subvisual__glow"></div>'
             '<div class="subvisual__inner">'
-            '<p class="crumb">HOME &nbsp;/&nbsp; ' + crumb + ' &nbsp;/&nbsp; ' + kr + '</p>'
+            '<p class="crumb">HOME &nbsp;/&nbsp; ' + menu + ' &nbsp;/&nbsp; ' + kr + '</p>'
             '<h1>' + en + '</h1>'
             '<p class="kr">' + kr + '</p>'
-            '</div></section>' + submenu + parts.anchornav(slug))
+            '</div></section>' + submenu)
 
 
 FOOTER = parts.FOOTER
@@ -340,6 +349,8 @@ BODY["contact"] = """<section class="sec">
   </div>
 </section>"""
 
+BODY["contact"] = BODY["contact"] + chr(10) + BODY["location"].replace('<section class="sec">', '<section class="sec sec--grey" id="location">', 1)
+
 try:
     import content_bodies
     BODY.update(content_bodies.BODY)
@@ -354,7 +365,7 @@ TPL = """<!DOCTYPE html>
 <title>%(kr)s | careCL 케어클</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
 <link rel="stylesheet" href="css/style.css?v=2609130353">
 <link rel="stylesheet" href="css/nav.css?v=2609130353">
@@ -383,9 +394,9 @@ TPL = """<!DOCTYPE html>
 </html>
 """
 
-for slug, en, kr, menu, crumb in PAGES:
+for slug, en, kr, menu in PAGES:
     html = TPL % {"kr": kr, "header": header(menu),
-                  "subvisual": subvisual(slug, en, kr),
+                  "subvisual": subvisual(slug, en, kr, menu),
                   "body": BODY[slug], "footer": FOOTER}
     io.open(slug + ".html", "w", encoding="utf-8").write(html)
     print("built", slug + ".html")

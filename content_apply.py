@@ -187,9 +187,6 @@ aging_why = """<section class="sec" id="why">
     <div class="story__body">
       %s
     </div>
-    <div class="story__cta">
-      <a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a>
-    </div>
   </div>
 </section>""" % (
     label("WHY WE AGE DIFFERENTLY", "왜 다르게 나이 드는가"), t(62),
@@ -379,8 +376,8 @@ rnd = """<section class="sec">
 out = ["# -*- coding: utf-8 -*-",
        '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""',
        "BODY = {}", ""]
-for key, html in [("about", about), ("greeting", story), ("aging-why", aging_why),
-                  ("aging-types", aging_types), ("technology", technology),
+for key, html in [("about", about), ("greeting", story),
+                  ("aging-types", aging_why + chr(10) + aging_types), ("technology", technology),
                   ("certification", certification), ("rnd", rnd)]:
     out.append('BODY["%s"] = """%s"""' % (key, html))
     out.append("")

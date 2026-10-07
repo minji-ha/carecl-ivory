@@ -1,73 +1,33 @@
 # -*- coding: utf-8 -*-
 """careCL 공통 파츠 (헤더 / 전체메뉴 / 푸터).  build_sub.py · apply_nav.py 에서 사용"""
 
-# (라벨, 링크, [(하위라벨, 하위링크), ...])
-# 노션 "케어클 홈페이지 구성" 기준 3뎁스 구조
-# (1뎁스 라벨, 링크, [(2뎁스 라벨, 링크, [(3뎁스 라벨, 링크), ...]), ...])
+# (1뎁스 라벨, 링크, [(2뎁스 라벨, 링크, 페이지 한글명), ...])
+# 노션 "케어클 홈페이지 구성" 기준 — GNB·서브 탭 모두 2뎁스까지만 쓴다.
+# 3뎁스였던 항목들은 각 페이지 본문의 소제목으로 들어간다.
 MENU = [
     ("COMPANY", "about.html", [
-        ("About careCL", "about.html", []),
-        ("Our Story", "greeting.html", [
-            ("보톡스 써마지 업계 경험 born from botox &amp; Thermage", "greeting.html#born"),
-            ("노화에 대한 이해와 관리 설계의 중요성", "greeting.html#understand"),
-            ("홈 에이징 케어로 이어진 배경", "greeting.html#home"),
-        ]),
-        ("R&D / Patent", "rnd.html", []),
-        ("Awards & Certification", "certification.html", []),
+        ("About careCL", "about.html", "회사 소개"),
+        ("Our Story", "greeting.html", "브랜드 스토리"),
+        ("R&D / Patent", "rnd.html", "연구개발 · 특허"),
+        ("Awards & Certification", "certification.html", "수상 · 인증"),
     ]),
     ("AGING LAB", "aging-types.html", [
-        ("6 AGING TYPES", "aging-types.html", [
-            ("Why We Age Differently", "aging-why.html"),
-            ("6 Aging Types", "aging-types.html#list"),
-            ("유형별 특징", "aging-types.html#list"),
-            ("유형별 주요 고민", "aging-types.html#list"),
-            ("나의 Aging Type 알아보기", "survey.html"),
-        ]),
-        ("AGING MAP 22", "aging-map.html", [
-            ("Why Aging Map 22", "aging-map.html#why"),
-            ("6 Aging Types × 22 Areas", "aging-map.html#matrix"),
-            ("Face / Neck &amp; Body", "aging-map.html#areas"),
-            ("22개 관리 부위", "aging-map.html#areas"),
-            ("부위별 노화 특징", "aging-map.html#areas"),
-            ("우선 관리 부위", "aging-map.html#care"),
-            ("Personalized Care", "aging-map.html#care"),
-        ]),
+        ("6 Aging Types", "aging-types.html", "6가지 노화 타입"),
+        ("Aging Map 22", "aging-map.html", "22개 관리 부위"),
     ]),
     ("TECHNOLOGY", "technology.html", [
-        ("Beauty Device Technology", "technology.html#basic", [
-            ("RF", "technology.html#rf"),
-            ("Ultrasound", "technology.html#us"),
-            ("EMS", "technology.html#ems"),
-            ("Microcurrent", "technology.html#micro"),
-            ("Electroporation", "technology.html#ep"),
-        ]),
-        ("careCL Technology", "technology.html#stamping", [
-            ("5 SEC. STAMPING", "technology.html#stamping"),
-            ("왜 문지르는 방식이 아니라 스탬핑인가", "technology.html#stamping"),
-            ("정해진 위치 / 정해진 시간", "technology.html#why5"),
-            ("특허 기술", "technology.html#patent"),
-            ("관련 시험 및 임상", "technology.html#evidence"),
-            ("TECHFIT에 적용된 RF · EP · Microcurrent · EMS", "technology.html#maptostamp"),
-        ]),
+        ("Beauty Device Technology", "technology.html#basic", "홈뷰티 디바이스 기술"),
+        ("careCL Technology", "technology.html#stamping", "케어클 기술"),
     ]),
     ("PRODUCTS", "products.html", [
-        ("BEAUTY DEVICE", "products.html#device", [
-            ("TECHFIT", "products.html#device"),
-            ("CLB", "products.html#device"),
-            ("향후 Device", "products.html#device"),
-        ]),
-        ("COSMETICS", "products.html#cosmetics", [
-            ("Collagen Booster Gel", "products.html#cosmetics"),
-            ("Grid Mask", "products.html#cosmetics"),
-            ("Toning Serum", "products.html#cosmetics"),
-            ("향후 Cosmetics", "products.html#cosmetics"),
-        ]),
+        ("Beauty Device", "products.html#device", "뷰티 디바이스"),
+        ("Cosmetics", "products.html#cosmetics", "코스메틱"),
     ]),
     ("CONTACT", "contact.html", [
-        ("Global Business", "contact.html#global", []),
-        ("Distributor / Partnership", "contact.html#partner", []),
-        ("Media / PR", "contact.html#pr", []),
-        ("General Inquiry", "contact.html#inquiry", []),
+        ("Global Business", "contact.html#global", "해외 사업 문의"),
+        ("Distributor / Partnership", "contact.html#partner", "유통 · 제휴"),
+        ("Media / PR", "contact.html#pr", "미디어"),
+        ("General Inquiry", "contact.html#inquiry", "일반 문의"),
     ]),
 ]
 
@@ -96,9 +56,8 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         badge = AI_BADGE if label == "AGING LAB" else ""
         drop = ''
         if subs:
-            # GNB 드롭다운은 2뎁스까지만 (3뎁스는 각 페이지 상단 앵커 바에서 노출)
-            links = "".join('<a class="dropdown__d2" href="%s">%s</a>' % (shref, stitle)
-                            for stitle, shref, thirds in subs)
+            links = "".join('<a class="dropdown__d2" href="%s">%s</a>' % (h, t)
+                            for t, h, _kr in subs)
             drop = '<div class="dropdown"><div class="dropdown__inner">%s</div></div>' % links
         return ('<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
                 % (' has-badge' if badge else '', href, cls, label, badge, drop))
@@ -129,27 +88,22 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
 def mega():
     cols = ""
     for label, href, subs in MENU:
-        if label not in DROPDOWN_ONLY:
-            subs = []
-        links = ""
-        for stitle, shref, thirds in subs:
-            links += '<a class="mega__d2" href="%s">%s</a>' % (shref, stitle)
-            for t3, h3 in thirds:
-                links += '<a class="mega__d3" href="%s">%s</a>' % (h3, t3)
+        links = "".join('<a class="mega__d2" href="%s">%s</a>' % (h, t) for t, h, _kr in subs)
         cols += '<div class="mega__col"><h3><a href="%s">%s</a></h3>%s</div>' % (href, label, links)
-    return (
-        '<div class="mega" id="megaMenu" aria-hidden="true">\n'
-        '  <button type="button" class="mega__close" id="megaClose" aria-label="닫기"></button>\n'
-        '  <div class="mega__inner">\n'
-        '    <div class="mega__head"><span>ALL MENU</span><b>careCL</b></div>\n'
-        '    <div class="mega__cols">' + cols + '</div>\n'
-        '    <div class="mega__foot">\n'
-        '      <a href="survey.html" class="mega__cta">AI 피부 진단 시작하기 <span>→</span></a>\n'
-        '      <p>TEL +82 31-943-1028 &nbsp;·&nbsp; support@carecl.co.kr</p>\n'
-        '    </div>\n'
-        '  </div>\n'
-        '</div>'
-    )
+    rows = [
+        '<div class="mega" id="megaMenu" aria-hidden="true">',
+        '  <button type="button" class="mega__close" id="megaClose" aria-label="닫기"></button>',
+        '  <div class="mega__inner">',
+        '    <div class="mega__head"><span>ALL MENU</span><b>careCL</b></div>',
+        '    <div class="mega__cols">' + cols + '</div>',
+        '    <div class="mega__foot">',
+        '      <a href="survey.html" class="mega__cta">AI 피부 진단 시작하기 <span>→</span></a>',
+        '      <p>TEL +82 31-943-1028 &nbsp;·&nbsp; support@carecl.co.kr</p>',
+        '    </div>',
+        '  </div>',
+        '</div>',
+    ]
+    return chr(10).join(rows)
 
 
 FOOTER = """<footer class="footer">
@@ -160,10 +114,10 @@ FOOTER = """<footer class="footer">
     </div>
     <div class="footer__cols">
       <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a></div>
-      <div><h4>AGING LAB</h4><a href="aging-types.html">6 AGING TYPES</a><a href="aging-map.html">AGING MAP 22</a><a href="survey.html">나의 Aging Type 알아보기</a></div>
-      <div><h4>TECHNOLOGY</h4><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
-      <div><h4>PRODUCTS</h4><a href="products.html#device">BEAUTY DEVICE</a><a href="products.html#cosmetics">COSMETICS</a></div>
-      <div><h4>CONTACT</h4><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a></div>
+      <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="aging-map.html">Aging Map 22</a><a href="survey.html">나의 타입 알아보기</a></div>
+      <div><h4>TECHNOLOGY</h4><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">careCL Technology</a></div>
+      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
+      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="contact.html#location">오시는 길</a></div>
     </div>
   </div>
   <div class="footer__legal">
@@ -173,28 +127,3 @@ FOOTER = """<footer class="footer">
     <div class="footer__sns"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
   </div>
 </footer>"""
-
-
-def depth3_groups(slug):
-    """해당 페이지(slug.html)에 속한 2뎁스들의 3뎁스 목록 → [(2뎁스명, [(라벨, 링크), ...]), ...]"""
-    page = slug + ".html"
-    out = []
-    for _d1, _h1, subs in MENU:
-        for d2, h2, thirds in subs:
-            if thirds and h2.split("#")[0] == page:
-                out.append((d2, thirds))
-    return out
-
-
-def anchornav(slug):
-    """페이지 상단 3뎁스 앵커 바"""
-    groups = depth3_groups(slug)
-    if not groups:
-        return ""
-    blocks = []
-    for d2, thirds in groups:
-        links = "".join('<a href="%s">%s</a>' % (h, t) for t, h in thirds)
-        blocks.append('<div class="anchornav__group"><span class="anchornav__label">%s</span>'
-                      '<div class="anchornav__links">%s</div></div>' % (d2, links))
-    return ('<nav class="anchornav" id="anchorNav"><div class="anchornav__inner">%s</div></nav>'
-            % "".join(blocks))

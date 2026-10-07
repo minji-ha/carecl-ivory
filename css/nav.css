@@ -116,7 +116,7 @@ body.mega-open .announce{z-index:1;}
 .mega__inner{max-width:1680px;margin:0 auto;padding:150px var(--pad) 90px;color:#fff;}
 .mega__head{margin-bottom:64px;}
 .mega__head span{display:block;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.24em;color:var(--sky-400);}
-.mega__head b{display:block;margin-top:16px;font-family:var(--en);font-weight:200;font-size:56px;letter-spacing:-.03em;}
+.mega__head b{display:block;margin-top:16px;font-family:var(--en);font-weight:400;font-size:56px;letter-spacing:-.03em;}
 .mega__cols{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;align-items:start;}
 .mega__col h3{margin:0 0 24px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.16);}
 .mega__col h3 a{font-family:var(--en);font-size:19px;font-weight:500;letter-spacing:.02em;color:#fff;}

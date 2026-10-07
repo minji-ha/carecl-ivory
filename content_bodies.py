@@ -65,20 +65,16 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>"""
 
-BODY["aging-why"] = """<section class="sec" id="why">
+BODY["aging-types"] = """<section class="sec" id="why">
   <div class="wrap">
     <div class="seclabel"><i></i><span>WHY WE AGE DIFFERENTLY &nbsp;·&nbsp; 왜 다르게 나이 드는가</span></div>
     <h2><strong>왜 같은 나이인데도 노화는 다르게 나타날까요?</strong></h2>
     <div class="story__body">
       <p>얼굴의 노화는 단순히 시간이 지나면서 주름이 늘어나는 과정이 아닙니다.</p><p>피부의 특성, 피하지방의 양과 분포, 얼굴 근육의 발달과 움직임, 골격 구조, 자외선과 생활 습관 등 다양한 요인이 서로 다르게 작용하면서 <strong>사람마다 다른 노화의 모습</strong>을 만들어냅니다.</p><p>그래서 같은 나이의 두 사람도 전혀 다른 변화를 경험할 수 있습니다.</p><p>한 사람은 눈밑이 먼저 꺼지고 피곤한 인상이 나타나는 반면, 다른 사람은 눈가에 잔주름이 늘어날 수 있습니다. 또 다른 사람은 얼굴의 주름보다 볼과 턱선의 변화가 먼저 눈에 띌 수 있습니다.</p><p>careCL은 여기서 한 단계 더 주목했습니다.</p><p>한국인과 동아시아인의 경우 깊은 주름이나 뚜렷한 처짐에 앞서 <strong>피부톤 저하, 색소 변화, 광채 감소와 같은 피부 컨디션의 변화</strong>를 노화의 시작으로 느끼는 경우도 많습니다.</p><p>그래서 기존의 Aging Morphotypes를 그대로 적용하는 것이 아니라, 이러한 초기 변화를 별도의 패턴으로 포함해 <strong>6가지 노화 유형</strong>으로 확장했습니다.</p>
     </div>
-    <div class="story__cta">
-      <a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a>
-    </div>
   </div>
-</section>"""
-
-BODY["aging-types"] = """<section class="sec" id="types">
+</section>
+<section class="sec" id="types">
   <div class="wrap">
     <div class="seclabel"><i></i><span>AGING LAB &nbsp;·&nbsp; 6가지 노화 타입</span></div>
     <h2><strong>6 AGING TYPES</strong></h2>
