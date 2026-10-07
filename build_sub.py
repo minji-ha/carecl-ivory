@@ -340,7 +340,7 @@ BODY["products"] = """<section class="sec" id="device">
     <div class="splitfig">
       <div class="splitfig__img"><img src="assets/img/p-cheek.jpg" alt=""></div>
       <div class="splitfig__copy">
-        <h3>정해진 자리에 5초</h3>
+        <h3>문지르지 않고, 눌러서</h3>
         <p>문지르거나 굴리지 않습니다. 관리 부위에 정확히 올려두고 정해진 시간 동안 에너지를 전달합니다.</p>
       </div>
     </div>
@@ -449,6 +449,7 @@ TPL = """<!DOCTYPE html>
 <script src="libs/ScrollTrigger.min.js"></script>
 <script src="js/sub.js?v=2609130353"></script>
 <script src="js/particletext.js"></script>
+<script src="js/typecards.js"></script>
 <script src="js/cursorword.js"></script>
 <script src="js/nav.js?v=2609130353"></script>
 </body>

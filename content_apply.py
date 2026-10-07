@@ -164,9 +164,10 @@ for no, (ti, qi, di, ci) in enumerate(types, start=1):
         body = "<p>%s</p>" % t(di)
         worry = '<p class="type__worry"><em>%s</em><span>%s</span></p>' % (t(ci - 1), t(ci))
     cards.append(
-        '<div class="typecard"><span class="typecard__no">%02d</span>'
-        '<h4>%s</h4><p class="typecard__quote">%s</p>%s%s</div>'
-        % (no, t(ti), t(qi), body, worry)
+        '<article class="typecard" data-type="%02d"><span class="typecard__no">%02d</span>'
+        '<span class="typecard__bar"></span>'
+        '<h4>%s</h4><p class="typecard__quote">%s</p>%s%s</article>'
+        % (no, no, t(ti), t(qi), body, worry)
     )
 
 aging_types = """<section class="sec" id="types">

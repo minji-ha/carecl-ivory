@@ -196,7 +196,7 @@ BODY = """
       <div class="mstep__grid">
         <div class="mstep__card"><span class="mstep__no">01</span><em>CLEANSE</em><b>씻어냅니다</b><p>잔여물을 정리해 다음 단계가 제대로 전달되도록 준비합니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">02</span><em>READ</em><b>읽습니다</b><p>오늘 먼저 관리할 부위를 Aging Map 22 기준으로 확인합니다.</p></div>
-        <div class="mstep__card"><span class="mstep__no">03</span><em>ACTIVATE</em><b>깨웁니다</b><p>정해진 자리에 5초간 머무르며 수직으로 전달합니다.</p></div>
+        <div class="mstep__card"><span class="mstep__no">03</span><em>ACTIVATE</em><b>깨웁니다</b><p>한 부위에 머무르며 수직으로 전달합니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">04</span><em>RECOVERY</em><b>채웁니다</b><p>전용 코스메틱으로 전달 직후의 피부를 안정시킵니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">05</span><em>MAINTAIN</em><b>이어갑니다</b><p>주 2~3회 같은 자리를 반복해 변화를 기록합니다.</p></div>
       </div>

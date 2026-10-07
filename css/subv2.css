@@ -478,3 +478,49 @@ body.sub .submenu a{font-size:16px;}
 
 /* AI 피부 진단 버튼은 모든 페이지에서 항상 우측에 표시 */
 .aifab{display:inline-flex !important;}
+
+/* ── 6 AGING TYPES : 등장 · 호버 연출 ── */
+body.sub .typecards{counter-reset:tc;}
+body.sub .typecard{overflow:hidden;background:#fff;}
+body.sub .typecards.js-anim .typecard{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--td,0ms),
+             transform .9s cubic-bezier(.2,.7,.2,1) var(--td,0ms),
+             box-shadow .5s ease, border-color .5s ease;
+}
+body.sub .typecards.js-anim.is-in .typecard{opacity:1;transform:none;}
+body.sub .typecard:hover{border-color:var(--orange-100,#F3E4D8);box-shadow:0 30px 60px -34px rgba(70,58,48,.45);}
+
+/* 번호 : 크게, 옅게 깔고 호버 때 또렷해진다 */
+body.sub .typecard__no{
+  position:absolute;right:clamp(16px,1.6vw,24px);top:clamp(12px,1.2vw,18px);
+  font-size:clamp(44px,4.4vw,68px);font-weight:700;line-height:1;letter-spacing:-.04em;
+  color:var(--stone,#ECE7E0);opacity:.9;transition:color .5s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+body.sub .typecard:hover .typecard__no{color:var(--orange-100,#F3E4D8);transform:translateY(-3px);}
+
+/* 상단에서 차오르는 오렌지 선 */
+body.sub .typecard__bar{
+  position:absolute;left:0;top:0;height:2px;width:0;background:var(--orange,#C46A3A);
+  transition:width .7s cubic-bezier(.2,.7,.2,1);
+}
+body.sub .typecard:hover .typecard__bar{width:100%;}
+
+body.sub .typecard h4{position:relative;margin-top:8px;padding-right:72px;font-weight:600;}
+body.sub .typecard__quote{position:relative;color:var(--orange-600,#A8521F);}
+body.sub .typecard__quote::before{
+  content:'';display:block;width:26px;height:1px;background:var(--orange,#C46A3A);
+  margin-bottom:14px;opacity:.6;
+}
+
+/* 타입 바로가기 칩 */
+body.sub .typenav{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(22px,2.4vw,34px);
+}
+body.sub .typenav button{
+  padding:9px 16px;border:1px solid var(--stone,#ECE7E0);border-radius:100px;background:transparent;
+  font-size:13.5px;letter-spacing:-.01em;color:var(--n-600,#6B635B);cursor:pointer;
+  transition:all .3s ease;font-family:inherit;
+}
+body.sub .typenav button:hover{border-color:var(--orange,#C46A3A);color:var(--orange-600,#A8521F);}
+body.sub .typenav button.is-on{background:var(--orange,#C46A3A);border-color:var(--orange,#C46A3A);color:#fff;}
