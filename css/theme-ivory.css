@@ -472,3 +472,10 @@ body.survey .submenu{background:#fff;}
 .dropdown a:hover,
 .dropdown a.dropdown__d2:hover{color:var(--orange);}
 .dropdown a::after,.dropdown a::before{display:none !important;}
+
+/* 2뎁스 메뉴에서 선 요소 제거 — 드롭다운 테두리 / 서브탭 구분선 */
+.dropdown__inner{border:0 !important;box-shadow:0 20px 44px -18px rgba(70,58,48,.22);}
+body.sub .submenu li+li::before,
+.submenu li+li::before{display:none !important;}
+body.sub .submenu a::after{content:none;}
+body.sub .submenu a.is-active::after{content:'';}
