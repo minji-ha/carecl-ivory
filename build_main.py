@@ -272,6 +272,7 @@ TPL = """<!DOCTYPE html>
 
 <script src="js/intro.js?v=%(v)s"></script>
 <script src="js/mainv2.js?v=%(v)s"></script>
+<script src="js/cursorword.js"></script>
 <script src="js/nav.js?v=%(v)s"></script>
 </body>
 </html>

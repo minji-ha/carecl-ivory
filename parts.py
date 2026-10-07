@@ -31,6 +31,20 @@ MENU = [
     ]),
 ]
 
+FLOATING = (
+    '<a class="aifab" href="survey.html" aria-label="AI 피부 진단 시작하기">'
+    '<span class="aifab__ico">'
+    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">'
+    '<path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/>'
+    '<circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/>'
+    '<circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/>'
+    '</svg></span>'
+    '<span class="aifab__txt">AI 피부 진단</span>'
+    '</a>'
+)
+
+CURSOR_WORD = '<div class="cursorword" id="cursorWord" aria-hidden="true"></div>'
+
 AI_BADGE = (
     '<span class="aibadge" aria-hidden="true">'
     '<span class="aibadge__circle">'
@@ -53,7 +67,7 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         if label not in DROPDOWN_ONLY:
             subs = []
         cls = ' class="is-active"' if active == label else ''
-        badge = AI_BADGE if label == "AGING LAB" else ""
+        badge = ""
         drop = ''
         if subs:
             links = "".join('<a class="dropdown__d2" href="%s">%s</a>' % (h, t)
@@ -81,7 +95,7 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         '</header>',
         '',
     ]
-    return "\n".join(rows) + mega()
+    return chr(10).join(rows) + mega() + chr(10) + FLOATING + chr(10) + CURSOR_WORD
 
 
 def mega():

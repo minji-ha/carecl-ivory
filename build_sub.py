@@ -450,6 +450,7 @@ TPL = """<!DOCTYPE html>
 <script src="libs/ScrollTrigger.min.js"></script>
 <script src="js/sub.js?v=2609130353"></script>
 <script src="js/particletext.js"></script>
+<script src="js/cursorword.js"></script>
 <script src="js/nav.js?v=2609130353"></script>
 </body>
 </html>

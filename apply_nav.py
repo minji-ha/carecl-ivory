@@ -24,7 +24,7 @@ for path, active in TARGETS:
 
     # 4) nav.js 삽입
     if "js/nav.js" not in html:
-        html = html.replace("</body>", '<script src="js/nav.js"></script>\n</body>')
+        html = html.replace("</body>", '<script src="js/cursorword.js"></script>' + chr(10) + '<script src="js/nav.js"></script>' + chr(10) + '</body>')
 
     io.open(path, "w", encoding="utf-8").write(html)
     print("updated", path)
