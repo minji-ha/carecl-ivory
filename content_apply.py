@@ -41,7 +41,7 @@ def figure(img, cap_en, cap_kr, tone="", width=0):
     st = ' style="--fw:%dpx"' % width if width else ''
     return ('<section class="figbreak%s"%s>'
             '<div class="figbreak__img"><img src="assets/img/%s" alt=""></div>'
-            '<div class="figbreak__cap"><em>%s</em><span>%s</span></div>'
+            '<div class="figbreak__cap"><em>%s</em><span>%s</figcaption></figure>'
             '</section>') % (tone, st, img, cap_en, cap_kr)
 
 
@@ -57,7 +57,7 @@ def label(en, kr):
     if not en and not kr:
         return ""
     txt = '%s &nbsp;·&nbsp; %s' % (en, kr) if kr else en
-    return '<div class="seclabel"><i></i><span>%s</span></div>' % txt
+    return '<div class="seclabel"><i></i><span>%s</figcaption></figure>' % txt
 
 
 # ───────────────────────────────── About careCL
@@ -89,7 +89,7 @@ story = """<section class="sec" id="born">
   <div class="wrap">
     %s
     <div class="ceo">
-      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
+      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</figcaption></figure></div>
       <div class="ceo__text">
         <h2>%s</h2>
         <div class="story__body">
@@ -319,9 +319,9 @@ technology = """<section class="sec" id="basic">
     <h2>%s</h2>
     <p class="mv__sub">%s</p>
     <div class="evid">
-      <div class="evid__item"><b>—</b><span>콜라겐 발현</span></div>
-      <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
-      <div class="evid__item"><b>—</b><span>효능 평가</span></div>
+      <div class="evid__item"><b>—</b><span>콜라겐 발현</figcaption></figure>
+      <div class="evid__item"><b>—</b><span>피부층 밀도</figcaption></figure>
+      <div class="evid__item"><b>—</b><span>효능 평가</figcaption></figure>
     </div>
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>
@@ -355,9 +355,9 @@ def doclist(items):
     return '<div class="docs">%s</div>' % "".join(rows)
 
 
-CERT_CARDS = """<div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-ce.jpg" alt="CE" loading="lazy"></span><span class="docrow__txt"><b>CE</b><span class="docrow__desc">Declaration of Conformity · EMC 2014/30/EU</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-fcc.jpg" alt="FCC" loading="lazy"></span><span class="docrow__txt"><b>FCC</b><span class="docrow__desc">Supplier's Declaration of Conformity · CFR47 Part 15 Subpart B</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-iso9001-en.jpg" alt="ISO 9001:2015" loading="lazy"></span><span class="docrow__txt"><b>ISO 9001:2015</b><span class="docrow__desc">Quality Management System · TQCSI</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-iso9001-kr.jpg" alt="ISO 9001:2015" loading="lazy"></span><span class="docrow__txt"><b>ISO 9001:2015</b><span class="docrow__desc">품질경영시스템 인증서 · TQCSI</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-iso14001-en.jpg" alt="ISO 14001:2015" loading="lazy"></span><span class="docrow__txt"><b>ISO 14001:2015</b><span class="docrow__desc">Environmental Management System · TQCSI</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/cert-iso14001-kr.jpg" alt="ISO 14001:2015" loading="lazy"></span><span class="docrow__txt"><b>ISO 14001:2015</b><span class="docrow__desc">환경경영시스템 인증서 · TQCSI</span></span></div>"""
+CERT_CARDS = """<figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-ce.jpg" alt="CE" loading="lazy"></span><figcaption class="doccard__txt"><b>CE</b><span class="doccard__desc">Declaration of Conformity · EMC 2014/30/EU</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-fcc.jpg" alt="FCC" loading="lazy"></span><figcaption class="doccard__txt"><b>FCC</b><span class="doccard__desc">Supplier's Declaration of Conformity · CFR47 Part 15 Subpart B</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-iso9001-en.jpg" alt="ISO 9001:2015" loading="lazy"></span><figcaption class="doccard__txt"><b>ISO 9001:2015</b><span class="doccard__desc">Quality Management System · TQCSI</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-iso9001-kr.jpg" alt="ISO 9001:2015" loading="lazy"></span><figcaption class="doccard__txt"><b>ISO 9001:2015</b><span class="doccard__desc">품질경영시스템 인증서 · TQCSI</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-iso14001-en.jpg" alt="ISO 14001:2015" loading="lazy"></span><figcaption class="doccard__txt"><b>ISO 14001:2015</b><span class="doccard__desc">Environmental Management System · TQCSI</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/cert-iso14001-kr.jpg" alt="ISO 14001:2015" loading="lazy"></span><figcaption class="doccard__txt"><b>ISO 14001:2015</b><span class="doccard__desc">환경경영시스템 인증서 · TQCSI</span></figcaption></figure>"""
 
-PATENT_CARDS = """<div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/patent-2938674.jpg" alt="제 10-2938674 호" loading="lazy"></span><span class="docrow__txt"><b>제 10-2938674 호</b><span class="docrow__desc">피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/patent-2799588.jpg" alt="제 10-2799588 호" loading="lazy"></span><span class="docrow__txt"><b>제 10-2799588 호</b><span class="docrow__desc">고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/patent-2799593.jpg" alt="제 10-2799593 호" loading="lazy"></span><span class="docrow__txt"><b>제 10-2799593 호</b><span class="docrow__desc">고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span></span></div><div class="docrow"><span class="docrow__thumb"><img src="assets/img/doc/patent-1647183.jpg" alt="제 10-1647183 호" loading="lazy"></span><span class="docrow__txt"><b>제 10-1647183 호</b><span class="docrow__desc">치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span></span></div>"""
+PATENT_CARDS = """<figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2938674.jpg" alt="제 10-2938674 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2938674 호</b><span class="doccard__desc">피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2799588.jpg" alt="제 10-2799588 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2799588 호</b><span class="doccard__desc">고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-2799593.jpg" alt="제 10-2799593 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-2799593 호</b><span class="doccard__desc">고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span></figcaption></figure><figure class="doccard"><span class="doccard__img"><img src="assets/img/doc/patent-1647183.jpg" alt="제 10-1647183 호" loading="lazy"></span><figcaption class="doccard__txt"><b>제 10-1647183 호</b><span class="doccard__desc">치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span></figcaption></figure>"""
 
 
 certification = """<section class="sec">
@@ -365,7 +365,7 @@ certification = """<section class="sec">
     %s
     <h2>국제 인증과 품질 경영 체계</h2>
     <p class="mv__sub">특허청 · 인증기관에서 발급한 인증서 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
-    <div class="docgrid">%s</div>
+    <div class="docgrid docgrid--3">%s</div>
   </div>
 </section>""" % (
     label("AWARDS & CERTIFICATION", ""),
@@ -378,7 +378,7 @@ rnd = """<section class="sec">
     %s
     <h2>등록 특허</h2>
     <div class="story__body">%s</div>
-    <div class="docgrid">%s</div>
+    <div class="docgrid docgrid--4">%s</div>
     <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>

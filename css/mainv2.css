@@ -193,3 +193,25 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
 .mpick__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,30px);margin-top:clamp(32px,4vw,56px);}
 .mpick .mcard{flex:none;}
 @media (max-width:860px){.mpick__grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}}
+
+/* ── 히어로 헤드라인 등장 효과 ── */
+.mhero h1 .hl{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;}
+.mhero h1 .hl__in{display:inline-block;}
+.mhero h1 .hc{
+  display:inline-block;
+  transform:translateY(1.05em) rotate(3deg);
+  opacity:0;filter:blur(10px);
+  transition:transform .95s cubic-bezier(.19,1,.22,1) var(--d,0ms),
+             opacity .8s ease var(--d,0ms),
+             filter .9s ease var(--d,0ms);
+}
+.mhero h1 .hc--sp{width:.3em;}
+.mhero h1.is-in .hc{transform:none;opacity:1;filter:blur(0);}
+
+/* 헤드라인 아래로 지나가는 얇은 빛선 */
+.mhero h1::after{
+  content:'';position:absolute;left:var(--gut);bottom:-14px;height:1px;width:0;
+  background:linear-gradient(90deg,var(--orange,#C46A3A),rgba(196,106,58,0));
+}
+.mhero h1{position:relative;}
+.mhero h1.is-in::after{width:min(420px,42vw);transition:width 1.4s cubic-bezier(.19,1,.22,1) .9s;}

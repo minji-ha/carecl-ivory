@@ -129,3 +129,41 @@
     document.head.appendChild(style);
   }
 })();
+
+/* ── 메인 히어로 헤드라인 : 글자가 솟아오르며 흐림이 걷히는 등장 ── */
+(function () {
+  var h1 = document.querySelector('.mhero h1');
+  if (!h1) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    h1.classList.add('is-in');
+    return;
+  }
+
+  /* 줄 단위로 나누고, 줄 안의 글자를 각각 감싼다 */
+  var lines = h1.innerHTML.split(/<br\s*\/?>/i);
+  var html = '';
+  var idx = 0;
+  lines.forEach(function (line, li) {
+    html += '<span class="hl"><span class="hl__in">';
+    line.replace(/<[^>]+>/g, '').split('').forEach(function (ch) {
+      if (ch === ' ') { html += '<span class="hc hc--sp"> </span>'; idx++; return; }
+      html += '<span class="hc" style="--d:' + (idx * 28) + 'ms">' + ch + '</span>';
+      idx++;
+    });
+    html += '</span></span>';
+    if (li < lines.length - 1) html += '<br>';
+    idx += 2;
+  });
+  h1.innerHTML = html;
+
+  /* 인트로가 끝난 뒤 시작 */
+  function play() { requestAnimationFrame(function () { h1.classList.add('is-in'); }); }
+  if (document.getElementById('intro')) {
+    var t = setInterval(function () {
+      if (!document.getElementById('intro')) { clearInterval(t); play(); }
+    }, 120);
+    setTimeout(function () { clearInterval(t); play(); }, 6000);
+  } else {
+    setTimeout(play, 260);
+  }
+})();
