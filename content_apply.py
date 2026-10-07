@@ -56,7 +56,8 @@ def split(img, h3, body, rev=False):
 def label(en, kr):
     if not en and not kr:
         return ""
-    return '<div class="seclabel"><i></i><span>%s &nbsp;·&nbsp; %s</span></div>' % (en, kr)
+    txt = '%s &nbsp;·&nbsp; %s' % (en, kr) if kr else en
+    return '<div class="seclabel"><i></i><span>%s</span></div>' % txt
 
 
 # ───────────────────────────────── About careCL
@@ -80,7 +81,7 @@ about = """<section class="sec">
       <div><dt>TECHNOLOGY</dt><dd>5 SEC. STAMPING RF</dd></div>
     </dl>
   </div>
-</section>""" % (label("ABOUT CARECL", "회사 소개"), t(1), ps(2, 3, 4), plines(5, 6))
+</section>""" % (label("ABOUT CARECL", ""), t(1), ps(2, 3, 4), plines(5, 6))
 
 
 # ───────────────────────────────── Our Story
@@ -124,11 +125,11 @@ story = """<section class="sec" id="born">
     <div class="story__cta"><a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a></div>
   </div>
 </section>""" % (
-    label("OUR STORY", "브랜드 스토리"), t(12),
+    label("OUR STORY", ""), t(12),
     ps(13, 14), pjoin(15, 16), ps(17, 18),
     plines(19, 20, 21, 22), ps(23, 24, 25),
-    label("UNDERSTAND FIRST", "사람을 먼저 이해합니다"), t(26),
-    ps(27, 28, 29, 30, 31),
+    label("UNDERSTAND FIRST", ""), "사람을 먼저 이해합니다",
+    p(26) + ps(27, 28, 29, 30, 31),
     plines(32, 33, 34),
     ps(35, 36),
     plines(37, 38, 39), p(40),
@@ -145,7 +146,7 @@ for no, (ti, qi, di, ci) in enumerate(types, start=1):
         worry = ""
     else:
         body = "<p>%s</p>" % t(di)
-        worry = '<p class="type__worry"><em>%s</em>%s</p>' % (t(ci - 1), t(ci))
+        worry = '<p class="type__worry"><em>%s</em><span>%s</span></p>' % (t(ci - 1), t(ci))
     cards.append(
         '<div class="typecard"><span class="typecard__no">%02d</span>'
         '<h4>%s</h4><p class="typecard__quote">%s</p>%s%s</div>'
@@ -190,9 +191,9 @@ aging_types = """<section class="sec" id="types">
     </div>
   </div>
 </section>""" % (
-    label("", ""), t(46),
-    ps(47, 48), plines(49, 50, 51, 52), p(53), p(54), ps(55, 56, 57), plines(58, 59),
-    label("6 AGING TYPES", "유형별 특징"), t(70),
+    label("6 AGING TYPES", ""), t(47),
+    p(48), plines(49, 50, 51, 52), p(53), p(54), ps(55, 56, 57), plines(58, 59),
+    label("TYPE 01 — 06", ""), t(70),
     "".join(cards),
     t(107),
     ps(108, 109, 110), p(111), p(112), plines(113, 114),
@@ -208,7 +209,7 @@ aging_why = """<section class="sec" id="why">
     </div>
   </div>
 </section>""" % (
-    label("6 AGING TYPES", "6가지 노화 타입"), t(62),
+    label(t(61), ""), t(62),
     ps(63, 64, 65, 66, 67, 68, 69),
 )
 
@@ -277,6 +278,7 @@ technology = """<section class="sec" id="basic">
 <section class="sec sec--grey" id="why5">
   <div class="wrap">
     %s
+    <h2>왜 5초인가</h2>
     <div class="story__body">
       %s
       %s
@@ -289,6 +291,7 @@ technology = """<section class="sec" id="basic">
 <section class="sec" id="maptostamp">
   <div class="wrap">
     %s
+    <h2>지도에서 스탬핑으로</h2>
     <div class="story__body">
       %s
       %s
@@ -305,7 +308,7 @@ technology = """<section class="sec" id="basic">
     <h2>%s</h2>
     <div class="story__body">
       %s
-      <p class="patent__no">%s</p>
+      <p class="patent__ttl">%s</p><p class="patent__no">%s</p>
     </div>
   </div>
 </section>
@@ -323,19 +326,19 @@ technology = """<section class="sec" id="basic">
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>
 </section>""" % (
-    label("BEAUTY DEVICE TECHNOLOGY", "기술 소개"),
+    label("BEAUTY DEVICE TECHNOLOGY", ""),
     "".join(blocks),
-    label("RF vs ULTRASOUND", "기술 비교"), t(144), thead, tbody,
-    label("5 SEC. STAMPING", "정해진 위치에, 정해진 시간"), t(169),
-    p(170), ps(171, 172, 173, 174), plines(175, 176) + p(177),
-    label("WHY 5 SECONDS?", "왜 5초인가"),
+    label("RF vs ULTRASOUND", ""), t(144), thead, tbody,
+    label("5 SEC. STAMPING", ""), t(170),
+    p(169), ps(171, 172, 173, 174), plines(175, 176) + p(177),
+    label("WHY 5 SECONDS?", ""),
     p(179), ul(180, 181, 182), p(183), ps(184, 185),
-    label("FROM MAP TO STAMP", "지도에서 스탬핑으로"),
+    label("FROM MAP TO STAMP", ""),
     plines(187, 188), ps(189, 190),
     p(191), plines(192, 193, 194), p(195),
-    label("PATENTED TECHNOLOGY", "특허 기술"), t(197),
-    p(198), t(201),
-    label("EVIDENCE", "시험 결과"), t(205), t(206),
+    label("PATENTED TECHNOLOGY", ""), "특허 기술",
+    p(198), t(200), t(201),
+    label("EVIDENCE", ""), t(205), t(206),
 )
 
 
@@ -412,7 +415,8 @@ story = story.replace('<section class="sec sec--grey" id="understand">',
 # TECHNOLOGY는 2뎁스 2개 → 페이지 2개로 나눈다
 _i = technology.index('<section class="sec" id="stamping">')
 tech_basic = technology[:_i].rstrip() + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
-tech_carecl = FIG_STAMPING + chr(10) + technology[_i:]
+_j = technology.index('<section class="sec sec--grey" id="why5">')
+tech_carecl = technology[_i:_j].rstrip() + chr(10) + FIG_STAMPING + chr(10) + technology[_j:]
 aging_types_full = aging_why + chr(10) + aging_types
 certification = certification + chr(10) + FIG_LINEUP
 
