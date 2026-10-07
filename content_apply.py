@@ -41,7 +41,7 @@ def figure(img, cap_en, cap_kr, tone="", width=0):
     st = ' style="--fw:%dpx"' % width if width else ''
     return ('<section class="figbreak%s"%s>'
             '<div class="figbreak__img"><img src="assets/img/%s" alt=""></div>'
-            '<div class="figbreak__cap"><em>%s</em><span>%s</figcaption></figure>'
+            '<div class="figbreak__cap"><em>%s</em><span>%s</span></div>'
             '</section>') % (tone, st, img, cap_en, cap_kr)
 
 
@@ -89,7 +89,7 @@ story = """<section class="sec" id="born">
   <div class="wrap">
     %s
     <div class="ceo">
-      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</figcaption></figure></div>
+      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
       <div class="ceo__text">
         <h2>%s</h2>
         <div class="story__body">
@@ -224,7 +224,15 @@ tech_cards = [
 ]
 blocks = []
 for bid, ti, si, paras, bullets, tail in tech_cards:
-    b = '<div class="techblock" id="%s"><h3>%s</h3><p class="techblock__sub">%s</p>' % (bid, t(ti), t(si))
+    _no = len(blocks) + 1
+    _title = t(ti)
+    _en = _title.split('·')[-1].strip() if '·' in _title else _title
+    _kr = _title.split('·')[0].strip() if '·' in _title else ''
+    b = ('<div class="techrow" id="%s">'
+         '<div class="techrow__head"><span class="techrow__no">%02d</span>'
+         '<span class="techrow__en">%s</span>%s</div>'
+         '<div class="techrow__body"><p class="techblock__sub">%s</p>'
+         % (bid, _no, _en, ('<span class="techrow__kr">%s</span>' % _kr) if _kr else '', t(si)))
     b += ps(*paras)
     if bullets:
         lead, items, close = bullets
@@ -233,7 +241,7 @@ for bid, ti, si, paras, bullets, tail in tech_cards:
             b += p(close)
     if tail:
         b += p(tail)
-    b += "</div>"
+    b += "</div></div>"
     blocks.append(b)
 
 table_rows = [
@@ -251,7 +259,7 @@ technology = """<section class="sec" id="basic">
   <div class="wrap">
     %s
     <h2>홈뷰티 디바이스 기술 바로 알기</h2>
-    <div class="techblocks">%s</div>
+    <div class="techrows">%s</div>
   </div>
 </section>
 
@@ -319,9 +327,9 @@ technology = """<section class="sec" id="basic">
     <h2>%s</h2>
     <p class="mv__sub">%s</p>
     <div class="evid">
-      <div class="evid__item"><b>—</b><span>콜라겐 발현</figcaption></figure>
-      <div class="evid__item"><b>—</b><span>피부층 밀도</figcaption></figure>
-      <div class="evid__item"><b>—</b><span>효능 평가</figcaption></figure>
+      <div class="evid__item"><b>—</b><span>콜라겐 발현</span></div>
+      <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
+      <div class="evid__item"><b>—</b><span>효능 평가</span></div>
     </div>
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>

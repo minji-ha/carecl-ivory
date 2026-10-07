@@ -28,7 +28,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   <div class="wrap">
     <div class="seclabel"><i></i><span>OUR STORY</span></div>
     <div class="ceo">
-      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</figcaption></figure></div>
+      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
       <div class="ceo__text">
         <h2><strong>BORN FROM BOTOX &amp; THERMAGE</strong></h2>
         <div class="story__body">
@@ -43,7 +43,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</figcaption></figure></section>
+<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
 <section class="sec sec--grey" id="understand">
   <div class="wrap">
     <div class="seclabel"><i></i><span>UNDERSTAND FIRST</span></div>
@@ -120,7 +120,7 @@ BODY["technology"] = """<section class="sec" id="basic">
   <div class="wrap">
     <div class="seclabel"><i></i><span>BEAUTY DEVICE TECHNOLOGY</span></div>
     <h2>홈뷰티 디바이스 기술 바로 알기</h2>
-    <div class="techblocks"><div class="techblock" id="rf"><h3><strong>고주파 · RADIO FREQUENCY</strong></h3><p class="techblock__sub"><strong>피부 속에서 열에너지를 만들어 탄력을 관리하는 고주파 기술</strong></p><p>고주파는 고주파 전류를 피부에 전달하는 기술입니다.</p><p>단순히 기기 표면을 뜨겁게 만들어 피부를 데우는 방식과는 다릅니다. 고주파 에너지가 피부 조직을 통과할 때 조직의 전기적 저항에 의해 열이 발생하는 원리를 이용합니다.</p><p>이렇게 형성된 열에너지는 홈뷰티 디바이스에서 주로 피부 탄력과 피부결을 관리하기 위한 기술로 활용됩니다.</p><p>하지만 모든 고주파 기기가 같은 방식으로 작동하는 것은 아닙니다. 사용하는 주파수뿐 아니라 전극의 구조, 에너지를 전달하는 시간, 피부와 접촉하는 방식에 따라 실제 에너지 전달 방식과 사용 경험이 달라질 수 있습니다.</p><p>그래서 고주파에서는 단순히 “몇 MHz인가”보다도</p><ul class="ulist"><li>어디에 에너지를 전달하는지,</li><li>얼마 동안 전달하는지,</li><li>사용 중 에너지를 얼마나 일정하게 관리할 수 있는지</li></ul><p>가 중요합니다.</p><p>careCL이 고주파 기술에서 특히 위치와 시간에 주목한 이유도 여기에 있습니다.</p></div><div class="techblock" id="us"><h3><strong>ULTRASOUND · 초음파</strong></h3><p class="techblock__sub">소리의 진동 에너지를 이용해 원하는 부위를 관리하는 기술</p><p>초음파는 사람이 들을 수 있는 범위를 넘어선 높은 주파수의 음파, 즉 기계적인 진동 에너지를 이용하는 기술입니다.</p><p>RF가 전기 에너지를 이용해 조직에서 열을 형성하는 기술이라면, 초음파는 음파의 진동을 피부와 조직으로 전달하는 기술이라는 점에서 원리 자체가 다릅니다.</p><p>초음파 기술은 사용하는 주파수와 출력, 그리고 에너지를 전달하는 방식에 따라 목적이 크게 달라집니다.</p><p>넓은 범위에 초음파를 전달하는 방식도 있고, 에너지를 특정 지점에 모아 전달하는 집속 초음파(Focused Ultrasound) 방식도 있습니다.</p><p>특히 HIFU라고 알려진 High-Intensity Focused Ultrasound는 초음파 에너지를 특정 초점에 집중시키는 기술입니다. 따라서 모든 초음파 디바이스를 HIFU와 같은 기술로 이해해서는 안 됩니다.</p><p>즉, 초음파에서는 단순히 “초음파가 들어갔다”보다</p><ul class="ulist"><li>어떤 주파수의 초음파인지,</li><li>에너지가 넓게 전달되는지 특정 지점에 집중되는지,</li><li>어떤 부위를 관리하도록 설계되었는지를 함께 보는 것이 중요합니다.</li></ul></div><div class="techblock" id="ems"><h3><strong>EMS · ELECTRICAL MUSCLE STIMULATION</strong></h3><p class="techblock__sub">전기 자극으로 근육의 움직임을 유도하는 기술</p><p>EMS는 전기 신호를 이용해 근육에 자극을 전달하는 기술입니다.</p><p>얼굴용 홈뷰티 디바이스에서는 주로 얼굴이나 목의 근육을 자극해 윤곽 및 탄력 관리 루틴에 활용됩니다.</p><p>기기마다 사용하는 주파수와 파형, 출력 설계가 다르기 때문에 자극의 느낌과 근육 반응 방식도 달라질 수 있습니다.</p></div><div class="techblock" id="micro"><h3><strong>MICROCURRENT · 미세전류</strong></h3><p class="techblock__sub">매우 낮은 세기의 전류를 활용하는 피부 관리 기술</p><p>미세전류는 이름 그대로 매우 낮은 세기의 전류를 피부에 전달하는 기술입니다.</p><p>EMS가 근육 자극을 목적으로 비교적 뚜렷한 전기 자극을 사용하는 기술이라면, 미세전류는 훨씬 낮은 전류를 사용하기 때문에 사용 중 근육의 움직임이 크지 않은 경우가 많습니다.</p><p>홈뷰티에서는 피부 컨디션과 스킨케어를 보조하는 기술로 활용됩니다.</p><p>즉,</p><ul class="ulist"><li>EMS = 근육 자극 중심</li><li>Microcurrent = 낮은 전류를 이용한 피부 관리 중심으로 이해하면 쉽습니다.</li></ul></div><div class="techblock" id="ep"><h3><strong>ELECTROPORATION · EP</strong></h3><p class="techblock__sub">스킨케어 성분 전달을 돕는 기술</p><p>Electroporation은 피부에 짧은 전기 펄스를 전달해, 스킨케어 성분이 피부에 보다 효과적으로 전달될 수 있도록 돕는 기술입니다.</p><p>홈뷰티에서는 세럼이나 에센스 같은 화장품과 함께 사용하며, 피부 표면에 머무는 스킨케어 성분의 전달을 보조해 흡수 케어와 피부결·광채 관리에 활용됩니다.</p><p>사용하는 전압과 펄스 방식, 함께 사용하는 화장품의 제형과 성분에 따라 사용감과 관리 방식은 달라질 수 있습니다.</p></div></div>
+    <div class="techrows"><div class="techrow" id="rf"><div class="techrow__head"><span class="techrow__no">01</span><span class="techrow__en">RADIO FREQUENCY</strong></span><span class="techrow__kr"><strong>고주파</span></div><div class="techrow__body"><p class="techblock__sub"><strong>피부 속에서 열에너지를 만들어 탄력을 관리하는 고주파 기술</strong></p><p>고주파는 고주파 전류를 피부에 전달하는 기술입니다.</p><p>단순히 기기 표면을 뜨겁게 만들어 피부를 데우는 방식과는 다릅니다. 고주파 에너지가 피부 조직을 통과할 때 조직의 전기적 저항에 의해 열이 발생하는 원리를 이용합니다.</p><p>이렇게 형성된 열에너지는 홈뷰티 디바이스에서 주로 피부 탄력과 피부결을 관리하기 위한 기술로 활용됩니다.</p><p>하지만 모든 고주파 기기가 같은 방식으로 작동하는 것은 아닙니다. 사용하는 주파수뿐 아니라 전극의 구조, 에너지를 전달하는 시간, 피부와 접촉하는 방식에 따라 실제 에너지 전달 방식과 사용 경험이 달라질 수 있습니다.</p><p>그래서 고주파에서는 단순히 “몇 MHz인가”보다도</p><ul class="ulist"><li>어디에 에너지를 전달하는지,</li><li>얼마 동안 전달하는지,</li><li>사용 중 에너지를 얼마나 일정하게 관리할 수 있는지</li></ul><p>가 중요합니다.</p><p>careCL이 고주파 기술에서 특히 위치와 시간에 주목한 이유도 여기에 있습니다.</p></div></div><div class="techrow" id="us"><div class="techrow__head"><span class="techrow__no">02</span><span class="techrow__en">초음파</strong></span><span class="techrow__kr"><strong>ULTRASOUND</span></div><div class="techrow__body"><p class="techblock__sub">소리의 진동 에너지를 이용해 원하는 부위를 관리하는 기술</p><p>초음파는 사람이 들을 수 있는 범위를 넘어선 높은 주파수의 음파, 즉 기계적인 진동 에너지를 이용하는 기술입니다.</p><p>RF가 전기 에너지를 이용해 조직에서 열을 형성하는 기술이라면, 초음파는 음파의 진동을 피부와 조직으로 전달하는 기술이라는 점에서 원리 자체가 다릅니다.</p><p>초음파 기술은 사용하는 주파수와 출력, 그리고 에너지를 전달하는 방식에 따라 목적이 크게 달라집니다.</p><p>넓은 범위에 초음파를 전달하는 방식도 있고, 에너지를 특정 지점에 모아 전달하는 집속 초음파(Focused Ultrasound) 방식도 있습니다.</p><p>특히 HIFU라고 알려진 High-Intensity Focused Ultrasound는 초음파 에너지를 특정 초점에 집중시키는 기술입니다. 따라서 모든 초음파 디바이스를 HIFU와 같은 기술로 이해해서는 안 됩니다.</p><p>즉, 초음파에서는 단순히 “초음파가 들어갔다”보다</p><ul class="ulist"><li>어떤 주파수의 초음파인지,</li><li>에너지가 넓게 전달되는지 특정 지점에 집중되는지,</li><li>어떤 부위를 관리하도록 설계되었는지를 함께 보는 것이 중요합니다.</li></ul></div></div><div class="techrow" id="ems"><div class="techrow__head"><span class="techrow__no">03</span><span class="techrow__en">ELECTRICAL MUSCLE STIMULATION</strong></span><span class="techrow__kr"><strong>EMS</span></div><div class="techrow__body"><p class="techblock__sub">전기 자극으로 근육의 움직임을 유도하는 기술</p><p>EMS는 전기 신호를 이용해 근육에 자극을 전달하는 기술입니다.</p><p>얼굴용 홈뷰티 디바이스에서는 주로 얼굴이나 목의 근육을 자극해 윤곽 및 탄력 관리 루틴에 활용됩니다.</p><p>기기마다 사용하는 주파수와 파형, 출력 설계가 다르기 때문에 자극의 느낌과 근육 반응 방식도 달라질 수 있습니다.</p></div></div><div class="techrow" id="micro"><div class="techrow__head"><span class="techrow__no">04</span><span class="techrow__en">미세전류</strong></span><span class="techrow__kr"><strong>MICROCURRENT</span></div><div class="techrow__body"><p class="techblock__sub">매우 낮은 세기의 전류를 활용하는 피부 관리 기술</p><p>미세전류는 이름 그대로 매우 낮은 세기의 전류를 피부에 전달하는 기술입니다.</p><p>EMS가 근육 자극을 목적으로 비교적 뚜렷한 전기 자극을 사용하는 기술이라면, 미세전류는 훨씬 낮은 전류를 사용하기 때문에 사용 중 근육의 움직임이 크지 않은 경우가 많습니다.</p><p>홈뷰티에서는 피부 컨디션과 스킨케어를 보조하는 기술로 활용됩니다.</p><p>즉,</p><ul class="ulist"><li>EMS = 근육 자극 중심</li><li>Microcurrent = 낮은 전류를 이용한 피부 관리 중심으로 이해하면 쉽습니다.</li></ul></div></div><div class="techrow" id="ep"><div class="techrow__head"><span class="techrow__no">05</span><span class="techrow__en">EP</strong></span><span class="techrow__kr"><strong>ELECTROPORATION</span></div><div class="techrow__body"><p class="techblock__sub">스킨케어 성분 전달을 돕는 기술</p><p>Electroporation은 피부에 짧은 전기 펄스를 전달해, 스킨케어 성분이 피부에 보다 효과적으로 전달될 수 있도록 돕는 기술입니다.</p><p>홈뷰티에서는 세럼이나 에센스 같은 화장품과 함께 사용하며, 피부 표면에 머무는 스킨케어 성분의 전달을 보조해 흡수 케어와 피부결·광채 관리에 활용됩니다.</p><p>사용하는 전압과 펄스 방식, 함께 사용하는 화장품의 제형과 성분에 따라 사용감과 관리 방식은 달라질 수 있습니다.</p></div></div></div>
   </div>
 </section>
 
@@ -144,7 +144,7 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
     </div>
   </div>
 </section>
-<section class="figbreak" style="--fw:760px"><div class="figbreak__img"><img src="assets/img/p-mask-close.jpg" alt=""></div><div class="figbreak__cap"><em>STAMPING, INSPIRED BY REAL PROCEDURES</em><span>정해진 자리에 5초, 눌러서 전달합니다</figcaption></figure></section>
+<section class="figbreak" style="--fw:760px"><div class="figbreak__img"><img src="assets/img/p-mask-close.jpg" alt=""></div><div class="figbreak__cap"><em>STAMPING, INSPIRED BY REAL PROCEDURES</em><span>정해진 자리에 5초, 눌러서 전달합니다</span></div></section>
 <section class="sec sec--grey" id="why5">
   <div class="wrap">
     <div class="seclabel"><i></i><span>WHY 5 SECONDS?</span></div>
@@ -189,9 +189,9 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
     <h2><strong>시험으로 확인한 TECH FIT의 피부 변화</strong></h2>
     <p class="mv__sub"><strong>한국피부과학연구원 임상결과 </strong></p>
     <div class="evid">
-      <div class="evid__item"><b>—</b><span>콜라겐 발현</figcaption></figure>
-      <div class="evid__item"><b>—</b><span>피부층 밀도</figcaption></figure>
-      <div class="evid__item"><b>—</b><span>효능 평가</figcaption></figure>
+      <div class="evid__item"><b>—</b><span>콜라겐 발현</span></div>
+      <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
+      <div class="evid__item"><b>—</b><span>효능 평가</span></div>
     </div>
     <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>
