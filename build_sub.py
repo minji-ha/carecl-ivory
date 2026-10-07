@@ -7,16 +7,12 @@ GROUPS = [
     ("COMPANY", "COMPANY", [
         ("about",          "About careCL",           "회사소개"),
         ("greeting",       "Our Story",              "브랜드 스토리"),
-        ("history",        "History",                "연혁"),
         ("rnd",            "R&D / Patent",           "연구개발 · 특허"),
         ("certification",  "Awards & Certification", "수상 · 인증"),
-        ("mission-vision", "Mission & Vision",       "미션과 비전"),
     ]),
     ("AGING LAB", "AGING LAB", [
         ("aging-why",      "Why We Age Differently", "왜 다르게 나이 드는가"),
         ("aging-types",    "6 Aging Types",          "6가지 노화 타입"),
-    ]),
-    ("AGING MAP 22", "AGING MAP 22", [
         ("aging-map",      "Aging Map 22",           "22개 관리 부위"),
     ]),
     ("TECHNOLOGY", "TECHNOLOGY", [

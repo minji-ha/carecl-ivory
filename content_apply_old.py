@@ -1,39 +1,20 @@
 # -*- coding: utf-8 -*-
 """케어클 제공 원고(자료/홈페이지 컨텐츠_261007.docx)를 서브 페이지에 그대로 반영.
-   - 본문은 자료/content_rich.txt 에서 가져온다 (원문 + 원문의 굵게 강조 그대로)
-   - 강조는 원문에서 굵게 처리된 부분만 사용한다
-   python content_apply.py"""
+   원문은 자료/content.txt 에서 한 줄도 바꾸지 않고 가져온다.  python content_apply.py"""
 import io
+import re
 
-SRC = r"C:\work\carecl\자료\content_rich.txt"
+SRC = r"C:\work\carecl\자료\content.txt"
 L = io.open(SRC, encoding="utf-8").read().split("\n")
 
 
 def t(i):
-    """원문 한 줄 (이미 이스케이프 + <strong> 처리됨)"""
-    return L[i].strip()
+    """원문 한 줄(줄바꿈은 <br>로만 변환)"""
+    return L[i].strip().replace("&", "&amp;").replace("<", "&lt;")
 
 
 def p(i):
     return "<p>%s</p>" % t(i)
-
-
-def ps(*idx):
-    return "".join(p(i) for i in idx)
-
-
-def pjoin(*idx):
-    """여러 줄을 한 문단으로 — 줄바꿈이 자연스럽게 흐르도록"""
-    return "<p>%s</p>" % " ".join(t(i) for i in idx)
-
-
-def plines(*idx):
-    """원문의 줄바꿈을 그대로 살리는 문단"""
-    return "<p>%s</p>" % "<br>".join(t(i) for i in idx)
-
-
-def ul(*idx):
-    return '<ul class="ulist">%s</ul>' % "".join("<li>%s</li>" % t(i) for i in idx)
 
 
 def label(en, kr):
@@ -47,10 +28,10 @@ about = """<section class="sec">
     <div class="about__grid">
       <div class="about__copy">
         <h2>%s</h2>
-        <div class="story__body">
-          %s
-          %s
-        </div>
+        %s
+        %s
+        %s
+        <blockquote class="pullquote">%s<br>%s</blockquote>
       </div>
       <div class="about__visual"><img src="assets/img/about-visual.jpg" alt="careCL"></div>
     </div>
@@ -61,20 +42,24 @@ about = """<section class="sec">
       <div><dt>TECHNOLOGY</dt><dd>5 SEC. STAMPING RF</dd></div>
     </dl>
   </div>
-</section>""" % (label("ABOUT CARECL", "회사 소개"), t(1), ps(2, 3, 4), plines(5, 6))
+</section>""" % (label("ABOUT CARECL", "회사 소개"), t(1), p(2), p(3), p(4), t(5), t(6))
 
 
 # ───────────────────────────────── Our Story
-story = """<section class="sec" id="born">
+story = """<section class="sec">
   <div class="wrap">
     %s
     <div class="ceo">
       <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
       <div class="ceo__text">
         <h2>%s</h2>
-        <div class="story__body">
+        <div class="ceo__body">
           %s
           %s
+          <blockquote class="pullquote">%s<br>%s</blockquote>
+          %s
+          %s
+          <ul class="ulist"><li>%s</li><li>%s</li><li>%s</li><li>%s</li></ul>
           %s
           %s
           %s
@@ -84,7 +69,7 @@ story = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="sec sec--grey" id="understand">
+<section class="sec sec--grey">
   <div class="wrap">
     %s
     <h2>%s</h2>
@@ -92,45 +77,49 @@ story = """<section class="sec" id="born">
       %s
       %s
       %s
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="home">
-  <div class="wrap">
-    <div class="story__body">
       %s
       %s
+      <blockquote class="pullquote">%s<br>%s<br>%s</blockquote>
+      %s
+      %s
+      <blockquote class="pullquote">%s<br>%s<br>%s<br>%s</blockquote>
     </div>
     <div class="story__cta"><a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a></div>
   </div>
 </section>""" % (
     label("OUR STORY", "브랜드 스토리"), t(12),
-    ps(13, 14), pjoin(15, 16), ps(17, 18),
-    plines(19, 20, 21, 22), ps(23, 24, 25),
+    p(13), p(14), t(15), t(16), p(17), p(18),
+    t(19), t(20), t(21), t(22),
+    p(23), p(24), p(25),
     label("UNDERSTAND FIRST", "사람을 먼저 이해합니다"), t(26),
-    ps(27, 28, 29, 30, 31),
-    plines(32, 33, 34),
-    ps(35, 36),
-    plines(37, 38, 39), p(40),
+    p(27), p(28), p(29), p(30), p(31),
+    t(32), t(33), t(34),
+    p(35), p(36),
+    t(37), t(38), t(39), t(40),
 )
 
 
-# ───────────────────────────────── AGING LAB
-types = [(71, 72, 73, 75), (77, 78, 79, 81), (83, 84, 85, 87),
-         (89, 90, 91, 93), (95, 96, 97, 99), (101, 102, 103, None)]
+# ───────────────────────────────── AGING LAB / 6 Aging Types
+types = [
+    (71, 72, 73, 75),
+    (77, 78, 79, 81),
+    (83, 84, 85, 87),
+    (89, 90, 91, 93),
+    (95, 96, 97, 99),
+    (101, 102, 103, None),
+]
 cards = []
 for no, (ti, qi, di, ci) in enumerate(types, start=1):
-    if ci is None:
-        body = "<p>%s</p><p>%s</p><p>%s</p>" % (t(103), t(104), t(105))
+    extra = ""
+    if ci is None:   # 06 혼합형 : 설명이 세 문단
+        extra = "<p>%s</p><p>%s</p>" % (t(104), t(105))
         worry = ""
     else:
-        body = "<p>%s</p>" % t(di)
         worry = '<p class="type__worry"><em>%s</em>%s</p>' % (t(ci - 1), t(ci))
     cards.append(
         '<div class="typecard"><span class="typecard__no">%02d</span>'
-        '<h4>%s</h4><p class="typecard__quote">%s</p>%s%s</div>'
-        % (no, t(ti), t(qi), body, worry)
+        '<h4>%s</h4><p class="typecard__quote">%s</p><p>%s</p>%s%s</div>'
+        % (no, t(ti).split(". ", 1)[1], t(qi), t(di), extra, worry)
     )
 
 aging_types = """<section class="sec" id="types">
@@ -140,10 +129,13 @@ aging_types = """<section class="sec" id="types">
     <div class="story__body">
       %s
       %s
+      <blockquote class="pullquote">%s<br>%s<br>%s<br>%s</blockquote>
+      %s
+      <blockquote class="pullquote">%s</blockquote>
       %s
       %s
       %s
-      %s
+      <p>%s<br>%s</p>
     </div>
   </div>
 </section>
@@ -163,7 +155,9 @@ aging_types = """<section class="sec" id="types">
       %s
       %s
       %s
+      <blockquote class="pullquote">%s</blockquote>
       %s
+      <p>%s<br>%s</p>
     </div>
     <div class="story__cta">
       <a href="aging-map.html" class="btn btn--primary">AGING MAP 22 보기 <span>→</span></a>
@@ -172,11 +166,13 @@ aging_types = """<section class="sec" id="types">
   </div>
 </section>""" % (
     label("AGING LAB", "6가지 노화 타입"), t(46),
-    ps(47, 48), plines(49, 50, 51, 52), p(53), p(54), ps(55, 56, 57), plines(58, 59),
+    p(47), p(48),
+    t(49), t(50), t(51), t(52),
+    p(53), t(54), p(55), p(56), p(57), t(58), t(59),
     label("6 AGING TYPES", "유형별 특징"), t(70),
     "".join(cards),
     t(107),
-    ps(108, 109, 110), p(111), p(112), plines(113, 114),
+    p(108), p(109), p(110), t(111), p(112), t(113), t(114),
 )
 
 
@@ -186,6 +182,12 @@ aging_why = """<section class="sec" id="why">
     <h2>%s</h2>
     <div class="story__body">
       %s
+      %s
+      %s
+      %s
+      %s
+      %s
+      %s
     </div>
     <div class="story__cta">
       <a href="aging-types.html" class="btn btn--primary">6가지 노화 타입 보기 <span>→</span></a>
@@ -193,25 +195,25 @@ aging_why = """<section class="sec" id="why">
   </div>
 </section>""" % (
     label("WHY WE AGE DIFFERENTLY", "왜 다르게 나이 드는가"), t(62),
-    ps(63, 64, 65, 66, 67, 68, 69),
+    p(63), p(64), p(65), p(66), p(67), p(68), p(69),
 )
 
 
 # ───────────────────────────────── TECHNOLOGY
 tech_cards = [
-    ("rf", 119, 120, [121, 122, 123, 124], (125, [126, 127, 128], 129), 130),
-    ("us", 132, 133, [134, 135, 136, 137, 138], (139, [140, 141, 142], None), None),
-    ("ems", 147, 148, [149, 150, 151], None, None),
-    ("micro", 153, 154, [155, 156, 157], (158, [159, 160], None), None),
-    ("ep", 162, 163, [164, 165, 166], None, None),
+    (119, 120, [121, 122, 123, 124], (125, [126, 127, 128], 129), 130),
+    (132, 133, [134, 135, 136, 137, 138], (139, [140, 141, 142], None), None),
+    (147, 148, [149, 150, 151], None, None),
+    (153, 154, [155, 156, 157], (158, [159, 160], None), None),
+    (162, 163, [164, 165, 166], None, None),
 ]
 blocks = []
-for bid, ti, si, paras, bullets, tail in tech_cards:
-    b = '<div class="techblock" id="%s"><h3>%s</h3><p class="techblock__sub">%s</p>' % (bid, t(ti), t(si))
-    b += ps(*paras)
+for ti, si, paras, bullets, tail in tech_cards:
+    b = '<div class="techblock"><h3>%s</h3><p class="techblock__sub">%s</p>' % (t(ti), t(si))
+    b += "".join(p(i) for i in paras)
     if bullets:
         lead, items, close = bullets
-        b += p(lead) + ul(*items)
+        b += "<p>%s</p><ul class=\"ulist\">%s</ul>" % (t(lead), "".join("<li>%s</li>" % t(i) for i in items))
         if close:
             b += p(close)
     if tail:
@@ -254,6 +256,9 @@ technology = """<section class="sec" id="basic">
       %s
       %s
       %s
+      %s
+      <blockquote class="pullquote">%s<br>%s</blockquote>
+      %s
     </div>
   </div>
 </section>
@@ -263,6 +268,7 @@ technology = """<section class="sec" id="basic">
     %s
     <div class="story__body">
       %s
+      <ul class="ulist"><li>%s</li><li>%s</li><li>%s</li></ul>
       %s
       %s
       %s
@@ -274,10 +280,10 @@ technology = """<section class="sec" id="basic">
   <div class="wrap">
     %s
     <div class="story__body">
+      <p>%s<br>%s</p>
       %s
       %s
-      %s
-      %s
+      <blockquote class="pullquote">%s<br>%s<br>%s<br>%s</blockquote>
       %s
     </div>
   </div>
@@ -310,20 +316,25 @@ technology = """<section class="sec" id="basic">
     label("BEAUTY DEVICE TECHNOLOGY", "기술 소개"),
     "".join(blocks),
     label("RF vs ULTRASOUND", "기술 비교"), t(144), thead, tbody,
-    label("5 SEC. STAMPING", "정해진 위치에, 정해진 시간"), t(169),
-    p(170), ps(171, 172, 173, 174), plines(175, 176) + p(177),
+    label("5 SEC. STAMPING", t(170)), t(169),
+    p(171), p(172), p(173), p(174), t(175), t(176), p(177),
     label("WHY 5 SECONDS?", "왜 5초인가"),
-    p(179), ul(180, 181, 182), p(183), ps(184, 185),
+    p(179),
+    t(180), t(181), t(182),
+    p(183), p(184), p(185),
     label("FROM MAP TO STAMP", "지도에서 스탬핑으로"),
-    plines(187, 188), ps(189, 190),
-    p(191), plines(192, 193, 194), p(195),
-    label("PATENTED TECHNOLOGY", "특허 기술"), t(197),
+    t(187), t(188), p(189), p(190),
+    t(191), t(192), t(193), t(194),
+    p(195),
+    label("PATENTED TECHNOLOGY", t(200)), t(197),
     p(198), t(201),
     label("EVIDENCE", "시험 결과"), t(205), t(206),
 )
 
 
-# ───────────────────────────────── 인증 · 특허 (PDF 목록)
+
+
+# ───────────────────────────────── 인증 · 특허 · 시험성적서 (PDF 목록)
 def doclist(items):
     rows = []
     for title, desc, href, size in items:
@@ -346,8 +357,9 @@ certification = """<section class="sec">
   </div>
 </section>""" % (
     label("AWARDS & CERTIFICATION", "수상 · 인증"),
-    doclist([("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본",
-              "assets/docs/carecl-certifications.pdf", "1.1MB")]),
+    doclist([
+        ("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본", "assets/docs/carecl-certifications.pdf", "1.1MB"),
+    ]),
 )
 
 
@@ -355,7 +367,7 @@ rnd = """<section class="sec">
   <div class="wrap">
     %s
     <h2>특허 기술</h2>
-    <div class="story__body">%s</div>
+    <p class="mv__sub">5 SEC. STAMPING은 careCL의 고주파 스탬핑 관련 특허 기술을 기반으로 합니다.</p>
     %s
   </div>
 </section>
@@ -368,21 +380,18 @@ rnd = """<section class="sec">
     <p class="note" style="margin-top:24px">* 시험 성적서 원문은 비공개 자료입니다. 필요하신 경우 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>""" % (
-    label("PATENT", "특허"), p(198),
-    doclist([("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호",
-              "assets/docs/carecl-patents.pdf", "974KB")]),
+    label("PATENT", "특허"),
+    doclist([
+        ("주식회사 케어클 특허 병합본", "대한민국 등록특허 제10-2938674호 외", "assets/docs/carecl-patents.pdf", "974KB"),
+    ]),
     label("TEST REPORT", "시험 성적서"),
 )
 
 
-# ───────────────────────────────── content_bodies.py 로 저장
-out = ["# -*- coding: utf-8 -*-",
-       '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""',
-       "BODY = {}", ""]
-for key, html in [("about", about), ("greeting", story), ("aging-why", aging_why),
-                  ("aging-types", aging_types), ("technology", technology),
-                  ("certification", certification), ("rnd", rnd)]:
+# ───────────────────────────────── content_bodies.py 로 저장 (build_sub.py가 불러씀)
+out = ['# -*- coding: utf-8 -*-', '"""케어클 제공 원고 기반 본문 — content_apply.py 가 생성합니다. 직접 수정하지 마세요."""', 'BODY = {}', '']
+for key, html in [("about", about), ("greeting", story), ("aging-why", aging_why), ("aging-types", aging_types), ("technology", technology), ("certification", certification), ("rnd", rnd)]:
     out.append('BODY["%s"] = """%s"""' % (key, html))
-    out.append("")
+    out.append('')
 io.open("content_bodies.py", "w", encoding="utf-8").write(chr(10).join(out))
 print("content_bodies updated")

@@ -2,41 +2,72 @@
 """careCL 공통 파츠 (헤더 / 전체메뉴 / 푸터).  build_sub.py · apply_nav.py 에서 사용"""
 
 # (라벨, 링크, [(하위라벨, 하위링크), ...])
+# 노션 "케어클 홈페이지 구성" 기준 3뎁스 구조
+# (1뎁스 라벨, 링크, [(2뎁스 라벨, 링크, [(3뎁스 라벨, 링크), ...]), ...])
 MENU = [
     ("COMPANY", "about.html", [
-        ("About careCL", "about.html"),
-        ("Our Story", "greeting.html"),
-        ("History", "history.html"),
-        ("R&D / Patent", "rnd.html"),
-        ("Awards & Certification", "certification.html"),
-        ("Mission & Vision", "mission-vision.html"),
+        ("About careCL", "about.html", []),
+        ("Our Story", "greeting.html", [
+            ("보톡스 써마지 업계 경험 born from botox &amp; Thermage", "greeting.html#born"),
+            ("노화에 대한 이해와 관리 설계의 중요성", "greeting.html#understand"),
+            ("홈 에이징 케어로 이어진 배경", "greeting.html#home"),
+        ]),
+        ("R&D / Patent", "rnd.html", []),
+        ("Awards & Certification", "certification.html", []),
     ]),
     ("AGING LAB", "aging-types.html", [
-        ("Why We Age Differently", "aging-why.html"),
-        ("6 Aging Types", "aging-types.html"),
-        ("나의 Aging Type 알아보기", "survey.html"),
-    ]),
-    ("AGING MAP 22", "aging-map.html", [
-        ("Why Aging Map 22", "aging-map.html#why"),
-        ("6 Types × 22 Areas", "aging-map.html#matrix"),
-        ("Face / Neck & Body", "aging-map.html#areas"),
-        ("Personalized Care", "aging-map.html#care"),
+        ("6 AGING TYPES", "aging-types.html", [
+            ("Why We Age Differently", "aging-why.html"),
+            ("6 Aging Types", "aging-types.html#list"),
+            ("유형별 특징", "aging-types.html#list"),
+            ("유형별 주요 고민", "aging-types.html#list"),
+            ("나의 Aging Type 알아보기", "survey.html"),
+        ]),
+        ("AGING MAP 22", "aging-map.html", [
+            ("Why Aging Map 22", "aging-map.html#why"),
+            ("6 Aging Types × 22 Areas", "aging-map.html#matrix"),
+            ("Face / Neck &amp; Body", "aging-map.html#areas"),
+            ("22개 관리 부위", "aging-map.html#areas"),
+            ("부위별 노화 특징", "aging-map.html#areas"),
+            ("우선 관리 부위", "aging-map.html#care"),
+            ("Personalized Care", "aging-map.html#care"),
+        ]),
     ]),
     ("TECHNOLOGY", "technology.html", [
-        ("Beauty Device Technology", "technology.html#basic"),
-        ("5 SEC. STAMPING", "technology.html#stamping"),
-        ("TECHFIT 적용 기술", "technology.html#techfit"),
+        ("Beauty Device Technology", "technology.html#basic", [
+            ("RF", "technology.html#rf"),
+            ("Ultrasound", "technology.html#us"),
+            ("EMS", "technology.html#ems"),
+            ("Microcurrent", "technology.html#micro"),
+            ("Electroporation", "technology.html#ep"),
+        ]),
+        ("careCL Technology", "technology.html#stamping", [
+            ("5 SEC. STAMPING", "technology.html#stamping"),
+            ("왜 문지르는 방식이 아니라 스탬핑인가", "technology.html#stamping"),
+            ("정해진 위치 / 정해진 시간", "technology.html#why5"),
+            ("특허 기술", "technology.html#patent"),
+            ("관련 시험 및 임상", "technology.html#evidence"),
+            ("TECHFIT에 적용된 RF · EP · Microcurrent · EMS", "technology.html#maptostamp"),
+        ]),
     ]),
     ("PRODUCTS", "products.html", [
-        ("Beauty Device", "products.html#device"),
-        ("Cosmetics", "products.html#cosmetics"),
+        ("BEAUTY DEVICE", "products.html#device", [
+            ("TECHFIT", "products.html#device"),
+            ("CLB", "products.html#device"),
+            ("향후 Device", "products.html#device"),
+        ]),
+        ("COSMETICS", "products.html#cosmetics", [
+            ("Collagen Booster Gel", "products.html#cosmetics"),
+            ("Grid Mask", "products.html#cosmetics"),
+            ("Toning Serum", "products.html#cosmetics"),
+            ("향후 Cosmetics", "products.html#cosmetics"),
+        ]),
     ]),
     ("CONTACT", "contact.html", [
-        ("Global Business", "contact.html#global"),
-        ("Distributor / Partnership", "contact.html#partner"),
-        ("Media / PR", "contact.html#pr"),
-        ("General Inquiry", "contact.html#inquiry"),
-        ("오시는 길", "location.html"),
+        ("Global Business", "contact.html#global", []),
+        ("Distributor / Partnership", "contact.html#partner", []),
+        ("Media / PR", "contact.html#pr", []),
+        ("General Inquiry", "contact.html#inquiry", []),
     ]),
 ]
 
@@ -65,8 +96,15 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         badge = AI_BADGE if label == "AGING LAB" else ""
         drop = ''
         if subs:
-            sub = "".join('<a href="%s">%s</a>' % (h, t) for t, h in subs)
-            drop = '<div class="dropdown"><div class="dropdown__inner">%s</div></div>' % sub
+            items = []
+            for stitle, shref, thirds in subs:
+                row = '<a class="dropdown__d2" href="%s">%s</a>' % (shref, stitle)
+                if thirds:
+                    row += '<div class="dropdown__d3">%s</div>' % "".join(
+                        '<a href="%s">%s</a>' % (h3, t3) for t3, h3 in thirds)
+                items.append('<div class="dropdown__group">%s</div>' % row)
+            drop = ('<div class="dropdown%s"><div class="dropdown__inner">%s</div></div>'
+                    % (' dropdown--wide' if any(x[2] for x in subs) else '', "".join(items)))
         return ('<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
                 % (' has-badge' if badge else '', href, cls, label, badge, drop))
 
@@ -98,7 +136,11 @@ def mega():
     for label, href, subs in MENU:
         if label not in DROPDOWN_ONLY:
             subs = []
-        links = "".join('<a href="%s">%s</a>' % (h, t) for t, h in subs)
+        links = ""
+        for stitle, shref, thirds in subs:
+            links += '<a class="mega__d2" href="%s">%s</a>' % (shref, stitle)
+            for t3, h3 in thirds:
+                links += '<a class="mega__d3" href="%s">%s</a>' % (h3, t3)
         cols += '<div class="mega__col"><h3><a href="%s">%s</a></h3>%s</div>' % (href, label, links)
     return (
         '<div class="mega" id="megaMenu" aria-hidden="true">\n'
@@ -122,12 +164,11 @@ FOOTER = """<footer class="footer">
       <p class="tag">얼굴을 22개 좌표로 읽는<br>정밀 안티에이징 스킨케어</p>
     </div>
     <div class="footer__cols">
-      <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="history.html">History</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a><a href="mission-vision.html">Mission &amp; Vision</a></div>
-      <div><h4>AGING LAB</h4><a href="aging-types.html">6 Aging Types</a><a href="survey.html">나의 타입 알아보기</a></div>
-      <div><h4>AGING MAP 22</h4><a href="aging-map.html">Why Aging Map 22</a><a href="aging-map.html#areas">22개 관리 부위</a></div>
-      <div><h4>TECHNOLOGY</h4><a href="technology.html">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
-      <div><h4>PRODUCTS</h4><a href="products.html#device">Beauty Device</a><a href="products.html#cosmetics">Cosmetics</a></div>
-      <div><h4>CONTACT</h4><a href="contact.html">문의하기</a><a href="location.html">오시는 길</a></div>
+      <div><h4>COMPANY</h4><a href="about.html">About careCL</a><a href="greeting.html">Our Story</a><a href="rnd.html">R&amp;D / Patent</a><a href="certification.html">Awards &amp; Certification</a></div>
+      <div><h4>AGING LAB</h4><a href="aging-types.html">6 AGING TYPES</a><a href="aging-map.html">AGING MAP 22</a><a href="survey.html">나의 Aging Type 알아보기</a></div>
+      <div><h4>TECHNOLOGY</h4><a href="technology.html#basic">Beauty Device Technology</a><a href="technology.html#stamping">5 SEC. STAMPING</a></div>
+      <div><h4>PRODUCTS</h4><a href="products.html#device">BEAUTY DEVICE</a><a href="products.html#cosmetics">COSMETICS</a></div>
+      <div><h4>CONTACT</h4><a href="contact.html#global">Global Business</a><a href="contact.html#partner">Distributor / Partnership</a><a href="contact.html#pr">Media / PR</a><a href="contact.html#inquiry">General Inquiry</a></div>
     </div>
   </div>
   <div class="footer__legal">

@@ -341,3 +341,53 @@ body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}
   .navitem{padding:0 10px;}
   .navitem > a{font-size:12.5px;}
 }
+
+/* ===== 3뎁스 드롭다운 (노션 메뉴 구조) ===== */
+.dropdown--wide{min-width:0;}
+.dropdown--wide .dropdown__inner{
+  display:flex;flex-wrap:nowrap;gap:0 30px;padding:20px 24px;
+  max-width:none;
+}
+.dropdown__group{min-width:146px;}
+.dropdown__group:not(:has(.dropdown__d3)){min-width:0;}
+.dropdown__group > a.dropdown__d2{
+  display:block;text-align:left;padding:5px 2px;
+  font-family:var(--serif);font-size:14px;font-weight:600;letter-spacing:-.01em;
+  color:var(--ink);white-space:nowrap;
+}
+.dropdown__group > a.dropdown__d2:hover{color:var(--orange);background:none;}
+.dropdown__d3{display:block;margin:3px 0 4px;border-left:1px solid var(--stone);}
+.dropdown__d3 > a{
+  display:block;text-align:left;padding:4px 2px 4px 11px;
+  font-size:12.6px;letter-spacing:-.02em;color:var(--sage);line-height:1.45;
+  white-space:normal;word-break:keep-all;max-width:205px;
+}
+.dropdown__d3 > a:hover{color:var(--orange);background:none;padding-left:14px;}
+
+/* 2뎁스만 있는 메뉴는 기존처럼 단일 컬럼 */
+.dropdown:not(.dropdown--wide) a.dropdown__d2{text-align:center;font-size:13.4px;color:var(--n-600);}
+.dropdown:not(.dropdown--wide) a.dropdown__d2:hover{color:var(--orange);background:var(--porcelain);}
+
+/* 화면 가장자리 넘침 방지 */
+.header__nav > .navitem:nth-last-child(-n+2) .dropdown--wide{left:auto;right:-10px;transform:translateX(0) translateY(8px);}
+.header__nav > .navitem:nth-last-child(-n+2):hover .dropdown--wide,
+.header__nav > .navitem:nth-last-child(-n+2):focus-within .dropdown--wide{transform:translateX(0) translateY(0);}
+.header__nav > .navitem:first-child .dropdown--wide{left:-10px;right:auto;transform:translateX(0) translateY(8px);}
+.header__nav > .navitem:first-child:hover .dropdown--wide,
+.header__nav > .navitem:first-child:focus-within .dropdown--wide{transform:translateX(0) translateY(0);}
+
+/* ===== 전체메뉴 3뎁스 ===== */
+.mega__col > a.mega__d2{
+  font-family:var(--serif);font-size:14.5px;font-weight:600;color:rgba(255,255,255,.92);
+  padding:12px 0 4px;
+}
+.mega__col > a.mega__d2:hover{color:#F3E4D8;padding-left:0;}
+.mega__col > a.mega__d3{
+  font-size:12.6px;color:rgba(255,255,255,.5);padding:4px 0 4px 12px;
+  border-left:1px solid rgba(255,255,255,.14);line-height:1.45;white-space:normal;
+}
+.mega__col > a.mega__d3:hover{color:rgba(255,255,255,.95);padding-left:15px;}
+
+@media (max-width:1180px){
+  .dropdown--wide .dropdown__inner{flex-wrap:wrap;max-width:560px;gap:0 24px;}
+}
