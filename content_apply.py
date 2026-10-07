@@ -355,6 +355,9 @@ def doclist(items):
     return '<div class="docs">%s</div>' % "".join(rows)
 
 
+PATENT_CARDS = """<figure class="cert"><a href="assets/img/patent/patent-1.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-1.jpg" alt="제 10-2799588 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799588 호</b><span>고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-3.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-3.jpg" alt="제 10-2799593 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799593 호</b><span>고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-4.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-4.jpg" alt="제 10-2938674 호 특허증" loading="lazy"></a><figcaption><b>제 10-2938674 호</b><span>피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법, 시스템, 피부 마사지기 및 비일시성의 컴퓨터 판독 가능 기록 매체</span><em>2026.03.09 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-2.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-2.jpg" alt="제 10-1647183 호 특허증" loading="lazy"></a><figcaption><b>제 10-1647183 호</b><span>치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span><em>2016.08.03 등록</em></figcaption></figure>"""
+
+
 certification = """<section class="sec">
   <div class="wrap">
     %s
@@ -363,10 +366,22 @@ certification = """<section class="sec">
     %s
     <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
   </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    %s
+    <h2>등록 특허</h2>
+    <p class="mv__sub">특허청에 등록된 특허증 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+    <div class="certs">%s</div>
+    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
+  </div>
 </section>""" % (
-    label("AWARDS & CERTIFICATION", "수상 · 인증"),
+    label("AWARDS & CERTIFICATION", ""),
     doclist([("CE · FCC · ISO 9001 · ISO 14001 인증서", "주식회사 케어클 인증 병합본",
               "assets/docs/carecl-certifications.pdf", "1.1MB")]),
+    label("PATENT", ""),
+    PATENT_CARDS,
 )
 
 

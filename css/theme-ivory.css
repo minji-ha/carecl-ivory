@@ -452,3 +452,10 @@ body.sub .note{margin-top:28px;}
 
 /* GNB 드롭다운 배경은 완전 불투명 흰색 */
 .dropdown__inner{background:#fff !important;backdrop-filter:none;-webkit-backdrop-filter:none;}
+
+/* 서브(상세) 페이지 헤더·서브탭도 불투명하게 */
+body.sub .header,
+body.survey .header,
+.header.is-light{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;}
+body.sub .submenu,
+body.survey .submenu{background:#fff;}

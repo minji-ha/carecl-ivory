@@ -200,11 +200,21 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
 
 BODY["certification"] = """<section class="sec">
   <div class="wrap">
-    <div class="seclabel"><i></i><span>AWARDS & CERTIFICATION &nbsp;·&nbsp; 수상 · 인증</span></div>
+    <div class="seclabel"><i></i><span>AWARDS & CERTIFICATION</span></div>
     <h2>국제 인증과 품질 경영 체계</h2>
     <p class="mv__sub">케어클이 보유한 인증서를 원문 그대로 확인하실 수 있습니다.</p>
     <div class="docs"><a class="doc" href="assets/docs/carecl-certifications.pdf" target="_blank" rel="noopener"><span class="doc__ico"><i class="fa-regular fa-file-pdf"></i></span><span class="doc__txt"><b>CE · FCC · ISO 9001 · ISO 14001 인증서</b><em>주식회사 케어클 인증 병합본</em></span><span class="doc__meta">PDF · 1.1MB</span></a></div>
     <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel"><i></i><span>PATENT</span></div>
+    <h2>등록 특허</h2>
+    <p class="mv__sub">특허청에 등록된 특허증 원본입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+    <div class="certs"><figure class="cert"><a href="assets/img/patent/patent-1.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-1.jpg" alt="제 10-2799588 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799588 호</b><span>고강도 집속 초음파 원형 조사와 범위 조절 가능한 고주파 스탬핑 기능을 통합한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-3.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-3.jpg" alt="제 10-2799593 호 특허증" loading="lazy"></a><figcaption><b>제 10-2799593 호</b><span>고강도 집속 초음파의 반경 조절이 가능한 휴대용 피부 마사지기</span><em>2025.04.18 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-4.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-4.jpg" alt="제 10-2938674 호 특허증" loading="lazy"></a><figcaption><b>제 10-2938674 호</b><span>피부 접촉에 따른 전압 증폭 및 반복 출력 제어를 이용한 고주파 스탬핑 피부 미용 방법, 시스템, 피부 마사지기 및 비일시성의 컴퓨터 판독 가능 기록 매체</span><em>2026.03.09 등록</em></figcaption></figure><figure class="cert"><a href="assets/img/patent/patent-2.jpg" target="_blank" rel="noopener"><img src="assets/img/patent/patent-2.jpg" alt="제 10-1647183 호 특허증" loading="lazy"></a><figcaption><b>제 10-1647183 호</b><span>치료약물 및 세포전달용 마이크로입자 및 이의 제조방법</span><em>2016.08.03 등록</em></figcaption></figure></div>
+    <p class="note" style="margin-top:28px">* 개인정보(법인등록번호 · 발명자 인적사항)는 가린 상태로 공개합니다. 원본이 필요하시면 support@carecl.co.kr 로 문의해 주세요.</p>
   </div>
 </section>
 <section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-arm.jpg" alt=""></div><div class="splitfig__copy"><h3>클리닉의 기준을 그대로</h3><p>수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.</p></div></div></div></section>"""
