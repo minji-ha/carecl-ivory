@@ -279,25 +279,41 @@ technology = """<section class="sec" id="basic">
   </div>
 </section>
 
-<section class="sec sec--grey" id="compare">
+<section class="sec" id="compare">
   <div class="wrap">
     %s
     <h2>%s</h2>
     <div class="ctable"><table>%s%s</table></div>
   </div>
-</section>
+</section>""" % (
+    label("BEAUTY DEVICE TECHNOLOGY", ""),
+    "".join(blocks),
+    label("RF vs ULTRASOUND", ""), t(144), thead, tbody,
+)
 
-<section class="sec" id="stamping">
+
+# ───────────────────────────────── careCL Technology (단독 페이지)
+carecl_tech = """<section class="sec" id="stamping">
   <div class="wrap">
     %s
     <h2>%s</h2>
-    <div class="story__body">
-      %s
+    <div class="leadrow">
+      <div class="leadrow__lead">%s</div>
+      <div class="leadrow__body">%s</div>
     </div>
-    <blockquote class="bigquote"><span>%s</span></blockquote>
-    <div class="story__body">
-      %s
+  </div>
+</section>
+
+<section class="sec" id="shot">
+  <div class="wrap">
+    <div class="splitfig splitfig--rev">
+      <div class="splitfig__img"><img src="assets/img/p-mask-close.jpg" alt=""></div>
+      <div class="splitfig__copy">
+        <h3>%s</h3>
+        <div class="story__body">%s</div>
+      </div>
     </div>
+    <blockquote class="bigquote"><span>%s</span><em>%s</em></blockquote>
   </div>
 </section>
 
@@ -311,61 +327,59 @@ technology = """<section class="sec" id="basic">
   </div>
 </section>
 
-<section class="sec sec--grey" id="maptostamp">
+<section class="sec" id="maptostamp">
   <div class="wrap">
     %s
     <h2>지도에서 스탬핑으로</h2>
-    <div class="story__body">
-      %s
-      %s
+    <div class="splitfig">
+      <div class="splitfig__img"><img src="assets/img/p-mask-device.jpg" alt=""></div>
+      <div class="splitfig__copy">
+        <div class="story__body">%s%s</div>
+      </div>
     </div>
     <div class="flow">%s</div>
-    <div class="story__body">%s</div>
+    <p class="flow__end">%s</p>
   </div>
 </section>
 
-<section class="sec sec--grey" id="patent">
+<section class="sec" id="proof">
   <div class="wrap">
     %s
-    <h2>%s</h2>
-    <div class="story__body">
-      %s
-      <p class="patent__ttl">%s</p><p class="patent__no">%s</p>
+    <h2>기술을 뒷받침하는 근거</h2>
+    <div class="proof">
+      <div class="proof__col">
+        <span class="proof__tag">PATENT</span>
+        <p class="proof__lead">%s</p>
+        <p class="patent__ttl">%s</p>
+        <p class="patent__no">%s</p>
+        <a class="textlink" href="rnd.html">등록 특허 전체 보기 <span>→</span></a>
+      </div>
+      <div class="proof__col">
+        <span class="proof__tag">EVIDENCE</span>
+        <p class="proof__lead">%s</p>
+        <p class="proof__org">%s</p>
+        <div class="evid">
+          <div class="evid__item"><b>—</b><span>콜라겐 발현</span></div>
+          <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
+          <div class="evid__item"><b>—</b><span>효능 평가</span></div>
+        </div>
+        <p class="note">* 수치는 시험성적서 확인 후 기입 예정입니다.</p>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="evidence">
-  <div class="wrap">
-    %s
-    <h2>%s</h2>
-    <p class="mv__sub">%s</p>
-    <div class="evid">
-      <div class="evid__item"><b>—</b><span>콜라겐 발현</span></div>
-      <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
-      <div class="evid__item"><b>—</b><span>효능 평가</span></div>
-    </div>
-    <p class="note">* 수치는 시험성적서(콜라겐 발현 · 피부층 밀도 · 효능 평가) 확인 후 기입 예정입니다.</p>
   </div>
 </section>""" % (
-    label("BEAUTY DEVICE TECHNOLOGY", ""),
-    "".join(blocks),
-    label("RF vs ULTRASOUND", ""), t(144), thead, tbody,
     label("5 SEC. STAMPING", ""), t(170),
-    ps(171, 172, 173, 174),
-    t(175) + "<br>" + t(176),
-    p(177),
+    p(171), ps(172, 173),
+    "TECH FIT의 SHOT 모드", p(174),
+    t(175) + "<br>" + t(176), t(177),
     label("WHY 5 SECONDS?", ""),
-    p(179),
-    points(180, 181, 182),
-    ps(184, 185),
+    p(179), points(180, 181, 182), ps(184, 185),
     label("FROM MAP TO STAMP", ""),
     plines(187, 188), ps(189, 190),
-    flow(),
-    p(195),
-    label("PATENTED TECHNOLOGY", ""), "특허 기술",
-    p(198), t(200), t(201).replace(" …….", "").replace("…….", ""),
-    label("EVIDENCE", ""), t(205), t(206).strip(),
+    flow(), t(195),
+    label("PROOF", ""),
+    t(198), t(200), t(201).replace(" …….", "").replace("…….", ""),
+    t(205), t(206).replace(" </strong>", "</strong>"),
 )
 
 
@@ -443,10 +457,8 @@ def insert_before(html, marker, block):
 story = story.replace('<section class="sec sec--grey" id="understand">',
                       FIG_MODEL + chr(10) + '<section class="sec sec--grey" id="understand">')
 # TECHNOLOGY는 2뎁스 2개 → 페이지 2개로 나눈다
-_i = technology.index('<section class="sec" id="stamping">')
-tech_basic = technology[:_i].rstrip() + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
-_j = technology.index(chr(60) + "section class=\"sec\" id=\"why5\">")
-tech_carecl = technology[_i:_j].rstrip() + chr(10) + FIG_STAMPING + chr(10) + technology[_j:]
+tech_basic = technology + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
+tech_carecl = carecl_tech
 aging_types_full = aging_why + chr(10) + aging_types
 
 story = story.replace('<section class="sec" id="home">',
@@ -461,9 +473,6 @@ aging_types_full = aging_types_full.replace('<section class="sec" id="next">',
           "피부결, 탄력, 톤, 윤곽 — 먼저 나타나는 변화가 사람마다 다릅니다. 그래서 관리의 출발점도 달라야 합니다.")
     + chr(10) + '<section class="sec" id="next">')
 
-tech_carecl = tech_carecl + chr(10) + split("p-mask-device.jpg",
-    "그리드 위에, 정확한 위치로",
-    "그리드 마스크가 관리 부위를 안내하고, 디바이스는 그 자리에 5초 동안 에너지를 전달합니다.", rev=True)
 
 for key, html in [("about", about), ("greeting", story),
                   ("aging-types", aging_types_full), ("technology", tech_basic),

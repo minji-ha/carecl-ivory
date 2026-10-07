@@ -378,3 +378,50 @@ body.sub .flow__step p{font-size:14.5px;line-height:1.75;letter-spacing:-.02em;c
   body.sub .points,body.sub .flow{grid-template-columns:1fr;}
   body.sub .flow__step + .flow__step::before{display:none;}
 }
+
+/* ── careCL 기술 : 리드 2단 / 큰 인용 / 근거 2열 ── */
+body.sub .leadrow{
+  display:grid;grid-template-columns:minmax(260px,.42fr) 1fr;
+  gap:clamp(26px,3vw,70px);margin-top:clamp(26px,2.8vw,40px);
+}
+body.sub .leadrow__lead p{
+  margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.75;letter-spacing:-.025em;
+  color:var(--ink,#2B2724);word-break:keep-all;
+}
+body.sub .leadrow__body p{margin:0 0 16px;font-size:15px;line-height:1.95;color:var(--n-600,#6B635B);word-break:keep-all;}
+body.sub .leadrow__body p:last-child{margin-bottom:0;}
+
+body.sub .bigquote em{
+  display:block;margin-top:18px;font-style:normal;font-size:14.5px;line-height:1.8;
+  letter-spacing:-.015em;color:var(--n-600,#6B635B);word-break:keep-all;
+}
+
+body.sub .flow__end{
+  margin-top:clamp(20px,2.2vw,30px);font-size:clamp(16px,1.4vw,19px);font-weight:500;
+  letter-spacing:-.025em;color:var(--ink,#2B2724);word-break:keep-all;
+}
+
+body.sub .proof{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,3.4vw,70px);
+  margin-top:clamp(30px,3.2vw,48px);
+}
+body.sub .proof__col{padding-top:24px;border-top:1px solid var(--stone,#ECE7E0);}
+body.sub .proof__tag{
+  display:block;font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--orange,#C46A3A);
+  margin-bottom:16px;
+}
+body.sub .proof__lead{font-size:15px;line-height:1.85;letter-spacing:-.02em;color:var(--n-600,#6B635B);word-break:keep-all;}
+body.sub .proof .patent__ttl{margin-top:22px;}
+body.sub .proof .evid{grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;}
+body.sub .proof .evid__item{padding:clamp(16px,1.6vw,24px) 8px;}
+body.sub .proof .textlink{display:inline-flex;margin-top:22px;font-size:14px;color:var(--orange-600,#A8521F);}
+body.sub .proof .textlink span{margin-left:8px;transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+body.sub .proof .textlink:hover span{transform:translateX(5px);}
+body.sub .proof .note{margin-top:18px;}
+
+@media (max-width:860px){
+  body.sub .leadrow,body.sub .proof{grid-template-columns:1fr;gap:20px;}
+}
+body.sub .proof__org{
+  margin-top:10px;font-size:12.5px;letter-spacing:.02em;color:var(--sage,#9C948B);
+}
