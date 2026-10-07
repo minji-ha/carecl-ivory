@@ -479,3 +479,7 @@ body.sub .submenu li+li::before,
 .submenu li+li::before{display:none !important;}
 body.sub .submenu a::after{content:none;}
 body.sub .submenu a.is-active::after{content:'';}
+
+/* 헤더 하단 1px 선이 드롭다운 위로 올라오던 문제 — 드롭다운을 위로 */
+.dropdown{z-index:6;}
+.navitem{z-index:5;}
