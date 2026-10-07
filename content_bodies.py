@@ -13,7 +13,7 @@ BODY["about"] = """<section class="sec">
           <p>전문적인 관리 경험을 집에서도 이어갈 수 있도록.<br>그것이 <strong>care Clinical Level</strong>이 지향하는 기준입니다.</p>
         </div>
       </div>
-      <div class="about__visual"><img src="assets/img/about-visual.jpg" alt="careCL"></div>
+      <div class="about__visual"><img src="assets/img/p-touch.jpg" alt="careCL"></div>
     </div>
     <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
@@ -22,8 +22,7 @@ BODY["about"] = """<section class="sec">
       <div><dt>TECHNOLOGY</dt><dd>5 SEC. STAMPING RF</dd></div>
     </dl>
   </div>
-</section>
-<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="splitfig__copy"><h3>매일의 루틴이 만드는 차이</h3><p>하루 몇 분, 정해진 자리에 반복되는 관리가 피부의 기준을 바꿉니다.</p></div></div></div></section>"""
+</section>"""
 
 BODY["greeting"] = """<section class="sec" id="born">
   <div class="wrap">
@@ -208,7 +207,7 @@ BODY["certification"] = """<section class="sec">
     <p class="note" style="margin-top:28px">* 인증서 원본(병합본)을 PDF로 제공합니다. 개별 인증서가 필요하시면 문의해 주세요.</p>
   </div>
 </section>
-<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-devices.jpg" alt=""></div><div class="splitfig__copy"><h3>클리닉의 기준을 그대로</h3><p>수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.</p></div></div></div></section>"""
+<section class="sec"><div class="wrap"><div class="splitfig splitfig--rev"><div class="splitfig__img"><img src="assets/img/p-arm.jpg" alt=""></div><div class="splitfig__copy"><h3>클리닉의 기준을 그대로</h3><p>수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.</p></div></div></div></section>"""
 
 BODY["rnd"] = """<section class="sec">
   <div class="wrap">

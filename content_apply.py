@@ -72,7 +72,7 @@ about = """<section class="sec">
           %s
         </div>
       </div>
-      <div class="about__visual"><img src="assets/img/about-visual.jpg" alt="careCL"></div>
+      <div class="about__visual"><img src="assets/img/p-touch.jpg" alt="careCL"></div>
     </div>
     <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
@@ -400,7 +400,7 @@ out = ["# -*- coding: utf-8 -*-",
        "BODY = {}", ""]
 # 본문 사이사이에 기존 carecl.com 비주얼을 넣는다
 FIG_MODEL = figure("p-leaning.jpg", "DESIGNED BY BOTOX &amp; THERMAGE EXPERTS", "임상 현장의 감각을 그대로 홈케어로")
-FIG_LINEUP = split("p-devices.jpg", "클리닉의 기준을 그대로", "수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.", rev=True)
+FIG_LINEUP = split("p-arm.jpg", "클리닉의 기준을 그대로", "수상과 인증은 결과가 아니라 과정의 기록입니다. 설계와 검증을 반복하며 기준을 지켜왔습니다.", rev=True)
 FIG_STAMPING = figure("p-mask-close.jpg", "STAMPING, INSPIRED BY REAL PROCEDURES", "정해진 자리에 5초, 눌러서 전달합니다", width=760)
 
 
@@ -436,7 +436,7 @@ tech_carecl = tech_carecl + chr(10) + split("p-mask-device.jpg",
     "그리드 위에, 정확한 위치로",
     "그리드 마스크가 관리 부위를 안내하고, 디바이스는 그 자리에 5초 동안 에너지를 전달합니다.", rev=True)
 
-for key, html in [("about", about + chr(10) + split("p-touch.jpg", "매일의 루틴이 만드는 차이", "하루 몇 분, 정해진 자리에 반복되는 관리가 피부의 기준을 바꿉니다.", rev=True)), ("greeting", story),
+for key, html in [("about", about), ("greeting", story),
                   ("aging-types", aging_types_full), ("technology", tech_basic),
                   ("carecl-technology", tech_carecl),
                   ("certification", certification), ("rnd", rnd)]:

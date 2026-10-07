@@ -91,9 +91,9 @@ BODY = """
         <h2>지금 가장 많이 찾는 구성</h2>
       </div>
       <div class="mpick__grid">
-        <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
-        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>디바이스 전용 콜라겐 젤</span></a>
-        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>부위별 그리드 마스크</span></a>
+        <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/p-cheek.jpg" alt="디바이스 케어"></div><em>DEVICE</em><b>5초 스탬핑 케어</b><span>관리 부위에 머무르는 고주파 디바이스</span></a>
+        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/p-mask-face.jpg" alt="그리드 마스크"></div><em>COSMETIC</em><b>그리드 마스크 케어</b><span>격자를 따라 부위별로</span></a>
+        <a class="mcard" href="aging-map.html"><div class="mcard__img"><img src="assets/img/p-packs.jpg" alt="케어 루틴"></div><em>ROUTINE</em><b>부위별 케어 루틴</b><span>진단 결과에 맞춘 순서</span></a>
       </div>
     </div>
   </section>
@@ -156,7 +156,7 @@ BODY = """
 
   <!-- 06 환기용 이미지 -->
   <section class="mbreak">
-    <img src="assets/img/p-mask-face.jpg" alt="">
+    <img src="assets/img/p-touch.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
@@ -207,7 +207,7 @@ BODY = """
 
   <!-- 09 샵 링크 -->
   <section class="mshop">
-    <div class="mshop__bg"><img src="assets/img/p-devices.jpg" alt=""></div>
+    <div class="mshop__bg"><img src="assets/img/p-mask-close.jpg" alt=""></div>
     <div class="inner mshop__inner">
       <div>
         <h2>제품 구매는 공식몰에서</h2>
