@@ -96,15 +96,10 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
         badge = AI_BADGE if label == "AGING LAB" else ""
         drop = ''
         if subs:
-            items = []
-            for stitle, shref, thirds in subs:
-                row = '<a class="dropdown__d2" href="%s">%s</a>' % (shref, stitle)
-                if thirds:
-                    row += '<div class="dropdown__d3">%s</div>' % "".join(
-                        '<a href="%s">%s</a>' % (h3, t3) for t3, h3 in thirds)
-                items.append('<div class="dropdown__group">%s</div>' % row)
-            drop = ('<div class="dropdown%s"><div class="dropdown__inner">%s</div></div>'
-                    % (' dropdown--wide' if any(x[2] for x in subs) else '', "".join(items)))
+            # GNB 드롭다운은 2뎁스까지만 (3뎁스는 각 페이지 상단 앵커 바에서 노출)
+            links = "".join('<a class="dropdown__d2" href="%s">%s</a>' % (shref, stitle)
+                            for stitle, shref, thirds in subs)
+            drop = '<div class="dropdown"><div class="dropdown__inner">%s</div></div>' % links
         return ('<div class="navitem%s"><a href="%s"%s>%s</a>%s%s</div>'
                 % (' has-badge' if badge else '', href, cls, label, badge, drop))
 
@@ -178,3 +173,28 @@ FOOTER = """<footer class="footer">
     <div class="footer__sns"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
   </div>
 </footer>"""
+
+
+def depth3_groups(slug):
+    """해당 페이지(slug.html)에 속한 2뎁스들의 3뎁스 목록 → [(2뎁스명, [(라벨, 링크), ...]), ...]"""
+    page = slug + ".html"
+    out = []
+    for _d1, _h1, subs in MENU:
+        for d2, h2, thirds in subs:
+            if thirds and h2.split("#")[0] == page:
+                out.append((d2, thirds))
+    return out
+
+
+def anchornav(slug):
+    """페이지 상단 3뎁스 앵커 바"""
+    groups = depth3_groups(slug)
+    if not groups:
+        return ""
+    blocks = []
+    for d2, thirds in groups:
+        links = "".join('<a href="%s">%s</a>' % (h, t) for t, h in thirds)
+        blocks.append('<div class="anchornav__group"><span class="anchornav__label">%s</span>'
+                      '<div class="anchornav__links">%s</div></div>' % (d2, links))
+    return ('<nav class="anchornav" id="anchorNav"><div class="anchornav__inner">%s</div></nav>'
+            % "".join(blocks))

@@ -27,7 +27,7 @@
     o.fillStyle = '#000';
     o.textAlign = 'center';
     o.textBaseline = 'middle';
-    o.font = '600 ' + (size * 1.12) + 'px "Cormorant Garamond", Georgia, serif';
+    o.font = "600 " + (size * 0.92) + "px Inter, 'Noto Sans KR', sans-serif";
     o.fillText('careCL', W / 2, H * 0.46);
 
     var data = o.getImageData(0, 0, W, H).data;
@@ -155,7 +155,7 @@
     new IntersectionObserver(function (en) { running = en[0].isIntersecting; }, { rootMargin: '80px' }).observe(host);
   } else { running = true; }
 
-  var ready = (document.fonts && document.fonts.load) ? document.fonts.load('600 160px "Cormorant Garamond"') : Promise.resolve();
+  var ready = (document.fonts && document.fonts.load) ? document.fonts.load('600 160px Inter') : Promise.resolve();
   ready.then(function () {
     resize(); frame();
     if ('ResizeObserver' in window) new ResizeObserver(function () { resize(); }).observe(host);

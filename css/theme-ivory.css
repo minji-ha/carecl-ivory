@@ -42,8 +42,9 @@
   --foot-bg:#ECE7E0;
   --foot-line:#DCD4CA;
 
-  --serif:'Noto Serif KR', 'Cormorant Garamond', serif;
-  --display:'Cormorant Garamond', 'Noto Serif KR', serif;
+  /* 2026-10 : 전체 고딕체로 통일 */
+  --serif:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  --display:'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* ---------- Aging Map 22 영역도 오렌지 포인트로 통일 (2026-10 결정) ---------- */
@@ -77,7 +78,7 @@ body{background:var(--porcelain);color:var(--ink);font-weight:300;}
 .ceo blockquote,
 .sv__q,
 .pillar h4{
-  font-family:var(--serif);font-weight:300;letter-spacing:-.02em;
+  font-family:var(--serif);font-weight:400;letter-spacing:-.035em;
 }
 .hero__title{letter-spacing:-.03em;line-height:1.28;}
 .ceo blockquote{font-size:40px;line-height:1.6;}
@@ -342,43 +343,54 @@ body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}
   .navitem > a{font-size:12.5px;}
 }
 
-/* ===== 3뎁스 드롭다운 (노션 메뉴 구조) ===== */
-.dropdown--wide{min-width:0;}
-.dropdown--wide .dropdown__inner{
-  display:flex;flex-wrap:nowrap;gap:0 30px;padding:20px 24px;
-  max-width:none;
+/* ===== GNB 드롭다운 (2뎁스까지) ===== */
+.dropdown a.dropdown__d2{
+  text-align:center;font-size:13.4px;letter-spacing:-.02em;color:var(--n-600);
+  white-space:nowrap;padding:10px 22px;
 }
-.dropdown__group{min-width:146px;}
-.dropdown__group:not(:has(.dropdown__d3)){min-width:0;}
-.dropdown__group > a.dropdown__d2{
-  display:block;text-align:left;padding:5px 2px;
-  font-family:var(--serif);font-size:14px;font-weight:600;letter-spacing:-.01em;
-  color:var(--ink);white-space:nowrap;
-}
-.dropdown__group > a.dropdown__d2:hover{color:var(--orange);background:none;}
-.dropdown__d3{display:block;margin:3px 0 4px;border-left:1px solid var(--stone);}
-.dropdown__d3 > a{
-  display:block;text-align:left;padding:4px 2px 4px 11px;
-  font-size:12.6px;letter-spacing:-.02em;color:var(--sage);line-height:1.45;
-  white-space:normal;word-break:keep-all;max-width:205px;
-}
-.dropdown__d3 > a:hover{color:var(--orange);background:none;padding-left:14px;}
+.dropdown a.dropdown__d2:hover{color:var(--orange);background:var(--porcelain);}
 
-/* 2뎁스만 있는 메뉴는 기존처럼 단일 컬럼 */
-.dropdown:not(.dropdown--wide) a.dropdown__d2{text-align:center;font-size:13.4px;color:var(--n-600);}
-.dropdown:not(.dropdown--wide) a.dropdown__d2:hover{color:var(--orange);background:var(--porcelain);}
+/* ===== 페이지 상단 3뎁스 앵커 바 ===== */
+.anchornav{
+  position:sticky;top:var(--hdr-h,96px);z-index:40;
+  background:rgba(253,252,250,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--stone);
+}
+.anchornav__inner{
+  max-width:1680px;margin:0 auto;padding:0 var(--gut);
+  display:flex;align-items:center;gap:0 34px;flex-wrap:wrap;
+}
+.anchornav__group{display:flex;align-items:center;gap:0 18px;min-height:54px;}
+.anchornav__label{
+  font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--orange);
+  white-space:nowrap;text-transform:uppercase;
+}
+.anchornav__label::after{content:'';display:inline-block;width:14px;height:1px;background:var(--stone);margin:0 0 3px 12px;vertical-align:middle;}
+.anchornav__links{display:flex;align-items:center;gap:0 4px;flex-wrap:wrap;}
+.anchornav__links a{
+  position:relative;display:inline-block;padding:7px 12px;border-radius:100px;
+  font-size:13px;letter-spacing:-.02em;color:var(--sage);white-space:nowrap;
+  transition:color .2s ease,background .2s ease;
+}
+.anchornav__links a:hover{color:var(--ink);background:#fff;}
+.anchornav__links a.is-active{color:var(--orange-600);background:var(--orange-100);font-weight:500;}
+body.sub .sec{scroll-margin-top:184px;}
+body.sub .techblock{scroll-margin-top:192px;}
 
-/* 화면 가장자리 넘침 방지 */
-.header__nav > .navitem:nth-last-child(-n+2) .dropdown--wide{left:auto;right:-10px;transform:translateX(0) translateY(8px);}
-.header__nav > .navitem:nth-last-child(-n+2):hover .dropdown--wide,
-.header__nav > .navitem:nth-last-child(-n+2):focus-within .dropdown--wide{transform:translateX(0) translateY(0);}
-.header__nav > .navitem:first-child .dropdown--wide{left:-10px;right:auto;transform:translateX(0) translateY(8px);}
-.header__nav > .navitem:first-child:hover .dropdown--wide,
-.header__nav > .navitem:first-child:focus-within .dropdown--wide{transform:translateX(0) translateY(0);}
+@media (max-width:1100px){
+  .anchornav{--hdr-h:64px;}
+  body.sub .sec{scroll-margin-top:140px;}
+  body.sub .techblock{scroll-margin-top:148px;}
+  .anchornav__inner{flex-wrap:nowrap;overflow-x:auto;gap:0 24px;-webkit-overflow-scrolling:touch;}
+  .anchornav__inner::-webkit-scrollbar{display:none;}
+  .anchornav__group{flex:0 0 auto;min-height:48px;}
+  .anchornav__links{flex-wrap:nowrap;}
+  .anchornav__links a{font-size:12.5px;padding:6px 10px;}
+}
 
 /* ===== 전체메뉴 3뎁스 ===== */
 .mega__col > a.mega__d2{
-  font-family:var(--serif);font-size:14.5px;font-weight:600;color:rgba(255,255,255,.92);
+  font-size:14.5px;font-weight:600;color:rgba(255,255,255,.92);
   padding:12px 0 4px;
 }
 .mega__col > a.mega__d2:hover{color:#F3E4D8;padding-left:0;}
@@ -387,7 +399,3 @@ body.survey .allmenu:hover span:nth-child(5){background:var(--orange,#C46A3A);}
   border-left:1px solid rgba(255,255,255,.14);line-height:1.45;white-space:normal;
 }
 .mega__col > a.mega__d3:hover{color:rgba(255,255,255,.95);padding-left:15px;}
-
-@media (max-width:1180px){
-  .dropdown--wide .dropdown__inner{flex-wrap:wrap;max-width:560px;gap:0 24px;}
-}

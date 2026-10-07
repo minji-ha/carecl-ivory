@@ -51,7 +51,7 @@ def subvisual(slug, en, kr):
             '<p class="crumb">HOME &nbsp;/&nbsp; ' + crumb + ' &nbsp;/&nbsp; ' + kr + '</p>'
             '<h1>' + en + '</h1>'
             '<p class="kr">' + kr + '</p>'
-            '</div></section>' + submenu)
+            '</div></section>' + submenu + parts.anchornav(slug))
 
 
 FOOTER = parts.FOOTER
@@ -359,7 +359,6 @@ TPL = """<!DOCTYPE html>
 <link rel="stylesheet" href="css/style.css?v=2609130353">
 <link rel="stylesheet" href="css/nav.css?v=2609130353">
 <link rel="stylesheet" href="css/sub.css?v=2609130353">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/theme-ivory.css">
 <link rel="stylesheet" href="css/subv2.css">
 </head>
