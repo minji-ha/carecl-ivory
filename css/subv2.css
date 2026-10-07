@@ -482,13 +482,6 @@ body.sub .submenu a{font-size:16px;}
 /* ── 6 AGING TYPES : 등장 · 호버 연출 ── */
 body.sub .typecards{counter-reset:tc;}
 body.sub .typecard{overflow:hidden;background:#fff;}
-body.sub .typecards.js-anim .typecard{
-  opacity:0;transform:translateY(26px);
-  transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--td,0ms),
-             transform .9s cubic-bezier(.2,.7,.2,1) var(--td,0ms),
-             box-shadow .5s ease, border-color .5s ease;
-}
-body.sub .typecards.js-anim.is-in .typecard{opacity:1;transform:none;}
 body.sub .typecard:hover{border-color:var(--orange-100,#F3E4D8);box-shadow:0 30px 60px -34px rgba(70,58,48,.45);}
 
 /* 번호 : 크게, 옅게 깔고 호버 때 또렷해진다 */
@@ -524,3 +517,38 @@ body.sub .typenav button{
 }
 body.sub .typenav button:hover{border-color:var(--orange,#C46A3A);color:var(--orange-600,#A8521F);}
 body.sub .typenav button.is-on{background:var(--orange,#C46A3A);border-color:var(--orange,#C46A3A);color:#fff;}
+
+/* ── 6 AGING TYPES : 가로로 흐르는 핀 스크롤 ── */
+body.sub .typecards.is-rail{
+  display:flex;flex-wrap:nowrap;width:max-content;
+  gap:clamp(18px,1.8vw,30px);
+  margin-top:clamp(26px,2.6vw,40px);
+  will-change:transform;
+}
+body.sub .typecards.is-rail .typecard{
+  flex:0 0 clamp(320px,26vw,420px);
+  display:flex;flex-direction:column;
+  min-height:clamp(380px,42vh,460px);
+  padding:clamp(26px,2.2vw,36px);
+}
+body.sub .typecards.is-rail .typecard p{margin-top:12px;}
+body.sub .typecards.is-rail .type__worry{margin-top:auto;}
+
+/* 핀 구간에서 섹션 안쪽 여백 */
+body.sub .sec.is-pinned{padding-top:clamp(70px,8vh,110px);padding-bottom:0;}
+
+/* 진행 표시줄 */
+body.sub .typeprog{
+  position:relative;height:2px;max-width:100%;margin-top:clamp(22px,2.4vw,34px);
+  background:var(--stone,#ECE7E0);overflow:hidden;
+}
+body.sub .typeprog i{
+  position:absolute;inset:0;background:var(--orange,#C46A3A);
+  transform:scaleX(0);transform-origin:left center;
+}
+
+/* 가로 레일일 때는 카드가 화면 밖으로 나가도 잘리지 않게 */
+body.sub #list .wrap{overflow:visible;}
+@media (max-width:900px){
+  body.sub .typecards{grid-template-columns:1fr;}
+}
