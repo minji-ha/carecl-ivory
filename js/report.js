@@ -93,11 +93,9 @@ var REPORT = {
       (parts ? '<p class="cku-result-parts">' + esc(parts) + '</p>' : '') +
       scale +
       '<div class="cku-result-actions">' +
-        '<a class="cku-btn cku-btn-primary" href="aging-map.html">22개 관리 부위 보기 <span>→</span></a>' +
-        '<a class="cku-btn cku-btn-ghost" href="aging-types.html">6가지 노화 타입 보기</a>' +
         (opts.restart
-          ? '<button type="button" class="cku-btn cku-btn-ghost" data-restart>다시 하기</button>'
-          : '<a class="cku-btn cku-btn-ghost" href="survey.html">직접 진단 받기</a>') +
+          ? '<button type="button" class="cku-btn cku-btn-primary" data-restart>AI 피부 진단 다시하기 <span>→</span></button>'
+          : '<a class="cku-btn cku-btn-primary" href="survey.html">AI 피부 진단 다시하기 <span>→</span></a>') +
       '</div>' +
       '<p class="cku-result-note">본 결과는 설문 응답을 바탕으로 한 참고용 분석이며 의학적 진단이 아닙니다. ' +
       '로그인 후 참여하면 구매 이력과 사용 주기를 반영한 상세 리포트를 받아볼 수 있습니다.</p>' +
