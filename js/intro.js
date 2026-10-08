@@ -6,12 +6,20 @@
   var root = document.getElementById('intro');
   if (!root) return;
 
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) {
-    root.parentNode.removeChild(root);
+  function skip() {
+    if (root.parentNode) root.parentNode.removeChild(root);
     document.body.classList.remove('is-intro');
-    return;
   }
+
+  /* 이번 방문에서 이미 봤다면 다시 띄우지 않는다 (탭/창을 닫으면 초기화) */
+  var SEEN = 'carecl_intro_seen';
+  var seen = false;
+  try { seen = sessionStorage.getItem(SEEN) === '1'; } catch (e) { seen = false; }
+  if (seen) { skip(); return; }
+  try { sessionStorage.setItem(SEEN, '1'); } catch (e) {}
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { skip(); return; }
 
   var canvas = root.querySelector('.intro__grid');
   var ctx = canvas.getContext('2d');

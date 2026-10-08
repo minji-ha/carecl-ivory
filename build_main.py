@@ -268,6 +268,7 @@ TPL = """<!DOCTYPE html>
 
 %(footer)s
 
+<script src="libs/lenis.min.js"></script>
 <script src="js/intro.js?v=%(v)s"></script>
 <script src="js/mainv2.js?v=%(v)s"></script>
 <script src="js/cursorword.js"></script>

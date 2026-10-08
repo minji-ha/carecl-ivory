@@ -5,7 +5,14 @@
   gsap.registerPlugin(ScrollTrigger);
 
   if (!reduceMotion && window.Lenis) {
-    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    var lenis = new Lenis({
+      duration: 1.25,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.6
+    });
+    window.__lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
