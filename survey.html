@@ -8,17 +8,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=261008172109">
-<link rel="stylesheet" href="css/scanhud.css?v=261008172109">
-<link rel="stylesheet" href="css/nav.css?v=261008172109">
-<link rel="stylesheet" href="css/survey.css?v=261008172109">
-<link rel="stylesheet" href="css/theme-ivory.css?v=261008172109">
+<link rel="stylesheet" href="css/style.css?v=261008172243">
+<link rel="stylesheet" href="css/scanhud.css?v=261008172243">
+<link rel="stylesheet" href="css/nav.css?v=261008172243">
+<link rel="stylesheet" href="css/survey.css?v=261008172243">
+<link rel="stylesheet" href="css/theme-ivory.css?v=261008172243">
 </head>
 <body class="survey">
 
 <div class="announce">
-  <span class="announce__dot"></span>
-  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>
+  <a class="announce__link" href="survey.html">
+    <span class="announce__dot"></span>
+    <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>
+    <i class="announce__go">진단하러 가기 <b>→</b></i>
+  </a>
 </div>
 
 <header class="header" id="header">
@@ -40,6 +43,10 @@
     </div>
   </div>
 </div>
+<a class="aifab" href="survey.html" aria-label="AI 피부 진단 시작하기"><span class="aifab__ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aifab__txt">AI 피부 진단</span></a>
+<div class="cursorword" id="cursorWord" aria-hidden="true"></div>
+<a class="aifab" href="survey.html" aria-label="AI 피부 진단 시작하기"><span class="aifab__ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aifab__txt">AI 피부 진단</span></a>
+<div class="cursorword" id="cursorWord" aria-hidden="true"></div>
 <a class="aifab" href="survey.html" aria-label="AI 피부 진단 시작하기"><span class="aifab__ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aifab__txt">AI 피부 진단</span></a>
 <div class="cursorword" id="cursorWord" aria-hidden="true"></div>
 <a class="aifab" href="survey.html" aria-label="AI 피부 진단 시작하기"><span class="aifab__ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2 14 8.4 20.2 10.4 14 12.4 12 18.6 10 12.4 3.8 10.4 10 8.4Z" fill="currentColor"/><circle cx="19.4" cy="4.2" r="1.7" fill="currentColor" opacity=".9"/><circle cx="4.8" cy="18.4" r="1.2" fill="currentColor" opacity=".7"/></svg></span><span class="aifab__txt">AI 피부 진단</span></a>
@@ -110,16 +117,16 @@
 
 <script src="libs/gsap.min.js"></script>
 <script src="libs/lenis.min.js"></script>
-<script src="js/smoothscroll.js?v=261008172109"></script>
-<script src="js/survey.js?v=261008172109"></script>
+<script src="js/smoothscroll.js?v=261008172243"></script>
+<script src="js/survey.js?v=261008172243"></script>
 <script>
   window.addEventListener('scroll', function () {
     document.body.classList.toggle('is-scrolled', window.scrollY > 40);
   });
 </script>
-<script src="js/scanhud.js?v=261008172109"></script>
-<script type="module" src="js/wave3d.js?v=261008172109"></script>
-<script src="js/cursorword.js?v=261008172109"></script>
-<script src="js/nav.js?v=261008172109"></script>
+<script src="js/scanhud.js?v=261008172243"></script>
+<script type="module" src="js/wave3d.js?v=261008172243"></script>
+<script src="js/cursorword.js?v=261008172243"></script>
+<script src="js/nav.js?v=261008172243"></script>
 </body>
 </html>

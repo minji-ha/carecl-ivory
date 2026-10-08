@@ -79,8 +79,11 @@ def header(active=None, logo_href="index.html", start_href="survey.html"):
     nav = "".join(item(*m) for m in MENU)
     rows = [
         '<div class="announce">',
-        '  <span class="announce__dot"></span>',
-        '  <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>',
+        '  <a class="announce__link" href="' + start_href + '">',
+        '    <span class="announce__dot"></span>',
+        '    <span>AGING MAP 22 진단 오픈 — 2분 설문으로 나의 노화 타입 확인하기</span>',
+        '    <i class="announce__go">진단하러 가기 <b>→</b></i>',
+        '  </a>',
         '</div>',
         '',
         '<header class="header" id="header">',
