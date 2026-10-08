@@ -552,3 +552,14 @@ body.sub #list .wrap{overflow:visible;}
 @media (max-width:900px){
   body.sub .typecards{grid-template-columns:1fr;}
 }
+
+/* About ↔ Our Story 비주얼 교체 */
+body.sub .about__visual.ceo__visual{
+  border-radius:3px;overflow:hidden;
+  height:clamp(320px,40vw,620px);
+}
+body.sub .ceo__visual--img{
+  background:transparent;border:0;overflow:hidden;border-radius:3px;
+  height:clamp(360px,44vw,680px);
+}
+body.sub .ceo__visual--img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}

@@ -13,7 +13,7 @@ BODY["about"] = """<section class="sec">
           <p>전문적인 관리 경험을 집에서도 이어갈 수 있도록.<br>그것이 <strong>care Clinical Level</strong>이 지향하는 기준입니다.</p>
         </div>
       </div>
-      <div class="about__visual"><img src="assets/img/cc-model-c.jpg" alt="careCL"></div>
+      <div class="about__visual ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
     </div>
     <dl class="facts">
       <div><dt>CEO</dt><dd>최형규 Hyungkyu Choi</dd></div>
@@ -28,7 +28,7 @@ BODY["greeting"] = """<section class="sec" id="born">
   <div class="wrap">
     <div class="seclabel"><i></i><span>OUR STORY</span></div>
     <div class="ceo">
-      <div class="ceo__visual" id="brandParticles"><canvas aria-label="careCL"></canvas><div class="ceo__visual-grid"></div><div class="ceo__visual-top"><span>AGELESS BEAUTY</span></div></div>
+      <div class="ceo__visual ceo__visual--img"><img src="assets/img/cc-model-c.jpg" alt="careCL"></div>
       <div class="ceo__text">
         <h2><strong>BORN FROM BOTOX &amp; THERMAGE</strong></h2>
         <div class="story__body">
