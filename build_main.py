@@ -6,29 +6,8 @@ import parts
 
 V = time.strftime('%y%m%d%H%M%S')
 
-BODY = """
-<main class="m2">
-
-  <!-- 01 상단 배너 -->
-  <section class="mhero">
-    <div class="mhero__media">
-      <video class="mhero__video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
-        <source src="assets/video/brand-film.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="mhero__scrim"></div>
-    <div class="mhero__inner">
-      <p class="mhero__eyebrow">ANTI-AGING SKINCARE</p>
-      <h1>노화는 저마다 다릅니다<br>그래서 관리도 달라야 합니다</h1>
-      <p>케어클은 얼굴을 22개 부위로 나누어 읽고, 먼저 관리해야 할 곳부터 제안합니다.</p>
-      <div class="mhero__cta">
-        <a href="aging-types.html" class="mbtn mbtn--solid">6가지 노화 타입 보기</a>
-        <a href="survey.html" class="mbtn mbtn--line">나의 타입 알아보기</a>
-      </div>
-    </div>
-    <div class="mhero__scroll"><span>SCROLL</span><i></i></div>
-  </section>
-
+# 롤링 배너 섹션 — 상단 영상 배너가 그 역할을 하므로 주석 처리 (필요 시 BODY 안에 다시 넣으면 된다)
+MROLL_DISABLED = """
   <!-- 02 롤링 배너 -->
   <section class="mroll" data-roll>
     <div class="inner">
@@ -82,7 +61,32 @@ BODY = """
     </div>
   </section>
 
-  <!-- 03 철학 -->
+"""
+
+BODY = """
+<main class="m2">
+
+  <!-- 01 상단 배너 -->
+  <section class="mhero">
+    <div class="mhero__media">
+      <video class="mhero__video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+        <source src="assets/video/brand-film.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="mhero__scrim"></div>
+    <div class="mhero__inner">
+      <p class="mhero__eyebrow">ANTI-AGING SKINCARE</p>
+      <h1>노화는 저마다 다릅니다<br>그래서 관리도 달라야 합니다</h1>
+      <p>케어클은 얼굴을 22개 부위로 나누어 읽고, 먼저 관리해야 할 곳부터 제안합니다.</p>
+      <div class="mhero__cta">
+        <a href="aging-types.html" class="mbtn mbtn--solid">6가지 노화 타입 보기</a>
+        <a href="survey.html" class="mbtn mbtn--line">나의 타입 알아보기</a>
+      </div>
+    </div>
+    <div class="mhero__scroll"><span>SCROLL</span><i></i></div>
+  </section>
+
+  <!-- 02 철학 -->
   <section class="mphil">
     <div class="inner" data-reveal>
       <span class="label">Our Philosophy</span>
@@ -93,7 +97,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 04 핵심 3가지 (오브젝트 + 주변 항목) -->
+  <!-- 03 핵심 3가지 (오브젝트 + 주변 항목) -->
   <section class="mcore">
     <div class="inner">
       <div class="mcore__head" data-reveal>
@@ -138,13 +142,13 @@ BODY = """
     </div>
   </section>
 
-  <!-- 05 환기용 이미지 -->
+  <!-- 04 환기용 이미지 -->
   <section class="mbreak">
     <img src="assets/img/p-leaning.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
-  <!-- 06 콜렉션 — 추천 구성 -->
+  <!-- 05 콜렉션 — 추천 구성 -->
   <section class="mpick">
     <div class="inner">
       <div class="mpick__head" data-reveal>
@@ -159,7 +163,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 07 콜렉션 — 전체 라인업 (카로셀) -->
+  <!-- 06 콜렉션 — 전체 라인업 (카로셀) -->
   <section class="mcoll" data-coll>
     <div class="inner">
       <div class="mcoll__head" data-reveal>
@@ -186,7 +190,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 08 5 STEP -->
+  <!-- 07 5 STEP -->
   <section class="mstep">
     <div class="inner">
       <div data-reveal>
@@ -203,7 +207,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 09 샵 링크 -->
+  <!-- 08 샵 링크 -->
   <section class="mshop">
     <div class="mshop__bg"><img src="assets/img/p-mask-close.jpg" alt=""></div>
     <div class="inner mshop__inner">
