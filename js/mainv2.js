@@ -147,32 +147,45 @@
 
 /* ── 메인 히어로 헤드라인 : 글자가 솟아오르며 흐림이 걷히는 등장 ── */
 (function () {
-  var h1 = document.querySelector('.mhero h1');
-  if (!h1) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    h1.classList.add('is-in');
+  var heads = [].slice.call(document.querySelectorAll('.mhero h1'));
+  if (!heads.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce) {
+    heads.forEach(function (h) { h.classList.add('is-in'); });
+    window.__heroTitle = { play: function () {}, reset: function () {} };
     return;
   }
 
   /* 줄 단위로 나누고, 줄 안의 글자를 각각 감싼다 */
-  var lines = h1.innerHTML.split(/<br\s*\/?>/i);
-  var html = '';
-  var idx = 0;
-  lines.forEach(function (line, li) {
-    html += '<span class="hl"><span class="hl__in">';
-    line.replace(/<[^>]+>/g, '').split('').forEach(function (ch) {
-      if (ch === ' ') { html += '<span class="hc hc--sp"> </span>'; idx++; return; }
-      html += '<span class="hc" style="--d:' + (idx * 28) + 'ms">' + ch + '</span>';
-      idx++;
+  function split(h1) {
+    if (h1.dataset.hcReady) return;
+    var lines = h1.innerHTML.split(/<br\s*\/?>/i);
+    var html = '', idx = 0;
+    lines.forEach(function (line, li) {
+      html += '<span class="hl"><span class="hl__in">';
+      line.replace(/<[^>]+>/g, '').split('').forEach(function (ch) {
+        if (ch === ' ') { html += '<span class="hc hc--sp"> </span>'; idx++; return; }
+        html += '<span class="hc" style="--d:' + (idx * 28) + 'ms">' + ch + '</span>';
+        idx++;
+      });
+      html += '</span></span>';
+      if (li < lines.length - 1) html += '<br>';
+      idx += 2;
     });
-    html += '</span></span>';
-    if (li < lines.length - 1) html += '<br>';
-    idx += 2;
-  });
-  h1.innerHTML = html;
+    h1.innerHTML = html;
+    h1.dataset.hcReady = '1';
+  }
+  heads.forEach(split);
 
-  /* 인트로가 끝난 뒤 시작 */
-  function play() { requestAnimationFrame(function () { h1.classList.add('is-in'); }); }
+  window.__heroTitle = {
+    play: function (el) { if (!el) return; void el.offsetWidth; setTimeout(function () { el.classList.add('is-in'); }, 30); },
+    reset: function (el) { if (el) el.classList.remove('is-in'); }
+  };
+
+  /* 첫 슬라이드는 인트로가 끝난 뒤 시작 */
+  var first = document.querySelector('.mhslide.is-on h1') || heads[0];
+  function play() { window.__heroTitle.play(first); }
   if (document.getElementById('intro')) {
     var t = setInterval(function () {
       if (!document.getElementById('intro')) { clearInterval(t); play(); }
@@ -181,6 +194,94 @@
   } else {
     setTimeout(play, 260);
   }
+})();
+
+/* ── 상단 배너 슬라이드 : 영상이 끝나면 이미지로 넘어간다 ── */
+(function () {
+  var hero = document.querySelector('[data-hero]');
+  if (!hero) return;
+  var slides = [].slice.call(hero.querySelectorAll('[data-hslide]'));
+  var dots = [].slice.call(hero.querySelectorAll('[data-hero-dot]'));
+  var cur = hero.querySelector('[data-hero-cur]');
+  var prevBtn = hero.querySelector('[data-hero-prev]');
+  var nextBtn = hero.querySelector('[data-hero-next]');
+  var N = slides.length;
+  if (N < 2) return;
+
+  var IMG_MS = 6500;          /* 이미지 슬라이드 머무는 시간 */
+  var VIDEO_FALLBACK = 14000; /* 영상 길이를 못 읽을 때 */
+  var at = 0, timer = null;
+
+  function video(i) { return slides[i].querySelector('video'); }
+
+  function fill(i, ms) {
+    dots.forEach(function (d, k) {
+      var bar = d.querySelector('i');
+      d.classList.toggle('is-on', k === i);
+      if (!bar) return;
+      if (k === i) {
+        bar.style.transition = 'none';
+        bar.style.transform = 'scaleX(0)';
+        void bar.offsetWidth;
+        bar.style.transition = 'transform ' + ms + 'ms linear';
+        bar.style.transform = 'scaleX(1)';
+      } else {
+        bar.style.transition = 'none';
+        bar.style.transform = 'scaleX(0)';
+      }
+    });
+  }
+
+  function show(i) {
+    i = ((i % N) + N) % N;
+    at = i;
+
+    slides.forEach(function (s, k) {
+      var on = k === i;
+      s.classList.toggle('is-on', on);
+      var v = s.querySelector('video');
+      if (v) {
+        if (on) { try { v.currentTime = 0; v.play(); } catch (e) {} }
+        else { v.pause(); }
+      }
+      var h = s.querySelector('h1');
+      if (window.__heroTitle && h) {
+        if (on) { window.__heroTitle.reset(h); window.__heroTitle.play(h); }
+        else { window.__heroTitle.reset(h); }
+      }
+    });
+
+    if (cur) cur.textContent = ('0' + (i + 1)).slice(-2);
+
+    var v = video(i);
+    var ms = IMG_MS;
+    if (v) ms = (v.duration && isFinite(v.duration)) ? v.duration * 1000 : VIDEO_FALLBACK;
+    fill(i, ms);
+
+    clearTimeout(timer);
+    timer = setTimeout(function () { show(at + 1); }, ms);
+  }
+
+  /* 영상이 먼저 끝나면 바로 다음으로 */
+  slides.forEach(function (s, i) {
+    var v = s.querySelector('video');
+    if (!v) return;
+    v.addEventListener('ended', function () { if (i === at) show(at + 1); });
+    v.addEventListener('loadedmetadata', function () { if (i === at) show(at); });
+  });
+
+  function manual(i) { show(i); }
+  if (prevBtn) prevBtn.addEventListener('click', function () { manual(at - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { manual(at + 1); });
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { manual(i); }); });
+
+  document.addEventListener('visibilitychange', function () {
+    var v = video(at);
+    if (document.hidden) { clearTimeout(timer); if (v) v.pause(); }
+    else { show(at); }
+  });
+
+  show(0);
 })();
 
 /* ── 샵 링크 : 스크롤에 따라 높이가 300px에서 화면 전체로 자란다 ── */

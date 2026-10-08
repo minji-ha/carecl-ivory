@@ -8,11 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=261008202639">
-<link rel="stylesheet" href="css/nav.css?v=261008202639">
-<link rel="stylesheet" href="css/theme-ivory.css?v=261008202639">
-<link rel="stylesheet" href="css/mainv2.css?v=261008202639">
-<link rel="stylesheet" href="css/intro.css?v=261008202639">
+<link rel="stylesheet" href="css/style.css?v=261008203100">
+<link rel="stylesheet" href="css/nav.css?v=261008203100">
+<link rel="stylesheet" href="css/theme-ivory.css?v=261008203100">
+<link rel="stylesheet" href="css/mainv2.css?v=261008203100">
+<link rel="stylesheet" href="css/intro.css?v=261008203100">
 </head>
 <body class="main2 is-intro">
 
@@ -59,23 +59,69 @@
 
 <main class="m2">
 
-  <!-- 01 상단 배너 -->
-  <section class="mhero">
-    <div class="mhero__media">
-      <video class="mhero__video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
-        <source src="assets/video/brand-film.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="mhero__scrim"></div>
-    <div class="mhero__inner">
-      <p class="mhero__eyebrow">ANTI-AGING SKINCARE</p>
-      <h1>노화는 저마다 다릅니다<br>그래서 관리도 달라야 합니다</h1>
-      <p>케어클은 얼굴을 22개 부위로 나누어 읽고, 먼저 관리해야 할 곳부터 제안합니다.</p>
-      <div class="mhero__cta">
-        <a href="aging-types.html" class="mbtn mbtn--solid">6가지 노화 타입 보기</a>
-        <a href="survey.html" class="mbtn mbtn--line">나의 타입 알아보기</a>
+  <!-- 01 상단 배너 (영상 · 이미지 슬라이드) -->
+  <section class="mhero" data-hero>
+    <div class="mhslide is-on" data-hslide data-kind="video">
+      <div class="mhero__media">
+        <video class="mhero__video" muted playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+          <source src="assets/video/brand-film.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="mhero__scrim"></div>
+      <div class="mhero__inner">
+        <p class="mhero__eyebrow">ANTI-AGING SKINCARE</p>
+        <h1>노화는 저마다 다릅니다<br>그래서 관리도 달라야 합니다</h1>
+        <p>케어클은 얼굴을 22개 부위로 나누어 읽고, 먼저 관리해야 할 곳부터 제안합니다.</p>
+        <div class="mhero__cta">
+          <a href="aging-types.html" class="mbtn mbtn--solid">6가지 노화 타입 보기</a>
+          <a href="survey.html" class="mbtn mbtn--line">나의 타입 알아보기</a>
+        </div>
       </div>
     </div>
+
+    <div class="mhslide" data-hslide data-kind="image">
+      <div class="mhero__media">
+        <img src="assets/img/p-devices-w.jpg" alt="">
+      </div>
+      <div class="mhero__scrim"></div>
+      <div class="mhero__inner">
+        <p class="mhero__eyebrow">HOME DEVICE</p>
+        <h1>클리닉의 기술을<br>집 안의 리추얼로</h1>
+        <p>문지르지 않습니다. 정해진 자리에 5초간 머물러 눌러서 전달하는 스탬핑 방식입니다.</p>
+        <div class="mhero__cta">
+          <a href="products.html" class="mbtn mbtn--solid">디바이스 보기</a>
+          <a href="carecl-technology.html" class="mbtn mbtn--line">기술 바로 알기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mhslide" data-hslide data-kind="image">
+      <div class="mhero__media">
+        <img src="assets/img/p-mask-face.jpg" alt="">
+      </div>
+      <div class="mhero__scrim"></div>
+      <div class="mhero__inner">
+        <p class="mhero__eyebrow">AGING MAP 22</p>
+        <h1>얼굴과 목 · 바디를<br>22개 부위로 나눕니다</h1>
+        <p>어디부터 관리해야 하는지, 나의 노화 방식에 맞춰 순서대로 제안합니다.</p>
+        <div class="mhero__cta">
+          <a href="aging-map.html" class="mbtn mbtn--solid">22개 부위 보기</a>
+          <a href="survey.html" class="mbtn mbtn--line">2분 진단 시작</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mhero__ui">
+      <button type="button" class="mhero__nav" data-hero-prev aria-label="이전 슬라이드"><i class="fa-solid fa-angle-left"></i></button>
+      <div class="mhero__dots" data-hero-dots>
+        <button type="button" class="mhero__dot is-on" data-hero-dot aria-label="1번 슬라이드"><i></i></button>
+        <button type="button" class="mhero__dot" data-hero-dot aria-label="2번 슬라이드"><i></i></button>
+        <button type="button" class="mhero__dot" data-hero-dot aria-label="3번 슬라이드"><i></i></button>
+      </div>
+      <button type="button" class="mhero__nav" data-hero-next aria-label="다음 슬라이드"><i class="fa-solid fa-angle-right"></i></button>
+      <span class="mhero__count"><b data-hero-cur>01</b><em>/</em><i>03</i></span>
+    </div>
+
     <div class="mhero__scroll"><span>SCROLL</span><i></i></div>
   </section>
 
@@ -339,10 +385,10 @@
 </footer>
 
 <script src="libs/lenis.min.js"></script>
-<script src="js/intro.js?v=261008202639"></script>
-<script src="js/mainv2.js?v=261008202639"></script>
-<script src="js/scrollfx.js?v=261008202639"></script>
-<script src="js/cursorword.js?v=261008202639"></script>
-<script src="js/nav.js?v=261008202639"></script>
+<script src="js/intro.js?v=261008203100"></script>
+<script src="js/mainv2.js?v=261008203100"></script>
+<script src="js/scrollfx.js?v=261008203100"></script>
+<script src="js/cursorword.js?v=261008203100"></script>
+<script src="js/nav.js?v=261008203100"></script>
 </body>
 </html>
