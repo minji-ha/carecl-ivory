@@ -203,7 +203,7 @@ BODY = """
       </div>
 
       <div class="mcoll__viewport">
-        <div class="mcoll__track" data-fx-group>
+        <div class="mcoll__track">
           <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
           <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-clb.png" alt="CLB"></div><em>DEVICE</em><b>CLB</b><span>고주파 마사지기</span></a>
           <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>콜라겐 부스터 젤</span></a>
@@ -216,18 +216,45 @@ BODY = """
   </section>
 
   <!-- 07 5 STEP -->
-  <section class="mstep">
+  <section class="mstep" data-step>
     <div class="inner">
-      <div data-reveal>
+      <div class="mstep__head">
         <span class="label">Daily Routine</span>
-        <h2>다섯 단계로 이어지는<br>홈 에이징 케어</h2>
+        <h2 data-fx="lines">다섯 단계로 이어지는<br>홈 에이징 케어</h2>
+        <p class="mstep__lead" data-fx="up">하루 10분. 같은 자리를 반복하는 동안 피부는 기록을 남깁니다.</p>
       </div>
-      <div class="mstep__grid" data-fx-group>
-        <div class="mstep__card"><span class="mstep__no">01</span><em>CLEANSE</em><b>씻어냅니다</b><p>잔여물을 정리해 다음 단계가 제대로 전달되도록 준비합니다.</p></div>
-        <div class="mstep__card"><span class="mstep__no">02</span><em>READ</em><b>읽습니다</b><p>오늘 먼저 관리할 부위를 Aging Map 22 기준으로 확인합니다.</p></div>
-        <div class="mstep__card"><span class="mstep__no">03</span><em>ACTIVATE</em><b>깨웁니다</b><p>한 부위에 머무르며 수직으로 전달합니다.</p></div>
-        <div class="mstep__card"><span class="mstep__no">04</span><em>RECOVERY</em><b>채웁니다</b><p>전용 코스메틱으로 전달 직후의 피부를 안정시킵니다.</p></div>
-        <div class="mstep__card"><span class="mstep__no">05</span><em>MAINTAIN</em><b>이어갑니다</b><p>주 2~3회 같은 자리를 반복해 변화를 기록합니다.</p></div>
+      <div class="mstep__rail"><i data-step-bar></i></div>
+      <div class="mstep__grid">
+        <div class="mstep__card" data-step-card>
+          <i class="mstep__fill"></i>
+          <span class="mstep__ghost" aria-hidden="true">01</span>
+          <span class="mstep__no">01</span>
+          <em>CLEANSE</em><b>씻어냅니다</b><p>잔여물을 정리해 다음 단계가 제대로 전달되도록 준비합니다.</p>
+        </div>
+        <div class="mstep__card" data-step-card>
+          <i class="mstep__fill"></i>
+          <span class="mstep__ghost" aria-hidden="true">02</span>
+          <span class="mstep__no">02</span>
+          <em>READ</em><b>읽습니다</b><p>오늘 먼저 관리할 부위를 Aging Map 22 기준으로 확인합니다.</p>
+        </div>
+        <div class="mstep__card" data-step-card>
+          <i class="mstep__fill"></i>
+          <span class="mstep__ghost" aria-hidden="true">03</span>
+          <span class="mstep__no">03</span>
+          <em>ACTIVATE</em><b>깨웁니다</b><p>한 부위에 머무르며 수직으로 전달합니다.</p>
+        </div>
+        <div class="mstep__card" data-step-card>
+          <i class="mstep__fill"></i>
+          <span class="mstep__ghost" aria-hidden="true">04</span>
+          <span class="mstep__no">04</span>
+          <em>RECOVERY</em><b>채웁니다</b><p>전용 코스메틱으로 전달 직후의 피부를 안정시킵니다.</p>
+        </div>
+        <div class="mstep__card" data-step-card>
+          <i class="mstep__fill"></i>
+          <span class="mstep__ghost" aria-hidden="true">05</span>
+          <span class="mstep__no">05</span>
+          <em>MAINTAIN</em><b>이어갑니다</b><p>주 2~3회 같은 자리를 반복해 변화를 기록합니다.</p>
+        </div>
       </div>
     </div>
   </section>

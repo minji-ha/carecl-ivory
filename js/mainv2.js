@@ -102,8 +102,8 @@
       var rx = 42, ry = 44;                            /* 무대 대비 % 반지름 */
       el.style.left = (50 + Math.cos(a) * rx) + '%';
       el.style.top = (50 + Math.sin(a) * ry) + '%';
-      el.dataset.dx = (Math.cos(a) * 130).toFixed(1);  /* 모이기 전 바깥 위치 */
-      el.dataset.dy = (Math.sin(a) * 130).toFixed(1);
+      el.dataset.dx = (Math.cos(a) * 90).toFixed(1);   /* 모이기 전 바깥 위치 */
+      el.dataset.dy = (Math.sin(a) * 90).toFixed(1);
     });
   }
   placeCore();
@@ -192,14 +192,14 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function gutter() {
-    return Math.max(20, Math.min(150, window.innerWidth * 0.09));
+    return Math.max(24, Math.min(220, window.innerWidth * 0.14));
   }
   function apply(p) {
     var g = gutter() * (1 - p);
     shop.style.marginLeft = g + 'px';
     shop.style.marginRight = g + 'px';
     shop.style.borderRadius = (16 * (1 - p)) + 'px';
-    shop.style.minHeight = ((0.44 + p * 0.56) * window.innerHeight) + 'px';
+    shop.style.minHeight = ((0.26 + p * 0.74) * window.innerHeight) + 'px';
     if (bg) bg.style.opacity = (0.22 + p * 0.18).toFixed(3);
     if (img) img.style.transform = 'scale(' + (1.14 - p * 0.14).toFixed(3) + ')';
   }
@@ -209,8 +209,8 @@
   function update() {
     var r = shop.getBoundingClientRect();
     var vh = window.innerHeight;
-    /* 섹션 윗변이 화면 아래에서 맨 위까지 올라오는 동안 0 → 1 */
-    var p = (vh - r.top) / vh;
+    /* 섹션 윗변이 화면 아래 85% 지점에서 상단 10% 지점까지 오는 동안 0 → 1 */
+    var p = (vh * 0.85 - r.top) / (vh * 0.75);
     p = Math.max(0, Math.min(1, p));
     p = p * p * (3 - 2 * p);          /* 시작과 끝을 부드럽게 */
     if (Math.abs(p - last) > 0.002) { last = p; apply(p); }
@@ -232,21 +232,26 @@
   if (!items.length) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function clear() {
+    items.forEach(function (el) { el.style.transform = ''; el.style.opacity = ''; });
+    if (obj) obj.style.transform = '';
+  }
   function apply(p) {
+    if (window.innerWidth <= 860) { clear(); return; }
     var q = 1 - p;                       /* 1 = 흩어짐, 0 = 제자리 */
     items.forEach(function (el) {
       var dx = parseFloat(el.dataset.dx || 0) * q;
       var dy = parseFloat(el.dataset.dy || 0) * q;
-      el.style.transform = 'translate(-50%,-50%) translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) scale(' + (0.86 + p * 0.14).toFixed(3) + ')';
-      el.style.opacity = (0.15 + p * 0.85).toFixed(2);
+      el.style.transform = 'translate(-50%,-50%) translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) scale(' + (0.9 + p * 0.1).toFixed(3) + ')';
+      el.style.opacity = (0.2 + p * 0.8).toFixed(2);
     });
-    if (obj) obj.style.transform = 'scale(' + (0.9 + p * 0.1).toFixed(3) + ')';
+    if (obj) obj.style.transform = 'translate(-50%,-50%) scale(' + (0.92 + p * 0.08).toFixed(3) + ')';
   }
-  if (reduce || window.innerWidth <= 860) { apply(1); return; }
+  if (reduce) { apply(1); return; }
 
   var last = -1;
   function update() {
-    if (window.innerWidth <= 860) { apply(1); return; }
+    if (window.innerWidth <= 860) { if (last !== 9) { last = 9; clear(); } return; }
     var r = stage.getBoundingClientRect();
     var vh = window.innerHeight;
     var p = (vh - r.top) / (vh * 0.95);
@@ -287,6 +292,91 @@
       txt.style.letterSpacing = (-0.03 + p * 0.03).toFixed(3) + 'em';
     }
   }
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
+  window.addEventListener('resize', update);
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  update();
+})();
+
+/* ── 07 5 STEP : 스크롤에 따라 다섯 단계가 차례로 올라온다 ── */
+(function () {
+  var sec = document.querySelector('[data-step]');
+  if (!sec) return;
+  var cards = [].slice.call(sec.querySelectorAll('[data-step-card]'));
+  var bar = sec.querySelector('[data-step-bar]');
+  if (!cards.length) return;
+
+  function cl(v) { return Math.max(0, Math.min(1, v)); }
+  function ease(p) { return p * p * (3 - 2 * p); }
+
+  var cleared = false;
+  function clear() {
+    if (cleared) return;
+    cards.forEach(function (c) {
+      c.style.transform = ''; c.style.opacity = '';
+      var f = c.querySelector('.mstep__fill'); if (f) f.style.transform = '';
+    });
+    if (bar) bar.style.transform = '';
+    cleared = true;
+  }
+
+  function update() {
+    if (window.innerWidth <= 860) { clear(); return; }
+    cleared = false;
+    var r = sec.getBoundingClientRect(), vh = window.innerHeight;
+    var p = cl((vh * 0.92 - r.top) / (vh * 0.9));
+    if (bar) bar.style.transform = 'scaleX(' + ease(p).toFixed(3) + ')';
+    cards.forEach(function (c, i) {
+      var q = ease(cl((p - i * 0.1) / 0.5));
+      c.style.transform = 'translate3d(0,' + ((1 - q) * 96).toFixed(1) + 'px,0) scale(' + (0.95 + q * 0.05).toFixed(3) + ')';
+      c.style.opacity = (0.06 + q * 0.94).toFixed(3);
+      var f = c.querySelector('.mstep__fill');
+      if (f) f.style.transform = 'scaleY(' + q.toFixed(3) + ')';
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
+  window.addEventListener('resize', update);
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  update();
+})();
+
+/* ── 06 콜렉션 : 카드가 순차로 떠오르고 이미지가 제 크기를 찾는다 ── */
+(function () {
+  var sec = document.querySelector('[data-coll]');
+  if (!sec) return;
+  var cards = [].slice.call(sec.querySelectorAll('.mcard'));
+  if (!cards.length) return;
+
+  function cl(v) { return Math.max(0, Math.min(1, v)); }
+  function ease(p) { return p * p * (3 - 2 * p); }
+
+  var cleared = false;
+  function clear() {
+    if (cleared) return;
+    cards.forEach(function (c) {
+      c.style.transform = ''; c.style.opacity = '';
+      var w = c.querySelector('.mcard__img'); if (w) w.style.transform = '';
+    });
+    cleared = true;
+  }
+
+  function update() {
+    if (window.innerWidth <= 860) { clear(); return; }
+    cleared = false;
+    var r = sec.getBoundingClientRect(), vh = window.innerHeight;
+    var p = cl((vh * 0.9 - r.top) / (vh * 0.8));
+    cards.forEach(function (c, i) {
+      var q = ease(cl((p - i * 0.07) / 0.55));
+      c.style.transform = 'translate3d(0,' + ((1 - q) * 80).toFixed(1) + 'px,0)';
+      c.style.opacity = (0.08 + q * 0.92).toFixed(3);
+      var w = c.querySelector('.mcard__img');
+      if (w) w.style.transform = 'scale(' + (0.9 + q * 0.1).toFixed(3) + ')';
+    });
+  }
+
   window.addEventListener('scroll', update, { passive: true });
   if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
   window.addEventListener('resize', update);

@@ -40,26 +40,24 @@
     return;
   }
 
-  /* ── 3. 등장 감지 ── */
+  /* ── 3. 등장 감지 (스크롤 기준, 부드러운 스크롤과 무관하게 동작) ── */
   var watch = lineTargets.concat([].slice.call(document.querySelectorAll('.fx-up')));
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    watch.forEach(function (el) { io.observe(el); });
-  } else {
-    watch.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* 혹시 감지가 안 되는 환경에서도 결국 보이도록 */
-  setTimeout(function () {
-    watch.forEach(function (el) {
+  function check() {
+    if (!watch.length) return;
+    var vh = window.innerHeight;
+    for (var i = watch.length - 1; i >= 0; i--) {
+      var el = watch[i];
       var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight) el.classList.add('is-in');
-    });
-  }, 1200);
+      if (r.top < vh * 0.92 && r.bottom > 0) {
+        el.classList.add('is-in');
+        watch.splice(i, 1);
+      }
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', check);
+  window.addEventListener('resize', check);
+  check();
 
   /* ── 4. 패럴랙스 · 줌 ── */
   var paras = [].slice.call(document.querySelectorAll('[data-fx-para]'));
@@ -84,6 +82,6 @@
   }
   window.addEventListener('scroll', frame, { passive: true });
   window.addEventListener('resize', frame);
-  (function loop() { frame(); requestAnimationFrame(loop); })();
+  (function loop() { frame(); check(); requestAnimationFrame(loop); })();
   frame();
 })();
