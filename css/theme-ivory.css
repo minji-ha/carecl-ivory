@@ -544,14 +544,14 @@ body.sub .submenu a{letter-spacing:-.01em;}
   display:inline-flex;align-items:center;gap:10px;
   padding:14px 22px 14px 14px;border-radius:100px;
   background:var(--orange,#C46A3A);color:#fff;
-  box-shadow:0 18px 40px -14px rgba(196,106,58,.65);
+  box-shadow:0 8px 18px -8px rgba(196,106,58,.55);
   transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, background .3s ease;
   animation:aifabFloat 4.5s ease-in-out infinite;
 }
-.aifab:hover{transform:translateY(-3px);background:var(--orange-600,#A8521F);box-shadow:0 24px 50px -14px rgba(168,82,31,.7);}
+.aifab:hover{transform:translateY(-3px);background:var(--orange-600,#A8521F);box-shadow:0 12px 22px -10px rgba(168,82,31,.6);}
 .aifab__ico{
   display:inline-flex;align-items:center;justify-content:center;
-  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.26);color:#fff;
 }
 .aifab__ico svg{width:18px;height:18px;animation:aiSpin 7s linear infinite;}
 .aifab__txt{font-size:15px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;}
