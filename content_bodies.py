@@ -203,7 +203,6 @@ BODY["carecl-technology"] = """<section class="sec" id="stamping">
           <div class="evid__item"><b>—</b><span>피부층 밀도</span></div>
           <div class="evid__item"><b>—</b><span>효능 평가</span></div>
         </div>
-        <p class="note">* 수치는 시험성적서 확인 후 기입 예정입니다.</p>
       </div>
     </div>
   </div>
