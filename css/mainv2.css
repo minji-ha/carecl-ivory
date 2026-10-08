@@ -51,7 +51,7 @@
 .mroll{background:var(--porcelain,#FDFCFA);padding:clamp(70px,9vw,130px) 0 clamp(50px,6vw,90px);}
 .mroll__stage{position:relative;overflow:hidden;border-radius:4px;}
 .mroll__track{display:flex;transition:transform .8s cubic-bezier(.2,.7,.2,1);}
-.mroll__slide{position:relative;flex:0 0 100%;aspect-ratio:16/7;min-height:280px;overflow:hidden;}
+.mroll__slide{position:relative;flex:0 0 100%;aspect-ratio:16/9;min-height:300px;overflow:hidden;}
 .mroll__slide img{width:100%;height:100%;object-fit:cover;}
 .mroll__slide::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,25,22,.62) 0%,rgba(28,25,22,.18) 60%,rgba(28,25,22,.05) 100%);}
 .mroll__cap{position:absolute;left:clamp(24px,4vw,70px);bottom:clamp(26px,4vw,56px);z-index:2;color:#fff;max-width:620px;}
@@ -215,3 +215,11 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
 }
 .mhero h1{position:relative;}
 .mhero h1.is-in::after{width:min(420px,42vw);transition:width 1.4s cubic-bezier(.19,1,.22,1) .9s;}
+
+/* 롤링 배너 : 슬라이드별로 잘리는 위치 보정 */
+.mroll__slide img{object-position:center 42%;}
+.mroll__slide--cos img{object-position:center center;}
+@media (max-width:760px){
+  .mroll__slide{aspect-ratio:4/3;}
+  .mroll__slide--cos img{object-position:72% center;}
+}

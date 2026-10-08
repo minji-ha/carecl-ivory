@@ -55,8 +55,8 @@ BODY = """
             </div>
           </div>
 
-          <div class="mroll__slide">
-            <img src="assets/img/p-devices.jpg" alt="careCL 제품 라인업">
+          <div class="mroll__slide mroll__slide--cos">
+            <img src="assets/img/p-devices-w.jpg" alt="careCL 제품 라인업">
             <div class="mroll__cap">
               <em>COSMETICS</em>
               <b>디바이스와 함께 쓰는<br>전용 코스메틱</b>
