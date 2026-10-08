@@ -94,34 +94,37 @@ BODY = """
         <h2 data-fx="lines">케어클이 제안하는<br>세 가지 홈 에이징 케어</h2>
       </div>
 
-      <a class="mbrow" href="products.html" data-fx="up">
+      <a class="mbrow" data-row href="products.html">
+        <i class="mbrow__line"></i>
         <span class="mbrow__tag">Device</span>
         <div class="mbrow__txt">
           <b>Device Solution</b>
           <strong>정해진 자리에 머무르는 스탬핑 디바이스</strong>
           <p>문지르지 않고 관리할 부위에 머물러 에너지를 전달합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-cheek.jpg" alt="뷰티 디바이스" data-fx-para="10"></div>
+        <div class="mbrow__img"><i class="mbrow__imgin"><img src="assets/img/p-cheek.jpg" alt="뷰티 디바이스"></i></div>
       </a>
 
-      <a class="mbrow" href="cosmetics.html" data-fx="up">
+      <a class="mbrow" data-row href="cosmetics.html">
+        <i class="mbrow__line"></i>
         <span class="mbrow__tag">Cosmetics</span>
         <div class="mbrow__txt">
           <b>Beauty Solution</b>
           <strong>디바이스와 함께 쓰는 전용 코스메틱</strong>
           <p>그리드 마스크와 전용 제형으로 관리 위치를 정확히 안내합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="전용 코스메틱" data-fx-para="10"></div>
+        <div class="mbrow__img"><i class="mbrow__imgin"><img src="assets/img/p-packs.jpg" alt="전용 코스메틱"></i></div>
       </a>
 
-      <a class="mbrow" href="aging-map.html" data-fx="up">
+      <a class="mbrow" data-row href="aging-map.html">
+        <i class="mbrow__line"></i>
         <span class="mbrow__tag">Aging Map 22</span>
         <div class="mbrow__txt">
           <b>Care Solution</b>
           <strong>얼굴과 목 · 바디를 22개 부위로</strong>
           <p>나의 노화 방식을 이해하고 먼저 관리할 곳부터 순서대로 제안합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="부위별 케어" data-fx-para="10"></div>
+        <div class="mbrow__img"><i class="mbrow__imgin"><img src="assets/img/p-mask-face.jpg" alt="부위별 케어"></i></div>
       </a>
     </div>
   </section>

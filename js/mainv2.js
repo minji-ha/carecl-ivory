@@ -383,3 +383,64 @@
   (function loop() { update(); requestAnimationFrame(loop); })();
   update();
 })();
+
+/* ── 02 배너 설명 : 행마다 선이 그어지고 글과 이미지가 차례로 열린다 ── */
+(function () {
+  var rows = [].slice.call(document.querySelectorAll('.mbinfo [data-row]'));
+  if (!rows.length) return;
+
+  function cl(v) { return Math.max(0, Math.min(1, v)); }
+  function ease(p) { return p * p * (3 - 2 * p); }
+
+  var data = rows.map(function (r) {
+    return {
+      row: r,
+      line: r.querySelector('.mbrow__line'),
+      imgin: r.querySelector('.mbrow__imgin'),
+      texts: [].slice.call(r.querySelectorAll('.mbrow__tag, .mbrow__txt b, .mbrow__txt strong, .mbrow__txt p'))
+    };
+  });
+
+  var cleared = false;
+  function clear() {
+    if (cleared) return;
+    data.forEach(function (d) {
+      if (d.line) d.line.style.transform = '';
+      if (d.imgin) { d.imgin.style.transform = ''; d.imgin.style.clipPath = ''; }
+      d.texts.forEach(function (t) { t.style.transform = ''; t.style.opacity = ''; });
+    });
+    cleared = true;
+  }
+
+  function update() {
+    if (window.innerWidth <= 900) { clear(); return; }
+    cleared = false;
+    var vh = window.innerHeight;
+    data.forEach(function (d) {
+      var r = d.row.getBoundingClientRect();
+      if (r.bottom < -300 || r.top > vh + 300) return;
+      var p = cl((vh * 0.88 - r.top) / (vh * 0.62));
+
+      if (d.line) d.line.style.transform = 'scaleX(' + ease(p).toFixed(3) + ')';
+
+      d.texts.forEach(function (t, i) {
+        var q = ease(cl((p - i * 0.07) / 0.5));
+        t.style.transform = 'translate3d(0,' + ((1 - q) * 34).toFixed(1) + 'px,0)';
+        t.style.opacity = q.toFixed(3);
+      });
+
+      if (d.imgin) {
+        var q = ease(cl((p - 0.08) / 0.55));
+        var drift = (0.5 - cl((r.top + r.height / 2) / vh)) * 26;   // 느린 패럴랙스
+        d.imgin.style.clipPath = 'inset(0 ' + ((1 - q) * 100).toFixed(1) + '% 0 0)';
+        d.imgin.style.transform = 'translate3d(0,' + drift.toFixed(1) + 'px,0) scale(' + (1.1 - q * 0.1).toFixed(3) + ')';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
+  window.addEventListener('resize', update);
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  update();
+})();
