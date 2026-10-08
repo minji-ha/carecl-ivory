@@ -181,28 +181,39 @@
   }
 })();
 
-/* ── 샵 링크 : 스크롤에 따라 화면을 꽉 채우며 커진다 ── */
+/* ── 샵 링크 : 스크롤에 따라 화면을 좌우·상하로 꽉 채운다 ── */
 (function () {
   var shop = document.querySelector('.mshop');
   if (!shop) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    shop.style.setProperty('--p', '1');
-    return;
+  var bg = shop.querySelector('.mshop__bg');
+  var img = bg && bg.querySelector('img');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function gutter() {
+    return Math.max(16, Math.min(110, window.innerWidth * 0.07));
   }
-  var tick = false;
+  function apply(p) {
+    var g = gutter() * (1 - p);
+    shop.style.marginLeft = g + 'px';
+    shop.style.marginRight = g + 'px';
+    shop.style.borderRadius = (10 * (1 - p)) + 'px';
+    shop.style.minHeight = ((0.52 + p * 0.48) * window.innerHeight) + 'px';
+    if (bg) bg.style.opacity = (0.22 + p * 0.18).toFixed(3);
+    if (img) img.style.transform = 'scale(' + (1.14 - p * 0.14).toFixed(3) + ')';
+  }
+  if (reduce) { apply(1); return; }
+
+  var last = -1;
   function update() {
     var r = shop.getBoundingClientRect();
     var vh = window.innerHeight;
-    /* 섹션 위쪽이 화면 아래에서 올라오는 동안 0 → 1 */
-    var p = 1 - (r.top - vh * 0.18) / (vh * 0.72);
+    var p = 1 - (r.top - vh * 0.15) / (vh * 0.70);
     p = Math.max(0, Math.min(1, p));
-    shop.style.setProperty('--p', p.toFixed(3));
+    if (Math.abs(p - last) > 0.002) { last = p; apply(p); }
   }
-  window.addEventListener('scroll', function () {
-    if (tick) return;
-    tick = true;
-    requestAnimationFrame(function () { update(); tick = false; });
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  /* 스크롤 이벤트로 즉시 반영하고, 프레임 루프로 부드럽게 보정한다 */
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) { window.__lenis.on('scroll', update); }
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  window.addEventListener('resize', function () { last = -1; update(); });
 })();

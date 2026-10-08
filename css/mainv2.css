@@ -140,19 +140,15 @@
 
 /* ---------- 08 샵 링크 ---------- */
 .mshop{
-  position:relative;color:#fff;--p:0;
-  padding:clamp(70px,9vw,130px) 0;
-  margin-inline:calc((1 - var(--p)) * clamp(16px, 7vw, 110px));
-  border-radius:calc((1 - var(--p)) * 10px);
+  position:relative;color:#fff;
+  display:flex;align-items:center;
+  padding:clamp(50px,6vw,90px) 0;
+  min-height:52vh;
   background:#1C1916;overflow:hidden;
-  transition:margin-inline .18s linear, border-radius .18s linear;
 }
-.mshop__bg{position:absolute;inset:0;opacity:calc(.22 + var(--p) * .18);overflow:hidden;}
-.mshop__bg img{
-  width:100%;height:100%;object-fit:cover;
-  transform:scale(calc(1.14 - var(--p) * .14));
-  transition:transform .18s linear;
-}
+.mshop .inner{width:100%;}
+.mshop__bg{position:absolute;inset:0;opacity:.22;overflow:hidden;}
+.mshop__bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);}
 .mshop__inner{position:relative;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
 .mshop h2{color:#fff;margin:0;}
 .mshop p{margin-top:14px;color:rgba(245,239,230,.7);font-size:15px;word-break:keep-all;}
