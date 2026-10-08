@@ -9,8 +9,10 @@ TARGETS = [("index.html", None), ("survey.html", "AGING MAP 22")]
 for path, active in TARGETS:
     html = io.open(path, encoding="utf-8").read()
 
-    # 1) 기존 전체메뉴 블록 모두 제거 (중복 방지)
+    # 1) 전체메뉴 · 플로팅 버튼 · 커서 글자 제거 (여러 번 실행해도 중복되지 않도록)
     html = re.sub(r'<div class="mega" id="megaMenu".*?\n</div>\n', '', html, flags=re.S)
+    html = re.sub(r'<a class="aifab".*?</a>\n?', '', html, flags=re.S)
+    html = re.sub(r'<div class="cursorword" id="cursorWord"[^>]*></div>\n?', '', html)
 
     # 2) 안내바 + 헤더 교체 (+ 전체메뉴 새로 삽입)
     start = html.index('<div class="announce">')
