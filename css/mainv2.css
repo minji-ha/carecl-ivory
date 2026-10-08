@@ -223,3 +223,32 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
   .mroll__slide{aspect-ratio:4/3;}
   .mroll__slide--cos img{object-position:72% center;}
 }
+
+/* ---------- 02 배너 설명 ---------- */
+.mbinfo{padding:clamp(70px,8vw,120px) 0 clamp(50px,6vw,90px);background:var(--porcelain,#FDFCFA);}
+.mbinfo .inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,80px);align-items:start;
+}
+.mbinfo .label{
+  display:block;font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--orange,#C46A3A);
+  margin-bottom:18px;
+}
+.mbinfo h2{
+  margin:0;font-size:clamp(24px,2.8vw,40px);font-weight:500;line-height:1.45;letter-spacing:-.035em;
+  color:var(--ink,#2B2724);word-break:keep-all;
+}
+.mbinfo__right p{
+  margin:0;font-size:clamp(15px,1.2vw,17.5px);line-height:2;letter-spacing:-.02em;
+  color:var(--n-600,#6B635B);word-break:keep-all;
+}
+.mbinfo__links{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:clamp(22px,2.4vw,34px);}
+.mbinfo__links a{
+  font-size:14.5px;font-weight:500;letter-spacing:-.01em;color:var(--ink,#2B2724);
+  padding-bottom:4px;border-bottom:1px solid var(--stone,#ECE7E0);transition:color .3s ease,border-color .3s ease;
+}
+.mbinfo__links a span{display:inline-block;margin-left:6px;transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+.mbinfo__links a:hover{color:var(--orange-600,#A8521F);border-color:var(--orange,#C46A3A);}
+.mbinfo__links a:hover span{transform:translateX(5px);}
+@media (max-width:860px){
+  .mbinfo .inner{grid-template-columns:1fr;gap:20px;}
+}
