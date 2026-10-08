@@ -111,7 +111,7 @@ BODY = """
           <strong>디바이스와 함께 쓰는 전용 코스메틱</strong>
           <p>그리드 마스크와 전용 제형으로 관리 위치를 정확히 안내합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="전용 코스메틱"></div>
+        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="전용 코스메틱"></div>
       </a>
 
       <a class="mbrow" href="aging-map.html" data-reveal>
@@ -121,7 +121,7 @@ BODY = """
           <strong>얼굴과 목 · 바디를 22개 부위로</strong>
           <p>나의 노화 방식을 이해하고 먼저 관리할 곳부터 순서대로 제안합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="부위별 케어"></div>
+        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="부위별 케어"></div>
       </a>
     </div>
   </section>
