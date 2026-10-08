@@ -82,22 +82,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 03 콜렉션 (제품 라인업 미리보기) -->
-  <section class="mpick">
-    <div class="inner">
-      <div class="mpick__head" data-reveal>
-        <span class="label">Collection</span>
-        <h2>지금 가장 많이 찾는 구성</h2>
-      </div>
-      <div class="mpick__grid">
-        <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/p-cheek.jpg" alt="디바이스 케어"></div><em>DEVICE</em><b>5초 스탬핑 케어</b><span>관리 부위에 머무르는 고주파 디바이스</span></a>
-        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/p-mask-face.jpg" alt="그리드 마스크"></div><em>COSMETIC</em><b>그리드 마스크 케어</b><span>격자를 따라 부위별로</span></a>
-        <a class="mcard" href="aging-map.html"><div class="mcard__img"><img src="assets/img/p-packs.jpg" alt="케어 루틴"></div><em>ROUTINE</em><b>부위별 케어 루틴</b><span>진단 결과에 맞춘 순서</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 철학 -->
+  <!-- 03 철학 -->
   <section class="mphil">
     <div class="inner" data-reveal>
       <span class="label">Our Philosophy</span>
@@ -108,7 +93,7 @@ BODY = """
     </div>
   </section>
 
-  <!-- 05 핵심 3가지 (오브젝트 + 주변 항목) -->
+  <!-- 04 핵심 3가지 (오브젝트 + 주변 항목) -->
   <section class="mcore">
     <div class="inner">
       <div class="mcore__head" data-reveal>
@@ -153,13 +138,28 @@ BODY = """
     </div>
   </section>
 
-  <!-- 06 환기용 이미지 -->
+  <!-- 05 환기용 이미지 -->
   <section class="mbreak">
     <img src="assets/img/p-leaning.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
-  <!-- 07 콜렉션 파트 -->
+  <!-- 06 콜렉션 — 추천 구성 -->
+  <section class="mpick">
+    <div class="inner">
+      <div class="mpick__head" data-reveal>
+        <span class="label">Collection</span>
+        <h2>지금 가장 많이 찾는 구성</h2>
+      </div>
+      <div class="mpick__grid">
+        <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/p-cheek.jpg" alt="디바이스 케어"></div><em>DEVICE</em><b>5초 스탬핑 케어</b><span>관리 부위에 머무르는 고주파 디바이스</span></a>
+        <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/p-mask-face.jpg" alt="그리드 마스크"></div><em>COSMETIC</em><b>그리드 마스크 케어</b><span>격자를 따라 부위별로</span></a>
+        <a class="mcard" href="aging-map.html"><div class="mcard__img"><img src="assets/img/p-packs.jpg" alt="케어 루틴"></div><em>ROUTINE</em><b>부위별 케어 루틴</b><span>진단 결과에 맞춘 순서</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 콜렉션 — 전체 라인업 (카로셀) -->
   <section class="mcoll" data-coll>
     <div class="inner">
       <div class="mcoll__head" data-reveal>
