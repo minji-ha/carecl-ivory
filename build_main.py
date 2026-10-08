@@ -88,20 +88,41 @@ BODY = """
 
   <!-- 02 배너 설명 -->
   <section class="mbinfo">
-    <div class="inner" data-reveal>
-      <div class="mbinfo__left">
-        <span class="label">AGING MAP 22</span>
-        <h2>얼굴과 목 · 바디를<br>22개 부위로 나누어 읽습니다</h2>
+    <div class="inner">
+      <div class="mbinfo__head" data-reveal>
+        <span class="label">careCL Solution</span>
+        <h2>케어클이 제안하는<br>세 가지 홈 에이징 케어</h2>
       </div>
-      <div class="mbinfo__right">
-        <p>노화가 시작되는 자리는 사람마다 다릅니다. 케어클은 먼저 나의 노화 방식을 이해하고,
-        지금 관리가 필요한 부위를 찾은 뒤, 그 자리에 맞는 방법을 제안합니다.</p>
-        <div class="mbinfo__links">
-          <a href="aging-types.html">6가지 노화 타입 <span>→</span></a>
-          <a href="aging-map.html">22개 관리 부위 <span>→</span></a>
-          <a href="survey.html">AI 피부 진단 <span>→</span></a>
+
+      <a class="mbrow" href="products.html" data-reveal>
+        <span class="mbrow__tag">Device</span>
+        <div class="mbrow__txt">
+          <b>Device Solution</b>
+          <strong>정해진 자리에 머무르는 스탬핑 디바이스</strong>
+          <p>문지르지 않고 관리할 부위에 머물러 에너지를 전달합니다.</p>
         </div>
-      </div>
+        <div class="mbrow__img"><img src="assets/img/p-cheek.jpg" alt="뷰티 디바이스"></div>
+      </a>
+
+      <a class="mbrow" href="cosmetics.html" data-reveal>
+        <span class="mbrow__tag">Cosmetics</span>
+        <div class="mbrow__txt">
+          <b>Beauty Solution</b>
+          <strong>디바이스와 함께 쓰는 전용 코스메틱</strong>
+          <p>그리드 마스크와 전용 제형으로 관리 위치를 정확히 안내합니다.</p>
+        </div>
+        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="전용 코스메틱"></div>
+      </a>
+
+      <a class="mbrow" href="aging-map.html" data-reveal>
+        <span class="mbrow__tag">Aging Map 22</span>
+        <div class="mbrow__txt">
+          <b>Care Solution</b>
+          <strong>얼굴과 목 · 바디를 22개 부위로</strong>
+          <p>나의 노화 방식을 이해하고 먼저 관리할 곳부터 순서대로 제안합니다.</p>
+        </div>
+        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="부위별 케어"></div>
+      </a>
     </div>
   </section>
 

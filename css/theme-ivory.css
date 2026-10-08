@@ -569,9 +569,9 @@ body.sub .submenu a{letter-spacing:-.01em;}
 .cursorword__c{
   position:absolute;top:0;left:0;will-change:transform;
   font-size:14px;font-weight:600;letter-spacing:0;color:var(--orange,#C46A3A);
-  text-shadow:0 1px 10px rgba(253,252,250,.6);
+  text-shadow:none;
 }
-body.main2 .cursorword__c{color:#F0E3D6;text-shadow:0 1px 12px rgba(28,25,22,.5);}
+body.main2 .cursorword__c{color:var(--orange,#C46A3A);text-shadow:none;}
 
 
 /* 공지바 전체를 진단 링크로 */

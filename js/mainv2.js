@@ -180,3 +180,29 @@
     setTimeout(play, 260);
   }
 })();
+
+/* ── 샵 링크 : 스크롤에 따라 화면을 꽉 채우며 커진다 ── */
+(function () {
+  var shop = document.querySelector('.mshop');
+  if (!shop) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    shop.style.setProperty('--p', '1');
+    return;
+  }
+  var tick = false;
+  function update() {
+    var r = shop.getBoundingClientRect();
+    var vh = window.innerHeight;
+    /* 섹션 위쪽이 화면 아래에서 올라오는 동안 0 → 1 */
+    var p = 1 - (r.top - vh * 0.18) / (vh * 0.72);
+    p = Math.max(0, Math.min(1, p));
+    shop.style.setProperty('--p', p.toFixed(3));
+  }
+  window.addEventListener('scroll', function () {
+    if (tick) return;
+    tick = true;
+    requestAnimationFrame(function () { update(); tick = false; });
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
