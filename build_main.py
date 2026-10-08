@@ -155,7 +155,7 @@ BODY = """
 
   <!-- 06 환기용 이미지 -->
   <section class="mbreak">
-    <img src="assets/img/p-touch.jpg" alt="">
+    <img src="assets/img/p-leaning.jpg" alt="">
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 

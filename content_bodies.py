@@ -43,7 +43,6 @@ BODY["greeting"] = """<section class="sec" id="born">
   </div>
 </section>
 
-<section class="figbreak"><div class="figbreak__img"><img src="assets/img/p-touch.jpg" alt=""></div><div class="figbreak__cap"><em>DESIGNED BY BOTOX &amp; THERMAGE EXPERTS</em><span>임상 현장의 감각을 그대로 홈케어로</span></div></section>
 <section class="sec sec--grey" id="understand">
   <div class="wrap">
     <div class="seclabel"><i></i><span>UNDERSTAND FIRST</span></div>
