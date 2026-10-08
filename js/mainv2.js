@@ -183,7 +183,7 @@
   }
 })();
 
-/* ── 샵 링크 : 스크롤에 따라 화면을 좌우·상하로 꽉 채운다 ── */
+/* ── 샵 링크 : 스크롤에 따라 높이가 300px에서 화면 전체로 자란다 ── */
 (function () {
   var shop = document.querySelector('.mshop');
   if (!shop) return;
@@ -191,17 +191,19 @@
   var img = bg && bg.querySelector('img');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function gutter() {
-    return Math.max(24, Math.min(220, window.innerWidth * 0.14));
-  }
+  var BASE = 300;                       /* 처음 보이는 띠 높이 */
   function apply(p) {
-    var g = gutter() * (1 - p);
-    shop.style.marginLeft = g + 'px';
-    shop.style.marginRight = g + 'px';
-    shop.style.borderRadius = (16 * (1 - p)) + 'px';
-    shop.style.minHeight = ((0.26 + p * 0.74) * window.innerHeight) + 'px';
-    if (bg) bg.style.opacity = (0.22 + p * 0.18).toFixed(3);
-    if (img) img.style.transform = 'scale(' + (1.14 - p * 0.14).toFixed(3) + ')';
+    var vh = window.innerHeight;
+    var base = Math.min(BASE, vh * 0.5);
+    shop.style.marginLeft = '0px';
+    shop.style.marginRight = '0px';
+    shop.style.borderRadius = '0px';
+    shop.style.height = (base + (vh - base) * p) + 'px';
+    shop.style.minHeight = '0px';
+    shop.style.paddingTop = '0px';
+    shop.style.paddingBottom = '0px';
+    if (bg) bg.style.opacity = (0.24 + p * 0.16).toFixed(3);
+    if (img) img.style.transform = 'scale(' + (1.16 - p * 0.16).toFixed(3) + ')';
   }
   if (reduce) { apply(1); return; }
 
