@@ -89,39 +89,39 @@ BODY = """
   <!-- 02 배너 설명 -->
   <section class="mbinfo">
     <div class="inner">
-      <div class="mbinfo__head" data-reveal>
-        <span class="label">careCL Solution</span>
-        <h2>케어클이 제안하는<br>세 가지 홈 에이징 케어</h2>
+      <div class="mbinfo__head">
+        <span class="label" data-fx="up">careCL Solution</span>
+        <h2 data-fx="lines">케어클이 제안하는<br>세 가지 홈 에이징 케어</h2>
       </div>
 
-      <a class="mbrow" href="products.html" data-reveal>
+      <a class="mbrow" href="products.html" data-fx="up">
         <span class="mbrow__tag">Device</span>
         <div class="mbrow__txt">
           <b>Device Solution</b>
           <strong>정해진 자리에 머무르는 스탬핑 디바이스</strong>
           <p>문지르지 않고 관리할 부위에 머물러 에너지를 전달합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-cheek.jpg" alt="뷰티 디바이스"></div>
+        <div class="mbrow__img"><img src="assets/img/p-cheek.jpg" alt="뷰티 디바이스" data-fx-para="10"></div>
       </a>
 
-      <a class="mbrow" href="cosmetics.html" data-reveal>
+      <a class="mbrow" href="cosmetics.html" data-fx="up">
         <span class="mbrow__tag">Cosmetics</span>
         <div class="mbrow__txt">
           <b>Beauty Solution</b>
           <strong>디바이스와 함께 쓰는 전용 코스메틱</strong>
           <p>그리드 마스크와 전용 제형으로 관리 위치를 정확히 안내합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="전용 코스메틱"></div>
+        <div class="mbrow__img"><img src="assets/img/p-packs.jpg" alt="전용 코스메틱" data-fx-para="10"></div>
       </a>
 
-      <a class="mbrow" href="aging-map.html" data-reveal>
+      <a class="mbrow" href="aging-map.html" data-fx="up">
         <span class="mbrow__tag">Aging Map 22</span>
         <div class="mbrow__txt">
           <b>Care Solution</b>
           <strong>얼굴과 목 · 바디를 22개 부위로</strong>
           <p>나의 노화 방식을 이해하고 먼저 관리할 곳부터 순서대로 제안합니다.</p>
         </div>
-        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="부위별 케어"></div>
+        <div class="mbrow__img"><img src="assets/img/p-mask-face.jpg" alt="부위별 케어" data-fx-para="10"></div>
       </a>
     </div>
   </section>
@@ -130,7 +130,7 @@ BODY = """
   <section class="mphil">
     <div class="inner" data-reveal>
       <span class="label">Our Philosophy</span>
-      <h2>같은 나이라도<br>노화가 시작되는 자리는 저마다 다릅니다</h2>
+      <h2 data-fx="lines">같은 나이라도<br>노화가 시작되는 자리는 저마다 다릅니다</h2>
       <p class="lead">유전, 뼈의 구조, 얼굴 근육의 발달, 피하 지방의 양에 따라 처짐이 먼저 오기도 하고 주름이 먼저 생기기도 합니다.
       케어클은 그 차이를 먼저 읽는 것에서 안티에이징을 시작합니다. 모두에게 같은 제품을 권하지 않습니다.</p>
       <p class="mphil__en">Read precisely, care exactly.</p>
@@ -184,7 +184,7 @@ BODY = """
 
   <!-- 05 환기용 이미지 -->
   <section class="mbreak">
-    <img src="assets/img/p-leaning.jpg" alt="">
+    <img src="assets/img/p-leaning.jpg" alt="" data-fx-zoom>
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
@@ -194,7 +194,7 @@ BODY = """
       <div class="mcoll__head" data-reveal>
         <div>
           <span class="label">Collection</span>
-          <h2>진단 결과에 맞춰<br>조합하는 제품</h2>
+          <h2 data-fx="lines">진단 결과에 맞춰<br>조합하는 제품</h2>
         </div>
         <div class="mroll__arrows">
           <button type="button" data-coll-prev aria-label="이전 제품"><i class="fa-solid fa-angle-left"></i></button>
@@ -203,7 +203,7 @@ BODY = """
       </div>
 
       <div class="mcoll__viewport">
-        <div class="mcoll__track">
+        <div class="mcoll__track" data-fx-group>
           <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
           <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-clb.png" alt="CLB"></div><em>DEVICE</em><b>CLB</b><span>고주파 마사지기</span></a>
           <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>콜라겐 부스터 젤</span></a>
@@ -222,7 +222,7 @@ BODY = """
         <span class="label">Daily Routine</span>
         <h2>다섯 단계로 이어지는<br>홈 에이징 케어</h2>
       </div>
-      <div class="mstep__grid">
+      <div class="mstep__grid" data-fx-group>
         <div class="mstep__card"><span class="mstep__no">01</span><em>CLEANSE</em><b>씻어냅니다</b><p>잔여물을 정리해 다음 단계가 제대로 전달되도록 준비합니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">02</span><em>READ</em><b>읽습니다</b><p>오늘 먼저 관리할 부위를 Aging Map 22 기준으로 확인합니다.</p></div>
         <div class="mstep__card"><span class="mstep__no">03</span><em>ACTIVATE</em><b>깨웁니다</b><p>한 부위에 머무르며 수직으로 전달합니다.</p></div>
@@ -245,6 +245,14 @@ BODY = """
   </section>
 
   <!-- 10 컨택트 -->
+  <!-- CARECL 롤링 -->
+  <section class="mmarq" aria-hidden="true">
+    <div class="mmarq__track">
+      <span>CARECL</span><span>CARECL</span><span>CARECL</span><span>CARECL</span>
+      <span>CARECL</span><span>CARECL</span><span>CARECL</span><span>CARECL</span>
+    </div>
+  </section>
+
   <section class="mcontact">
     <div class="inner">
       <div data-reveal>
@@ -300,6 +308,7 @@ TPL = """<!DOCTYPE html>
 <script src="libs/lenis.min.js"></script>
 <script src="js/intro.js?v=%(v)s"></script>
 <script src="js/mainv2.js?v=%(v)s"></script>
+<script src="js/scrollfx.js?v=%(v)s"></script>
 <script src="js/cursorword.js"></script>
 <script src="js/nav.js?v=%(v)s"></script>
 </body>

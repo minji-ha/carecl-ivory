@@ -102,6 +102,8 @@
       var rx = 42, ry = 44;                            /* 무대 대비 % 반지름 */
       el.style.left = (50 + Math.cos(a) * rx) + '%';
       el.style.top = (50 + Math.sin(a) * ry) + '%';
+      el.dataset.dx = (Math.cos(a) * 130).toFixed(1);  /* 모이기 전 바깥 위치 */
+      el.dataset.dy = (Math.sin(a) * 130).toFixed(1);
     });
   }
   placeCore();
@@ -190,14 +192,14 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function gutter() {
-    return Math.max(16, Math.min(110, window.innerWidth * 0.07));
+    return Math.max(20, Math.min(150, window.innerWidth * 0.09));
   }
   function apply(p) {
     var g = gutter() * (1 - p);
     shop.style.marginLeft = g + 'px';
     shop.style.marginRight = g + 'px';
-    shop.style.borderRadius = (10 * (1 - p)) + 'px';
-    shop.style.minHeight = ((0.52 + p * 0.48) * window.innerHeight) + 'px';
+    shop.style.borderRadius = (16 * (1 - p)) + 'px';
+    shop.style.minHeight = ((0.44 + p * 0.56) * window.innerHeight) + 'px';
     if (bg) bg.style.opacity = (0.22 + p * 0.18).toFixed(3);
     if (img) img.style.transform = 'scale(' + (1.14 - p * 0.14).toFixed(3) + ')';
   }
@@ -207,8 +209,10 @@
   function update() {
     var r = shop.getBoundingClientRect();
     var vh = window.innerHeight;
-    var p = 1 - (r.top - vh * 0.15) / (vh * 0.70);
+    /* 섹션 윗변이 화면 아래에서 맨 위까지 올라오는 동안 0 → 1 */
+    var p = (vh - r.top) / vh;
     p = Math.max(0, Math.min(1, p));
+    p = p * p * (3 - 2 * p);          /* 시작과 끝을 부드럽게 */
     if (Math.abs(p - last) > 0.002) { last = p; apply(p); }
   }
   /* 스크롤 이벤트로 즉시 반영하고, 프레임 루프로 부드럽게 보정한다 */
@@ -216,4 +220,76 @@
   if (window.__lenis && window.__lenis.on) { window.__lenis.on('scroll', update); }
   (function loop() { update(); requestAnimationFrame(loop); })();
   window.addEventListener('resize', function () { last = -1; update(); });
+})();
+
+
+/* ── 핵심 항목이 스크롤에 따라 가운데로 모인다 ── */
+(function () {
+  var stage = document.querySelector('[data-core]');
+  if (!stage) return;
+  var items = [].slice.call(stage.querySelectorAll('.mcore__item'));
+  var obj = stage.querySelector('.mcore__object');
+  if (!items.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function apply(p) {
+    var q = 1 - p;                       /* 1 = 흩어짐, 0 = 제자리 */
+    items.forEach(function (el) {
+      var dx = parseFloat(el.dataset.dx || 0) * q;
+      var dy = parseFloat(el.dataset.dy || 0) * q;
+      el.style.transform = 'translate(-50%,-50%) translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) scale(' + (0.86 + p * 0.14).toFixed(3) + ')';
+      el.style.opacity = (0.15 + p * 0.85).toFixed(2);
+    });
+    if (obj) obj.style.transform = 'scale(' + (0.9 + p * 0.1).toFixed(3) + ')';
+  }
+  if (reduce || window.innerWidth <= 860) { apply(1); return; }
+
+  var last = -1;
+  function update() {
+    if (window.innerWidth <= 860) { apply(1); return; }
+    var r = stage.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = (vh - r.top) / (vh * 0.95);
+    p = Math.max(0, Math.min(1, p));
+    p = p * p * (3 - 2 * p);
+    if (Math.abs(p - last) > 0.002) { last = p; apply(p); }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
+  window.addEventListener('resize', function () { last = -1; update(); });
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  update();
+})();
+
+/* ── 환기용 이미지 문구 : 글자가 번지듯 나타나고 천천히 떠오른다 ── */
+(function () {
+  var txt = document.querySelector('.mbreak__txt');
+  if (!txt) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { txt.classList.add('is-in'); return; }
+
+  var words = txt.textContent.trim().split(/\s+/);
+  txt.innerHTML = words.map(function (w, i) {
+    return '<span class="bw"><span class="bw__in" style="--d:' + (i * 120) + 'ms">' + w + '</span></span>';
+  }).join(' ');
+
+  var sec = txt.closest('.mbreak');
+  var last = -1;
+  function update() {
+    var r = sec.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = (vh - r.top) / (vh + r.height);
+    p = Math.max(0, Math.min(1, p));
+    if (p > 0.22) txt.classList.add('is-in');
+    if (Math.abs(p - last) > 0.003) {
+      last = p;
+      txt.style.transform = 'translateY(' + ((0.5 - p) * 60).toFixed(1) + 'px)';
+      txt.style.letterSpacing = (-0.03 + p * 0.03).toFixed(3) + 'em';
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  if (window.__lenis && window.__lenis.on) window.__lenis.on('scroll', update);
+  window.addEventListener('resize', update);
+  (function loop() { update(); requestAnimationFrame(loop); })();
+  update();
 })();
