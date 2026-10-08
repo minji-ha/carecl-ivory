@@ -322,7 +322,7 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
   color:var(--n-600,#6B635B);word-break:keep-all;
 }
 .mbrow__img{overflow:hidden;aspect-ratio:4/3;background:#fff;}
-.mbrow__imgin{display:block;width:100%;height:100%;will-change:transform,clip-path;}
+.mbrow__imgin{display:block;width:100%;height:100%;will-change:transform,opacity;}
 .mbrow__img img{
   width:100%;height:100%;object-fit:cover;display:block;
   transform:scale(1.02);transition:transform 1s cubic-bezier(.2,.7,.2,1);
@@ -334,7 +334,7 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
   .mbrow__img{order:-1;aspect-ratio:16/9;}
   .mbrow__line{display:none;}
   .mbrow__tag,.mbrow__txt b,.mbrow__txt strong,.mbrow__txt p{transform:none!important;opacity:1!important;}
-  .mbrow__imgin{transform:none!important;clip-path:none!important;}
+  .mbrow__imgin{transform:none!important;opacity:1!important;}
 }
 
 /* ---------- 스크롤 연출 ---------- */
@@ -384,3 +384,29 @@ body.main2 .header.is-light .allmenu span{background:var(--ink,#2B2724);}
 @keyframes marqRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .mmarq:hover .mmarq__track{animation-play-state:paused;}
 @media (prefers-reduced-motion: reduce){.mmarq__track{animation:none;}}
+
+
+/* ---------- 메인 섹션 제목 : 더 크고 두껍게 ---------- */
+.mbinfo h2,
+.mphil h2,
+.mcore__head h2,
+.mcoll__head h2,
+.mstep__head h2,
+.mshop h2,
+.mcontact h2{
+  font-weight:700;
+  font-size:clamp(30px,4.6vw,64px);
+  line-height:1.24;
+  letter-spacing:-.042em;
+}
+.mphil h2{font-size:clamp(28px,4.2vw,58px);line-height:1.3;}
+.mshop h2{font-size:clamp(28px,3.8vw,52px);}
+.mcontact h2{font-size:clamp(26px,3.4vw,46px);}
+.mbinfo .label,.mcoll__head .label,.mstep__head .label,.mcore__head .label,.mcontact .label,.mphil .label{
+  font-weight:600;
+}
+@media (max-width:640px){
+  .mbinfo h2,.mphil h2,.mcore__head h2,.mcoll__head h2,.mstep__head h2,.mshop h2,.mcontact h2{
+    font-size:clamp(26px,7.4vw,34px);
+  }
+}

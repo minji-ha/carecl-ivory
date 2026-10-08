@@ -408,7 +408,7 @@
     if (cleared) return;
     data.forEach(function (d) {
       if (d.line) d.line.style.transform = '';
-      if (d.imgin) { d.imgin.style.transform = ''; d.imgin.style.clipPath = ''; }
+      if (d.imgin) { d.imgin.style.transform = ''; d.imgin.style.opacity = ''; }
       d.texts.forEach(function (t) { t.style.transform = ''; t.style.opacity = ''; });
     });
     cleared = true;
@@ -433,9 +433,11 @@
 
       if (d.imgin) {
         var q = ease(cl((p - 0.08) / 0.55));
-        var drift = (0.5 - cl((r.top + r.height / 2) / vh)) * 26;   // 느린 패럴랙스
-        d.imgin.style.clipPath = 'inset(0 ' + ((1 - q) * 100).toFixed(1) + '% 0 0)';
-        d.imgin.style.transform = 'translate3d(0,' + drift.toFixed(1) + 'px,0) scale(' + (1.1 - q * 0.1).toFixed(3) + ')';
+        var drift = (0.5 - cl((r.top + r.height / 2) / vh)) * 5;    // 느린 패럴랙스(%)
+        // 아래에서 떠오르며 제자리를 찾는다 (가림막은 바깥 틀이 맡는다)
+        d.imgin.style.transform =
+          'translate3d(0,' + (drift + (1 - q) * 9).toFixed(1) + '%,0) scale(' + (1.22 - q * 0.22).toFixed(3) + ')';
+        d.imgin.style.opacity = (0.25 + q * 0.75).toFixed(3);
       }
     });
   }
