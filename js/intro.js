@@ -11,12 +11,19 @@
     document.body.classList.remove('is-intro');
   }
 
-  /* 이번 방문에서 이미 봤다면 다시 띄우지 않는다 (탭/창을 닫으면 초기화) */
-  var SEEN = 'carecl_intro_seen';
-  var seen = false;
-  try { seen = sessionStorage.getItem(SEEN) === '1'; } catch (e) { seen = false; }
-  if (seen) { skip(); return; }
-  try { sessionStorage.setItem(SEEN, '1'); } catch (e) {}
+  /* 이번 방문에서 이미 봤다면 다시 띄우지 않는다.
+     - 탭/창을 닫으면 초기화
+     - 마지막 재생 후 2시간이 지나면 다시 재생
+     - 주소 뒤에 ?intro=1 을 붙이면 언제든 다시 재생 (확인용) */
+  var KEY = 'carecl_intro_at';
+  var GAP = 2 * 60 * 60 * 1000;
+  var force = /[?&]intro=1/.test(location.search);
+  if (!force) {
+    var last = 0;
+    try { last = parseInt(sessionStorage.getItem(KEY) || '0', 10) || 0; } catch (e) { last = 0; }
+    if (last && (Date.now() - last) < GAP) { skip(); return; }
+  }
+  try { sessionStorage.setItem(KEY, String(Date.now())); } catch (e) {}
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) { skip(); return; }
