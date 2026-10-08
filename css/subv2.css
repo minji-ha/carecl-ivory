@@ -563,3 +563,22 @@ body.sub .ceo__visual--img{
   height:clamp(360px,44vw,680px);
 }
 body.sub .ceo__visual--img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+
+/* =========================================================
+   상세 페이지 제목 — 굵고 크게
+   ========================================================= */
+body.sub .sec h2,
+body.sub .history__title{
+  font-weight:700;
+  font-size:clamp(28px,3.5vw,50px);
+  line-height:1.32;
+  letter-spacing:-.038em;
+}
+body.sub .subvisual__inner h1{font-weight:700;letter-spacing:-.03em;}
+body.sub .splitfig__copy h3,
+body.sub .leadrow__body h3,
+body.sub .point h3{font-weight:700;letter-spacing:-.03em;}
+@media (max-width:640px){
+  body.sub .sec h2,
+  body.sub .history__title{font-size:clamp(24px,6.8vw,32px);}
+}
