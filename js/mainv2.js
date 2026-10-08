@@ -448,3 +448,123 @@
   (function loop() { update(); requestAnimationFrame(loop); })();
   update();
 })();
+
+/* ── 06 콜렉션 : 3D 커버플로 (가운데 제품이 정면, 양옆은 비스듬히) ── */
+(function () {
+  var sec = document.querySelector('[data-cov]');
+  if (!sec) return;
+  var stage = sec.querySelector('[data-cov-stage]');
+  var items = [].slice.call(sec.querySelectorAll('[data-cov-item]'));
+  var arc = sec.querySelector('[data-cov-arc]');
+  var capTag = sec.querySelector('[data-cov-tag]');
+  var capName = sec.querySelector('[data-cov-name]');
+  var capDesc = sec.querySelector('[data-cov-desc]');
+  var capLink = sec.querySelector('[data-cov-link]');
+  var prevBtn = sec.querySelector('[data-cov-prev]');
+  var nextBtn = sec.querySelector('[data-cov-next]');
+  var N = items.length;
+  if (!stage || N < 2) return;
+
+  var ROT = 52, DEPTH = 320, VISIBLE = 2.6;
+  var active = 0, dots = [];
+
+  function step() {
+    return items[0].getBoundingClientRect().width * 0.66;
+  }
+
+  function place() {
+    var sx = step();
+    items.forEach(function (el, i) {
+      var d = i - active;
+      if (d > N / 2) d -= N;
+      if (d < -N / 2) d += N;
+      var ad = Math.abs(d);
+      var capped = Math.min(ad, 3);
+      var sign = d < 0 ? -1 : 1;
+      /* 첫 칸은 넓게, 그 뒤로는 좁혀서 겹쳐 쌓는다 */
+      var x = sign * (Math.min(capped, 1) * sx + Math.max(0, capped - 1) * sx * 0.52);
+      var z = -capped * DEPTH;
+      var r = -sign * Math.min(capped * ROT, 70);
+      el.style.transform = 'translate(-50%,-50%) translate3d(' + x.toFixed(1) + 'px,0,' + z.toFixed(0) + 'px) rotateY(' + r.toFixed(1) + 'deg)';
+      el.style.opacity = ad > VISIBLE ? '0' : (ad === 0 ? '1' : '0.86');
+      el.style.zIndex = String(100 - Math.round(ad * 10));
+      el.classList.toggle('is-active', ad === 0);
+      var a = el.querySelector('a');
+      if (a) a.setAttribute('tabindex', ad === 0 ? '0' : '-1');
+    });
+    dots.forEach(function (b, i) { b.classList.toggle('is-on', i === active); });
+    var cur = items[active];
+    if (capTag) capTag.textContent = cur.dataset.tag || '';
+    if (capName) capName.textContent = cur.dataset.name || '';
+    if (capDesc) capDesc.textContent = cur.dataset.desc || '';
+    if (capLink && cur.dataset.href) capLink.setAttribute('href', cur.dataset.href);
+  }
+
+  function go(i) {
+    active = ((i % N) + N) % N;
+    place();
+  }
+
+  /* 아래 곡선 위에 점을 올린다 */
+  function buildDots() {
+    if (!arc) return;
+    items.forEach(function (el, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mcov__dot';
+      b.setAttribute('aria-label', (el.dataset.name || (i + 1)) + ' 보기');
+      b.addEventListener('click', function () { go(i); hold(); });
+      arc.appendChild(b);
+      dots.push(b);
+    });
+  }
+  function layoutDots() {
+    if (!arc || !dots.length) return;
+    var w = arc.clientWidth, h = arc.clientHeight;
+    var rx = w / 2 - 10, ry = h - 8, cx = w / 2;
+    dots.forEach(function (b, i) {
+      var t = N === 1 ? 0.5 : i / (N - 1);
+      var th = Math.PI * t;                       /* 0 → π */
+      b.style.left = (cx - rx * Math.cos(th)).toFixed(1) + 'px';
+      b.style.top = (ry * (1 - Math.sin(th))).toFixed(1) + 'px';
+    });
+  }
+
+  buildDots();
+  go(0);
+  layoutDots();
+
+  items.forEach(function (el, i) {
+    el.addEventListener('click', function (e) {
+      if (i !== active) { e.preventDefault(); go(i); hold(); }
+    });
+  });
+  if (prevBtn) prevBtn.addEventListener('click', function () { go(active - 1); hold(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { go(active + 1); hold(); });
+
+  /* 드래그 · 스와이프 */
+  var sx0 = null;
+  stage.addEventListener('pointerdown', function (e) { sx0 = e.clientX; });
+  window.addEventListener('pointerup', function (e) {
+    if (sx0 === null) return;
+    var dx = e.clientX - sx0; sx0 = null;
+    if (Math.abs(dx) > 40) { go(active + (dx < 0 ? 1 : -1)); hold(); }
+  });
+
+  /* 자동 넘김 — 화면에 보일 때만, 마우스가 올라가면 멈춘다 */
+  var timer = null, paused = false, held = 0;
+  function tick() {
+    if (paused || Date.now() < held) return;
+    var r = sec.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    go(active + 1);
+  }
+  function hold() { held = Date.now() + 6000; }
+  sec.addEventListener('mouseenter', function () { paused = true; });
+  sec.addEventListener('mouseleave', function () { paused = false; });
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) timer = setInterval(tick, 4500);
+
+  window.addEventListener('resize', function () { place(); layoutDots(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { place(); layoutDots(); });
+})();

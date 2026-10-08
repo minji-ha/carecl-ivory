@@ -8,11 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=261008202330">
-<link rel="stylesheet" href="css/nav.css?v=261008202330">
-<link rel="stylesheet" href="css/theme-ivory.css?v=261008202330">
-<link rel="stylesheet" href="css/mainv2.css?v=261008202330">
-<link rel="stylesheet" href="css/intro.css?v=261008202330">
+<link rel="stylesheet" href="css/style.css?v=261008202639">
+<link rel="stylesheet" href="css/nav.css?v=261008202639">
+<link rel="stylesheet" href="css/theme-ivory.css?v=261008202639">
+<link rel="stylesheet" href="css/mainv2.css?v=261008202639">
+<link rel="stylesheet" href="css/intro.css?v=261008202639">
 </head>
 <body class="main2 is-intro">
 
@@ -184,29 +184,51 @@
     <p class="mbreak__txt">클리닉의 기술을, 집 안의 리추얼로</p>
   </section>
 
-  <!-- 06 콜렉션 (카로셀) -->
-  <section class="mcoll" data-coll>
+  <!-- 06 콜렉션 (3D 커버플로) -->
+  <section class="mcoll" data-cov>
     <div class="inner">
       <div class="mcoll__head" data-reveal>
         <div>
           <span class="label">Collection</span>
           <h2 data-fx="lines">진단 결과에 맞춰<br>조합하는 제품</h2>
         </div>
-        <div class="mroll__arrows">
-          <button type="button" data-coll-prev aria-label="이전 제품"><i class="fa-solid fa-angle-left"></i></button>
-          <button type="button" data-coll-next aria-label="다음 제품"><i class="fa-solid fa-angle-right"></i></button>
-        </div>
       </div>
+    </div>
 
-      <div class="mcoll__viewport">
-        <div class="mcoll__track">
-          <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></div><em>DEVICE</em><b>TECHFIT</b><span>5초 스탬핑 고주파 디바이스</span></a>
-          <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-clb.png" alt="CLB"></div><em>DEVICE</em><b>CLB</b><span>고주파 마사지기</span></a>
-          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></div><em>COSMETIC</em><b>Collagen Booster Gel</b><span>콜라겐 부스터 젤</span></a>
-          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></div><em>COSMETIC</em><b>Grid Mask</b><span>그리드 마스크</span></a>
-          <a class="mcard" href="cosmetics.html"><div class="mcard__img"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></div><em>COSMETIC</em><b>Toning Serum</b><span>라이트 토닝 세럼</span></a>
-          <a class="mcard" href="products.html"><div class="mcard__img"><img src="assets/img/product-bag.jpg" alt="Case"></div><em>ACCESSORY</em><b>전용 케이스</b><span>디바이스 보관 가죽 케이스</span></a>
+    <div class="mcov" data-cov-stage>
+      <ul class="mcov__list">
+        <li class="mcov__item" data-cov-item data-tag="DEVICE" data-name="TECHFIT" data-desc="5초 스탬핑 고주파 디바이스" data-href="products.html">
+          <a href="products.html" tabindex="-1"><img src="assets/img/product-techfit.jpg" alt="TECHFIT"></a>
+        </li>
+        <li class="mcov__item" data-cov-item data-tag="DEVICE" data-name="CLB" data-desc="고주파 마사지기" data-href="products.html">
+          <a href="products.html" tabindex="-1"><img src="assets/img/product-clb.png" alt="CLB"></a>
+        </li>
+        <li class="mcov__item" data-cov-item data-tag="COSMETIC" data-name="Collagen Booster Gel" data-desc="콜라겐 부스터 젤" data-href="cosmetics.html">
+          <a href="cosmetics.html" tabindex="-1"><img src="assets/img/product-gel.png" alt="Collagen Booster Gel"></a>
+        </li>
+        <li class="mcov__item" data-cov-item data-tag="COSMETIC" data-name="Grid Mask" data-desc="그리드 마스크" data-href="cosmetics.html">
+          <a href="cosmetics.html" tabindex="-1"><img src="assets/img/product-mask.jpg" alt="Grid Mask"></a>
+        </li>
+        <li class="mcov__item" data-cov-item data-tag="COSMETIC" data-name="Toning Serum" data-desc="라이트 토닝 세럼" data-href="cosmetics.html">
+          <a href="cosmetics.html" tabindex="-1"><img src="assets/img/product-serum.jpg" alt="Toning Serum"></a>
+        </li>
+        <li class="mcov__item" data-cov-item data-tag="ACCESSORY" data-name="전용 케이스" data-desc="디바이스 보관 가죽 케이스" data-href="products.html">
+          <a href="products.html" tabindex="-1"><img src="assets/img/product-bag.jpg" alt="전용 케이스"></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="inner">
+      <div class="mcov__arc" data-cov-arc></div>
+      <div class="mcov__foot">
+        <button type="button" class="mcov__nav" data-cov-prev aria-label="이전 제품"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="mcov__cap">
+          <em data-cov-tag>DEVICE</em>
+          <b data-cov-name>TECHFIT</b>
+          <span data-cov-desc>5초 스탬핑 고주파 디바이스</span>
+          <a class="mcov__more" href="products.html" data-cov-link>자세히 보기</a>
         </div>
+        <button type="button" class="mcov__nav" data-cov-next aria-label="다음 제품"><i class="fa-solid fa-angle-right"></i></button>
       </div>
     </div>
   </section>
@@ -317,10 +339,10 @@
 </footer>
 
 <script src="libs/lenis.min.js"></script>
-<script src="js/intro.js?v=261008202330"></script>
-<script src="js/mainv2.js?v=261008202330"></script>
-<script src="js/scrollfx.js?v=261008202330"></script>
-<script src="js/cursorword.js?v=261008202330"></script>
-<script src="js/nav.js?v=261008202330"></script>
+<script src="js/intro.js?v=261008202639"></script>
+<script src="js/mainv2.js?v=261008202639"></script>
+<script src="js/scrollfx.js?v=261008202639"></script>
+<script src="js/cursorword.js?v=261008202639"></script>
+<script src="js/nav.js?v=261008202639"></script>
 </body>
 </html>
