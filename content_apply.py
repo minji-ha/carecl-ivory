@@ -458,7 +458,10 @@ def insert_before(html, marker, block):
 # TECHNOLOGY는 2뎁스 2개 → 페이지 2개로 나눈다
 tech_basic = technology + chr(10) + split("p-eye.jpg", "에너지를 어디에, 얼마나 일정하게", "같은 기술이라도 전달하는 위치와 시간, 접촉 방식에 따라 결과는 달라집니다. 케어클은 그 조건을 고정했습니다.")
 tech_carecl = carecl_tech
-aging_types_full = aging_why + chr(10) + aging_types
+# 순서 : 6 AGING TYPES 소개 → WHY WE AGE DIFFERENTLY → 유형 카드 → 다음 단계
+_k = aging_types.index('<section class="sec sec--grey" id="list">')
+aging_types_full = (aging_types[:_k].rstrip() + chr(10) + chr(10)
+                    + aging_why + chr(10) + chr(10) + aging_types[_k:])
 
 story = story.replace('<section class="sec" id="home">',
     split("p-leaning.jpg",
