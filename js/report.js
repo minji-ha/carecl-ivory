@@ -82,9 +82,12 @@ var REPORT = {
     }
 
     return '<main class="cku-main"><div class="cku-result">' +
+      '<div class="cku-result-head"><div>' +
       '<p class="cku-result-eyebrow">진단 결과</p>' +
       '<h2 class="cku-result-title"><span class="cku-code">' + R.code + '</span>' + esc(R.name) + '</h2>' +
       '<p class="cku-result-tagline">' + esc(R.tagline) + '</p>' +
+      '</div><figure class="cku-result-visual"><img src="assets/img/report/type-' + (REPORT[key] ? key : 'early') +
+        '.svg" alt="' + esc(R.name) + ' — 먼저 변화가 나타나는 부위"></figure></div>' +
       '<p class="cku-result-desc">' + esc(R.desc) + '</p>' +
       '<ul class="cku-result-traits">' +
         R.traits.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') +
